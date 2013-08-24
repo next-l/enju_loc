@@ -1,0 +1,2 @@
+module LocSearchHelper
+end
