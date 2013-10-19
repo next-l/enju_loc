@@ -6,7 +6,7 @@ class LocSearchController < ApplicationController
       page = params[:page].to_i
     end
     @query = params[ :query ].to_s.strip
-    books = LocSearch.search( params[:query], { :page => page } )
+    books = LocSearch.search( @query, { :page => page } )
     @books = Kaminari.paginate_array(
       books[:items],
       :total_count => books[ :total_entries ],

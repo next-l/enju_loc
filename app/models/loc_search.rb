@@ -50,7 +50,7 @@ class LocSearch
 
   LOC_SRU_BASEURL = "http://lx2.loc.gov:210/LCDB"
   def self.search( query, options = {} )
-    if query
+    if query and not query.empty?
       if options[ :page ]
         page = options[ :page ].to_i
         options[ :startRecord ] = ( page - 1 ) * 10 + 1
