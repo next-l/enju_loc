@@ -7,11 +7,11 @@ require "enju_loc/version"
 Gem::Specification.new do |s|
   s.name        = "enju_loc"
   s.version     = EnjuLoc::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of EnjuLoc."
-  s.description = "TODO: Description of EnjuLoc."
+  s.authors     = ["Masao Takaku"]
+  s.email       = ["tmasao@acm.org"]
+  s.homepage    = "https://github.com/masao/enju_loc"
+  s.summary     = "LoC SRU wrapper for Next-L Enju"
+  s.description = "This module allow users to search and import bibliographic records from Library of Congress via SRU-based API."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
