@@ -17,13 +17,15 @@
   </tr>
 <% @books.each do |book| -%>
   <tr class="line<%= cycle("0", "1") -%>">
-    <td>LCCN:<%=h book.lccn %></td>
-      <td>
-        <strong><%=h book.title %></strong><br />
-        <%=h book.creator -%><br />
-        <%=h book.publisher -%>,
-        <%=h book.pubyear -%>
-      </td>
+    <td>
+      <%= link_to_import_from_loc(book.lccn) %>
+    </td>
+    <td>
+      <strong><%=h book.title %></strong><br />
+      <%=h book.creator -%><br />
+      <%=h book.publisher -%>,
+      <%=h book.pubyear -%>
+    </td>
   </tr>
 <% end -%>
 </table>

@@ -13,4 +13,6 @@ module EnjuLoc
       end
     end
   end
+
+  class RecordNotFound < StandardError; end
 end

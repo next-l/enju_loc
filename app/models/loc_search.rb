@@ -72,4 +72,16 @@ class LocSearch
       { :items => [], :total_entries => 0 }
     end
   end
+
+  def self.import_from_sru_response( lccn )
+    identifier = Identifier.where(:body => lccn, :identifier_type_id => IdentifierType.where(:name => 'lccn').first_or_create.id).first
+    return if identifier
+    url = "#{ LOC_SRU_BASEURL }?operation=searchRetrieve&recordSchema=mods&&maximumRecords=1&&query=%28lccn=#{ lccn }%29"
+    xml = open(url).read
+    response = Nokogiri::XML(xml).at( '//zs:recordData' )
+    return unless response.try( :content )
+    doc = Nokogiri::XML( response.content )
+    Manifestation.import_record_from_loc( doc )
+  end
 end
+
