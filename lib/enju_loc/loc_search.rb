@@ -23,15 +23,15 @@ module EnjuLoc
       def import_record_from_loc_isbn(options)
         #if options[:isbn]
           lisbn = Lisbn.new(options[:isbn])
-          raise EnjuNdl::InvalidIsbn unless lisbn.valid?
+          raise EnjuLoc::InvalidIsbn unless lisbn.valid?
         #end
 
         manifestation = Manifestation.find_by_isbn(lisbn.isbn)
         return manifestation.first if manifestation.present?
 
         doc = return_xml(lisbn.isbn)
-        raise EnjuNdl::RecordNotFound unless doc
-        #raise EnjuNdl::RecordNotFound if doc.at('//openSearch:totalResults').content.to_i == 0
+        raise EnjuLoc::RecordNotFound unless doc
+        #raise EnjuLoc::RecordNotFound if doc.at('//openSearch:totalResults').content.to_i == 0
         import_record_from_loc(doc)
       end
 
@@ -76,13 +76,7 @@ module EnjuLoc
 
         content_type = get_content_type( doc )
 
-        # admin_identifier = doc.at('//dcndl:BibAdminResource[@rdf:about]').attributes["about"].value
-        # description = doc.at('//abstract').try(:content)
-        # price = doc.at('//dcndl:price').try(:content)
-        # volume_number_string = doc.at('//dcndl:volume/rdf:Description/rdf:value').try(:content)
-        # extent = get_extent(doc)
         publication_periodicity = doc.at('//frequency').try(:content)
-        # statement_of_responsibility = doc.xpath('//dcndl:BibResource/dc:creator').map{|e| e.content }
 
         manifestation = nil
         Agent.transaction do

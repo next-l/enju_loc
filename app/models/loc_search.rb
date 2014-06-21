@@ -73,6 +73,7 @@ class LocSearch
     end
   end
 
+  # http://www.loc.gov/z3950/lcserver.html
   def self.import_from_sru_response( lccn )
     identifier = Identifier.where(:body => lccn, :identifier_type_id => IdentifierType.where(:name => 'lccn').first_or_create.id).first
     return if identifier

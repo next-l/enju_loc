@@ -9,10 +9,9 @@ module LocSearchHelper
 .id).first.try(:manifestation)
       end
       unless manifestation
-        link_to t('enju_loc.add'), loc_search_index_path(:book => {:lccn => lccn}), :method =>
-:post
+        link_to t('enju_loc.add'), loc_search_index_path(:book => {:lccn => lccn}), :method => :post
       else
-        link_to t('enju_ndl.already_exists'), manifestation
+        link_to t('enju_loc.already_exists'), manifestation
       end
     end
   end

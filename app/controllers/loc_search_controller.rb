@@ -28,7 +28,7 @@ class LocSearchController < ApplicationController
         format.html { redirect_to manifestation_items_url(@manifestation) }
       else
         flash[:notice] = t('enju_loc.record_not_found')
-        format.html { redirect_to ndl_books_url }
+        format.html { redirect_to loc_search_url }
       end
     end
   end

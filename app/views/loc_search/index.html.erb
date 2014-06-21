@@ -1,19 +1,19 @@
 <div id="content_detail" class="ui-corner-all">
-<h1 class="title">Libray of Congress 蔵書検索によるインポート</h1>
+<h1 class="title"><%= t('enju_loc.import_from_loc_search') %></h1>
 <div id="content_list">
 <p id="notice"><%= notice %></p>
 <%= form_for :loc_search, :url => loc_search_index_path, :html => {:method => 'get'} do -%>
   <p>
     <%= search_field_tag 'query', h(@query), {:id => 'search_form_top', :class => 'search_form'} -%>
-    <%= submit_tag '検索' -%>
+    <%= submit_tag t('page.search') -%>
   </p>
 <%- end -%>
 <% if @query.present? %>
-<p><%= @books.total_count %> books found.</p>
+<p><%= t('enju_loc.number_of_search_results', :count => @books.total_count) %></p>
 <table class="table table-striped index">
   <tr>
-    <th>識別子</th>
-    <th>書名</th>
+    <th></th>
+    <th><%= t('activerecord.attributes.manifestation.original_title') %></th>
   </tr>
 <% @books.each do |book| -%>
   <tr class="line<%= cycle("0", "1") -%>">
@@ -40,4 +40,9 @@
 </div>
 
 <div id="submenu" class="ui-corner-all">
+<% if defined?(EnjuNdl) %>
+<ul>
+<li><%= link_to t('enju_ndl.import_from_ndl_search'), ndl_books_path( :query => @query ) %></li>
+</ul>
+<% end %>
 </div>
