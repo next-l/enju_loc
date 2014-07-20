@@ -27,7 +27,11 @@ class LocSearchController < ApplicationController
         flash[:notice] = t('controller.successfully_created', :model => t('activerecord.models.manifestation'))
         format.html { redirect_to manifestation_items_url(@manifestation) }
       else
-        flash[:notice] = t('enju_loc.record_not_found')
+	if @manifestation and not @manifestation.valid? 
+	  flash[:notice] = @manifestation.errors.messages
+	else
+          flash[:notice] = t('enju_loc.record_not_found')
+	end
         format.html { redirect_to loc_search_index_url }
       end
     end
