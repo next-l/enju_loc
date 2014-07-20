@@ -89,7 +89,7 @@ module EnjuLoc
 
 	record_identifier = doc.at('//mods:recordInfo/mods:recordIdentifier',NS).try(:content)
         description = doc.at('//mods:abstract',NS).try(:content)
-        edition = doc.at('//mods:edition',NS).try(:content)
+        edition_string = doc.at('//mods:edition',NS).try(:content)
         extent = get_extent(doc)
         publication_periodicity = doc.at('//mods:frequency',NS).try(:content)
         statement_of_responsibility = get_statement_of_responsibility(doc)
@@ -106,7 +106,7 @@ module EnjuLoc
             :language_id => language_id,
             :pub_date => date,
             :description => description,
-	    :edition => edition,
+	    :edition_string => edition_string,
             :statement_of_responsibility => statement_of_responsibility,
             :start_page => extent[:start_page],
             :end_page => extent[:end_page],
@@ -247,8 +247,11 @@ module EnjuLoc
 	    case subelement.name
 	    when "topic", "geographic", "genre", "temporal"
 	      subject << subelement.try(:content)
+	    when "titleInfo"
+	      subject << subelement.at('./mods:title',NS).try(:content)
 	    end
 	  end
+	  next if subject.compact.empty?
 	  subjects << {
 	    :term => subject.compact.join( "--" )
 	  }
