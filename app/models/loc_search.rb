@@ -32,7 +32,7 @@ class LocSearch
       end.join( ", " )
     end
     def pubyear
-      @node.xpath( './/mods:dateIssued', MODS_NS ).first.content
+      @node.xpath( './/mods:dateIssued', MODS_NS ).first.try(:content)
     end
   end
 
