@@ -50,10 +50,7 @@ module EnjuLoc
         creators = get_creators(doc)
 
         # title
-        title = {
-          :manifestation => doc.xpath('//mods:titleInfo/mods:title',NS).collect(&:content).join(' '),
-          :alternative => doc.xpath('//mods:titleInfo[@type="alternative"]/mods:title',NS).collect(&:content).join(' '),
-        }
+        titles = get_titles(doc)
 
         # date of publication
         pub_date = doc.at('//mods:dateIssued',NS).try(:content)
@@ -101,8 +98,8 @@ module EnjuLoc
 
           manifestation = Manifestation.new(
             :manifestation_identifier => record_identifier,
-            :original_title => title[:manifestation],
-            :title_alternative => title[:alternative],
+            :original_title => titles[:original_title],
+            :title_alternative => titles[:title_alternative],
             :language_id => language_id,
             :pub_date => date,
             :description => description,
@@ -193,6 +190,29 @@ module EnjuLoc
         if series_statement.try(:save)
           manifestation.series_statements << series_statement
         end
+      end
+
+      def get_titles(doc)
+	original_title = ""
+	title_alternatives = []
+	doc.xpath('//mods:mods/mods:titleInfo',NS).each do |e|
+	  type = e.attributes["type"].try(:content)
+	  case type
+	  when "alternative", "translated", "abbreviated", "uniform"
+	    title_alternatives << e.at('./mods:title',NS).content
+	  else
+	    nonsort = e.at('./mods:nonSort',NS).try(:content)
+	    original_title << nonsort if nonsort
+	    original_title << e.at('./mods:title',NS).try(:content)
+	    subtitle = e.at('./mods:subtitle',NS).try(:content)
+	    original_title << " : #{ subtitle }" if subtitle
+	    partnumber = e.at('./mods:partNumber',NS).try(:content)
+	    partname = e.at('./mods:partName',NS).try(:content)
+	    partname = [ partnumber, partname ].compact.join( ": " )
+	    original_title << ". #{ partname }" if partname
+	  end
+	end
+	{ :original_title => original_title, :title_alternative => title_alternatives.join( " ; " ) }
       end
 
       def get_language(doc)
