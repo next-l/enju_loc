@@ -8,3 +8,6 @@ en:
     number_of_search_results:
       one: "1 record found."
       other: "%{count} records found."
+  activerecord:
+    models:
+      loc_search: LoC Catalog Search
