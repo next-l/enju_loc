@@ -35,7 +35,6 @@ module EnjuLoc
 
       NS = {"mods"=>"http://www.loc.gov/mods/v3"}
       def import_record_from_loc( doc )
-        open("/tmp/#$$.log", "w"){|io| io.puts doc.to_s }
         record_identifier = doc.at( '//mods:recordInfo/mods:recordIdentifier', NS ).try(:content)
         loc_identifier = Identifier.where(:body => record_identifier, :identifier_type_id => IdentifierType.where(:name => 'loc_identifier').first_or_create.id).first
         return loc_identifier.manifestation if loc_identifier
