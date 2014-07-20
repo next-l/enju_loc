@@ -1,5 +1,5 @@
 require "enju_loc/engine"
-require "enju_loc/loc_search.rb"
+require "enju_loc/loc_search"
 
 module EnjuLoc
   module ActsAsMethods
@@ -15,4 +15,7 @@ module EnjuLoc
   end
 
   class RecordNotFound < StandardError; end
+  class InvalidIsbn < StandardError; end
 end
+
+ActiveRecord::Base.send :include, EnjuLoc::ActsAsMethods

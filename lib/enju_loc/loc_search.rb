@@ -5,7 +5,6 @@ module EnjuLoc
     end
 
     module ClassMethods
-      LOC_SRU_BASEURL = "http://lx2.loc.gov:210/LCDB"
       def loc_search(query, options = {})
         options = {}.merge(options)
         doc = nil
@@ -31,34 +30,46 @@ module EnjuLoc
 
         doc = return_xml(lisbn.isbn)
         raise EnjuLoc::RecordNotFound unless doc
-        #raise EnjuLoc::RecordNotFound if doc.at('//openSearch:totalResults').content.to_i == 0
         import_record_from_loc(doc)
       end
 
+      NS = {"mods"=>"http://www.loc.gov/mods/v3"}
       def import_record_from_loc( doc )
-        record_identifier = doc.at('//recordInfo/recordIdentifier').values.first
+        open("/tmp/#$$.log", "w"){|io| io.puts doc.to_s }
+        record_identifier = doc.at( '//mods:recordInfo/mods:recordIdentifier', NS ).try(:content)
         loc_identifier = Identifier.where(:body => record_identifier, :identifier_type_id => IdentifierType.where(:name => 'loc_identifier').first_or_create.id).first
         return loc_identifier.manifestation if loc_identifier
 
-        lccn = doc.at('//identifier[@type="lccn"]').try(:content)
+        publishers = []
+        doc.xpath('//mods:publisher',NS).each do |publisher|
+          publishers << {
+            :full_name => publisher.content,
+            #:agent_identifier => publisher.attributes["about"].try(:content)
+          }
+        end
 
-        publishers = get_publishers(doc)
+        creators = get_creators(doc)
 
         # title
-        title = get_title(doc)
+        title = {
+          :manifestation => doc.xpath('//mods:titleInfo/mods:title',NS).collect(&:content).join(' '),
+          :alternative => doc.xpath('//mods:titleInfo[@type="alternative"]/mods:title',NS).collect(&:content).join(' '),
+        }
 
         # date of publication
-        pub_date = doc.at('//dateIssued').try(:content).sub(/\Ac/, '')
-        unless pub_date =~ /^\d+(-\d{0,2}){0,2}$/
-          pub_date = nil
-        end
+        pub_date = doc.at('//mods:dateIssued',NS).try(:content)
         if pub_date
-          date = pub_date.split('-')
-          if date[0] and date[1]
-            date = sprintf("%04d-%02d", date[0], date[1])
-          else
-            date = pub_date
-          end
+	  pub_date.sub!( /\Ac/, '' )
+          unless pub_date =~ /^\d+(-\d{0,2}){0,2}$/
+            pub_date = nil
+	  else
+            date = pub_date.split('-')
+            if date[0] and date[1]
+              date = sprintf("%04d-%02d", date[0], date[1])
+            else
+              date = pub_date
+            end
+	  end
         end
 
         language = Language.where(:iso_639_2 => get_language(doc)).first
@@ -68,33 +79,35 @@ module EnjuLoc
           language_id = 1
         end
 
-        isbn = Lisbn.new(doc.at('//identifier[@type="isbn"]').try(:content).to_s).try(:isbn)
-        issn = StdNum::ISSN.normalize(doc.at('//identifier[@type="issn"]').try(:content))
-        issn_l = StdNum::ISSN.normalize(doc.at('//identifier[@type="issn-l"]').try(:content))
+        isbn = Lisbn.new(doc.at('//mods:identifier[@type="isbn"]',NS).try(:content).to_s).try(:isbn)
+        lccn = StdNum::LCCN.normalize(doc.at('//mods:identifier[@type="lccn"]',NS).try(:content).to_s)
+        issn = StdNum::ISSN.normalize(doc.at('//mods:identifier[@type="issn"]',NS).try(:content).to_s)
+        issn_l = StdNum::ISSN.normalize(doc.at('//mods:identifier[@type="issn-l"]',NS).try(:content).to_s)
 
-        carrier_type = get_carrier_type( doc )
+	types = get_carrier_and_content_types( doc )
+	content_type = types[ :content_type ]
+	carrier_type = types[ :carrier_type ]
 
-        content_type = get_content_type( doc )
-
-        publication_periodicity = doc.at('//frequency').try(:content)
+	record_identifier = doc.at('//mods:recordInfo/mods:recordIdentifier',NS).try(:content)
+        description = doc.at('//mods:abstract',NS).try(:content)
+        edition = doc.at('//mods:edition',NS).try(:content)
+        extent = get_extent(doc)
+        publication_periodicity = doc.at('//mods:frequency',NS).try(:content)
+        statement_of_responsibility = get_statement_of_responsibility(doc)
 
         manifestation = nil
         Agent.transaction do
+	  creator_agents = Agent.import_agents(creators)
           publisher_agents = Agent.import_agents(publishers)
 
           manifestation = Manifestation.new(
-            :manifestation_identifier => admin_identifier,
+            :manifestation_identifier => record_identifier,
             :original_title => title[:manifestation],
-            :title_transcription => title[:transcription],
             :title_alternative => title[:alternative],
-            :title_alternative_transcription => title[:alternative_transcription],
-            # TODO: NDLサーチに入っている図書以外の資料を調べる
-            #:carrier_type_id => CarrierType.where(:name => 'print').first.id,
             :language_id => language_id,
             :pub_date => date,
             :description => description,
-            :volume_number_string => volume_number_string,
-            :price => price,
+	    :edition => edition,
             :statement_of_responsibility => statement_of_responsibility,
             :start_page => extent[:start_page],
             :end_page => extent[:end_page],
@@ -129,32 +142,278 @@ module EnjuLoc
               manifestation.identifiers << v if v.valid?
             end
             manifestation.publishers << publisher_agents
-            create_additional_attributes(doc, manifestation)
+	    manifestation.creators << creator_agents
+	    create_subject_related_elements(doc, manifestation)
             create_series_statement(doc, manifestation)
           end
         end
-
-        #manifestation.send_later(:create_frbr_instance, doc.to_s)
         return manifestation
       end
 
       private
-      def get_content_type( doc )
-        doc.xpath('//typeOfResource').each do |d|
-          content_type = ContentType.where( :name => d ).first
+      def create_subject_related_elements(doc, manifestation)
+	subjects = get_subjects(doc)
+	classifications = get_classifications(doc)
+	if defined?(EnjuSubject)
+          subject_heading_type = SubjectHeadingType.where(:name => 'lcsh').first_or_create
+          subjects.each do |term|
+            subject = Subject.where(:term => term[:term]).first
+            unless subject
+              subject = Subject.new(term)
+              subject.subject_heading_type = subject_heading_type
+              subject.subject_type = SubjectType.where(:name => 'concept').first_or_create
+            end
+            manifestation.subjects << subject
+          end
+          if classifications
+            classification_type = ClassificationType.where(:name => 'ddc').first_or_create
+	    classifications.each do |ddc|
+              classification = Classification.new(:category => ddc)
+              classification.classification_type = classification_type
+              manifestation.classifications << classification if classification.valid?
+            end
+          end
+	end
+      end
+
+      def create_series_statement(doc, manifestation)
+        series = series_title = {}
+        series[:title] = doc.at('//mods:relatedItem[@type="series"]/mods:titleInfo/mods:title',NS).try(:content)
+        if series[:title]
+          series_title[:title] = series[:title].split(';')[0].strip
         end
-#          case d.content
-#          when 'text'
-#          when 'http://purl.org/dc/dcmitype/Sound'
-#            content_type = ContentType.where(:name => 'audio').first
-#          when 'http://purl.org/dc/dcmitype/MovingImage'
-#            content_type = ContentType.where(:name => 'video').first
-#          when 'http://ndl.go.jp/ndltype/ElectronicResource'
-#            carrier_type = CarrierType.where(:name => 'file').first
-#          end
-#        end
-#        ""
-        ""
+
+        if series_title[:title]
+          series_statement = SeriesStatement.where(:original_title => series_title[:title]).first
+          unless series_statement
+            series_statement = SeriesStatement.new(
+              :original_title => series_title[:title],
+            )
+          end
+        end
+        if series_statement.try(:save)
+          manifestation.series_statements << series_statement
+        end
+      end
+
+      def get_language(doc)
+	language = doc.at('//mods:language/mods:languageTerm[@authority="iso639-2b"]',NS).try(:content)
+      end
+
+      def get_extent(doc)
+        extent = doc.at('//mods:extent',NS).try(:content)
+        value = {:start_page => nil, :end_page => nil, :height => nil}
+        if extent
+          extent = extent.split(';')
+          page = extent[0].try(:strip)
+          if page =~ /(\d+)\s*(p|page)/
+            value[:start_page] = 1
+            value[:end_page] = $1.dup.to_i
+          end
+          height = extent[1].try(:strip)
+          if height =~ /(\d+)\s*cm/
+            value[:height] = $1.dup.to_i
+          end
+        end
+        value
+      end
+
+      def get_statement_of_responsibility(doc)
+	note = doc.at('//mods:note[@type="statement of responsibility"]',NS).try(:content)
+	if note
+	  note
+	else
+	  doc.xpath('/mods:mods/mods:name',NS).map do |n|
+	    n.at('./mods:namePart',NS).try(:content)
+	  end.join( "; " )
+	end
+      end
+
+      def get_creators(doc)
+	creators = []
+        doc.xpath('/mods:mods/mods:name',NS).each do |creator|
+	  creators << {
+	    :full_name => creator.xpath('./mods:namePart',NS).collect(&:content).join( ", " ),
+	  }
+        end
+	creators
+      end
+
+      # TODO:only LCSH-based parsing...
+      def get_subjects(doc)
+	subjects = []
+	doc.xpath('//mods:subject',NS).each do |s|
+	  subject = []
+	  s.xpath('./*',NS).each do |subelement|
+	    case subelement.name
+	    when "topic", "geographic", "genre", "temporal"
+	      subject << subelement.try(:content)
+	    end
+	  end
+	  subjects << {
+	    :term => subject.compact.join( "--" )
+	  }
+	end
+	subjects
+      end
+
+      # TODO:support only DDC.
+      def get_classifications(doc)
+	classifications = []
+	doc.xpath('//mods:classification[@authority="ddc"]',NS).each do|c|
+	  ddc = c.content
+	  if ddc
+	    classifications << ddc.split(/[^\d\.]/).first.strip
+	  end
+	end
+	classifications
+      end
+
+      def get_carrier_and_content_types(doc)
+        carrier_type = content_type = nil
+        doc.xpath('//mods:form',NS).each do |e|
+          authority = e.attributes['authority'].try(:content)
+	  case authority
+	  when "gmd"
+	    case e.content
+	    when "electronic resource"
+	      carrier_type = CarrierType.where(:name => 'file').first
+	    when "videorecording"
+              content_type = ContentType.where(:name => 'video').first
+	    #TODO: Enju needs more specific mappings...
+	    when "art original"
+	    when "microscope slides"
+	    when "art reproduction"
+	    when "model"
+	    when "chart"
+	    when "motion picture"
+	    when "diorama"
+	    when "picture"
+	    when "realia"
+	    when "filmstrip"
+	    when "slide"
+	    when "flash card"
+	    when "sound recording"
+	    when "game"
+	    when "technical drawing"
+	    when "graphic"
+	    when "toy"
+	    when "kit"
+	    when "transparency"
+	    when "microform"
+	    end
+	  when "marcsmd" # cf.http://www.loc.gov/standards/valuelist/marcsmd.html
+	    case e.content
+            when "text", "braille", "large print", "regular print", "text in looseleaf binder"
+              carrier_type = CarrierType.where(:name => 'print').first
+              content_type = ContentType.where(:name => 'text').first
+	    when "videorecording", "videocartridge", "videocassette", "videodisc", "videoreel"
+              content_type = ContentType.where(:name => 'video').first
+	    when "electronic resource", "chip cartridge", "computer optical disc cartridge", "magnetic disk", "magneto-optical disc", "optical disc", "remote", "tape cartridge", "tape cassette", "tape reel"
+	      carrier_type = CarrierType.where(:name => 'file').first
+	    when "motion picture", "film cartridge", "film cassette", "film reel"
+              content_type = ContentType.where(:name => 'video').first
+	    when "sound recording", "cylinder", "roll ", "sound cartridge", "sound cassette ", "sound disc ", "sound-tape reel", "sound-track film ", "wire recording" 
+	      conrent_type = ContentType.where(:name => 'audio').first
+	    #when "nonprojected graphic", "chart", "collage", "drawing", "flash card", "painting", "photomechanical print", "photonegative", "photoprint", "picture", "print", "technical drawing", "projected graphic", "filmslip", "filmstrip cartridge", "filmstrip roll", "other filmstrip type ", "slide", "transparency"
+            #  content_type = ContentType.where(:name => 'image').first
+	    #TODO: Enju needs more specific mappings...
+	    when "globe"
+	    when "celestial globe"
+	    when "earth moon globe"
+	    when "planetary or lunar globe"
+	    when "terrestrial globe"
+	    when "map"
+	    when "atlas"
+	    when "diagram"
+	    when "map"
+	    when "model"
+	    when "profile "
+	    when "remote-sensing image"
+	    when "section"
+	    when "view"
+	    when "microform"
+	    when "aperture card"
+	    when "microfiche"
+	    when "microfiche cassette"
+	    when "microfilm cartridge"
+	    when "microfilm cassette"
+	    when "microfilm reel"
+	    when "microopaque"
+	    when "tactile material"
+            when "braille"
+            when "combination"
+            when "moon"
+            when "tactile, with no writing system"
+	    end
+	  when "marcform" # cf. http://www.loc.gov/standards/valuelist/marcform.html
+	    case e.content
+	    when "print", "large print"
+              carrier_type = CarrierType.where(:name => 'print').first
+              content_type = ContentType.where(:name => 'text').first
+	    when "electronic"
+              carrier_type = CarrierType.where(:name => 'file').first
+	    #TODO: Enju needs more specific mappings...
+	    when "microfiche"
+	    when "braille"
+	    when "microfilm"
+	    end
+	  end
+	end
+        doc.xpath('//mods:genre',NS).each do |e|
+          authority = e.attributes['authority'].try(:content)
+	  case authority
+	  when "rdacontent"
+	    case e.content
+	    when "computer dataset", "computer program"
+              content_type = ContentType.where(:name => 'file').first
+	    when "sounds", "spoken word"
+              content_type = ContentType.where(:name => 'audio').first
+	    when "text"
+              content_type = ContentType.where(:name => 'text').first
+	    when "two-dimensional moving image"
+              content_type = ContentType.where(:name => 'video').first
+	    #TODO: Enju needs more specific mappings...
+	    when "cartographic dataset"
+	    when "cartographic image"
+	    when "cartographic moving image"
+	    when "cartographic tactile image"
+	    when "cartographic tactile three-dimensional form"
+	    when "cartographic three-dimensional form"
+	    when "notated movement"
+	    when "notated music"
+	    when "performed music"
+	    when "still image"
+	    when "tactile image"
+	    when "tactile notated music"
+	    when "tactile notated movement"
+	    when "tactile text"
+	    when "tactile three-dimensional form"
+	    when "three-dimensional form"
+	    when "three-dimensional moving image"
+	    when "other"
+	    when "unspecified"
+            end
+          end
+        end
+	type = doc.at('//mods:typeOfResource',NS).try(:content)
+	case type
+	when "text"
+	  content_type = ContentType.where(:name => 'text').first
+	when "sound recording", "sound recording-musical", "sound recording-nonmusical"
+	  content_type = ContentType.where(:name => 'audio').first
+	when "moving image"
+	  content_type = ContentType.where(:name => 'video').first
+	when "software, multimedia"
+	  carrier_type = ContentType.where(:name => 'file').first
+	#TODO: Enju needs more specific mappings...
+	when "cartographic "
+	when "notated music"
+	when "still image"
+	when "three dimensional object"
+	when "mixed material"
+	end
+        { :carrier_type => carrier_type, :content_type => content_type }
       end
     end
   end

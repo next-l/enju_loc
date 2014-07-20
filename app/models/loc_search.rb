@@ -11,7 +11,7 @@ class LocSearch
       title
     end
     def lccn
-      @node.xpath( './/mods:identifier[@type="lccn"]', MODS_NS ).first.content
+      @node.xpath( './/mods:identifier[@type="lccn"]', MODS_NS ).first.try( :content )
     end
     def creator
       names = @node.xpath( './/mods:name', MODS_NS )
@@ -48,22 +48,27 @@ class LocSearch
     end
   end
 
+  # http://www.loc.gov/z3950/lcserver.html
   LOC_SRU_BASEURL = "http://lx2.loc.gov:210/LCDB"
+  def self.make_sru_request_uri( query, options = {} )
+    if options[ :page ]
+      page = options[ :page ].to_i
+      options[ :startRecord ] = ( page - 1 ) * 10 + 1
+      options.delete :page
+    end
+    options = { :maximumRecords => 10, :recordSchema => :mods }.merge( options )
+    options = options.merge( { :query => query, :version => "1.1", :operation => "searchRetrieve" } )
+    params = options.map do |k, v|
+      "#{ URI.escape( k.to_s ) }=#{ URI.escape( v.to_s ) }"
+      end.join( '&' )
+    uri = "#{ LOC_SRU_BASEURL }?#{ params }"
+  end
+
   def self.search( query, options = {} )
     if query and not query.empty?
-      if options[ :page ]
-        page = options[ :page ].to_i
-        options[ :startRecord ] = ( page - 1 ) * 10 + 1
-        options.delete :page
-      end
-      options = { :maximumRecords => 10, :recordSchema => :mods }.merge( options )
-      options = options.merge( { :query => query, :version => "1.1", :operation => "searchRetrieve" } )
       doc = nil
       results = {}
-      params = options.map do |k, v|
-        "#{ URI.escape( k.to_s ) }=#{ URI.escape( v.to_s ) }"
-      end.join( '&' )
-      url = "#{ LOC_SRU_BASEURL }?#{ params }"
+      url = make_sru_request_uri( query, options )
       doc = Nokogiri::XML( open(url) )
       items = doc.search( '//zs:record' ).map{|e| ModsRecord.new e }
       @results = { :items => items,
@@ -73,15 +78,14 @@ class LocSearch
     end
   end
 
-  # http://www.loc.gov/z3950/lcserver.html
   def self.import_from_sru_response( lccn )
     identifier = Identifier.where(:body => lccn, :identifier_type_id => IdentifierType.where(:name => 'lccn').first_or_create.id).first
     return if identifier
-    url = "#{ LOC_SRU_BASEURL }?operation=searchRetrieve&recordSchema=mods&&maximumRecords=1&&query=%28lccn=#{ lccn }%29"
-    xml = open(url).read
-    response = Nokogiri::XML(xml).at( '//zs:recordData' )
+    url = make_sru_request_uri( "bath.lccn=#{ lccn }" )
+    response = Nokogiri::XML( open(url) ).at( '//zs:recordData', {"zs"=>"http://www.loc.gov/zing/srw/"} )
     return unless response.try( :content )
-    doc = Nokogiri::XML( response.content )
+    doc = Nokogiri::XML::Document.new
+    doc << response.at( "//mods:mods", { "mods" => "http://www.loc.gov/mods/v3" } )
     Manifestation.import_record_from_loc( doc )
   end
 end
