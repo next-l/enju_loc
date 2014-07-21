@@ -72,7 +72,7 @@ class LocSearch
       doc = Nokogiri::XML( open(url) )
       items = doc.search( '//zs:record' ).map{|e| ModsRecord.new e }
       @results = { :items => items,
-                   :total_entries => doc.xpath( '//zs:numberOfRecords' ).first.content.to_i }
+                   :total_entries => doc.xpath( '//zs:numberOfRecords' ).first.try(:content).to_i }
     else
       { :items => [], :total_entries => 0 }
     end
