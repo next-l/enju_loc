@@ -90,6 +90,7 @@ module EnjuLoc
         extent = get_extent(doc)
         publication_periodicity = doc.at('//mods:frequency',NS).try(:content)
         statement_of_responsibility = get_statement_of_responsibility(doc)
+	access_address = get_access_address(doc)
 
         manifestation = nil
         Agent.transaction do
@@ -107,7 +108,8 @@ module EnjuLoc
             :statement_of_responsibility => statement_of_responsibility,
             :start_page => extent[:start_page],
             :end_page => extent[:end_page],
-            :height => extent[:height]
+            :height => extent[:height],
+	    :access_address => access_address,
           )
           identifier = {}
           if isbn
@@ -217,6 +219,19 @@ module EnjuLoc
 
       def get_language(doc)
 	language = doc.at('//mods:language/mods:languageTerm[@authority="iso639-2b"]',NS).try(:content)
+      end
+
+      def get_access_address(doc)
+	access_address = nil
+	url = doc.at('//mods:location/mods:url',NS)
+	if url
+	  usage = url.attributes["usage"].try(:content)
+	  case usage
+	  when "primary display", "primary"
+	    access_address = url.try(:content)
+	  end
+	end
+	access_address
       end
 
       def get_extent(doc)
