@@ -204,7 +204,7 @@ module EnjuLoc
 	    nonsort = e.at('./mods:nonSort',NS).try(:content)
 	    original_title << nonsort if nonsort
 	    original_title << e.at('./mods:title',NS).try(:content)
-	    subtitle = e.at('./mods:subtitle',NS).try(:content)
+	    subtitle = e.at('./mods:subTitle',NS).try(:content)
 	    original_title << " : #{ subtitle }" if subtitle
 	    partnumber = e.at('./mods:partNumber',NS).try(:content)
 	    partname = e.at('./mods:partName',NS).try(:content)
