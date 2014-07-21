@@ -255,7 +255,7 @@ module EnjuLoc
 	    :full_name => creator.xpath('./mods:namePart',NS).collect(&:content).join( ", " ),
 	  }
         end
-	creators
+	creators.uniq
       end
 
       # TODO:only LCSH-based parsing...
