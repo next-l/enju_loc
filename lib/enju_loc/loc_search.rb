@@ -166,8 +166,11 @@ module EnjuLoc
           if classifications
             classification_type = ClassificationType.where(:name => 'ddc').first_or_create
 	    classifications.each do |ddc|
-              classification = Classification.new(:category => ddc)
-              classification.classification_type = classification_type
+              classification = Classification.where(:category => ddc).first
+	      unless classification
+                classification = Classification.new(:category => ddc)
+                classification.classification_type = classification_type
+	      end
               manifestation.classifications << classification if classification.valid?
             end
           end
