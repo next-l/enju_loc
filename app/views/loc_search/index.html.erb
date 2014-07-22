@@ -21,7 +21,7 @@
       <%= link_to_import_from_loc(book.lccn) %>
     </td>
     <td>
-      <strong><%=h book.title %></strong><br />
+      <strong><%= link_to_unless( book.lccn.blank?, book.title, "http://lccn.loc.gov/#{ book.lccn }" ) do book.title end %></strong><br />
       <%=h book.creator -%><br />
       <%=h book.publisher -%>,
       <%=h book.pubyear -%>
