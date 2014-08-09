@@ -1,4 +1,7 @@
 class LocSearchController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :check_librarian
+  
   def index
     if params[:page].to_i <= 0
       page = 1
@@ -34,6 +37,13 @@ class LocSearchController < ApplicationController
 	end
         format.html { redirect_to loc_search_index_url }
       end
+    end
+  end
+
+  private
+  def check_librarian
+    unless current_user.try(:has_role?, 'Librarian')
+      access_denied
     end
   end
 end
