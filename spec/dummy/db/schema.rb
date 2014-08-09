@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509185724) do
+ActiveRecord::Schema.define(:version => 20140802082007) do
 
   create_table "agent_import_files", :force => true do |t|
     t.integer  "parent_id"
@@ -313,10 +313,12 @@ ActiveRecord::Schema.define(:version => 20130509185724) do
     t.datetime "acquired_at"
     t.integer  "bookstore_id"
     t.integer  "budget_type_id"
+    t.integer  "manifestation_id"
   end
 
   add_index "items", ["bookstore_id"], :name => "index_items_on_bookstore_id"
   add_index "items", ["item_identifier"], :name => "index_items_on_item_identifier"
+  add_index "items", ["manifestation_id"], :name => "index_items_on_manifestation_id"
   add_index "items", ["required_role_id"], :name => "index_items_on_required_role_id"
   add_index "items", ["shelf_id"], :name => "index_items_on_shelf_id"
 
