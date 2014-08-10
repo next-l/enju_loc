@@ -214,7 +214,7 @@ module EnjuLoc
 	    partnumber = e.at('./mods:partNumber',NS).try(:content)
 	    partname = e.at('./mods:partName',NS).try(:content)
 	    partname = [ partnumber, partname ].compact.join( ": " )
-	    original_title << ". #{ partname }" if partname
+	    original_title << ". #{ partname }" unless partname.blank?
 	  end
 	end
 	{ :original_title => original_title, :title_alternative => title_alternatives.join( " ; " ) }
