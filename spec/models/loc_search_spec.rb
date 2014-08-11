@@ -12,8 +12,12 @@ describe LocSearch do
       expect( manifestation.carrier_type.name ).to eq "print"
       expect( manifestation.publishers.size ).to eq 1
       expect( manifestation.publishers.first.full_name ).to eq "Times Books"
+      expect( manifestation.creators.size ).to eq 1
+      expect( manifestation.creators.first.agent_type.name ).to eq "Person"
+      expect( manifestation.creators.first.full_name ).to eq "Weinberger, David, 1950-"
       expect( manifestation.edition_string ).to eq "1st ed."
       expect( manifestation.language.iso_639_2 ).to eq "eng"
+      expect( manifestation.date_of_publication.year ).to eq 2007
       expect( manifestation.start_page ).to eq 1
       expect( manifestation.end_page ).to eq 277
       expect( manifestation.height ).to eq 25
@@ -35,6 +39,12 @@ describe LocSearch do
       expect( classification.category ).to eq "303.48"
       expect( manifestation.identifier_contents("isbn").first ).to eq "9780805080438"
       expect( manifestation.identifier_contents("lccn").first ).to eq "2007012024"
+    end
+    
+    it "should parse title information properly" do
+      manifestation = LocSearch.import_from_sru_response( "2012532441" )
+      expect( manifestation.original_title ).to eq "The data journalism handbook"
+      expect( manifestation.title_alternative ).to eq "How journalists can use data to improve the news"
     end
   end
 end
