@@ -41,15 +41,22 @@ describe LocSearch do
       expect( manifestation.identifier_contents("lccn").first ).to eq "2007012024"
     end
     
-    it "should parse title information properly" do
+    it "should parse title information properly", :vcr => true do
       manifestation = LocSearch.import_from_sru_response( "2012532441" )
       expect( manifestation.original_title ).to eq "The data journalism handbook"
       expect( manifestation.title_alternative ).to eq "How journalists can use data to improve the news"
     end
 
-    it "should distinguish title information with subject" do
+    it "should distinguish title information with subject", :vcr => true do
       m = LocSearch.import_from_sru_response( "2008273186" )
       expect( m.original_title ).to eq "Flexible Rails : Flex 3 on Rails 2"
+    end
+  end
+
+  context ".search" do
+    it "should return a search result", :vcr => true do
+      result = LocSearch.search( 'library' )
+      expect( result[:total_entries] ).to eq 10000
     end
   end
 
