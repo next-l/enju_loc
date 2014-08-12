@@ -6,8 +6,8 @@ describe LocSearch do
   context ".import_from_sru_response" do
     it "should create a valid manifestation", :vcr => true do
       manifestation = LocSearch.import_from_sru_response( "2007012024" )
-      expect( manifestation.manifestation_identifier ).to eq("14780655")
-      expect( manifestation.original_title ).to eq( "Everything is miscellaneous : the power of the new digital disorder" )
+      expect( manifestation.manifestation_identifier ).to eq "14780655"
+      expect( manifestation.original_title ).to eq "Everything is miscellaneous : the power of the new digital disorder"
       expect( manifestation.manifestation_content_type.name ).to eq "text"
       expect( manifestation.carrier_type.name ).to eq "print"
       expect( manifestation.publishers.size ).to eq 1
@@ -45,6 +45,25 @@ describe LocSearch do
       manifestation = LocSearch.import_from_sru_response( "2012532441" )
       expect( manifestation.original_title ).to eq "The data journalism handbook"
       expect( manifestation.title_alternative ).to eq "How journalists can use data to improve the news"
+    end
+
+    it "should distinguish title information with subject" do
+      m = LocSearch.import_from_sru_response( "2008273186" )
+      expect( m.original_title ).to eq "Flexible Rails : Flex 3 on Rails 2"
+    end
+  end
+
+  context ".make_sru_request_uri" do
+    it "should construct a valid uri" do
+      url = LocSearch.make_sru_request_uri( "test" )
+      uri = URI.parse( url )
+      expect( Hash[uri.query.split(/\&/).collect{|e| e.split(/=/) }] ).to eq( {
+	"query" => "test", 
+	"version" => "1.1",
+	"operation" => "searchRetrieve",
+	"maximumRecords" => "10",
+	"recordSchema" => "mods"
+      } )
     end
   end
 end
