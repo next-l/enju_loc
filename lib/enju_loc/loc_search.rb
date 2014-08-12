@@ -178,22 +178,17 @@ module EnjuLoc
       end
 
       def create_series_statement(doc, manifestation)
-        series = series_title = {}
-        series[:title] = doc.at('//mods:relatedItem[@type="series"]/mods:titleInfo/mods:title',NS).try(:content)
-        if series[:title]
-          series_title[:title] = series[:title].split(';')[0].strip
-        end
-
-        if series_title[:title]
-          series_statement = SeriesStatement.where(:original_title => series_title[:title]).first
-          unless series_statement
-            series_statement = SeriesStatement.new(
-              :original_title => series_title[:title],
-            )
+        doc.xpath('//mods:relatedItem[@type="series"]/mods:titleInfo/mods:title',NS).each do |series|
+          series_title = title = series.try(:content)
+          if title
+            series_title = title.split(';')[0].strip
           end
-        end
-        if series_statement.try(:save)
-          manifestation.series_statements << series_statement
+          if series_title
+            series_statement = SeriesStatement.where(:original_title => series_title).first_or_create
+            if series_statement.try(:save)
+              manifestation.series_statements << series_statement
+            end
+          end
         end
       end
 

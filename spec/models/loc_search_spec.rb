@@ -51,9 +51,18 @@ describe LocSearch do
       m = LocSearch.import_from_sru_response( "2008273186" )
       expect( m.original_title ).to eq "Flexible Rails : Flex 3 on Rails 2"
     end
+
+    it "should create multiple series_statements", :vcr => true do
+      m = LocSearch.import_from_sru_response( "2012471967" )
+      expect( m.series_statements.size ).to eq 2
+      RSpec.describe m.series_statements.collect( &:original_title ) do
+        it { is_expected.to include( "Pragmatic programmers" ) }
+        it { is_expected.to include( "Facets of Ruby series" ) }
+      end
+    end
   end
 
-  context ".search" do
+  context ".search", :vcr => true do
     it "should return a search result", :vcr => true do
       result = LocSearch.search( 'library' )
       expect( result[:total_entries] ).to eq 10000
