@@ -103,5 +103,18 @@ describe LocSearch do
 	"recordSchema" => "mods"
       } )
     end
+
+    it "should support pagination" do
+      url = LocSearch.make_sru_request_uri( "test", :page => 2 )
+      uri = URI.parse( url )
+      expect( Hash[uri.query.split(/\&/).collect{|e| e.split(/=/) }] ).to eq( {
+	"query" => "test", 
+	"version" => "1.1",
+	"operation" => "searchRetrieve",
+	"maximumRecords" => "10",
+	"recordSchema" => "mods",
+	"startRecord" => "11",
+      } )
+    end
   end
 end
