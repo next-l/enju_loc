@@ -64,6 +64,17 @@ describe LocSearch do
     it "should create lcsh subjects only", :vcr => true do
       m = LocSearch.import_from_sru_response( "2011281911" )
       expect( m.subjects.size ).to eq 2
+      RSpec.describe m.subjects.collect( &:term ) do
+        it { is_expected.to include( "Computer software--Development" ) }
+        it { is_expected.to include( "Ruby (Computer program language)" ) }
+      end
+    end
+
+    it "should import note fields", :vcr => true do
+      m = LocSearch.import_from_sru_response( "2010526151" )
+      expect( m.note ).not_to be_nil
+      expect( m.note ).not_to be_empty
+      expect( m.note ).to eq %Q["This is a book about the design of user interfaces for search and discovery"--Pref.;\n"January 2010"--T.p. verso.;\nIncludes bibliographical references and index.]
     end
   end
 

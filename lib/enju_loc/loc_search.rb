@@ -88,6 +88,7 @@ module EnjuLoc
         description = doc.at('//mods:abstract',NS).try(:content)
         edition_string = doc.at('//mods:edition',NS).try(:content)
         extent = get_extent(doc)
+	note = get_note(doc)
         publication_periodicity = doc.at('//mods:frequency',NS).try(:content)
         statement_of_responsibility = get_statement_of_responsibility(doc)
 	access_address = get_access_address(doc)
@@ -110,6 +111,7 @@ module EnjuLoc
             :end_page => extent[:end_page],
             :height => extent[:height],
 	    :access_address => access_address,
+	    :note => note,
           )
           identifier = {}
           if isbn
@@ -258,6 +260,20 @@ module EnjuLoc
 	  doc.xpath('/mods:mods/mods:name',NS).map do |n|
 	    n.at('./mods:namePart',NS).try(:content)
 	  end.join( "; " )
+	end
+      end
+      def get_note(doc)
+        notes = []
+	doc.xpath('//mods:note',NS).each do |note|
+	  type = note.attributes['type'].try(:content)
+	  next if type == "statement of responsibility"
+	  note_s = note.try( :content )
+	  notes << note_s unless note_s.blank?
+	end
+	if notes.empty?
+	  nil
+	else
+	  notes.join( ";\n" )
 	end
       end
 
