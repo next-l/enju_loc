@@ -293,16 +293,23 @@ module EnjuLoc
 	doc.xpath('//mods:subject[@authority="lcsh"]',NS).each do |s|
 	  subject = []
 	  s.xpath('./*',NS).each do |subelement|
+	    type = subelement.name
 	    case subelement.name
 	    when "topic", "geographic", "genre", "temporal"
-	      subject << subelement.try(:content)
+	      subject << { :type => type , :term => subelement.try(:content) }
 	    when "titleInfo"
-	      subject << subelement.at('./mods:title',NS).try(:content)
+	      subject << { :type => type, :term => subelement.at('./mods:title',NS).try(:content) }
+	    when "name"
+	      name = subelement.xpath('./mods:namePart',NS).map{|e| e.try(:content) }.join( ", " )
+	      subject << { :type => type, :term => name }
 	    end
 	  end
 	  next if subject.compact.empty?
+	  if subject[0][:type] == "name" and subject[1][:type] == "titleInfo"
+	    subject[0..1] = { :term => subject[0..1].map{|e|e[:term]}.join( ". " ) }
+	  end
 	  subjects << {
-	    :term => subject.compact.join( "--" )
+	    :term => subject.map{|e|e[:term]}.compact.join( "--" )
 	  }
 	end
 	subjects

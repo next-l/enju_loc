@@ -70,6 +70,16 @@ describe LocSearch do
       end
     end
 
+    it "should support name and title subjects", :vcr => true do
+      m = LocSearch.import_from_sru_response( "2013433146" )
+      expect( m.subjects.size ).to eq 3
+      RSpec.describe m.subjects.collect( &:term ) do
+        it { is_expected.to include( "Montgomery, L. M. (Lucy Maud), 1874-1942. Anne of Green Gables" ) }
+        it { is_expected.to include( "Montgomery, L. M. (Lucy Maud), 1874-1942--Criticism and interpretation" ) }
+        it { is_expected.to include( "Montgomery, L. M. (Lucy Maud), 1874-1942--Influence" ) }
+      end
+    end
+
     it "should import note fields", :vcr => true do
       m = LocSearch.import_from_sru_response( "2010526151" )
       expect( m.note ).not_to be_nil
