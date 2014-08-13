@@ -60,6 +60,11 @@ describe LocSearch do
         it { is_expected.to include( "Facets of Ruby series" ) }
       end
     end
+
+    it "should create lcsh subjects only", :vcr => true do
+      m = LocSearch.import_from_sru_response( "2011281911" )
+      expect( m.subjects.size ).to eq 2
+    end
   end
 
   context ".search", :vcr => true do

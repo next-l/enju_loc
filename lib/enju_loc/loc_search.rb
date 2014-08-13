@@ -274,7 +274,7 @@ module EnjuLoc
       # TODO:only LCSH-based parsing...
       def get_subjects(doc)
 	subjects = []
-	doc.xpath('//mods:subject',NS).each do |s|
+	doc.xpath('//mods:subject[@authority="lcsh"]',NS).each do |s|
 	  subject = []
 	  s.xpath('./*',NS).each do |subelement|
 	    case subelement.name
