@@ -95,6 +95,13 @@ describe LocSearch do
       expect( m.carrier_type ).to eq CarrierType.where( :name => "file" ).first
       expect( m.access_address ).to eq "http://portal.acm.org/dl.cfm"
     end
+
+    it "should import audio book", :vcr => true do
+      m = LocSearch.import_from_sru_response( "2007576782" ) # RDA metadata
+      expect( m.manifestation_content_type ).to eq ContentType.where( :name => "audio" ).first
+      pending "carrier type should be changed. cf. next-l/enju_leaf#300"
+      expect( m.carrier_type ).to eq CarrierType.where( :name => "CD" ).first
+    end
   end
 
   context ".search", :vcr => true do
