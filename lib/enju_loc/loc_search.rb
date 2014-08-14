@@ -85,7 +85,7 @@ module EnjuLoc
 	carrier_type = types[ :carrier_type ]
 
 	record_identifier = doc.at('//mods:recordInfo/mods:recordIdentifier',NS).try(:content)
-        description = doc.at('//mods:abstract',NS).try(:content)
+        description = doc.xpath('//mods:abstract',NS).collect(&:content).join("\n")
         edition_string = doc.at('//mods:edition',NS).try(:content)
         extent = get_extent(doc)
 	note = get_note(doc)
