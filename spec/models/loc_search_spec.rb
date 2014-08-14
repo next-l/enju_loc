@@ -12,6 +12,7 @@ describe LocSearch do
       expect( manifestation.carrier_type.name ).to eq "print"
       expect( manifestation.publishers.size ).to eq 1
       expect( manifestation.publishers.first.full_name ).to eq "Times Books"
+      expect( manifestation.publication_place ).to eq "New York"
       expect( manifestation.creators.size ).to eq 1
       expect( manifestation.creators.first.agent_type.name ).to eq "Person"
       expect( manifestation.creators.first.full_name ).to eq "Weinberger, David, 1950-"

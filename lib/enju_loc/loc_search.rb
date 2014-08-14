@@ -92,6 +92,7 @@ module EnjuLoc
         publication_periodicity = doc.at('//mods:frequency',NS).try(:content)
         statement_of_responsibility = get_statement_of_responsibility(doc)
 	access_address = get_access_address(doc)
+	publication_place = get_publication_place(doc)
 
         manifestation = nil
         Agent.transaction do
@@ -112,6 +113,7 @@ module EnjuLoc
             :height => extent[:height],
 	    :access_address => access_address,
 	    :note => note,
+	    :publication_place => publication_place,
           )
           identifier = {}
           if isbn
@@ -232,6 +234,10 @@ module EnjuLoc
 	  end
 	end
 	access_address
+      end
+
+      def get_publication_place(doc)
+	place = doc.at('//mods:originInfo/mods:place/mods:placeTerm[@type="text"]',NS).try(:content)
       end
 
       def get_extent(doc)
