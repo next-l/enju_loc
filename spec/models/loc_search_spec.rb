@@ -137,7 +137,7 @@ describe LocSearch do
   end
 
   context "::ModsRecord" do
-    it "should parse MODS metadata" do
+    it "should parse MODS metadata", :vcr => true do
       results = LocSearch.search( "bath.lccn=2007012024" )
       metadata = results[ :items ].first
       expect( metadata.lccn ).to eq "2007012024"
