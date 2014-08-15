@@ -327,13 +327,11 @@ module EnjuLoc
 	  frequency = freq.try(:content)
 	  MARCFREQUENCY.each do |freq_regex|
 	    if /\A(#{freq_regex})/ =~ frequency
-	      STDERR.puts freq_regex
 	      frequency_name = freq_regex.downcase.gsub( /\s+/, "_" )
 	      frequencies << Frequency.where( :name => frequency_name ).first
 	    end
 	  end
 	end
-	STDERR.puts frequencies.inspect
 	frequencies.compact.first
       end
 
