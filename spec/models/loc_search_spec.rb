@@ -90,6 +90,11 @@ describe LocSearch do
       expect( m.note ).to eq %Q["This is a book about the design of user interfaces for search and discovery"--Pref.;\n"January 2010"--T.p. verso.;\nIncludes bibliographical references and index.]
     end
 
+    it "should import publication year" do
+      m = LocSearch.import_from_sru_response( "2001315134" )
+      expect( m.date_of_publication.year ).to eq 2000
+    end
+
     it "should import e-resource", :vcr => true do
       m = LocSearch.import_from_sru_response( "2005568297" )
       expect( m.carrier_type ).to eq CarrierType.where( :name => "file" ).first

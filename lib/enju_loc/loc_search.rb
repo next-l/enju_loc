@@ -53,20 +53,7 @@ module EnjuLoc
         titles = get_titles(doc)
 
         # date of publication
-        pub_date = doc.at('//mods:dateIssued',NS).try(:content)
-        if pub_date
-	  pub_date.sub!( /\Ac/, '' )
-          unless pub_date =~ /^\d+(-\d{0,2}){0,2}$/
-            pub_date = nil
-	  else
-            date = pub_date.split('-')
-            if date[0] and date[1]
-              date = sprintf("%04d-%02d", date[0], date[1])
-            else
-              date = pub_date
-            end
-	  end
-        end
+        date = get_date_of_publication(doc)
 
         language = Language.where(:iso_639_2 => get_language(doc)).first
         if language
@@ -299,6 +286,20 @@ module EnjuLoc
 	else
 	  notes.join( ";\n" )
 	end
+      end
+      def get_date_of_publication(doc)
+        dates = []
+	doc.xpath('//mods:dateIssued',NS).each do |pub_date|
+	  pub_date = pub_date.content.sub( /\A[cp]/, '' )
+          next unless pub_date =~ /^\d+(-\d\d?){0,2}$/
+          date = pub_date.split('-')
+          if date[0] and date[1]
+            dates << sprintf("%04d-%02d", date[0], date[1])
+          else
+            dates << pub_date
+	  end
+        end
+	dates.compact.first
       end
 
       # derived from marcfrequency: http://www.loc.gov/standards/valuelist/marcfrequency.html
