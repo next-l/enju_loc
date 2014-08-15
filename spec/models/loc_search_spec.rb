@@ -106,12 +106,25 @@ describe LocSearch do
     it "should import serial", :vcr => true do
       m = LocSearch.import_from_sru_response( "00200486" )
       expect( m.original_title ).to eq "Science and technology of advanced materials"
-      expect( m.periodical ).not_to be_nil
+      expect( m.periodical ).to be_truthy
       expect( m.identifier_contents( :issn ).first ).to eq "14686996"
       expect( m.identifier_contents( :issn_l ).first ).to eq "14686996"
       expect( m.frequency.name ).to eq "bimonthly"
       series_statement = m.series_statements.first
       expect( series_statement.original_title ).to eq "Science and technology of advanced materials"
+      expect( series_statement.series_master ).to be_truthy
+    end
+    it "should import another serial", :vcr => true do
+      m = LocSearch.import_from_sru_response( "88651712" )
+      expect( m.original_title ).to eq "Superconductor science & technology"
+      expect( m.title_alternative ).to eq "Supercond. sci. technol ; Superconductor science and technology"
+      expect( m.periodical ).to be_truthy
+      expect( m.identifier_contents( :issn ).first ).to eq "09532048"
+      expect( m.identifier_contents( :issn_l ).first ).to eq "09532048"
+      expect( m.frequency.name ).to eq "monthly"
+      series_statement = m.series_statements.first
+      expect( series_statement.original_title ).to eq m.original_title
+      expect( series_statement.title_alternative ).to eq m.title_alternative
       expect( series_statement.series_master ).to be_truthy
     end
   end

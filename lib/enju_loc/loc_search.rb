@@ -75,10 +75,10 @@ module EnjuLoc
           language_id = 1
         end
 
-        isbn = Lisbn.new(doc.at('//mods:identifier[@type="isbn"]',NS).try(:content).to_s).try(:isbn)
-        lccn = StdNum::LCCN.normalize(doc.at('//mods:identifier[@type="lccn"]',NS).try(:content).to_s)
-        issn = StdNum::ISSN.normalize(doc.at('//mods:identifier[@type="issn"]',NS).try(:content).to_s)
-        issn_l = StdNum::ISSN.normalize(doc.at('//mods:identifier[@type="issn-l"]',NS).try(:content).to_s)
+        isbn = Lisbn.new(doc.at('/mods:mods/mods:identifier[@type="isbn"]',NS).try(:content).to_s).try(:isbn)
+        lccn = StdNum::LCCN.normalize(doc.at('/mods:mods/mods:identifier[@type="lccn"]',NS).try(:content).to_s)
+        issn = StdNum::ISSN.normalize(doc.at('/mods:mods/mods:identifier[@type="issn"]',NS).try(:content).to_s)
+        issn_l = StdNum::ISSN.normalize(doc.at('/mods:mods/mods:identifier[@type="issn-l"]',NS).try(:content).to_s)
 
 	types = get_carrier_and_content_types( doc )
 	content_type = types[ :content_type ]
@@ -206,7 +206,7 @@ module EnjuLoc
         titles = get_titles(doc)
 	series_statement = SeriesStatement.new(
 	  :original_title => titles[:original_title],
-	  :alternative_title => titles[:alternative_title],
+	  :title_alternative => titles[:title_alternative],
 	  :series_master => true,
 	)
 	if series_statement.try(:save)
