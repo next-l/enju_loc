@@ -19,6 +19,11 @@ describe LocSearchController do
       get :index
       expect( assigns(:books) ).to be_empty
     end
+
+    it "should get index with page parameter", :vcr => true do
+      get :index, :query => 'library', :page => 2
+      expect( assigns(:books) ).not_to be_empty
+    end
   end
 
   describe "POST create" do
