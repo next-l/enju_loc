@@ -103,6 +103,13 @@ describe LocSearch do
       expect( m.carrier_type ).to eq CarrierType.where( :name => "CD" ).first
     end
 
+    it "should import video publication", :vcr => true do
+      m = LocSearch.import_from_sru_response( "2013602064" )
+      expect( m.manifestation_content_type ).to eq ContentType.where( :name => "video" ).first
+      pending "carrier type should be changed. cf. next-l/enju_leaf#300"
+      expect( m.carrier_type ).to eq CarrierType.where( :name => "DVD" ).first
+    end
+
     it "should import serial", :vcr => true do
       m = LocSearch.import_from_sru_response( "00200486" )
       expect( m.original_title ).to eq "Science and technology of advanced materials"

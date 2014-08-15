@@ -363,7 +363,7 @@ module EnjuLoc
 	    end
 	  end
 	  next if subject.compact.empty?
-	  if subject[0][:type] == "name" and subject[1][:type] == "titleInfo"
+	  if subject.size > 1 and subject[0][:type] == "name" and subject[1][:type] == "titleInfo"
 	    subject[0..1] = { :term => subject[0..1].map{|e|e[:term]}.join( ". " ) }
 	  end
 	  subjects << {
