@@ -136,6 +136,18 @@ describe LocSearch do
     end
   end
 
+  context "::ModsRecord" do
+    it "should parse MODS metadata" do
+      results = LocSearch.search( "bath.lccn=2007012024" )
+      metadata = results[ :items ].first
+      expect( metadata.lccn ).to eq "2007012024"
+      expect( metadata.title ).to eq "Everything is miscellaneous : the power of the new digital disorder"
+      expect( metadata.creator ).to eq "David Weinberger."
+      expect( metadata.pubyear ).to eq "2007"
+      expect( metadata.publisher ).to eq "Times Books"
+    end
+  end
+
   context ".make_sru_request_uri" do
     it "should construct a valid uri" do
       url = LocSearch.make_sru_request_uri( "test" )
