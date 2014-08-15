@@ -89,7 +89,9 @@ module EnjuLoc
         edition_string = doc.at('//mods:edition',NS).try(:content)
         extent = get_extent(doc)
 	note = get_note(doc)
-        publication_periodicity = doc.at('//mods:frequency',NS).try(:content)
+        frequency = get_frequency(doc)
+	issuance = doc.at('//mods:issuance',NS).try(:content)
+	is_serial = true if issuance == "serial"
         statement_of_responsibility = get_statement_of_responsibility(doc)
 	access_address = get_access_address(doc)
 	publication_place = get_publication_place(doc)
@@ -114,6 +116,7 @@ module EnjuLoc
 	    :access_address => access_address,
 	    :note => note,
 	    :publication_place => publication_place,
+	    :periodical => is_serial,
           )
           identifier = {}
           if isbn
@@ -138,7 +141,7 @@ module EnjuLoc
           end
           manifestation.carrier_type = carrier_type if carrier_type
           manifestation.manifestation_content_type = content_type if content_type
-          manifestation.periodical = true if publication_periodicity
+	  manifestation.frequency = frequency if frequency
           if manifestation.save
             identifier.each do |k, v|
               manifestation.identifiers << v if v.valid?
@@ -147,6 +150,9 @@ module EnjuLoc
 	    manifestation.creators << creator_agents
 	    create_subject_related_elements(doc, manifestation)
             create_series_statement(doc, manifestation)
+	    if is_serial
+              create_series_master(doc, manifestation)
+	    end
           end
         end
         return manifestation
@@ -194,6 +200,18 @@ module EnjuLoc
             end
           end
         end
+      end
+      
+      def create_series_master(doc, manifestation)
+        titles = get_titles(doc)
+	series_statement = SeriesStatement.new(
+	  :original_title => titles[:original_title],
+	  :alternative_title => titles[:alternative_title],
+	  :series_master => true,
+	)
+	if series_statement.try(:save)
+	  manifestation.series_statements << series_statement
+	end
       end
 
       def get_titles(doc)
@@ -281,6 +299,42 @@ module EnjuLoc
 	else
 	  notes.join( ";\n" )
 	end
+      end
+
+      # derived from marcfrequency: http://www.loc.gov/standards/valuelist/marcfrequency.html
+      MARCFREQUENCY = [
+        "Continuously updated",
+        "Daily",
+        "Semiweekly",
+        "Three times a week",
+        "Weekly",
+        "Biweekly",
+        "Three times a month",
+        "Semimonthly",
+        "Monthly",
+        "Bimonthly",
+        "Quarterly",
+        "Three times a year",
+        "Semiannual",
+        "Annual",
+        "Biennial",
+        "Triennial",
+        "Completely irregular",
+      ]
+      def get_frequency(doc)
+        frequencies = []
+	doc.xpath('//mods:frequency',NS).each do |freq|
+	  frequency = freq.try(:content)
+	  MARCFREQUENCY.each do |freq_regex|
+	    if /\A(#{freq_regex})/ =~ frequency
+	      STDERR.puts freq_regex
+	      frequency_name = freq_regex.downcase.gsub( /\s+/, "_" )
+	      frequencies << Frequency.where( :name => frequency_name ).first
+	    end
+	  end
+	end
+	STDERR.puts frequencies.inspect
+	frequencies.compact.first
       end
 
       def get_creators(doc)
