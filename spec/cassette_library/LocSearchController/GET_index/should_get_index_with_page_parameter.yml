@@ -1,0 +1,415 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://lx2.loc.gov:210/LCDB?maximumRecords=10&recordSchema=mods&startRecord=11&query=library&version=1.1&operation=searchRetrieve
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-length:
+      - '33710'
+      server:
+      - Metaproxy/1.5.3
+      connection:
+      - Keep-Alive
+      content-type:
+      - text/xml
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\"?>\n<zs:searchRetrieveResponse xmlns:zs=\"http://www.loc.gov/zing/srw/\"><zs:version>1.1</zs:version><zs:numberOfRecords>10000</zs:numberOfRecords><zs:records><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
+        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>Lock and
+        load</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Lock
+        and load</title>\n  </titleInfo>\n  <titleInfo type=\"alternative\" displayLabel=\"Copyright
+        application title:\">\n    <title>S#*! my dad says</title>\n    <partName>Lock
+        &amp; load</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n
+        \   <title>Shit my dad says</title>\n    <partName>Lock and load</partName>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Bleep my dad
+        says</title>\n    <partName>Lock and load</partName>\n  </titleInfo>\n  <name
+        type=\"corporate\">\n    <namePart>Copyright Collection (Library of Congress)</namePart>\n
+        \ </name>\n  <typeOfResource>moving image</typeOfResource>\n  <genre authority=\"marcgt\">motion
+        picture</genre>\n  <genre authority=\"lcgft\">Situation comedies (Television
+        programs)</genre>\n  <genre authority=\"lcgft\">Fiction television programs.</genre>\n
+        \ <originInfo>\n    <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">xxu</placeTerm>\n
+        \   </place>\n    <dateIssued>2011-02-10</dateIssued>\n    <dateIssued encoding=\"marc\">2011</dateIssued>\n
+        \   <dateCaptured encoding=\"iso8601\">20110210</dateCaptured>\n    <issuance>monographic</issuance>\n
+        \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n
+        \ </language>\n  <physicalDescription>\n    <form authority=\"marccategory\">videorecording</form>\n
+        \   <form authority=\"marcsmd\">videocassette</form>\n    <extent>viewing
+        copy 1 videocassette of 1 (Betacam SP) (30 min.) : sd., col. ; 1/2 in.</extent>\n
+        \ </physicalDescription>\n  <note type=\"statement of responsibility\" altRepGroup=\"00\">directed
+        by Steve Zuckerman ; written by Chris Kelly.</note>\n  <note>Production no.
+        2J5667.</note>\n  <note>Sources used: video container; Copyright catalog online;
+        Copyright description; Wikipedia WWW site, viewed June 4, 2014.</note>\n  <note
+        type=\"performers\">William Shatner, Jonathan Sadowski, Will Sasso.</note>\n
+        \ <classification authority=\"lcc\">VAQ 3028 (viewing copy)</classification>\n
+        \ <identifier type=\"lccn\">2014604746</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
+        \   <descriptionStandard>amim</descriptionStandard>\n    <recordContentSource
+        authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">140604</recordCreationDate>\n
+        \   <recordChangeDate encoding=\"iso8601\">20140605153440.0</recordChangeDate>\n
+        \   <recordIdentifier>18176812</recordIdentifier>\n    <recordOrigin>Converted
+        from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
+        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>11</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
+        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>Make a WISiH</partName>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Make a WISiH</title>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\" displayLabel=\"Copyright
+        application title:\">\n    <title>S#*! my dad says</title>\n    <partName>Make
+        a WISiH</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Shit
+        my dad says</title>\n    <partName>Make a WISiH</partName>\n  </titleInfo>\n
+        \ <titleInfo type=\"alternative\">\n    <title>Bleep my dad says</title>\n
+        \   <partName>Make a WISiH</partName>\n  </titleInfo>\n  <name type=\"corporate\">\n
+        \   <namePart>Copyright Collection (Library of Congress)</namePart>\n  </name>\n
+        \ <typeOfResource>moving image</typeOfResource>\n  <genre authority=\"marcgt\">motion
+        picture</genre>\n  <genre authority=\"lcgft\">Situation comedies (Television
+        programs)</genre>\n  <genre authority=\"lcgft\">Fiction television programs.</genre>\n
+        \ <originInfo>\n    <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">xxu</placeTerm>\n
+        \   </place>\n    <dateIssued>2010-11-18</dateIssued>\n    <dateIssued encoding=\"marc\">2010</dateIssued>\n
+        \   <dateCaptured encoding=\"iso8601\">20101118</dateCaptured>\n    <issuance>monographic</issuance>\n
+        \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n
+        \ </language>\n  <physicalDescription>\n    <form authority=\"marccategory\">videorecording</form>\n
+        \   <form authority=\"marcsmd\">videocassette</form>\n    <extent>viewing
+        copy 1 videocassette of 1 (Betacam SP) (30 min.) : sd., col. ; 1/2 in.</extent>\n
+        \ </physicalDescription>\n  <abstract type=\"Summary\">\"Ed and Henry are
+        watching TV when an infomercial comes on for wish a self help guru, Ed asks
+        who would fall for that kind of scam when Vince and Bonny walk in saying they
+        have quit their real estate jobs to start a real estate business because they
+        wished for it. \"--Wikipedia WWW site, viewed June 9, 2014.</abstract>\n  <note
+        type=\"statement of responsibility\" altRepGroup=\"00\">directed by Rob Schiller
+        ; written by Jeff Astrof.</note>\n  <note>Episode no. 9.</note>\n  <note>Production
+        no. 2J5660.</note>\n  <note>Sources used: video container; Copyright catalog
+        online; Copyright description; Wikipedia WWW site, viewed June 9, 2014.</note>\n
+        \ <note type=\"performers\">William Shatner.</note>\n  <note type=\"performers\">Guest
+        star: Cybill Shepherd.</note>\n  <classification authority=\"lcc\">VAP 8700
+        (viewing copy)</classification>\n  <identifier type=\"lccn\">2014603960</identifier>\n
+        \ <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n    <descriptionStandard>amim</descriptionStandard>\n
+        \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
+        \   <recordCreationDate encoding=\"marc\">140609</recordCreationDate>\n    <recordChangeDate
+        encoding=\"iso8601\">20140609135602.0</recordChangeDate>\n    <recordIdentifier>18181741</recordIdentifier>\n
+        \   <recordOrigin>Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
+        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>12</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
+        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>Not without
+        my jacket</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n
+        \   <title>Not without my jacket</title>\n  </titleInfo>\n  <titleInfo type=\"alternative\"
+        displayLabel=\"Copyright application title:\">\n    <title>S#*! my dad says</title>\n
+        \   <partName>Not without my jacket</partName>\n  </titleInfo>\n  <titleInfo
+        type=\"alternative\">\n    <title>Shit my dad says</title>\n    <partName>Not
+        without my jacket</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n
+        \   <title>Bleep my dad says</title>\n    <partName>Not without my jacket</partName>\n
+        \ </titleInfo>\n  <name type=\"corporate\">\n    <namePart>Copyright Collection
+        (Library of Congress)</namePart>\n  </name>\n  <typeOfResource>moving image</typeOfResource>\n
+        \ <genre authority=\"marcgt\">motion picture</genre>\n  <genre authority=\"lcgft\">Situation
+        comedies (Television programs)</genre>\n  <genre authority=\"lcgft\">Fiction
+        television programs.</genre>\n  <originInfo>\n    <place>\n      <placeTerm
+        type=\"code\" authority=\"marccountry\">xxu</placeTerm>\n    </place>\n    <dateIssued>2010-10-21</dateIssued>\n
+        \   <dateIssued encoding=\"marc\">2010</dateIssued>\n    <dateCaptured encoding=\"iso8601\">20101021</dateCaptured>\n
+        \   <issuance>monographic</issuance>\n  </originInfo>\n  <language>\n    <languageTerm
+        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n  </language>\n
+        \ <physicalDescription>\n    <form authority=\"marccategory\">videorecording</form>\n
+        \   <form authority=\"marcsmd\">videocassette</form>\n    <extent>viewing
+        copy 1 videocassette of 1 (Betacam SP) (30 min.) : sd., col. ; 1/2 in.</extent>\n
+        \ </physicalDescription>\n  <abstract type=\"Summary\">\"Ed gets upset when
+        Henry uses his coffee mug without permission, explaining that it's his rule
+        that someone must clear it with him before borrowing something (and he never
+        breaks his rules). However, Ed must go to great lengths to retrieve a jacket
+        of Henry's that he accidentally lent out without asking, to avoid looking
+        like a hypocrite\"--Wikipedia WWW site, viewed June 9, 2014.</abstract>\n
+        \ <note type=\"statement of responsibility\" altRepGroup=\"00\">directed by
+        Gail Mancuso Justin ; written by Halpern and Patrick Schumaker.</note>\n  <note>Episode
+        no. 5.</note>\n  <note>Production no. 2J5655.</note>\n  <note>Sources used:
+        video container; Copyright catalog online; Copyright description; Wikipedia
+        WWW site, viewed June 9, 2014.</note>\n  <note type=\"performers\">William
+        Shatner.</note>\n  <note type=\"performers\">Guest stars: Bob Stephenson,
+        Brooklyn Sudano, Paula Calelisbe, Preston Jones.</note>\n  <classification
+        authority=\"lcc\">VAP 8697 (viewing copy)</classification>\n  <identifier
+        type=\"lccn\">2014603697</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
+        \   <descriptionStandard>amim</descriptionStandard>\n    <recordContentSource
+        authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">140609</recordCreationDate>\n
+        \   <recordChangeDate encoding=\"iso8601\">20140609110500.0</recordChangeDate>\n
+        \   <recordIdentifier>18181445</recordIdentifier>\n    <recordOrigin>Converted
+        from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
+        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>13</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
+        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>[Pilot]</partName>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\" displayLabel=\"Copyright
+        application title:\">\n    <title>S#*! my dad says</title>\n    <partName>Pilot</partName>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Shit my dad
+        says</title>\n    <partName>Pilot</partName>\n  </titleInfo>\n  <titleInfo
+        type=\"alternative\">\n    <title>Bleep my dad says</title>\n    <partName>Pilot</partName>\n
+        \ </titleInfo>\n  <name type=\"corporate\">\n    <namePart>Copyright Collection
+        (Library of Congress)</namePart>\n  </name>\n  <typeOfResource>moving image</typeOfResource>\n
+        \ <genre authority=\"marcgt\">motion picture</genre>\n  <genre authority=\"lcgft\">Situation
+        comedies (Television programs)</genre>\n  <genre authority=\"lcgft\">Fiction
+        television programs.</genre>\n  <originInfo>\n    <place>\n      <placeTerm
+        type=\"code\" authority=\"marccountry\">xxu</placeTerm>\n    </place>\n    <dateIssued>2010-09-23</dateIssued>\n
+        \   <dateIssued encoding=\"marc\">2010</dateIssued>\n    <dateCaptured encoding=\"iso8601\">20100923</dateCaptured>\n
+        \   <issuance>monographic</issuance>\n  </originInfo>\n  <language>\n    <languageTerm
+        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n  </language>\n
+        \ <physicalDescription>\n    <form authority=\"marccategory\">videorecording</form>\n
+        \   <form authority=\"marcsmd\">videocassette</form>\n    <extent>viewing
+        copy 1 videocassette of 1 (Betacam SP) (30 min.) : sd., col. ; 1/2 in.</extent>\n
+        \ </physicalDescription>\n  <abstract type=\"Summary\">\"In the series pilot,
+        Henry (Jonathan Sadowski) gets laid off from his job and decides to see if
+        he can borrow money from his father Ed (William Shatner). Meanwhile Ed must
+        work to get his driver's license again after he forgot to renew it. Two other
+        main characters, Vince (Will Sasso), Henry's brother and his wife Bonnie (Nicole
+        Sullivan) also visit Ed and Henry from time to time\"--Wikipedia WWW site,
+        viewed June 6, 2014.</abstract>\n  <note type=\"statement of responsibility\"
+        altRepGroup=\"00\">directed by James Burrows ; written by David Kohan, Max
+        Mutchnick, Justin Halpern and Patrick Schumacker.</note>\n  <note>Episode
+        no. 1.</note>\n  <note>Production no. 2J5651.</note>\n  <note>Sources used:
+        video container; Copyright catalog online; Copyright description; Wikipedia
+        WWW site, viewed June 6, 2014.</note>\n  <note type=\"performers\">William
+        Shatner, Jonathan Sadowski, Will Sasso, Nocole Sullivan.</note>\n  <classification
+        authority=\"lcc\">VAP 8689 (viewing copy)</classification>\n  <identifier
+        type=\"lccn\">2014603689</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
+        \   <descriptionStandard>amim</descriptionStandard>\n    <recordContentSource
+        authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">140606</recordCreationDate>\n
+        \   <recordChangeDate encoding=\"iso8601\">20140609081428.0</recordChangeDate>\n
+        \   <recordIdentifier>18179971</recordIdentifier>\n    <recordOrigin>Converted
+        from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
+        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>14</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
+        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>The better
+        father</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Better
+        father</title>\n  </titleInfo>\n  <titleInfo type=\"alternative\" displayLabel=\"Copyright
+        application title:\">\n    <title>S#*! my dad says</title>\n    <partName>The
+        better father</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n
+        \   <title>Shit my dad says</title>\n    <partName>The better father</partName>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Bleep my dad
+        says</title>\n    <partName>The better father</partName>\n  </titleInfo>\n
+        \ <name type=\"corporate\">\n    <namePart>Copyright Collection (Library of
+        Congress)</namePart>\n  </name>\n  <typeOfResource>moving image</typeOfResource>\n
+        \ <genre authority=\"marcgt\">motion picture</genre>\n  <genre authority=\"lcgft\">Situation
+        comedies (Television programs)</genre>\n  <genre authority=\"lcgft\">Fiction
+        television programs.</genre>\n  <originInfo>\n    <place>\n      <placeTerm
+        type=\"code\" authority=\"marccountry\">xxu</placeTerm>\n    </place>\n    <dateIssued>2011-01-13</dateIssued>\n
+        \   <dateIssued encoding=\"marc\">2011</dateIssued>\n    <dateCaptured encoding=\"iso8601\">20110113</dateCaptured>\n
+        \   <issuance>monographic</issuance>\n  </originInfo>\n  <language>\n    <languageTerm
+        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n  </language>\n
+        \ <physicalDescription>\n    <form authority=\"marccategory\">videorecording</form>\n
+        \   <form authority=\"marcsmd\">videocassette</form>\n    <extent>viewing
+        copy 1 videocassette of 1 (Betacam SP) (30 min.) : sd., col. ; 1/2 in.</extent>\n
+        \ </physicalDescription>\n  <abstract type=\"Summary\">\"When Bonnie and Vince
+        find out the Reverend who married them was a fake, they decide to throw another
+        wedding. Bonnie invites her father, Terry (Ed Begley, Jr.), who failed to
+        show up at her last wedding because of a gambling problem. When he says he
+        has changed his life, Ed finds him gambling away the money for food for the
+        wedding. Meanwhile, Vince is having problems finding a tuxedo for his wedding.
+        Then when Ed helps Bonnie's father win the money back, Bonnie's father finds
+        another gambling chip and fails to show up at his daughter's wedding again.
+        The episode ends with Ed walking Bonnie down the aisle\"--Wikipedia WWW site,
+        viewed June 9, 2014.</abstract>\n  <note type=\"statement of responsibility\"
+        altRepGroup=\"00\">directed by Peter Bonerz ; written by Jeff Astrof.</note>\n
+        \ <note>Episode no. 13.</note>\n  <note>Production no. 2J5663.</note>\n  <note>Sources
+        used: video container; Copyright catalog online; Copyright description; Wikipedia
+        WWW site, viewed June 9, 2014.</note>\n  <note type=\"performers\">William
+        Shatner.</note>\n  <note type=\"performers\">Guest star: Ed Begley, Jr.</note>\n
+        \ <classification authority=\"lcc\">VAQ 1397 (viewing copy)</classification>\n
+        \ <identifier type=\"lccn\">2014603997</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
+        \   <descriptionStandard>amim</descriptionStandard>\n    <recordContentSource
+        authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">140609</recordCreationDate>\n
+        \   <recordChangeDate encoding=\"iso8601\">20140609083946.0</recordChangeDate>\n
+        \   <recordIdentifier>18181125</recordIdentifier>\n    <recordOrigin>Converted
+        from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
+        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>15</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
+        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>The manly
+        thing to do</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n
+        \   <title>Manly thing to do</title>\n  </titleInfo>\n  <titleInfo type=\"alternative\"
+        displayLabel=\"Copyright application title:\">\n    <title>S#*! my dad says</title>\n
+        \   <partName>The manly thing to do</partName>\n  </titleInfo>\n  <titleInfo
+        type=\"alternative\">\n    <title>Shit my dad says</title>\n    <partName>The
+        manly thing to do</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n
+        \   <title>Bleep my dad says</title>\n    <partName>The manly thing to do</partName>\n
+        \ </titleInfo>\n  <name type=\"corporate\">\n    <namePart>Copyright Collection
+        (Library of Congress)</namePart>\n  </name>\n  <typeOfResource>moving image</typeOfResource>\n
+        \ <genre authority=\"marcgt\">motion picture</genre>\n  <genre authority=\"lcgft\">Situation
+        comedies (Television programs)</genre>\n  <genre authority=\"lcgft\">Fiction
+        television programs.</genre>\n  <originInfo>\n    <place>\n      <placeTerm
+        type=\"code\" authority=\"marccountry\">xxu</placeTerm>\n    </place>\n    <dateIssued>2010-11-11</dateIssued>\n
+        \   <dateIssued encoding=\"marc\">2010</dateIssued>\n    <dateCaptured encoding=\"iso8601\">20101111</dateCaptured>\n
+        \   <issuance>monographic</issuance>\n  </originInfo>\n  <language>\n    <languageTerm
+        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n  </language>\n
+        \ <physicalDescription>\n    <form authority=\"marccategory\">videorecording</form>\n
+        \   <form authority=\"marcsmd\">videocassette</form>\n    <extent>viewing
+        copy 1 videocassette of 1 (Betacam SP) (30 min.) : sd., col. ; 1/2 in.</extent>\n
+        \ </physicalDescription>\n  <note type=\"statement of responsibility\" altRepGroup=\"00\">directed
+        by Gail Mancuso ; written by Justin Halpern and Patrick Schumacker.</note>\n
+        \ <note>Production no. 2J5659.</note>\n  <note>Sources used: video container;
+        Copyright catalog online; Copyright description; Wikipedia WWW site, viewed
+        June 4, 2014.</note>\n  <note type=\"performers\">William Shatner, Jonathan
+        Sadowski, Will Sasso.</note>\n  <classification authority=\"lcc\">VAQ 3025
+        (viewing copy)</classification>\n  <identifier type=\"lccn\">2014604743</identifier>\n
+        \ <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n    <descriptionStandard>amim</descriptionStandard>\n
+        \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
+        \   <recordCreationDate encoding=\"marc\">140604</recordCreationDate>\n    <recordChangeDate
+        encoding=\"iso8601\">20140605152553.0</recordChangeDate>\n    <recordIdentifier>18176777</recordIdentifier>\n
+        \   <recordOrigin>Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
+        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>16</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
+        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>The truth
+        about dads and moms</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n
+        \   <title>Truth about dads and moms</title>\n  </titleInfo>\n  <titleInfo
+        type=\"alternative\" displayLabel=\"Copyright application title:\">\n    <title>S#*!
+        my dad says</title>\n    <partName>The truth about dads and moms</partName>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Shit my dad
+        says</title>\n    <partName>The truth about dads and moms</partName>\n  </titleInfo>\n
+        \ <titleInfo type=\"alternative\">\n    <title>Bleep my dad says</title>\n
+        \   <partName>The truth about dads and moms</partName>\n  </titleInfo>\n  <name
+        type=\"corporate\">\n    <namePart>Copyright Collection (Library of Congress)</namePart>\n
+        \ </name>\n  <typeOfResource>moving image</typeOfResource>\n  <genre authority=\"marcgt\">motion
+        picture</genre>\n  <genre authority=\"lcgft\">Situation comedies (Television
+        programs)</genre>\n  <genre authority=\"lcgft\">Fiction television programs.</genre>\n
+        \ <originInfo>\n    <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">xxu</placeTerm>\n
+        \   </place>\n    <dateIssued>2010-10-07</dateIssued>\n    <dateIssued encoding=\"marc\">2010</dateIssued>\n
+        \   <dateCaptured encoding=\"iso8601\">20101007</dateCaptured>\n    <issuance>monographic</issuance>\n
+        \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n
+        \ </language>\n  <physicalDescription>\n    <form authority=\"marccategory\">videorecording</form>\n
+        \   <form authority=\"marcsmd\">videocassette</form>\n    <extent>viewing
+        copy 1 videocassette of 1 (Betacam SP) (30 min.) : sd., col. ; 1/2 in.</extent>\n
+        \ </physicalDescription>\n  <abstract type=\"Summary\">\"After Ed takes Henry
+        out to an early dinner one night, they bump into Tim (Tim Bagley), who was
+        fired for forging Ed's driver's test. Henry disagrees with Ed on what should
+        be done to fix it. Meanwhile Bonnie gets an expensive make-up job and is determined
+        to make it last to get her money out it. Also Vince tells Henry of what really
+        happened when they were younger\"--Wikipedia WWW site, viewed June 9, 2014.</abstract>\n
+        \ <note type=\"statement of responsibility\" altRepGroup=\"00\">directed by
+        \ Rob Schiller ; written by Erin Ehrlich.</note>\n  <note>Episode no. 3.</note>\n
+        \ <note>Production no. 2J5633.</note>\n  <note>Sources used: video container;
+        Copyright catalog online; Copyright description; Wikipedia WWW site, viewed
+        June 9, 2014.</note>\n  <note type=\"performers\">William Shatner, Tim Bagley.</note>\n
+        \ <classification authority=\"lcc\">VAP 8696 (viewing copy)</classification>\n
+        \ <identifier type=\"lccn\">2014603696</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
+        \   <descriptionStandard>amim</descriptionStandard>\n    <recordContentSource
+        authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">140609</recordCreationDate>\n
+        \   <recordChangeDate encoding=\"iso8601\">20140609105314.0</recordChangeDate>\n
+        \   <recordIdentifier>18181426</recordIdentifier>\n    <recordOrigin>Converted
+        from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
+        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>17</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
+        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>Well suitored</partName>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Well suitored</title>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\" displayLabel=\"Copyright
+        application title:\">\n    <title>S#*! my dad says</title>\n    <partName>Well
+        suitored</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n
+        \   <title>Shit my dad says</title>\n    <partName>Well suitored</partName>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Bleep my dad
+        says</title>\n    <partName>Well suitored</partName>\n  </titleInfo>\n  <name
+        type=\"corporate\">\n    <namePart>Copyright Collection (Library of Congress)</namePart>\n
+        \ </name>\n  <typeOfResource>moving image</typeOfResource>\n  <genre authority=\"marcgt\">motion
+        picture</genre>\n  <genre authority=\"lcgft\">Situation comedies (Television
+        programs)</genre>\n  <genre authority=\"lcgft\">Fiction television programs.</genre>\n
+        \ <originInfo>\n    <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">xxu</placeTerm>\n
+        \   </place>\n    <dateIssued>2011-02-03</dateIssued>\n    <dateIssued encoding=\"marc\">2011</dateIssued>\n
+        \   <dateCaptured encoding=\"iso8601\">20110203</dateCaptured>\n    <issuance>monographic</issuance>\n
+        \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n
+        \ </language>\n  <physicalDescription>\n    <form authority=\"marccategory\">videorecording</form>\n
+        \   <form authority=\"marcsmd\">videocassette</form>\n    <extent>viewing
+        copy 1 videocassette of 1 (Betacam SP) (30 min.) : sd., col. ; 1/2 in.</extent>\n
+        \ </physicalDescription>\n  <note type=\"statement of responsibility\" altRepGroup=\"00\">directed
+        by Ted Wass ; written by Michael Lisbe and Nate Reger.</note>\n  <note>Production
+        no. 2J5666.</note>\n  <note>Sources used: video container; Copyright catalog
+        online; Copyright description; Wikipedia WWW site, viewed June 4, 2014.</note>\n
+        \ <note type=\"performers\">William Shatner, Jonathan Sadowski, Will Sasso.</note>\n
+        \ <classification authority=\"lcc\">VAQ 3027 (viewing copy)</classification>\n
+        \ <identifier type=\"lccn\">2014604745</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
+        \   <descriptionStandard>amim</descriptionStandard>\n    <recordContentSource
+        authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">140604</recordCreationDate>\n
+        \   <recordChangeDate encoding=\"iso8601\">20140605153100.0</recordChangeDate>\n
+        \   <recordIdentifier>18176801</recordIdentifier>\n    <recordOrigin>Converted
+        from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
+        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>18</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
+        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>Who's your
+        daddy?</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Who's
+        your daddy?</title>\n  </titleInfo>\n  <titleInfo type=\"alternative\" displayLabel=\"Copyright
+        application title:\">\n    <title>S#*! my dad says</title>\n    <partName>Who's
+        your daddy?</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n
+        \   <title>Shit my dad says</title>\n    <partName>Who's your daddy?</partName>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Bleep my dad
+        says</title>\n    <partName>Who's your daddy?</partName>\n  </titleInfo>\n
+        \ <name type=\"corporate\">\n    <namePart>Copyright Collection (Library of
+        Congress)</namePart>\n  </name>\n  <typeOfResource>moving image</typeOfResource>\n
+        \ <genre authority=\"marcgt\">motion picture</genre>\n  <genre authority=\"lcgft\">Situation
+        comedies (Television programs)</genre>\n  <genre authority=\"lcgft\">Fiction
+        television programs.</genre>\n  <originInfo>\n    <place>\n      <placeTerm
+        type=\"code\" authority=\"marccountry\">xxu</placeTerm>\n    </place>\n    <dateIssued>2011-02-17</dateIssued>\n
+        \   <dateIssued encoding=\"marc\">2011</dateIssued>\n    <dateCaptured encoding=\"iso8601\">20110217</dateCaptured>\n
+        \   <issuance>monographic</issuance>\n  </originInfo>\n  <language>\n    <languageTerm
+        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n  </language>\n
+        \ <physicalDescription>\n    <form authority=\"marccategory\">videorecording</form>\n
+        \   <form authority=\"marcsmd\">videocassette</form>\n    <extent>viewing
+        copy 1 videocassette of 1 (Betacam SP) (30 min.) : sd., col. ; 1/2 in.</extent>\n
+        \ </physicalDescription>\n  <abstract type=\"Summary\">\"After meeting Henry's
+        new girlfriend, Ed realizes he has a strange connection with her\"--Wikipedia
+        WWW site, viewed June 9, 2014.</abstract>\n  <note type=\"statement of responsibility\"
+        altRepGroup=\"00\">directed by Steve Zuckerman ; written by Steve Gabriel.</note>\n
+        \ <note>Episode no. 18.</note>\n  <note>Production no. 2J5668.</note>\n  <note>Sources
+        used: video container; Copyright catalog online; Copyright description; Wikipedia
+        WWW site, viewed June 9, 2014.</note>\n  <note type=\"performers\">William
+        Shatner.</note>\n  <note type=\"performers\">Guest stars: Riki Lindhome, Camille
+        Donatacci Grammer.</note>\n  <classification authority=\"lcc\">VAQ 1400 (viewing
+        copy)</classification>\n  <identifier type=\"lccn\">2014603989</identifier>\n
+        \ <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n    <descriptionStandard>amim</descriptionStandard>\n
+        \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
+        \   <recordCreationDate encoding=\"marc\">140609</recordCreationDate>\n    <recordChangeDate
+        encoding=\"iso8601\">20140609104408.0</recordChangeDate>\n    <recordIdentifier>18181381</recordIdentifier>\n
+        \   <recordOrigin>Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
+        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>19</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
+        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>Wi-fight</partName>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Wi-fight</title>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\" displayLabel=\"Copyright
+        application title:\">\n    <title>S#*! my dad says</title>\n    <partName>Wi-fight</partName>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Shit my dad
+        says</title>\n    <partName>Wi-fight</partName>\n  </titleInfo>\n  <titleInfo
+        type=\"alternative\">\n    <title>Bleep my dad says</title>\n    <partName>Wi-fight</partName>\n
+        \ </titleInfo>\n  <name type=\"corporate\">\n    <namePart>Copyright Collection
+        (Library of Congress)</namePart>\n  </name>\n  <typeOfResource>moving image</typeOfResource>\n
+        \ <genre authority=\"marcgt\">motion picture</genre>\n  <genre authority=\"lcgft\">Situation
+        comedies (Television programs)</genre>\n  <genre authority=\"lcgft\">Fiction
+        television programs.</genre>\n  <originInfo>\n    <place>\n      <placeTerm
+        type=\"code\" authority=\"marccountry\">xxu</placeTerm>\n    </place>\n    <dateIssued>2010-09-30</dateIssued>\n
+        \   <dateIssued encoding=\"marc\">2010</dateIssued>\n    <dateCaptured encoding=\"iso8601\">20100930</dateCaptured>\n
+        \   <issuance>monographic</issuance>\n  </originInfo>\n  <language>\n    <languageTerm
+        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n  </language>\n
+        \ <physicalDescription>\n    <form authority=\"marccategory\">videorecording</form>\n
+        \   <form authority=\"marcsmd\">videocassette</form>\n    <extent>viewing
+        copy 1 videocassette of 1 (Betacam SP) (30 min.) : sd., col. ; 1/2 in.</extent>\n
+        \ </physicalDescription>\n  <note type=\"statement of responsibility\" altRepGroup=\"00\">directed
+        by Gail Mancuso ; written by Jeff Astrof.</note>\n  <note>Production no. 2J5652.</note>\n
+        \ <note>Sources used: video container; Copyright catalog online; Copyright
+        description; Wikipedia WWW site, viewed June 4, 2014.</note>\n  <note type=\"performers\">William
+        Shatner, Jonathan Sadowski, Will Sasso.</note>\n  <classification authority=\"lcc\">VAQ
+        3022 (viewing copy)</classification>\n  <identifier type=\"lccn\">2014604740</identifier>\n
+        \ <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n    <descriptionStandard>amim</descriptionStandard>\n
+        \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
+        \   <recordCreationDate encoding=\"marc\">140604</recordCreationDate>\n    <recordChangeDate
+        encoding=\"iso8601\">20140605151844.0</recordChangeDate>\n    <recordIdentifier>18176724</recordIdentifier>\n
+        \   <recordOrigin>Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
+        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>20</zs:recordPosition></zs:record></zs:records><zs:nextRecordPosition>21</zs:nextRecordPosition></zs:searchRetrieveResponse>\n"
+    http_version: '1.1'
+  recorded_at: Thu, 14 Aug 2014 13:17:13 GMT
+recorded_with: VCR 2.9.2
