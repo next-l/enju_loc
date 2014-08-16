@@ -487,6 +487,14 @@ module EnjuLoc
 	    end
 	  end
 	end
+        doc.xpath('//mods:genre',NS).each do |e|
+          authority = e.attributes['authority'].try(:content)
+	  case authority
+	  when "rdacontent"
+	    content_type = ContentType.where(:name => e.content.gsub(/\W+/, "_")).first
+	    content_type = ContentType.where(:name => 'other').first unless content_type
+          end
+        end
 	type = doc.at('//mods:typeOfResource',NS).try(:content)
 	case type
 	when "text"
@@ -512,14 +520,6 @@ module EnjuLoc
 	when "mixed material"
 	  content_type = ContentType.where(:name => 'other').first
 	end
-        doc.xpath('//mods:genre',NS).each do |e|
-          authority = e.attributes['authority'].try(:content)
-	  case authority
-	  when "rdacontent"
-	    content_type = ContentType.where(:name => e.content.gsub(/\W+/, "_")).first
-	    content_type = ContentType.where(:name => 'other').first unless content_type
-          end
-        end
         { :carrier_type => carrier_type, :content_type => content_type }
       end
     end
