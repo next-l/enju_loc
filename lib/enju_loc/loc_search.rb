@@ -380,10 +380,10 @@ module EnjuLoc
 	doc.xpath('//mods:classification[@authority="ddc"]',NS).each do|c|
 	  ddc = c.content
 	  if ddc
-	    classifications << ddc.split(/[^\d\.]/).first.strip
+	    classifications << ddc.split(/[^\d\.]/).first.try(:strip)
 	  end
 	end
-	classifications
+	classifications.compact
       end
 
       def get_carrier_and_content_types(doc)
