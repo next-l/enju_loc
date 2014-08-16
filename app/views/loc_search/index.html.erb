@@ -24,8 +24,13 @@
     <td>
       <strong><%= link_to_unless( book.lccn.blank?, book.title, "http://lccn.loc.gov/#{ book.lccn }" ) do book.title end %></strong><br />
       <%=h book.creator -%><br />
+      <% if book.publisher.present? %>
       <%=h book.publisher -%>,
+      <% end %>
       <%=h book.pubyear -%>
+      <% if book.isbn.present? %>
+      (ISBN: <%=h book.isbn -%>)
+      <% end %>
     </td>
   </tr>
 <% end -%>

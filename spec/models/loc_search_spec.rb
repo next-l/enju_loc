@@ -175,6 +175,7 @@ describe LocSearch do
       expect( metadata.creator ).to eq "David Weinberger."
       expect( metadata.pubyear ).to eq "2007"
       expect( metadata.publisher ).to eq "Times Books"
+      expect( metadata.isbn ).to eq "9780805080438"
     end
   end
 
