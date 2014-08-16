@@ -98,7 +98,6 @@ describe LocSearch do
     it "should import e-resource", :vcr => true do
       m = LocSearch.import_from_sru_response( "2005568297" )
       expect( m.carrier_type ).to eq CarrierType.where( :name => "online_resource" ).first
-      pending "carrier type should be changed. cf. next-l/enju_leaf#300"
       expect( m.access_address ).to eq "http://portal.acm.org/dl.cfm"
     end
 
@@ -106,19 +105,19 @@ describe LocSearch do
       m = LocSearch.import_from_sru_response( "2006575029" )
       expect( m.original_title ).to eq "Microsoft Encarta 2006 premium"
       expect( m.statement_of_responsibility ).to eq "Microsoft Corporation"
-      pending "carrier type should be changed. cf. next-l/enju_leaf#300"
       expect( m.carrier_type ).to eq CarrierType.where( :name => "online_resource" ).first
+      expect( m.manifestation_content_type ).to eq ContentType.where( :name => "other" ).first
     end
 
     it "should import audio book", :vcr => true do
       m = LocSearch.import_from_sru_response( "2007576782" ) # RDA metadata
-      expect( m.manifestation_content_type ).to eq ContentType.where( :name => "audio" ).first
+      expect( m.manifestation_content_type ).to eq ContentType.where( :name => "spoken_word" ).first
       expect( m.carrier_type ).to eq CarrierType.where( :name => "audio_disc" ).first
     end
 
     it "should import video publication", :vcr => true do
       m = LocSearch.import_from_sru_response( "2013602064" )
-      expect( m.manifestation_content_type ).to eq ContentType.where( :name => "video" ).first
+      expect( m.manifestation_content_type ).to eq ContentType.where( :name => "two_dimensional_moving_image" ).first
       expect( m.carrier_type ).to eq CarrierType.where( :name => "videodisc" ).first
     end
 
