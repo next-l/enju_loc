@@ -391,7 +391,7 @@ module EnjuLoc
 	  when "gmd"
 	    case e.content
 	    when "electronic resource"
-	      carrier_type = CarrierType.where(:name => 'file').first
+	      carrier_type = CarrierType.where(:name => 'online_resource').first
 	    when "videorecording"
               content_type = ContentType.where(:name => 'video').first
 	    #TODO: Enju needs more specific mappings...
@@ -419,16 +419,23 @@ module EnjuLoc
 	  when "marcsmd" # cf.http://www.loc.gov/standards/valuelist/marcsmd.html
 	    case e.content
             when "text", "braille", "large print", "regular print", "text in looseleaf binder"
-              carrier_type = CarrierType.where(:name => 'print').first
+              carrier_type = CarrierType.where(:name => 'volume').first
               content_type = ContentType.where(:name => 'text').first
-	    when "videorecording", "videocartridge", "videocassette", "videodisc", "videoreel"
+	    when "videodisc"
+              carrier_type = CarrierType.where(:name => 'videodisc').first
               content_type = ContentType.where(:name => 'video').first
-	    when "electronic resource", "chip cartridge", "computer optical disc cartridge", "magnetic disk", "magneto-optical disc", "optical disc", "remote", "tape cartridge", "tape cassette", "tape reel"
-	      carrier_type = CarrierType.where(:name => 'file').first
+	    when "videorecording", "videocartridge", "videocassette", "videoreel"
+              content_type = ContentType.where(:name => 'video').first
+	    when "electronic resource"
+	      carrier_type = CarrierType.where(:name => 'online_resource').first
+	    when "chip cartridge", "computer optical disc cartridge", "magnetic disk", "magneto-optical disc", "optical disc", "remote", "tape cartridge", "tape cassette", "tape reel"
 	    when "motion picture", "film cartridge", "film cassette", "film reel"
               content_type = ContentType.where(:name => 'video').first
-	    when "sound recording", "cylinder", "roll ", "sound cartridge", "sound cassette ", "sound disc ", "sound-tape reel", "sound-track film ", "wire recording" 
+	    when "sound recording", "cylinder", "roll", "sound cartridge", "sound cassette","sound-tape reel", "sound-track film", "wire recording" 
 	      conrent_type = ContentType.where(:name => 'audio').first
+	    when "sound disc"
+	      conrent_type = ContentType.where(:name => 'audio').first
+	      carrier_type = CarrierType.where(:name => 'audio_disc').first
 	    #when "nonprojected graphic", "chart", "collage", "drawing", "flash card", "painting", "photomechanical print", "photonegative", "photoprint", "picture", "print", "technical drawing", "projected graphic", "filmslip", "filmstrip cartridge", "filmstrip roll", "other filmstrip type ", "slide", "transparency"
             #  content_type = ContentType.where(:name => 'image').first
 	    #TODO: Enju needs more specific mappings...
@@ -463,10 +470,10 @@ module EnjuLoc
 	  when "marcform" # cf. http://www.loc.gov/standards/valuelist/marcform.html
 	    case e.content
 	    when "print", "large print"
-              carrier_type = CarrierType.where(:name => 'print').first
+              carrier_type = CarrierType.where(:name => 'volume').first
               content_type = ContentType.where(:name => 'text').first
 	    when "electronic"
-              carrier_type = CarrierType.where(:name => 'file').first
+              carrier_type = CarrierType.where(:name => 'online_resource').first
 	    #TODO: Enju needs more specific mappings...
 	    when "microfiche"
 	    when "braille"
