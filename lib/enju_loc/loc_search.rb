@@ -521,9 +521,9 @@ module EnjuLoc
 	  content_type = ContentType.where(:name => 'audio').first
 	when "moving image"
 	  content_type = ContentType.where(:name => 'video').first
-	when "software, multimedia"
-	  carrier_type = ContentType.where(:name => 'file').first
 	#TODO: Enju needs more specific mappings...
+	when "software, multimedia"
+	  # carrier_type = ContentType.where(:name => 'software').first
 	when "cartographic "
 	when "notated music"
 	when "still image"

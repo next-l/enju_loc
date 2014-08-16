@@ -101,6 +101,12 @@ describe LocSearch do
       expect( m.access_address ).to eq "http://portal.acm.org/dl.cfm"
     end
 
+    it "should import e-resource (packaged)", :vcr => true do
+      m = LocSearch.import_from_sru_response( "2006575029" )
+      expect( m.original_title ).to eq "Microsoft Encarta 2006 premium"
+      expect( m.carrier_type ).to eq CarrierType.where( :name => "file" ).first
+    end
+
     it "should import audio book", :vcr => true do
       m = LocSearch.import_from_sru_response( "2007576782" ) # RDA metadata
       expect( m.manifestation_content_type ).to eq ContentType.where( :name => "audio" ).first
