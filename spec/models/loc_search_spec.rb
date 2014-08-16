@@ -139,6 +139,12 @@ describe LocSearch do
       expect( series_statement.title_alternative ).to eq m.title_alternative
       expect( series_statement.series_master ).to be_truthy
     end
+
+    it "should import a manifestation that has invalid classification", :vcr => true do
+      m = LocSearch.import_from_sru_response( "2014381788" )
+      expect( m ).to be_valid
+      expect( m.classifications ).to be_empty
+    end
   end
 
   context ".search", :vcr => true do
