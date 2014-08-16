@@ -28,7 +28,7 @@ class LocSearchController < ApplicationController
     respond_to do |format|
       if @manifestation.try(:save)
         flash[:notice] = t('controller.successfully_created', :model => t('activerecord.models.manifestation'))
-        format.html { redirect_to manifestation_items_url(@manifestation) }
+        format.html { redirect_to manifestation_url(@manifestation) }
       else
 	if @manifestation and not @manifestation.valid? 
 	  flash[:notice] = @manifestation.errors.messages

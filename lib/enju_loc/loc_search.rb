@@ -53,20 +53,7 @@ module EnjuLoc
         titles = get_titles(doc)
 
         # date of publication
-        pub_date = doc.at('//mods:dateIssued',NS).try(:content)
-        if pub_date
-	  pub_date.sub!( /\Ac/, '' )
-          unless pub_date =~ /^\d+(-\d{0,2}){0,2}$/
-            pub_date = nil
-	  else
-            date = pub_date.split('-')
-            if date[0] and date[1]
-              date = sprintf("%04d-%02d", date[0], date[1])
-            else
-              date = pub_date
-            end
-	  end
-        end
+        date = get_date_of_publication(doc)
 
         language = Language.where(:iso_639_2 => get_language(doc)).first
         if language
@@ -75,22 +62,26 @@ module EnjuLoc
           language_id = 1
         end
 
-        isbn = Lisbn.new(doc.at('//mods:identifier[@type="isbn"]',NS).try(:content).to_s).try(:isbn)
-        lccn = StdNum::LCCN.normalize(doc.at('//mods:identifier[@type="lccn"]',NS).try(:content).to_s)
-        issn = StdNum::ISSN.normalize(doc.at('//mods:identifier[@type="issn"]',NS).try(:content).to_s)
-        issn_l = StdNum::ISSN.normalize(doc.at('//mods:identifier[@type="issn-l"]',NS).try(:content).to_s)
+        isbn = Lisbn.new(doc.at('/mods:mods/mods:identifier[@type="isbn"]',NS).try(:content).to_s).try(:isbn)
+        lccn = StdNum::LCCN.normalize(doc.at('/mods:mods/mods:identifier[@type="lccn"]',NS).try(:content).to_s)
+        issn = StdNum::ISSN.normalize(doc.at('/mods:mods/mods:identifier[@type="issn"]',NS).try(:content).to_s)
+        issn_l = StdNum::ISSN.normalize(doc.at('/mods:mods/mods:identifier[@type="issn-l"]',NS).try(:content).to_s)
 
 	types = get_carrier_and_content_types( doc )
 	content_type = types[ :content_type ]
 	carrier_type = types[ :carrier_type ]
 
 	record_identifier = doc.at('//mods:recordInfo/mods:recordIdentifier',NS).try(:content)
-        description = doc.at('//mods:abstract',NS).try(:content)
+        description = doc.xpath('//mods:abstract',NS).collect(&:content).join("\n")
         edition_string = doc.at('//mods:edition',NS).try(:content)
         extent = get_extent(doc)
-        publication_periodicity = doc.at('//mods:frequency',NS).try(:content)
+	note = get_note(doc)
+        frequency = get_frequency(doc)
+	issuance = doc.at('//mods:issuance',NS).try(:content)
+	is_serial = true if issuance == "serial"
         statement_of_responsibility = get_statement_of_responsibility(doc)
 	access_address = get_access_address(doc)
+	publication_place = get_publication_place(doc)
 
         manifestation = nil
         Agent.transaction do
@@ -110,6 +101,9 @@ module EnjuLoc
             :end_page => extent[:end_page],
             :height => extent[:height],
 	    :access_address => access_address,
+	    :note => note,
+	    :publication_place => publication_place,
+	    :periodical => is_serial,
           )
           identifier = {}
           if isbn
@@ -134,7 +128,7 @@ module EnjuLoc
           end
           manifestation.carrier_type = carrier_type if carrier_type
           manifestation.manifestation_content_type = content_type if content_type
-          manifestation.periodical = true if publication_periodicity
+	  manifestation.frequency = frequency if frequency
           if manifestation.save
             identifier.each do |k, v|
               manifestation.identifiers << v if v.valid?
@@ -143,6 +137,9 @@ module EnjuLoc
 	    manifestation.creators << creator_agents
 	    create_subject_related_elements(doc, manifestation)
             create_series_statement(doc, manifestation)
+	    if is_serial
+              create_series_master(doc, manifestation)
+	    end
           end
         end
         return manifestation
@@ -178,23 +175,30 @@ module EnjuLoc
       end
 
       def create_series_statement(doc, manifestation)
-        series = series_title = {}
-        series[:title] = doc.at('//mods:relatedItem[@type="series"]/mods:titleInfo/mods:title',NS).try(:content)
-        if series[:title]
-          series_title[:title] = series[:title].split(';')[0].strip
-        end
-
-        if series_title[:title]
-          series_statement = SeriesStatement.where(:original_title => series_title[:title]).first
-          unless series_statement
-            series_statement = SeriesStatement.new(
-              :original_title => series_title[:title],
-            )
+        doc.xpath('//mods:relatedItem[@type="series"]/mods:titleInfo/mods:title',NS).each do |series|
+          series_title = title = series.try(:content)
+          if title
+            series_title = title.split(';')[0].strip
+          end
+          if series_title
+            series_statement = SeriesStatement.where(:original_title => series_title).first_or_create
+            if series_statement.try(:save)
+              manifestation.series_statements << series_statement
+            end
           end
         end
-        if series_statement.try(:save)
-          manifestation.series_statements << series_statement
-        end
+      end
+      
+      def create_series_master(doc, manifestation)
+        titles = get_titles(doc)
+	series_statement = SeriesStatement.new(
+	  :original_title => titles[:original_title],
+	  :title_alternative => titles[:title_alternative],
+	  :series_master => true,
+	)
+	if series_statement.try(:save)
+	  manifestation.series_statements << series_statement
+	end
       end
 
       def get_titles(doc)
@@ -214,7 +218,7 @@ module EnjuLoc
 	    partnumber = e.at('./mods:partNumber',NS).try(:content)
 	    partname = e.at('./mods:partName',NS).try(:content)
 	    partname = [ partnumber, partname ].compact.join( ": " )
-	    original_title << ". #{ partname }" if partname
+	    original_title << ". #{ partname }" unless partname.blank?
 	  end
 	end
 	{ :original_title => original_title, :title_alternative => title_alternatives.join( " ; " ) }
@@ -235,6 +239,10 @@ module EnjuLoc
 	  end
 	end
 	access_address
+      end
+
+      def get_publication_place(doc)
+	place = doc.at('//mods:originInfo/mods:place/mods:placeTerm[@type="text"]',NS).try(:content)
       end
 
       def get_extent(doc)
@@ -265,6 +273,68 @@ module EnjuLoc
 	  end.join( "; " )
 	end
       end
+      def get_note(doc)
+        notes = []
+	doc.xpath('//mods:note',NS).each do |note|
+	  type = note.attributes['type'].try(:content)
+	  next if type == "statement of responsibility"
+	  note_s = note.try( :content )
+	  notes << note_s unless note_s.blank?
+	end
+	if notes.empty?
+	  nil
+	else
+	  notes.join( ";\n" )
+	end
+      end
+      def get_date_of_publication(doc)
+        dates = []
+	doc.xpath('//mods:dateIssued',NS).each do |pub_date|
+	  pub_date = pub_date.content.sub( /\A[cp]/, '' )
+          next unless pub_date =~ /^\d+(-\d\d?){0,2}$/
+          date = pub_date.split('-')
+          if date[0] and date[1]
+            dates << sprintf("%04d-%02d", date[0], date[1])
+          else
+            dates << pub_date
+	  end
+        end
+	dates.compact.first
+      end
+
+      # derived from marcfrequency: http://www.loc.gov/standards/valuelist/marcfrequency.html
+      MARCFREQUENCY = [
+        "Continuously updated",
+        "Daily",
+        "Semiweekly",
+        "Three times a week",
+        "Weekly",
+        "Biweekly",
+        "Three times a month",
+        "Semimonthly",
+        "Monthly",
+        "Bimonthly",
+        "Quarterly",
+        "Three times a year",
+        "Semiannual",
+        "Annual",
+        "Biennial",
+        "Triennial",
+        "Completely irregular",
+      ]
+      def get_frequency(doc)
+        frequencies = []
+	doc.xpath('//mods:frequency',NS).each do |freq|
+	  frequency = freq.try(:content)
+	  MARCFREQUENCY.each do |freq_regex|
+	    if /\A(#{freq_regex})/ =~ frequency
+	      frequency_name = freq_regex.downcase.gsub( /\s+/, "_" )
+	      frequencies << Frequency.where( :name => frequency_name ).first
+	    end
+	  end
+	end
+	frequencies.compact.first
+      end
 
       def get_creators(doc)
 	creators = []
@@ -279,19 +349,26 @@ module EnjuLoc
       # TODO:only LCSH-based parsing...
       def get_subjects(doc)
 	subjects = []
-	doc.xpath('//mods:subject',NS).each do |s|
+	doc.xpath('//mods:subject[@authority="lcsh"]',NS).each do |s|
 	  subject = []
 	  s.xpath('./*',NS).each do |subelement|
+	    type = subelement.name
 	    case subelement.name
 	    when "topic", "geographic", "genre", "temporal"
-	      subject << subelement.try(:content)
+	      subject << { :type => type , :term => subelement.try(:content) }
 	    when "titleInfo"
-	      subject << subelement.at('./mods:title',NS).try(:content)
+	      subject << { :type => type, :term => subelement.at('./mods:title',NS).try(:content) }
+	    when "name"
+	      name = subelement.xpath('./mods:namePart',NS).map{|e| e.try(:content) }.join( ", " )
+	      subject << { :type => type, :term => name }
 	    end
 	  end
 	  next if subject.compact.empty?
+	  if subject.size > 1 and subject[0][:type] == "name" and subject[1][:type] == "titleInfo"
+	    subject[0..1] = { :term => subject[0..1].map{|e|e[:term]}.join( ". " ) }
+	  end
 	  subjects << {
-	    :term => subject.compact.join( "--" )
+	    :term => subject.map{|e|e[:term]}.compact.join( "--" )
 	  }
 	end
 	subjects

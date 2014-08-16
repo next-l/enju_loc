@@ -11,20 +11,25 @@ class LocSearch
       title
     end
     def lccn
-      @node.xpath( './/mods:identifier[@type="lccn"]', MODS_NS ).first.try( :content )
+      @node.xpath( './/mods:mods/mods:identifier[@type="lccn"]', MODS_NS ).first.try( :content )
     end
     def creator
-      names = @node.xpath( './/mods:name', MODS_NS )
-      creator = names.map do |name|
-        name.xpath( './/mods:namePart', MODS_NS ).map do |part|
-          if part.content
-            part.content
-          else
-            nil
-          end
-        end.compact.join( ", " )
-      end.join( " ; " )
-      creator
+      statement_of_responsibility = @node.at('.//mods:note[@type="statement of responsibility"]',MODS_NS).try(:content)
+      if statement_of_responsibility
+        statement_of_responsibility
+      else
+        names = @node.xpath( './/mods:name', MODS_NS )
+        creator = names.map do |name|
+          name.xpath( './/mods:namePart', MODS_NS ).map do |part|
+            if part.content
+              part.content
+            else
+              nil
+            end
+          end.compact.join( ", " )
+        end.join( " ; " )
+        creator
+      end
     end
     def publisher
       names = @node.xpath( './/mods:publisher', MODS_NS ).map do |e|
