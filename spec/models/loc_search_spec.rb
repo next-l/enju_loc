@@ -105,6 +105,7 @@ describe LocSearch do
       m = LocSearch.import_from_sru_response( "2006575029" )
       expect( m.original_title ).to eq "Microsoft Encarta 2006 premium"
       expect( m.carrier_type ).to eq CarrierType.where( :name => "file" ).first
+      expect( m.statement_of_responsibility ).to eq "Microsoft Corporation"
     end
 
     it "should import audio book", :vcr => true do
