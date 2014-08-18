@@ -47,15 +47,15 @@ module EnjuLoc
           }
         end
 
-        creators = get_creators(doc)
+        creators = get_mods_creators(doc)
 
         # title
-        titles = get_titles(doc)
+        titles = get_mods_titles(doc)
 
         # date of publication
-        date = get_date_of_publication(doc)
+        date = get_mods_date_of_publication(doc)
 
-        language = Language.where(:iso_639_2 => get_language(doc)).first
+        language = Language.where(:iso_639_2 => get_mods_language(doc)).first
         if language
           language_id = language.id
         else
@@ -67,21 +67,21 @@ module EnjuLoc
         issn = StdNum::ISSN.normalize(doc.at('/mods:mods/mods:identifier[@type="issn"]',NS).try(:content).to_s)
         issn_l = StdNum::ISSN.normalize(doc.at('/mods:mods/mods:identifier[@type="issn-l"]',NS).try(:content).to_s)
 
-	types = get_carrier_and_content_types( doc )
+	types = get_mods_carrier_and_content_types( doc )
 	content_type = types[ :content_type ]
 	carrier_type = types[ :carrier_type ]
 
 	record_identifier = doc.at('//mods:recordInfo/mods:recordIdentifier',NS).try(:content)
         description = doc.xpath('//mods:abstract',NS).collect(&:content).join("\n")
         edition_string = doc.at('//mods:edition',NS).try(:content)
-        extent = get_extent(doc)
-	note = get_note(doc)
-        frequency = get_frequency(doc)
+        extent = get_mods_extent(doc)
+	note = get_mods_note(doc)
+        frequency = get_mods_frequency(doc)
 	issuance = doc.at('//mods:issuance',NS).try(:content)
 	is_serial = true if issuance == "serial"
-        statement_of_responsibility = get_statement_of_responsibility(doc)
-	access_address = get_access_address(doc)
-	publication_place = get_publication_place(doc)
+        statement_of_responsibility = get_mods_statement_of_responsibility(doc)
+	access_address = get_mods_access_address(doc)
+	publication_place = get_mods_publication_place(doc)
 
         manifestation = nil
         Agent.transaction do
@@ -147,8 +147,8 @@ module EnjuLoc
 
       private
       def create_subject_related_elements(doc, manifestation)
-	subjects = get_subjects(doc)
-	classifications = get_classifications(doc)
+	subjects = get_mods_subjects(doc)
+	classifications = get_mods_classifications(doc)
 	if defined?(EnjuSubject)
           subject_heading_type = SubjectHeadingType.where(:name => 'lcsh').first_or_create
           subjects.each do |term|
@@ -190,7 +190,7 @@ module EnjuLoc
       end
       
       def create_series_master(doc, manifestation)
-        titles = get_titles(doc)
+        titles = get_mods_titles(doc)
 	series_statement = SeriesStatement.new(
 	  :original_title => titles[:original_title],
 	  :title_alternative => titles[:title_alternative],
@@ -201,7 +201,7 @@ module EnjuLoc
 	end
       end
 
-      def get_titles(doc)
+      def get_mods_titles(doc)
 	original_title = ""
 	title_alternatives = []
 	doc.xpath('//mods:mods/mods:titleInfo',NS).each do |e|
@@ -224,11 +224,11 @@ module EnjuLoc
 	{ :original_title => original_title, :title_alternative => title_alternatives.join( " ; " ) }
       end
 
-      def get_language(doc)
+      def get_mods_language(doc)
 	language = doc.at('//mods:language/mods:languageTerm[@authority="iso639-2b"]',NS).try(:content)
       end
 
-      def get_access_address(doc)
+      def get_mods_access_address(doc)
 	access_address = nil
 	url = doc.at('//mods:location/mods:url',NS)
 	if url
@@ -241,11 +241,11 @@ module EnjuLoc
 	access_address
       end
 
-      def get_publication_place(doc)
+      def get_mods_publication_place(doc)
 	place = doc.at('//mods:originInfo/mods:place/mods:placeTerm[@type="text"]',NS).try(:content)
       end
 
-      def get_extent(doc)
+      def get_mods_extent(doc)
         extent = doc.at('//mods:extent',NS).try(:content)
         value = {:start_page => nil, :end_page => nil, :height => nil}
         if extent
@@ -263,7 +263,7 @@ module EnjuLoc
         value
       end
 
-      def get_statement_of_responsibility(doc)
+      def get_mods_statement_of_responsibility(doc)
 	note = doc.at('//mods:note[@type="statement of responsibility"]',NS).try(:content)
 	if note
 	  note
@@ -273,7 +273,7 @@ module EnjuLoc
 	  end.join( "; " )
 	end
       end
-      def get_note(doc)
+      def get_mods_note(doc)
         notes = []
 	doc.xpath('//mods:note',NS).each do |note|
 	  type = note.attributes['type'].try(:content)
@@ -287,7 +287,7 @@ module EnjuLoc
 	  notes.join( ";\n" )
 	end
       end
-      def get_date_of_publication(doc)
+      def get_mods_date_of_publication(doc)
         dates = []
 	doc.xpath('//mods:dateIssued',NS).each do |pub_date|
 	  pub_date = pub_date.content.sub( /\A[cp]/, '' )
@@ -322,7 +322,7 @@ module EnjuLoc
         "Triennial",
         "Completely irregular",
       ]
-      def get_frequency(doc)
+      def get_mods_frequency(doc)
         frequencies = []
 	doc.xpath('//mods:frequency',NS).each do |freq|
 	  frequency = freq.try(:content)
@@ -336,7 +336,7 @@ module EnjuLoc
 	frequencies.compact.first
       end
 
-      def get_creators(doc)
+      def get_mods_creators(doc)
 	creators = []
         doc.xpath('/mods:mods/mods:name',NS).each do |creator|
 	  creators << {
@@ -347,7 +347,7 @@ module EnjuLoc
       end
 
       # TODO:only LCSH-based parsing...
-      def get_subjects(doc)
+      def get_mods_subjects(doc)
 	subjects = []
 	doc.xpath('//mods:subject[@authority="lcsh"]',NS).each do |s|
 	  subject = []
@@ -375,7 +375,7 @@ module EnjuLoc
       end
 
       # TODO:support only DDC.
-      def get_classifications(doc)
+      def get_mods_classifications(doc)
 	classifications = []
 	doc.xpath('//mods:classification[@authority="ddc"]',NS).each do|c|
 	  ddc = c.content
@@ -386,7 +386,7 @@ module EnjuLoc
 	classifications.compact
       end
 
-      def get_carrier_and_content_types(doc)
+      def get_mods_carrier_and_content_types(doc)
         carrier_type = content_type = nil
         doc.xpath('//mods:form',NS).each do |e|
           authority = e.attributes['authority'].try(:content)
