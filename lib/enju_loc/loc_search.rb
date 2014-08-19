@@ -265,10 +265,13 @@ module EnjuLoc
 
       def get_mods_statement_of_responsibility(doc)
 	note = doc.at('//mods:note[@type="statement of responsibility"]',NS).try(:content)
-	if note.blank?
-	  note = get_creators(doc).map{|e| e[:full_name] }.join( " ; " )
+	if note
+	  note
+	else
+	  doc.xpath('/mods:mods/mods:name',NS).map do |n|
+	    n.at('./mods:namePart',NS).try(:content)
+	  end.join( "; " )
 	end
-	note
       end
       def get_mods_note(doc)
         notes = []
@@ -391,99 +394,86 @@ module EnjuLoc
 	  when "gmd"
 	    case e.content
 	    when "electronic resource"
-	      carrier_type = CarrierType.where(:name => 'online_resource').first
-	    when "videorecording", "motion picture", "game"
-              content_type = ContentType.where(:name => 'two_dimensional_moving_image').first
-	    when "sound recording"
-              content_type = ContentType.where(:name => 'performed_music').first
-	    when "graphic", "picture"
-	      content_type = ContentType.where(:name => 'still_image').first
+	      carrier_type = CarrierType.where(:name => 'file').first
+	    when "videorecording"
+              content_type = ContentType.where(:name => 'video').first
 	    #TODO: Enju needs more specific mappings...
-	    when "art original",
-	    	 "microscope slides",
-	    	 "art reproduction",
-	    	 "model",
-	    	 "chart",
-	    	 "diorama",
-	    	 "realia",
-	    	 "filmstrip",
-	    	 "slide",
-	    	 "flash card",
-	    	 "technical drawing",
-	    	 "toy",
-	    	 "kit",
-	    	 "transparency",
-	    	 "microform"
-	      content_type = ContentType.where(:name => 'other').first
+	    when "art original"
+	    when "microscope slides"
+	    when "art reproduction"
+	    when "model"
+	    when "chart"
+	    when "motion picture"
+	    when "diorama"
+	    when "picture"
+	    when "realia"
+	    when "filmstrip"
+	    when "slide"
+	    when "flash card"
+	    when "sound recording"
+	    when "game"
+	    when "technical drawing"
+	    when "graphic"
+	    when "toy"
+	    when "kit"
+	    when "transparency"
+	    when "microform"
 	    end
 	  when "marcsmd" # cf.http://www.loc.gov/standards/valuelist/marcsmd.html
 	    case e.content
-            when "text", "large print", "regular print", "text in looseleaf binder"
-              carrier_type = CarrierType.where(:name => 'volume').first
+            when "text", "braille", "large print", "regular print", "text in looseleaf binder"
+              carrier_type = CarrierType.where(:name => 'print').first
               content_type = ContentType.where(:name => 'text').first
-	    when "braille"
-              carrier_type = CarrierType.where(:name => 'volume').first
-              content_type = ContentType.where(:name => 'tactile_text').first
-	    when "videodisc"
-              carrier_type = CarrierType.where(:name => 'videodisc').first
-              content_type = ContentType.where(:name => 'two_dimensional_moving_image').first
-	    when "videorecording", "videocartridge", "videocassette", "videoreel"
-              carrier_type = CarrierType.where(:name => 'other').first
-              content_type = ContentType.where(:name => 'two_dimensional_moving_image').first
-	    when "electronic resource"
-	      carrier_type = CarrierType.where(:name => 'online_resource').first
-	    when "chip cartridge", "computer optical disc cartridge", "magnetic disk", "magneto-optical disc", "optical disc", "remote", "tape cartridge", "tape cassette", "tape reel"
-	      #carrier_type = CarrierType.where(:name => 'other').first
+	    when "videorecording", "videocartridge", "videocassette", "videodisc", "videoreel"
+              content_type = ContentType.where(:name => 'video').first
+	    when "electronic resource", "chip cartridge", "computer optical disc cartridge", "magnetic disk", "magneto-optical disc", "optical disc", "remote", "tape cartridge", "tape cassette", "tape reel"
+	      carrier_type = CarrierType.where(:name => 'file').first
 	    when "motion picture", "film cartridge", "film cassette", "film reel"
-              content_type = ContentType.where(:name => 'two_dimensional_moving_image').first
-	    when "sound recording", "cylinder", "roll", "sound cartridge", "sound cassette","sound-tape reel", "sound-track film", "wire recording" 
-	      content_type = ContentType.where(:name => 'performed_music').first
-	    when "sound disc"
-	      content_type = ContentType.where(:name => 'performed_music').first
-	      carrier_type = CarrierType.where(:name => 'audio_disc').first
-	    when "nonprojected graphic", "chart", "collage", "drawing", "flash card", "painting", "photomechanical print", "photonegative", "photoprint", "picture", "print", "technical drawing", "projected graphic", "filmslip", "filmstrip cartridge", "filmstrip roll", "other filmstrip type ", "slide", "transparency"
-              content_type = ContentType.where(:name => 'still_image').first
-	    when "tactile material", "braille", "tactile, with no writing system"
-	      content_type = ContentType.where(:name => 'tactile_text').first
+              content_type = ContentType.where(:name => 'video').first
+	    when "sound recording", "cylinder", "roll ", "sound cartridge", "sound cassette ", "sound disc ", "sound-tape reel", "sound-track film ", "wire recording" 
+	      conrent_type = ContentType.where(:name => 'audio').first
+	    #when "nonprojected graphic", "chart", "collage", "drawing", "flash card", "painting", "photomechanical print", "photonegative", "photoprint", "picture", "print", "technical drawing", "projected graphic", "filmslip", "filmstrip cartridge", "filmstrip roll", "other filmstrip type ", "slide", "transparency"
+            #  content_type = ContentType.where(:name => 'image').first
 	    #TODO: Enju needs more specific mappings...
-	    when "globe",
-	    	 "celestial globe",
-		 "earth moon globe",
-		 "planetary or lunar globe",
-		 "terrestrial globe",
-		 "map",
-		 "atlas",
-		 "diagram",
-		 "map",
-		 "model",
-		 "profile",
-		 "remote-sensing image",
-		 "section",
-		 "view",
-		 "microform",
-		 "aperture card",
-		 "microfiche",
-		 "microfiche cassette",
-		 "microfilm cartridge",
-		 "microfilm cassette",
-		 "microfilm reel",
-		 "microopaque",
-		 "combination",
-		 "moon"
-              content_type = ContentType.where(:name => 'other').first
+	    when "globe"
+	    when "celestial globe"
+	    when "earth moon globe"
+	    when "planetary or lunar globe"
+	    when "terrestrial globe"
+	    when "map"
+	    when "atlas"
+	    when "diagram"
+	    when "map"
+	    when "model"
+	    when "profile "
+	    when "remote-sensing image"
+	    when "section"
+	    when "view"
+	    when "microform"
+	    when "aperture card"
+	    when "microfiche"
+	    when "microfiche cassette"
+	    when "microfilm cartridge"
+	    when "microfilm cassette"
+	    when "microfilm reel"
+	    when "microopaque"
+	    when "tactile material"
+            when "braille"
+            when "combination"
+            when "moon"
+            when "tactile, with no writing system"
 	    end
 	  when "marcform" # cf. http://www.loc.gov/standards/valuelist/marcform.html
 	    case e.content
 	    when "print", "large print"
-              carrier_type = CarrierType.where(:name => 'volume').first
+              carrier_type = CarrierType.where(:name => 'print').first
               content_type = ContentType.where(:name => 'text').first
 	    when "electronic"
-              carrier_type = CarrierType.where(:name => 'online_resource').first
-	    when "braille"
-	      content_type = ContentType.where(:name => 'tactile_text').first
+              carrier_type = CarrierType.where(:name => 'file').first
 	    #TODO: Enju needs more specific mappings...
-	    when "microfiche", "microfilm"
-	      content_type = ContentType.where(:name => 'other').first
+	    when "microfiche"
+	    when "braille"
+	    when "microfilm"
 	    end
 	  end
 	end
@@ -491,34 +481,54 @@ module EnjuLoc
           authority = e.attributes['authority'].try(:content)
 	  case authority
 	  when "rdacontent"
-	    content_type = ContentType.where(:name => e.content.gsub(/\W+/, "_")).first
-	    content_type = ContentType.where(:name => 'other').first unless content_type
+	    case e.content
+	    when "computer dataset", "computer program"
+              content_type = ContentType.where(:name => 'file').first
+	    when "sounds", "spoken word"
+              content_type = ContentType.where(:name => 'audio').first
+	    when "text"
+              content_type = ContentType.where(:name => 'text').first
+	    when "two-dimensional moving image"
+              content_type = ContentType.where(:name => 'video').first
+	    #TODO: Enju needs more specific mappings...
+	    when "cartographic dataset"
+	    when "cartographic image"
+	    when "cartographic moving image"
+	    when "cartographic tactile image"
+	    when "cartographic tactile three-dimensional form"
+	    when "cartographic three-dimensional form"
+	    when "notated movement"
+	    when "notated music"
+	    when "performed music"
+	    when "still image"
+	    when "tactile image"
+	    when "tactile notated music"
+	    when "tactile notated movement"
+	    when "tactile text"
+	    when "tactile three-dimensional form"
+	    when "three-dimensional form"
+	    when "three-dimensional moving image"
+	    when "other"
+	    when "unspecified"
+            end
           end
         end
 	type = doc.at('//mods:typeOfResource',NS).try(:content)
 	case type
 	when "text"
 	  content_type = ContentType.where(:name => 'text').first
-	when "sound recording"
-	  content_type = ContentType.where(:name => 'sounds').first
-	when"sound recording-musical"
-	  content_type = ContentType.where(:name => 'performed_music').first
-	when"sound recording-nonmusical"
-	  content_type = ContentType.where(:name => 'spoken_word').first
+	when "sound recording", "sound recording-musical", "sound recording-nonmusical"
+	  content_type = ContentType.where(:name => 'audio').first
 	when "moving image"
-	  content_type = ContentType.where(:name => 'two_dimensional_moving_image').first
+	  content_type = ContentType.where(:name => 'video').first
 	when "software, multimedia"
-	  content_type = ContentType.where(:name => 'other').first
+	  carrier_type = ContentType.where(:name => 'file').first
+	#TODO: Enju needs more specific mappings...
 	when "cartographic "
-	  content_type = ContentType.where(:name => 'cartographic_image').first
 	when "notated music"
-	  content_type = ContentType.where(:name => 'notated_music').first
 	when "still image"
-	  content_type = ContentType.where(:name => 'still_image').first
 	when "three dimensional object"
-	  content_type = ContentType.where(:name => 'other').first
 	when "mixed material"
-	  content_type = ContentType.where(:name => 'other').first
 	end
         { :carrier_type => carrier_type, :content_type => content_type }
       end
