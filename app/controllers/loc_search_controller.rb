@@ -1,7 +1,7 @@
 class LocSearchController < ApplicationController
   before_filter :authenticate_user!
   before_filter :check_librarian
-  
+
   def index
     if params[:page].to_i <= 0
       page = 1
