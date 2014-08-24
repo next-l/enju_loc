@@ -266,7 +266,7 @@ module EnjuLoc
       def get_mods_statement_of_responsibility(doc)
 	note = doc.at('//mods:note[@type="statement of responsibility"]',NS).try(:content)
 	if note.blank?
-	  note = get_creators(doc).map{|e| e[:full_name] }.join( " ; " )
+	  note = get_mods_creators(doc).map{|e| e[:full_name] }.join( " ; " )
 	end
 	note
       end

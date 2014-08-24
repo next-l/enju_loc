@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["spec/**/*"]
 
-  # s.add_dependency "enju_seed", "~> 0.2.0.pre6"
+  s.add_dependency "enju_seed", "~> 0.1.1.pre10"
   s.add_dependency "nokogiri"
   # s.add_dependency "jquery-rails"
 
@@ -24,9 +24,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec-rails", "~> 3.0"
   s.add_development_dependency "vcr"
   s.add_development_dependency "fakeweb"
-  s.add_development_dependency "enju_leaf", "~> 1.1.0.rc12"
+  s.add_development_dependency "enju_leaf", "~> 1.1.0.rc14"
   s.add_development_dependency "sunspot_solr", "~> 2.1"
   s.add_development_dependency "elasticsearch-extensions"
   s.add_development_dependency "simplecov"
-  #s.add_development_dependency "enju_subject", "~> 0.2.0.pre1"
+  s.add_development_dependency "enju_subject", "~> 0.1.0.pre27"
 end
