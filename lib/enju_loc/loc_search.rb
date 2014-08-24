@@ -103,7 +103,7 @@ module EnjuLoc
 	    :access_address => access_address,
 	    :note => note,
 	    :publication_place => publication_place,
-	    :periodical => is_serial,
+	    :serial => is_serial,
           )
           identifier = {}
           if isbn

@@ -14,7 +14,7 @@ describe LocSearch do
       expect( manifestation.publishers.first.full_name ).to eq "Times Books"
       expect( manifestation.publication_place ).to eq "New York"
       expect( manifestation.creators.size ).to eq 1
-      expect( manifestation.creators.first.agent_type.name ).to eq "Person"
+      expect( manifestation.creators.first.agent_type.name ).to eq "person"
       expect( manifestation.creators.first.full_name ).to eq "Weinberger, David, 1950-"
       expect( manifestation.edition_string ).to eq "1st ed."
       expect( manifestation.language.iso_639_2 ).to eq "eng"
@@ -124,7 +124,7 @@ describe LocSearch do
     it "should import serial", :vcr => true do
       m = LocSearch.import_from_sru_response( "00200486" )
       expect( m.original_title ).to eq "Science and technology of advanced materials"
-      expect( m.periodical ).to be_truthy
+      expect( m.serial ).to be_truthy
       expect( m.identifier_contents( :issn ).first ).to eq "14686996"
       expect( m.identifier_contents( :issn_l ).first ).to eq "14686996"
       expect( m.frequency.name ).to eq "bimonthly"
@@ -136,7 +136,7 @@ describe LocSearch do
       m = LocSearch.import_from_sru_response( "88651712" )
       expect( m.original_title ).to eq "Superconductor science & technology"
       expect( m.title_alternative ).to eq "Supercond. sci. technol ; Superconductor science and technology"
-      expect( m.periodical ).to be_truthy
+      expect( m.serial ).to be_truthy
       expect( m.identifier_contents( :issn ).first ).to eq "09532048"
       expect( m.identifier_contents( :issn_l ).first ).to eq "09532048"
       expect( m.frequency.name ).to eq "monthly"
