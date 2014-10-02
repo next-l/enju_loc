@@ -2,31 +2,33 @@
 http_interactions:
 - request:
     method: get
-    uri: http://lx2.loc.gov:210/LCDB?maximumRecords=10&recordSchema=mods&query=library&version=1.1&operation=searchRetrieve
+    uri: http://lx2.loc.gov:210/LCDB?maximumRecords=10&operation=searchRetrieve&query=library&recordSchema=mods&version=1.1
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      accept:
-      - ! '*/*'
-      user-agent:
-      - Ruby
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
       message: OK
     headers:
-      content-length:
+      Content-Length:
       - '28628'
-      server:
+      Server:
       - Metaproxy/1.5.3
-      connection:
+      Connection:
       - Keep-Alive
-      content-type:
+      Content-Type:
       - text/xml
     body:
-      encoding: US-ASCII
-      string: ! "<?xml version=\"1.0\"?>\n<zs:searchRetrieveResponse xmlns:zs=\"http://www.loc.gov/zing/srw/\"><zs:version>1.1</zs:version><zs:numberOfRecords>10000</zs:numberOfRecords><zs:records><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\"?>\n<zs:searchRetrieveResponse xmlns:zs=\"http://www.loc.gov/zing/srw/\"><zs:version>1.1</zs:version><zs:numberOfRecords>10000</zs:numberOfRecords><zs:records><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
         version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
         \ <titleInfo>\n    <title/>\n  </titleInfo>\n  <typeOfResource>text</typeOfResource>\n
@@ -348,6 +350,6 @@ http_interactions:
         \   <recordIdentifier>18176790</recordIdentifier>\n    <recordOrigin>Converted
         from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
         1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>10</zs:recordPosition></zs:record></zs:records><zs:nextRecordPosition>11</zs:nextRecordPosition></zs:searchRetrieveResponse>\n"
-    http_version: '1.1'
-  recorded_at: Tue, 12 Aug 2014 15:35:24 GMT
-recorded_with: VCR 2.9.2
+    http_version: 
+  recorded_at: Thu, 02 Oct 2014 12:13:15 GMT
+recorded_with: VCR 2.9.3

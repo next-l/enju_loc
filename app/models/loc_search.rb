@@ -75,7 +75,7 @@ class LocSearch
   def self.search( query, options = {} )
     if query and not query.empty?
       url = make_sru_request_uri(query, options)
-      doc = Nokogiri::XML(open(url))
+      doc = Nokogiri::XML(Faraday.get(url).body)
       items = doc.search('//zs:record').map{|e| ModsRecord.new e }
       @results = { :items => items,
                    :total_entries => doc.xpath('//zs:numberOfRecords').first.try(:content).to_i }
@@ -88,7 +88,7 @@ class LocSearch
     identifier = Identifier.where(body: lccn, identifier_type_id: IdentifierType.where(name: 'lccn').first_or_create.id).first
     return if identifier
     url = make_sru_request_uri("bath.lccn=#{ lccn }")
-    response = Nokogiri::XML(open(url)).at( '//zs:recordData', {"zs" => "http://www.loc.gov/zing/srw/"} )
+    response = Nokogiri::XML(Faraday.get(url).body).at( '//zs:recordData', {"zs" => "http://www.loc.gov/zing/srw/"} )
     return unless response.try(:content)
     doc = Nokogiri::XML::Document.new
     doc << response.at( "//mods:mods", { "mods" => "http://www.loc.gov/mods/v3" } )
