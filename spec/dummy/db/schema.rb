@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823095740) do
+ActiveRecord::Schema.define(version: 20141003182825) do
 
   create_table "accepts", force: true do |t|
     t.integer  "basket_id"
@@ -636,6 +636,8 @@ ActiveRecord::Schema.define(version: 20140823095740) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "expired_at"
+    t.text     "full_name_transcription"
+    t.datetime "date_of_birth"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
