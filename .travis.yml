@@ -17,7 +17,13 @@ env:
   - DB=sqlite
   - DB=mysql
   - DB=postgresql
+matrix:
+  exclude:
+    - rvm: 1.9.3
+      gemfile: gemfiles/rails4_1.gemfile
+    - rvm: 2.1.3
+      gemfile: gemfiles/rails3_2.gemfile
 notifications:
   hipchat:
     rooms:
-      secure: YyObuiiB17DVMhLStfG5zj4SaKTyNsDhwxmFSXg0rv6KORwH4lO4nX4Yl/CxtFOs6IM93oc6o1vlmHWInpJPlBDiWRfUoiKGp9w7am8FX8+ZI8SH2QssemzlPNuOtV54ECL2E0llmUOA7mmIFRTHIpksM30K+3pZXoqsLWQz1BI=
+      secure: Yu9Wd6LddaB32aYyehkc04lUfcqitSXdfR5XNw+dhZdsrLIIxyChFtMXXWFLf9M7/XukRoGcyqHywmZc+V6r4ZQTijW129cjXdus/R6okWBHIjnQl+TBMkLrSpe9s6dZEFRDHODHTIVh1j88+HQALKJ9uSQPv8pedU7x4Hga43E=
