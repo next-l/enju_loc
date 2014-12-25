@@ -85,7 +85,9 @@ class LocSearch
   end
 
   def self.import_from_sru_response(lccn)
-    identifier = Identifier.where(body: lccn, identifier_type_id: IdentifierType.where(name: 'lccn').first_or_create.id).first
+    identifier_type_lccn = IdentifierType.where(name: 'lccn').first
+    identifier_type_lccn = IdentifierType.create!(name: 'lccn') unless identifier_type_lccn
+    identifier = Identifier.where(body: lccn, identifier_type_id: identifier_type_lccn.id).first
     return if identifier
     url = make_sru_request_uri("bath.lccn=#{ lccn }")
     response = Nokogiri::XML(Faraday.get(url).body).at( '//zs:recordData', {"zs" => "http://www.loc.gov/zing/srw/"} )
