@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "webmock"
   #s.add_development_dependency "enju_leaf", "~> 1.1.0.rc16"
   #s.add_development_dependency "enju_subject", "~> 0.1.0.pre28"
-  s.add_development_dependency "sunspot_solr", "~> 2.1"
+  s.add_development_dependency "sunspot_solr", "~> 2.2"
   s.add_development_dependency "simplecov"
   s.add_development_dependency "redis-rails"
   s.add_development_dependency "resque-scheduler", "~> 4.0"
