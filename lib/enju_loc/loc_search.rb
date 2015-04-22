@@ -137,10 +137,10 @@ module EnjuLoc
             end
             manifestation.publishers << publisher_agents
             manifestation.creators << creator_agents
-            create_subject_related_elements(doc, manifestation)
-            create_series_statement(doc, manifestation)
+            create_loc_subject_related_elements(doc, manifestation)
+            create_loc_series_statement(doc, manifestation)
             if is_serial
-              create_series_master(doc, manifestation)
+              create_loc_series_master(doc, manifestation)
             end
           end
         end
@@ -148,7 +148,7 @@ module EnjuLoc
       end
 
       private
-      def create_subject_related_elements(doc, manifestation)
+      def create_loc_subject_related_elements(doc, manifestation)
         subjects = get_mods_subjects(doc)
         classifications = get_mods_classifications(doc)
         if defined?(EnjuSubject)
@@ -176,7 +176,7 @@ module EnjuLoc
         end
       end
 
-      def create_series_statement(doc, manifestation)
+      def create_loc_series_statement(doc, manifestation)
         doc.xpath('//mods:relatedItem[@type="series"]/mods:titleInfo/mods:title',NS).each do |series|
           series_title = title = series.try(:content)
           if title
@@ -191,7 +191,7 @@ module EnjuLoc
         end
       end
       
-      def create_series_master(doc, manifestation)
+      def create_loc_series_master(doc, manifestation)
         titles = get_mods_titles(doc)
         series_statement = SeriesStatement.new(
           :original_title => titles[:original_title],
