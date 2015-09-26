@@ -49,7 +49,7 @@ class LocSearch
     def title
       @node.xpath( './/dc:title', DC_NS ).first.content
     end
-    def lccn	
+    def lccn
       @node.xpath( './/dc:identifier[@type="lccn"]', DC_NS ).first.content
     end
     def creator
@@ -64,8 +64,8 @@ class LocSearch
       options[ :startRecord ] = ( page - 1 ) * 10 + 1
       options.delete :page
     end
-    options = { :maximumRecords => 10, :recordSchema => :mods }.merge(options)
-    options = options.merge( { :query => query, :version => "1.1", :operation => "searchRetrieve" } )
+    options = { maximumRecords: 10, recordSchema: :mods }.merge(options)
+    options = options.merge( { query: query, version: "1.1", operation: "searchRetrieve" } )
     params = options.map do |k, v|
       "#{ URI.escape( k.to_s ) }=#{ URI.escape( v.to_s ) }"
       end.join( '&' )
@@ -73,14 +73,14 @@ class LocSearch
   end
 
   def self.search( query, options = {} )
-    if query and not query.empty?
+    if query and !query.empty?
       url = make_sru_request_uri(query, options)
       doc = Nokogiri::XML(Faraday.get(url).body)
       items = doc.search('//zs:record').map{|e| ModsRecord.new e }
-      @results = { :items => items,
-                   :total_entries => doc.xpath('//zs:numberOfRecords').first.try(:content).to_i }
+      @results = { items: items,
+                   total_entries: doc.xpath('//zs:numberOfRecords').first.try(:content).to_i }
     else
-      { :items => [], :total_entries => 0 }
+      { items: [], total_entries: 0 }
     end
   end
 
