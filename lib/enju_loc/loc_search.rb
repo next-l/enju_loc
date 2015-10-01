@@ -14,7 +14,7 @@ module EnjuLoc
           startrecord = 1
         end
         url = LOC_SRU_BASEURL + "?operation=searchRetrieve&version=1.1&=query=#{ URI.escape(query) }"
-        cont = open( url ){|io| io.read }
+        cont = Faraday.get(url).body
         parser = LibXML::XML::Parser.string( cont )
         doc = parser.parse
       end
