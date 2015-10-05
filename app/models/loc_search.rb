@@ -65,7 +65,7 @@ class LocSearch
       options.delete :page
     end
     options = { maximumRecords: 10, recordSchema: :mods }.merge(options)
-    options = options.merge( { query: query, version: "1.1", operation: "searchRetrieve" } )
+    options = options.merge( { query: query, version: "1.2", operation: "searchRetrieve" } )
     params = options.map do |k, v|
       "#{ URI.escape( k.to_s ) }=#{ URI.escape( v.to_s ) }"
       end.join( '&' )
@@ -89,11 +89,12 @@ class LocSearch
     identifier_type_lccn = IdentifierType.create!(name: 'lccn') unless identifier_type_lccn
     identifier = Identifier.where(body: lccn, identifier_type_id: identifier_type_lccn.id).first
     return if identifier
-    url = make_sru_request_uri("bath.lccn=#{ lccn }")
-    response = Nokogiri::XML(Faraday.get(url).body).at( '//zs:recordData', {"zs" => "http://www.loc.gov/zing/srw/"} )
-    return unless response.try(:content)
+    url = make_sru_request_uri("bath.lccn=\"^#{ lccn }\"")
+    response = Nokogiri::XML(Faraday.get(url).body)
+    record = response.at( '//zs:recordData', {"zs" => "http://www.loc.gov/zing/srw/"} )
+    return unless record.try(:content)
     doc = Nokogiri::XML::Document.new
-    doc << response.at( "//mods:mods", { "mods" => "http://www.loc.gov/mods/v3" } )
+    doc << record.at( "//mods:mods", { "mods" => "http://www.loc.gov/mods/v3" } )
     Manifestation.import_record_from_loc(doc)
   end
 end
