@@ -65,7 +65,7 @@ class LocSearch
       options.delete :page
     end
     options = { maximumRecords: 10, recordSchema: :mods }.merge(options)
-    options = options.merge( { query: query, version: "1.2", operation: "searchRetrieve" } )
+    options = options.merge( { query: query, version: "1.1", operation: "searchRetrieve" } )
     params = options.map do |k, v|
       "#{ URI.escape( k.to_s ) }=#{ URI.escape( v.to_s ) }"
       end.join( '&' )

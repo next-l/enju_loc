@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: http://lx2.loc.gov:210/LCDB?maximumRecords=10&operation=searchRetrieve&query=bath.lccn=2013385616&recordSchema=mods&version=1.1
+    uri: http://lx2.loc.gov:210/LCDB?maximumRecords=10&operation=searchRetrieve&query=bath.lccn=%22%5E2013385616%22&recordSchema=mods&version=1.1
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.0
+      - Faraday v0.9.1
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Content-Length:
-      - '9364'
+      - '9627'
       Server:
-      - Metaproxy/1.5.3
+      - Metaproxy/1.9.3
       Connection:
       - Keep-Alive
       Content-Type:
@@ -30,7 +30,7 @@ http_interactions:
       encoding: UTF-8
       string: "<?xml version=\"1.0\"?>\n<zs:searchRetrieveResponse xmlns:zs=\"http://www.loc.gov/zing/srw/\"><zs:version>1.1</zs:version><zs:numberOfRecords>1</zs:numberOfRecords><zs:records><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        version=\"3.5\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd\">\n
         \ <titleInfo altRepGroup=\"01\" script=\"Latn\">\n    <title>Entotsu no mieru
         basho</title>\n  </titleInfo>\n  <titleInfo type=\"alternative\" altRepGroup=\"15\"
         script=\"Latn\">\n    <title>Mujaki na hitobito</title>\n  </titleInfo>\n
@@ -85,8 +85,8 @@ http_interactions:
         Uehara Ken, Takamine Hideko, Akutagawa Hiroshi, Seki Chieko, Tanaka Haruo.</note>\n
         \ <note type=\"system details\">DVD ; Region Code 2 ; NTSC ; Dolby Digital.</note>\n
         \ <note type=\"language\">In Japanese.</note>\n  <subject authority=\"lcsh\">\n
-        \   <topic>Feature films</topic>\n  </subject>\n  <classification authority=\"lcc\">PN1997
-        . E665 1953</classification>\n  <location>\n    <physicalLocation>c-Moving
+        \   <topic>Feature films</topic>\n  </subject>\n  <classification authority=\"lcc\">DVD
+        7269 (viewing copy)</classification>\n  <location>\n    <physicalLocation>c-Moving
         Image</physicalLocation>\n  </location>\n  <relatedItem type=\"series\" altRepGroup=\"03\"
         script=\"Latn\">\n    <titleInfo>\n      <title>Shin To&#x304;ho&#x304; meiga
         kessakusen</title>\n    </titleInfo>\n  </relatedItem>\n  <relatedItem type=\"constituent\">\n
@@ -133,10 +133,10 @@ http_interactions:
         type=\"videorecording identifier\">VPBT15262</identifier>\n  <identifier type=\"oclc\">ocn213415869</identifier>\n
         \ <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n    <recordContentSource
         authority=\"marcorg\">KKU</recordContentSource>\n    <recordCreationDate encoding=\"marc\">130509</recordCreationDate>\n
-        \   <recordChangeDate encoding=\"iso8601\">20140604082407.0</recordChangeDate>\n
+        \   <recordChangeDate encoding=\"iso8601\">20150402132546.0</recordChangeDate>\n
         \   <recordIdentifier>17731062</recordIdentifier>\n    <recordOrigin>Converted
-        from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
-        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records></zs:searchRetrieveResponse>\n"
+        from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
+        1.106 2014/12/19)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>bath.lccn=\"^2013385616\"</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
     http_version: 
-  recorded_at: Thu, 02 Oct 2014 12:12:53 GMT
+  recorded_at: Mon, 05 Oct 2015 11:45:11 GMT
 recorded_with: VCR 2.9.3

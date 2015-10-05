@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: http://lx2.loc.gov:210/LCDB?maximumRecords=10&operation=searchRetrieve&query=bath.lccn=88651712&recordSchema=mods&version=1.1
+    uri: http://lx2.loc.gov:210/LCDB?maximumRecords=10&operation=searchRetrieve&query=bath.lccn=%22%5E88651712%22&recordSchema=mods&version=1.1
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.0
+      - Faraday v0.9.1
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Content-Length:
-      - '4695'
+      - '4889'
       Server:
-      - Metaproxy/1.5.3
+      - Metaproxy/1.9.3
       Connection:
       - Keep-Alive
       Content-Type:
@@ -30,7 +30,7 @@ http_interactions:
       encoding: UTF-8
       string: "<?xml version=\"1.0\"?>\n<zs:searchRetrieveResponse xmlns:zs=\"http://www.loc.gov/zing/srw/\"><zs:version>1.1</zs:version><zs:numberOfRecords>1</zs:numberOfRecords><zs:records><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        version=\"3.5\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd\">\n
         \ <titleInfo>\n    <title>Superconductor science &amp; technology</title>\n
         \ </titleInfo>\n  <titleInfo type=\"abbreviated\">\n    <title>Supercond.
         sci. technol</title>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n
@@ -43,18 +43,18 @@ http_interactions:
         \     <placeTerm type=\"text\">Bristol, UK]</placeTerm>\n    </place>\n    <publisher>IOP
         Pub.</publisher>\n    <dateIssued>[c1988]-</dateIssued>\n    <dateIssued encoding=\"marc\"
         point=\"start\">1988</dateIssued>\n    <dateIssued encoding=\"marc\" point=\"end\">9999</dateIssued>\n
-        \   <issuance>serial</issuance>\n    <frequency authority=\"marcfrequency\">Monthly</frequency>\n
-        \   <frequency>Monthly</frequency>\n  </originInfo>\n  <language>\n    <languageTerm
-        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n  </language>\n
-        \ <physicalDescription>\n    <form authority=\"marcform\">print</form>\n    <extent>v.
-        : ill. ; 29 cm.</extent>\n  </physicalDescription>\n  <note type=\"statement
-        of responsibility\" altRepGroup=\"00\"/>\n  <note type=\"date/sequential designation\">Vol.
-        1, no. 1-</note>\n  <note>Title from cover.</note>\n  <note type=\"numbering\">Issues
-        for &lt;v. 2, no. 3-&gt; called also: &lt;Sept. 1989-&gt;</note>\n  <note
-        type=\"additional physical form\">Also issued on microfiche and online.</note>\n
-        \ <note>Occasionally supplemented by special issues.</note>\n  <note>An Institute
-        of Physics journal published by IOP Publishing Ltd in association with the
-        American Institute of Physics.</note>\n  <subject authority=\"lcsh\">\n    <topic>Superconductivity</topic>\n
+        \   <issuance>serial</issuance>\n    <frequency>Monthly</frequency>\n    <frequency
+        authority=\"marcfrequency\">Monthly</frequency>\n  </originInfo>\n  <language>\n
+        \   <languageTerm authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n
+        \ </language>\n  <physicalDescription>\n    <form authority=\"marcform\">print</form>\n
+        \   <extent>v. : ill. ; 29 cm.</extent>\n  </physicalDescription>\n  <note
+        type=\"date/sequential designation\">Vol. 1, no. 1-</note>\n  <note>Title
+        from cover.</note>\n  <note type=\"numbering\">Issues for &lt;v. 2, no. 3-&gt;
+        called also: &lt;Sept. 1989-&gt;</note>\n  <note type=\"additional physical
+        form\">Also issued on microfiche and online.</note>\n  <note>Occasionally
+        supplemented by special issues.</note>\n  <note>An Institute of Physics journal
+        published by IOP Publishing Ltd in association with the American Institute
+        of Physics.</note>\n  <subject authority=\"lcsh\">\n    <topic>Superconductivity</topic>\n
         \   <genre>Periodicals</genre>\n  </subject>\n  <subject authority=\"lcsh\">\n
         \   <topic>Superconductors</topic>\n    <genre>Periodicals</genre>\n  </subject>\n
         \ <subject authority=\"lcsh\">\n    <topic>Electronics</topic>\n    <topic>Materials</topic>\n
@@ -78,10 +78,10 @@ http_interactions:
         \   <recordContentSource authority=\"marcorg\">CoG</recordContentSource>\n
         \   <recordCreationDate encoding=\"marc\">880623</recordCreationDate>\n    <recordChangeDate
         encoding=\"iso8601\">20130326080756.0</recordChangeDate>\n    <recordIdentifier>11347004</recordIdentifier>\n
-        \   <recordOrigin>Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
-        1.94 2014/02/21)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
+        \   <recordOrigin>Converted from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
+        1.106 2014/12/19)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
         authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n    </languageOfCataloging>\n
-        \ </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records></zs:searchRetrieveResponse>\n"
+        \ </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>bath.lccn=\"^88651712\"</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
     http_version: 
-  recorded_at: Thu, 02 Oct 2014 12:13:07 GMT
+  recorded_at: Mon, 05 Oct 2015 11:45:28 GMT
 recorded_with: VCR 2.9.3
