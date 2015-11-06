@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.0
+      - Faraday v0.9.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Content-Length:
-      - '28628'
+      - '31898'
       Server:
-      - Metaproxy/1.5.3
+      - Metaproxy/1.9.3
       Connection:
       - Keep-Alive
       Content-Type:
@@ -30,67 +30,30 @@ http_interactions:
       encoding: UTF-8
       string: "<?xml version=\"1.0\"?>\n<zs:searchRetrieveResponse xmlns:zs=\"http://www.loc.gov/zing/srw/\"><zs:version>1.1</zs:version><zs:numberOfRecords>10000</zs:numberOfRecords><zs:records><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
-        \ <titleInfo>\n    <title/>\n  </titleInfo>\n  <typeOfResource>text</typeOfResource>\n
-        \ <originInfo>\n    <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">np</placeTerm>\n
-        \   </place>\n    <place>\n      <placeTerm type=\"text\">Kathmandu</placeTerm>\n
-        \   </place>\n    <publisher/>\n    <dateIssued>2008</dateIssued>\n    <dateIssued
-        encoding=\"marc\">2013</dateIssued>\n    <issuance>monographic</issuance>\n
-        \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n
-        \ </language>\n  <physicalDescription>\n    <form authority=\"marcform\">print</form>\n
-        \   <extent>p.</extent>\n  </physicalDescription>\n  <note type=\"statement
-        of responsibility\" altRepGroup=\"00\">.</note>\n  <identifier type=\"lccn\"/>\n
-        \ <identifier type=\"stock number\">Library of Congress -- New Delhi Overseas
-        Office</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
-        \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
-        \   <recordCreationDate encoding=\"marc\">130904</recordCreationDate>\n    <recordChangeDate
-        encoding=\"iso8601\">20130904000057.0</recordChangeDate>\n    <recordIdentifier>17874249</recordIdentifier>\n
-        \   <recordOrigin>Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
-        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
-        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
-        \ <titleInfo>\n    <title/>\n  </titleInfo>\n  <typeOfResource>moving image</typeOfResource>\n
-        \ <genre authority=\"marcgt\">videorecording</genre>\n  <originInfo>\n    <place>\n
+        version=\"3.5\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd\">\n
+        \ <titleInfo>\n    <title/>\n    <subTitle/>\n  </titleInfo>\n  <typeOfResource>text</typeOfResource>\n
+        \ <genre authority=\"rdacontent\">text</genre>\n  <originInfo>\n    <place>\n
         \     <placeTerm type=\"code\" authority=\"marccountry\">ii</placeTerm>\n
-        \   </place>\n    <place>\n      <placeTerm type=\"text\">New Delhi</placeTerm>\n
-        \   </place>\n    <publisher>public Service Broadcasting Trust</publisher>\n
-        \   <dateIssued>2011</dateIssued>\n    <issuance>monographic</issuance>\n
-        \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n
-        \ </language>\n  <physicalDescription>\n    <form authority=\"marccategory\">videorecording</form>\n
-        \   <form authority=\"marcsmd\">videodisc</form>\n    <extent>1 videodisc
-        of 1 (DVD) (ca. xx min.) : sd., col. ; 4 3/4 in. viewing copy.</extent>\n
-        \ </physicalDescription>\n  <abstract type=\"Summary\">Summary note.</abstract>\n
-        \ <targetAudience authority=\"marctarget\">general</targetAudience>\n  <note
-        type=\"statement of responsibility\" altRepGroup=\"00\">.</note>\n  <note
-        type=\"acquisition\">Purchase./Gift.</note>\n  <subject>\n    <geographicCode
-        authority=\"marcgac\">a-ii---</geographicCode>\n  </subject>\n  <identifier
-        type=\"lccn\"/>\n  <identifier type=\"stock number\">Library of Congress --
-        New Delhi Overseas Office</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
+        \   </place>\n    <dateIssued encoding=\"marc\">2013</dateIssued>\n    <issuance>monographic</issuance>\n
+        \ </originInfo>\n  <originInfo eventType=\"publication\">\n    <place>\n      <placeTerm
+        type=\"text\">New Delhi :</placeTerm>\n    </place>\n    <publisher>,</publisher>\n
+        \   <dateIssued>2013.</dateIssued>\n  </originInfo>\n  <language>\n    <languageTerm
+        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n  </language>\n
+        \ <physicalDescription>\n    <form authority=\"marcform\">print</form>\n    <extent>pages</extent>\n
+        \   <form type=\"media\" authority=\"rdamedia\">unmediated</form>\n    <form
+        type=\"carrier\" authority=\"rdacarrier\">volume</form>\n  </physicalDescription>\n
+        \ <note type=\"statement of responsibility\" altRepGroup=\"00\">.</note>\n
+        \ <identifier type=\"lccn\"/>\n  <identifier type=\"stock number\">Library
+        of Congress -- New Delhi Overseas Office</identifier>\n  <recordInfo>\n    <descriptionStandard>rda</descriptionStandard>\n
         \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
-        \   <recordCreationDate encoding=\"marc\">130511</recordCreationDate>\n    <recordChangeDate
-        encoding=\"iso8601\">20130511054641.0</recordChangeDate>\n    <recordIdentifier>17734504</recordIdentifier>\n
-        \   <recordOrigin>Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
-        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>2</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        \   <recordCreationDate encoding=\"marc\">150120</recordCreationDate>\n    <recordChangeDate
+        encoding=\"iso8601\">20150120064427.0</recordChangeDate>\n    <recordIdentifier>18455127</recordIdentifier>\n
+        \   <recordOrigin>Converted from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
+        1.106 2014/12/19)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
+        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n    </languageOfCataloging>\n
+        \ </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
-        \ <titleInfo>\n    <title/>\n  </titleInfo>\n  <typeOfResource>text</typeOfResource>\n
-        \ <originInfo>\n    <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">np</placeTerm>\n
-        \   </place>\n    <place>\n      <placeTerm type=\"text\"/>\n    </place>\n
-        \   <publisher/>\n    <issuance>monographic</issuance>\n  </originInfo>\n
-        \ <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">nep</languageTerm>\n
-        \ </language>\n  <physicalDescription>\n    <form authority=\"marcform\">print</form>\n
-        \   <extent>p. ; cm.</extent>\n  </physicalDescription>\n  <abstract type=\"Summary\">x</abstract>\n
-        \ <note type=\"statement of responsibility\" altRepGroup=\"00\"/>\n  <note
-        type=\"language\">In Nepali.</note>\n  <identifier type=\"lccn\"/>\n  <identifier
-        type=\"stock number\" displayLabel=\"Rs\">Library of Congress -- New Delhi
-        Overseas Office</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
-        \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
-        \   <recordCreationDate encoding=\"marc\">070118</recordCreationDate>\n    <recordChangeDate
-        encoding=\"iso8601\">20070118062927.0</recordChangeDate>\n    <recordIdentifier>14701563</recordIdentifier>\n
-        \   <recordOrigin>Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
-        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>3</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
-        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        version=\"3.5\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd\">\n
         \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>Code Ed</partName>\n
         \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Code Ed</title>\n
         \ </titleInfo>\n  <titleInfo type=\"alternative\" displayLabel=\"Copyright
@@ -121,10 +84,10 @@ http_interactions:
         authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">140604</recordCreationDate>\n
         \   <recordChangeDate encoding=\"iso8601\">20140605152157.0</recordChangeDate>\n
         \   <recordIdentifier>18176739</recordIdentifier>\n    <recordOrigin>Converted
-        from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
-        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>4</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
+        1.106 2014/12/19)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>2</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        version=\"3.5\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd\">\n
         \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>Corn star</partName>\n
         \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Corn star</title>\n
         \ </titleInfo>\n  <titleInfo type=\"alternative\" displayLabel=\"Copyright
@@ -159,10 +122,10 @@ http_interactions:
         \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
         \   <recordCreationDate encoding=\"marc\">140609</recordCreationDate>\n    <recordChangeDate
         encoding=\"iso8601\">20140609084709.0</recordChangeDate>\n    <recordIdentifier>18181141</recordIdentifier>\n
-        \   <recordOrigin>Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
-        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>5</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        \   <recordOrigin>Converted from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
+        1.106 2014/12/19)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>3</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        version=\"3.5\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd\">\n
         \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>Dog Ed pursuit</partName>\n
         \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Dog Ed pursuit</title>\n
         \ </titleInfo>\n  <titleInfo type=\"alternative\" displayLabel=\"Copyright
@@ -198,10 +161,10 @@ http_interactions:
         authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">140609</recordCreationDate>\n
         \   <recordChangeDate encoding=\"iso8601\">20140609133830.0</recordChangeDate>\n
         \   <recordIdentifier>18181703</recordIdentifier>\n    <recordOrigin>Converted
-        from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
-        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>6</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
+        1.106 2014/12/19)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>4</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        version=\"3.5\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd\">\n
         \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>Easy, writer</partName>\n
         \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Easy, writer</title>\n
         \ </titleInfo>\n  <titleInfo type=\"alternative\" displayLabel=\"Copyright
@@ -235,10 +198,10 @@ http_interactions:
         authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">140609</recordCreationDate>\n
         \   <recordChangeDate encoding=\"iso8601\">20140609133108.0</recordChangeDate>\n
         \   <recordIdentifier>18181694</recordIdentifier>\n    <recordOrigin>Converted
-        from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
-        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>7</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
+        1.106 2014/12/19)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>5</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        version=\"3.5\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd\">\n
         \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>Ed goes
         to court</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n
         \   <title>Ed goes to court</title>\n  </titleInfo>\n  <titleInfo type=\"alternative\"
@@ -274,10 +237,10 @@ http_interactions:
         authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">140609</recordCreationDate>\n
         \   <recordChangeDate encoding=\"iso8601\">20140609100925.0</recordChangeDate>\n
         \   <recordIdentifier>18181286</recordIdentifier>\n    <recordOrigin>Converted
-        from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
-        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>8</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
+        1.106 2014/12/19)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>6</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        version=\"3.5\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd\">\n
         \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>Family dinner
         for schmucks</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n
         \   <title>Family dinner for schmucks</title>\n  </titleInfo>\n  <titleInfo
@@ -313,10 +276,10 @@ http_interactions:
         \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
         \   <recordCreationDate encoding=\"marc\">140609</recordCreationDate>\n    <recordChangeDate
         encoding=\"iso8601\">20140609081554.0</recordChangeDate>\n    <recordIdentifier>18181095</recordIdentifier>\n
-        \   <recordOrigin>Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
-        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>9</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        \   <recordOrigin>Converted from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
+        1.106 2014/12/19)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>7</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        version=\"3.5\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd\">\n
         \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>Goodson
         goes deep</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n
         \   <title>Goodson goes deep</title>\n  </titleInfo>\n  <titleInfo type=\"alternative\"
@@ -348,8 +311,81 @@ http_interactions:
         authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">140604</recordCreationDate>\n
         \   <recordChangeDate encoding=\"iso8601\">20140605152717.0</recordChangeDate>\n
         \   <recordIdentifier>18176790</recordIdentifier>\n    <recordOrigin>Converted
-        from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
-        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>10</zs:recordPosition></zs:record></zs:records><zs:nextRecordPosition>11</zs:nextRecordPosition></zs:searchRetrieveResponse>\n"
+        from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
+        1.106 2014/12/19)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>8</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
+        version=\"3.5\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd\">\n
+        \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>Lock and
+        load</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Lock
+        and load</title>\n  </titleInfo>\n  <titleInfo type=\"alternative\" displayLabel=\"Copyright
+        application title:\">\n    <title>S#*! my dad says</title>\n    <partName>Lock
+        &amp; load</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n
+        \   <title>Shit my dad says</title>\n    <partName>Lock and load</partName>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Bleep my dad
+        says</title>\n    <partName>Lock and load</partName>\n  </titleInfo>\n  <name
+        type=\"corporate\">\n    <namePart>Copyright Collection (Library of Congress)</namePart>\n
+        \ </name>\n  <typeOfResource>moving image</typeOfResource>\n  <genre authority=\"marcgt\">motion
+        picture</genre>\n  <genre authority=\"lcgft\">Situation comedies (Television
+        programs)</genre>\n  <genre authority=\"lcgft\">Fiction television programs.</genre>\n
+        \ <originInfo>\n    <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">xxu</placeTerm>\n
+        \   </place>\n    <dateIssued>2011-02-10</dateIssued>\n    <dateIssued encoding=\"marc\">2011</dateIssued>\n
+        \   <dateCaptured encoding=\"iso8601\">20110210</dateCaptured>\n    <issuance>monographic</issuance>\n
+        \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n
+        \ </language>\n  <physicalDescription>\n    <form authority=\"marccategory\">videorecording</form>\n
+        \   <form authority=\"marcsmd\">videocassette</form>\n    <extent>viewing
+        copy 1 videocassette of 1 (Betacam SP) (30 min.) : sd., col. ; 1/2 in.</extent>\n
+        \ </physicalDescription>\n  <note type=\"statement of responsibility\" altRepGroup=\"00\">directed
+        by Steve Zuckerman ; written by Chris Kelly.</note>\n  <note>Production no.
+        2J5667.</note>\n  <note>Sources used: video container; Copyright catalog online;
+        Copyright description; Wikipedia WWW site, viewed June 4, 2014.</note>\n  <note
+        type=\"performers\">William Shatner, Jonathan Sadowski, Will Sasso.</note>\n
+        \ <classification authority=\"lcc\">VAQ 3028 (viewing copy)</classification>\n
+        \ <identifier type=\"lccn\">2014604746</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
+        \   <descriptionStandard>amim</descriptionStandard>\n    <recordContentSource
+        authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">140604</recordCreationDate>\n
+        \   <recordChangeDate encoding=\"iso8601\">20140605153440.0</recordChangeDate>\n
+        \   <recordIdentifier>18176812</recordIdentifier>\n    <recordOrigin>Converted
+        from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
+        1.106 2014/12/19)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>9</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
+        version=\"3.5\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd\">\n
+        \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>Make a WISiH</partName>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Make a WISiH</title>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\" displayLabel=\"Copyright
+        application title:\">\n    <title>S#*! my dad says</title>\n    <partName>Make
+        a WISiH</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Shit
+        my dad says</title>\n    <partName>Make a WISiH</partName>\n  </titleInfo>\n
+        \ <titleInfo type=\"alternative\">\n    <title>Bleep my dad says</title>\n
+        \   <partName>Make a WISiH</partName>\n  </titleInfo>\n  <name type=\"corporate\">\n
+        \   <namePart>Copyright Collection (Library of Congress)</namePart>\n  </name>\n
+        \ <typeOfResource>moving image</typeOfResource>\n  <genre authority=\"marcgt\">motion
+        picture</genre>\n  <genre authority=\"lcgft\">Situation comedies (Television
+        programs)</genre>\n  <genre authority=\"lcgft\">Fiction television programs.</genre>\n
+        \ <originInfo>\n    <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">xxu</placeTerm>\n
+        \   </place>\n    <dateIssued>2010-11-18</dateIssued>\n    <dateIssued encoding=\"marc\">2010</dateIssued>\n
+        \   <dateCaptured encoding=\"iso8601\">20101118</dateCaptured>\n    <issuance>monographic</issuance>\n
+        \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n
+        \ </language>\n  <physicalDescription>\n    <form authority=\"marccategory\">videorecording</form>\n
+        \   <form authority=\"marcsmd\">videocassette</form>\n    <extent>viewing
+        copy 1 videocassette of 1 (Betacam SP) (30 min.) : sd., col. ; 1/2 in.</extent>\n
+        \ </physicalDescription>\n  <abstract type=\"Summary\">\"Ed and Henry are
+        watching TV when an infomercial comes on for wish a self help guru, Ed asks
+        who would fall for that kind of scam when Vince and Bonny walk in saying they
+        have quit their real estate jobs to start a real estate business because they
+        wished for it. \"--Wikipedia WWW site, viewed June 9, 2014.</abstract>\n  <note
+        type=\"statement of responsibility\" altRepGroup=\"00\">directed by Rob Schiller
+        ; written by Jeff Astrof.</note>\n  <note>Episode no. 9.</note>\n  <note>Production
+        no. 2J5660.</note>\n  <note>Sources used: video container; Copyright catalog
+        online; Copyright description; Wikipedia WWW site, viewed June 9, 2014.</note>\n
+        \ <note type=\"performers\">William Shatner.</note>\n  <note type=\"performers\">Guest
+        star: Cybill Shepherd.</note>\n  <classification authority=\"lcc\">VAP 8700
+        (viewing copy)</classification>\n  <identifier type=\"lccn\">2014603960</identifier>\n
+        \ <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n    <descriptionStandard>amim</descriptionStandard>\n
+        \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
+        \   <recordCreationDate encoding=\"marc\">140609</recordCreationDate>\n    <recordChangeDate
+        encoding=\"iso8601\">20140609135602.0</recordChangeDate>\n    <recordIdentifier>18181741</recordIdentifier>\n
+        \   <recordOrigin>Converted from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
+        1.106 2014/12/19)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>10</zs:recordPosition></zs:record></zs:records><zs:nextRecordPosition>11</zs:nextRecordPosition><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>library</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
     http_version: 
-  recorded_at: Thu, 02 Oct 2014 12:13:15 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Fri, 06 Nov 2015 14:25:44 GMT
+recorded_with: VCR 3.0.0

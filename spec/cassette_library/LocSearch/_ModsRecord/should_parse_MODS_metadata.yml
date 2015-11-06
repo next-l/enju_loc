@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.0
+      - Faraday v0.9.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Content-Length:
-      - '6909'
+      - '7164'
       Server:
-      - Metaproxy/1.5.3
+      - Metaproxy/1.9.3
       Connection:
       - Keep-Alive
       Content-Type:
@@ -30,7 +30,7 @@ http_interactions:
       encoding: UTF-8
       string: "<?xml version=\"1.0\"?>\n<zs:searchRetrieveResponse xmlns:zs=\"http://www.loc.gov/zing/srw/\"><zs:version>1.1</zs:version><zs:numberOfRecords>1</zs:numberOfRecords><zs:records><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        version=\"3.5\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd\">\n
         \ <titleInfo>\n    <title>Everything is miscellaneous</title>\n    <subTitle>the
         power of the new digital disorder</subTitle>\n  </titleInfo>\n  <name type=\"personal\"
         usage=\"primary\">\n    <namePart>Weinberger, David</namePart>\n    <namePart
@@ -106,8 +106,8 @@ http_interactions:
         \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
         \   <recordCreationDate encoding=\"marc\">070323</recordCreationDate>\n    <recordChangeDate
         encoding=\"iso8601\">20071005142314.0</recordChangeDate>\n    <recordIdentifier>14780655</recordIdentifier>\n
-        \   <recordOrigin>Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
-        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records></zs:searchRetrieveResponse>\n"
+        \   <recordOrigin>Converted from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
+        1.106 2014/12/19)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>bath.lccn=2007012024</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
     http_version: 
-  recorded_at: Thu, 02 Oct 2014 12:13:16 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Fri, 06 Nov 2015 14:25:45 GMT
+recorded_with: VCR 3.0.0

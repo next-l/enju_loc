@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.0
+      - Faraday v0.9.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Content-Length:
-      - '4304'
+      - '4556'
       Server:
-      - Metaproxy/1.5.3
+      - Metaproxy/1.9.3
       Connection:
       - Keep-Alive
       Content-Type:
@@ -30,7 +30,7 @@ http_interactions:
       encoding: UTF-8
       string: "<?xml version=\"1.0\"?>\n<zs:searchRetrieveResponse xmlns:zs=\"http://www.loc.gov/zing/srw/\"><zs:version>1.1</zs:version><zs:numberOfRecords>1</zs:numberOfRecords><zs:records><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        version=\"3.5\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd\">\n
         \ <titleInfo>\n    <title>Oversight hearings to examine the laws, policies,
         practices, and operations of the DOI, DOE, and other agencies pertaining to
         payments to their employees, including payments relative to mineral royalty
@@ -42,7 +42,8 @@ http_interactions:
         \   <namePart>House.</namePart>\n    <namePart>Committee on Resources.</namePart>\n
         \   <namePart>Subcommittee on Energy and Mineral Resources.</namePart>\n  </name>\n
         \ <typeOfResource>text</typeOfResource>\n  <genre authority=\"marcgt\">bibliography</genre>\n
-        \ <originInfo>\n    <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">dcu</placeTerm>\n
+        \ <genre authority=\"marcgt\">government publication</genre>\n  <originInfo>\n
+        \   <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">dcu</placeTerm>\n
         \   </place>\n    <place>\n      <placeTerm type=\"text\">Washington</placeTerm>\n
         \   </place>\n    <publisher>U.S. G.P.O.</publisher>\n    <publisher>[U.S.
         G.P.O., Supt. of Docs., Congressional Sales Office, distributor]</publisher>\n
@@ -50,10 +51,9 @@ http_interactions:
         \   <issuance>monographic</issuance>\n  </originInfo>\n  <language>\n    <languageTerm
         authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n  </language>\n
         \ <physicalDescription>\n    <form authority=\"marcform\">print</form>\n    <extent>iii,
-        333 p. ; 24 cm.</extent>\n  </physicalDescription>\n  <note type=\"statement
-        of responsibility\" altRepGroup=\"00\"/>\n  <note>Distributed to some depository
-        libraries in microfiche.</note>\n  <note>Shipping list no.: 2001-0059-P.</note>\n
-        \ <note>\"Serial no. 106-73.\"</note>\n  <note type=\"bibliography\">Includes
+        333 p. ; 24 cm.</extent>\n  </physicalDescription>\n  <note>Distributed to
+        some depository libraries in microfiche.</note>\n  <note>Shipping list no.:
+        2001-0059-P.</note>\n  <note>\"Serial no. 106-73.\"</note>\n  <note type=\"bibliography\">Includes
         bibliographical references.</note>\n  <subject>\n    <geographicCode authority=\"marcgac\">n-us---</geographicCode>\n
         \ </subject>\n  <subject authority=\"lcsh\">\n    <topic>Oil and gas leases</topic>\n
         \   <geographic>United States</geographic>\n  </subject>\n  <subject authority=\"lcsh\">\n
@@ -73,8 +73,8 @@ http_interactions:
         \   <recordContentSource authority=\"marcorg\">DGPO/DLC</recordContentSource>\n
         \   <recordCreationDate encoding=\"marc\">010112</recordCreationDate>\n    <recordChangeDate
         encoding=\"iso8601\">20030430134501.0</recordChangeDate>\n    <recordIdentifier>12277596</recordIdentifier>\n
-        \   <recordOrigin>Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
-        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records></zs:searchRetrieveResponse>\n"
+        \   <recordOrigin>Converted from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
+        1.106 2014/12/19)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>bath.lccn=2001315134</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
     http_version: 
-  recorded_at: Thu, 02 Oct 2014 12:13:02 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Fri, 06 Nov 2015 14:25:30 GMT
+recorded_with: VCR 3.0.0
