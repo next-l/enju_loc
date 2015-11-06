@@ -238,71 +238,71 @@ module EnjuLoc
         usage = url.attributes["usage"].try(:content)
         case usage
         when "primary display", "primary"
-        access_address = url.try(:content)
+          access_address = url.try(:content)
+        end
       end
+      access_address
     end
-    access_address
-  end
 
-  def get_mods_publication_place(doc)
-    place = doc.at('//mods:originInfo/mods:place/mods:placeTerm[@type="text"]', NS).try(:content)
-  end
+    def get_mods_publication_place(doc)
+      place = doc.at('//mods:originInfo/mods:place/mods:placeTerm[@type="text"]', NS).try(:content)
+    end
 
-  def get_mods_extent(doc)
-    extent = doc.at('//mods:extent', NS).try(:content)
-    value = {:start_page => nil, :end_page => nil, :height => nil}
-    if extent
-      extent = extent.split(';')
-      page = extent[0].try(:strip)
-      if page =~ /(\d+)\s*(p|page)/
-        value[:start_page] = 1
-        value[:end_page] = $1.dup.to_i
+    def get_mods_extent(doc)
+      extent = doc.at('//mods:extent', NS).try(:content)
+      value = {:start_page => nil, :end_page => nil, :height => nil}
+      if extent
+        extent = extent.split(';')
+        page = extent[0].try(:strip)
+        if page =~ /(\d+)\s*(p|page)/
+          value[:start_page] = 1
+          value[:end_page] = $1.dup.to_i
+        end
+        height = extent[1].try(:strip)
+        if height =~ /(\d+)\s*cm/
+          value[:height] = $1.dup.to_i
+        end
       end
-      height = extent[1].try(:strip)
-      if height =~ /(\d+)\s*cm/
-        value[:height] = $1.dup.to_i
+      value
+    end
+
+    def get_mods_statement_of_responsibility(doc)
+      note = doc.at('//mods:note[@type="statement of responsibility"]', NS).try(:content)
+      if note.blank?
+        note = get_mods_creators(doc).map{|e| e[:full_name] }.join( " ; " )
       end
+      note
     end
-    value
-  end
 
-  def get_mods_statement_of_responsibility(doc)
-    note = doc.at('//mods:note[@type="statement of responsibility"]', NS).try(:content)
-    if note.blank?
-      note = get_mods_creators(doc).map{|e| e[:full_name] }.join( " ; " )
-    end
-    note
-  end
-
-  def get_mods_note(doc)
-    notes = []
-    doc.xpath('//mods:note', NS).each do |note|
-      type = note.attributes['type'].try(:content)
-      next if type == "statement of responsibility"
-      note_s = note.try( :content )
-      notes << note_s unless note_s.blank?
-    end
-    if notes.empty?
-      nil
-    else
-      notes.join( ";\n" )
-    end
-  end
-
-  def get_mods_date_of_publication(doc)
-    dates = []
-    doc.xpath('//mods:dateIssued', NS).each do |pub_date|
-      pub_date = pub_date.content.sub( /\A[cp]/, '' )
-      next unless pub_date =~ /^\d+(-\d\d?){0,2}$/
-      date = pub_date.split('-')
-      if date[0] and date[1]
-        dates << sprintf("%04d-%02d", date[0], date[1])
+    def get_mods_note(doc)
+      notes = []
+      doc.xpath('//mods:note', NS).each do |note|
+        type = note.attributes['type'].try(:content)
+        next if type == "statement of responsibility"
+        note_s = note.try( :content )
+        notes << note_s unless note_s.blank?
+      end
+      if notes.empty?
+        nil
       else
-        dates << pub_date
+        notes.join( ";\n" )
       end
     end
-    dates.compact.first
-  end
+
+    def get_mods_date_of_publication(doc)
+      dates = []
+      doc.xpath('//mods:dateIssued', NS).each do |pub_date|
+        pub_date = pub_date.content.sub( /\A[cp]/, '' )
+        next unless pub_date =~ /^\d+(-\d\d?){0,2}$/
+        date = pub_date.split('-')
+        if date[0] and date[1]
+          dates << sprintf("%04d-%02d", date[0], date[1])
+        else
+          dates << pub_date
+        end
+      end
+      dates.compact.first
+    end
 
   # derived from marcfrequency: http://www.loc.gov/standards/valuelist/marcfrequency.html
   MARCFREQUENCY = [
