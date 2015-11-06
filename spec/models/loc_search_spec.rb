@@ -157,6 +157,12 @@ describe LocSearch do
       expect( m.manifestation_content_type ).to eq ContentType.where(:name=>'notated_music').first
       expect( m.language_id ).to eq 1 # language: unknown
     end
+
+    it "should import lccn exact math", :vcr => true do
+      m = LocSearch.import_from_sru_response( "93028401" )
+      expect( m ).to be_valid
+      expect( m.original_title ).to eq "How to lie with statistics"
+    end
   end
 
   context ".search", :vcr => true do
