@@ -211,21 +211,21 @@ module EnjuLoc
           type = e.attributes["type"].try(:content)
           case type
           when "alternative", "translated", "abbreviated", "uniform"
-          title_alternatives << e.at('./mods:title', NS).content
-        else
-          nonsort = e.at('./mods:nonSort', NS).try(:content)
-          original_title << nonsort if nonsort
-          original_title << e.at('./mods:title', NS).try(:content)
-          subtitle = e.at('./mods:subTitle', NS).try(:content)
-          original_title << " : #{ subtitle }" if subtitle
-          partnumber = e.at('./mods:partNumber', NS).try(:content)
-          partname = e.at('./mods:partName', NS).try(:content)
-          partname = [ partnumber, partname ].compact.join( ": " )
-          original_title << ". #{ partname }" unless partname.blank?
+            title_alternatives << e.at('./mods:title', NS).content
+          else
+            nonsort = e.at('./mods:nonSort', NS).try(:content)
+            original_title << nonsort if nonsort
+            original_title << e.at('./mods:title', NS).try(:content)
+            subtitle = e.at('./mods:subTitle', NS).try(:content)
+            original_title << " : #{ subtitle }" if subtitle
+            partnumber = e.at('./mods:partNumber', NS).try(:content)
+            partname = e.at('./mods:partName', NS).try(:content)
+            partname = [ partnumber, partname ].compact.join( ": " )
+            original_title << ". #{ partname }" unless partname.blank?
+          end
         end
+        { :original_title => original_title, :title_alternative => title_alternatives.join( " ; " ) }
       end
-      { :original_title => original_title, :title_alternative => title_alternatives.join( " ; " ) }
-    end
 
     def get_mods_language(doc)
       language = doc.at('//mods:language/mods:languageTerm[@authority="iso639-2b"]', NS).try(:content)
