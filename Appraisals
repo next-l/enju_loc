@@ -29,7 +29,7 @@ appraise "rails-4.2-nii" do
   gem "jquery-rails"
   gem "statesman", "~> 1.3"
   gem "coveralls", require: false
-  gem "enju_nii", "~> 0.1.0.pre13"
+  gem "enju_nii", "~> 0.1.0"
 end
 
 appraise "rails-4.2-ndl" do
@@ -37,5 +37,5 @@ appraise "rails-4.2-ndl" do
   gem "jquery-rails"
   gem "statesman", "~> 1.3"
   gem "coveralls", require: false
-  gem "enju_ndl", "~> 0.1.0.pre37"
+  gem "enju_ndl", "~> 0.1.0"
 end
