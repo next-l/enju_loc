@@ -6,7 +6,6 @@ Bundler.require
 require 'enju_loc'
 require 'enju_leaf'
 require "enju_subject"
-require 'resque_mailer'
 
 module Dummy
   class Application < Rails::Application
