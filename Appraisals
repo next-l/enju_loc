@@ -32,5 +32,5 @@ appraise "rails-4.2-ndl" do
   gem "rails", "4.2.5"
   gem "jquery-rails"
   gem "coveralls", require: false
-  gem "enju_ndl", "~> 0.1.0"
+  gem "enju_ndl", "~> 0.1.1"
 end
