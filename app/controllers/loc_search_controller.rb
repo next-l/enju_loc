@@ -41,6 +41,6 @@ class LocSearchController < ApplicationController
 
   private
   def check_policy
-    authorize NdlBook
+    authorize LocSearch
   end
 end
