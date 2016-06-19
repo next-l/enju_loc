@@ -6,6 +6,7 @@ ja:
     add: 追加
     already_exists: 登録済み
     number_of_search_results: "%{count} 件の資料が見つかりました。"
+    same_query_in_loc_search: "同じ検索語でLC Online Catalogを検索する"
   activerecord:
     models:
       loc_search: 米国議会図書館(LoC)蔵書検索
