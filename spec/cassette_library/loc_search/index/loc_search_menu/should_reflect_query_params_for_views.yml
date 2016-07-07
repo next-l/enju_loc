@@ -21,7 +21,7 @@ http_interactions:
       Content-Length:
       - '41181'
       Server:
-      - Metaproxy/1.11.2
+      - Metaproxy/1.11.3
       Connection:
       - Keep-Alive
       Content-Type:
@@ -513,5 +513,5 @@ http_interactions:
         \   <recordOrigin>Converted from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
         1.106 2014/12/19)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>10</zs:recordPosition></zs:record></zs:records><zs:nextRecordPosition>11</zs:nextRecordPosition><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>test</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
     http_version: 
-  recorded_at: Sun, 29 May 2016 10:41:08 GMT
+  recorded_at: Thu, 07 Jul 2016 15:06:30 GMT
 recorded_with: VCR 3.0.3

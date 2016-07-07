@@ -59,8 +59,8 @@ describe LocSearch do
       m = LocSearch.import_from_sru_response( "2012471967" )
       expect( m.series_statements.size ).to eq 2
       RSpec.describe m.series_statements.collect( &:original_title ) do
-        it { is_expected.to include( "Pragmatic programmers" ) }
-        it { is_expected.to include( "Facets of Ruby series" ) }
+        it { is_expected.to include( "The Pragmatic Programmers" ) }
+        it { is_expected.to include( "The Facets of Ruby Series" ) }
       end
     end
 
