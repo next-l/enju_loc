@@ -6,6 +6,8 @@ Bundler.require(*Rails.groups)
 require 'enju_loc'
 require 'enju_leaf'
 require "enju_subject"
+require 'globalize'
+require 'globalize-accessors'
 
 module Dummy
   class Application < Rails::Application
