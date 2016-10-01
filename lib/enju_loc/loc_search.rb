@@ -101,7 +101,9 @@ module EnjuLoc
             :statement_of_responsibility => statement_of_responsibility,
             :start_page => extent[:start_page],
             :end_page => extent[:end_page],
+            :extent => extent[:extent],
             :height => extent[:height],
+            :dimensions => extent[:dimensions],
             :access_address => access_address,
             :note => note,
             :publication_place => publication_place,
@@ -254,11 +256,13 @@ module EnjuLoc
       if extent
         extent = extent.split(';')
         page = extent[0].try(:strip)
+        value[:extent] = page
         if page =~ /(\d+)\s*(p|page)/
           value[:start_page] = 1
           value[:end_page] = $1.dup.to_i
         end
         height = extent[1].try(:strip)
+        value[:dimensions] = height
         if height =~ /(\d+)\s*cm/
           value[:height] = $1.dup.to_i
         end

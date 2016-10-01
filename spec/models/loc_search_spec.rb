@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 describe LocSearch do
   fixtures :all
@@ -162,6 +162,14 @@ describe LocSearch do
       m = LocSearch.import_from_sru_response( "93028401" )
       expect( m ).to be_valid
       expect( m.original_title ).to eq "How to lie with statistics"
+    end
+
+    it "should import extent", vcr: true do
+      m = LocSearch.import_from_sru_response( "94041789" )
+      expect(m).to be_valid
+      expect(m.original_title).to eq "The little boat"
+      expect(m.extent).to eq "1 v. (unpaged) : col. ill."
+      expect(m.dimensions).to eq "25 x 29 cm."
     end
   end
 
