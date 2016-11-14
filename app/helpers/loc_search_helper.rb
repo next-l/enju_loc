@@ -9,7 +9,7 @@ module LocSearchHelper
 .id).first.try(:manifestation)
       end
       unless manifestation
-        link_to t('enju_loc.add'), loc_search_index_path(:book => {:lccn => lccn}), :method => :post
+        button_to t('enju_loc.add'), loc_search_index_path(book: {lccn: lccn}), method: :post, data: {disable_with: t('page.saving')}
       else
         link_to t('enju_loc.already_exists'), manifestation
       end

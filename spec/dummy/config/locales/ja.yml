@@ -1,0 +1,18 @@
+ja:
+  page:
+    search: 検索
+    search_term: "検索語"
+    back: "戻る"
+    show: "表示"
+    edit: "編集"
+    destroy: "削除"
+    are_you_sure: "ほんとうですか？"
+    listing: "%{model}の一覧"
+    new: "%{model}の新規作成"
+    editing: "%{model}の編集"
+    showing: "%{model}の表示"
+  controller:
+    successfully_created: "%{model}は正常に作成されました。"
+    successfully_updated: "%{model}は正常に更新されました。"
+    successfully_deleted: "%{model}は正常に削除されました。"
+

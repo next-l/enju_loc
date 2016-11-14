@@ -1,7 +1,7 @@
 --- 
 content_type_00001:
   id: 1
-  name: text
+  name: text  
   display_name: "en: text\r\n\
     ja: 文字"
   note: 

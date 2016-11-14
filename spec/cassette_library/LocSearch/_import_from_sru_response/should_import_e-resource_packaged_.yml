@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: http://lx2.loc.gov:210/LCDB?maximumRecords=10&operation=searchRetrieve&query=bath.lccn=2006575029&recordSchema=mods&version=1.1
+    uri: http://lx2.loc.gov:210/LCDB?maximumRecords=10&operation=searchRetrieve&query=bath.lccn=%22%5E2006575029%22&recordSchema=mods&version=1.1
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.0
+      - Faraday v0.9.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Content-Length:
-      - '3674'
+      - '3870'
       Server:
-      - Metaproxy/1.5.3
+      - Metaproxy/1.11.3
       Connection:
       - Keep-Alive
       Content-Type:
@@ -30,7 +30,7 @@ http_interactions:
       encoding: UTF-8
       string: "<?xml version=\"1.0\"?>\n<zs:searchRetrieveResponse xmlns:zs=\"http://www.loc.gov/zing/srw/\"><zs:version>1.1</zs:version><zs:numberOfRecords>1</zs:numberOfRecords><zs:records><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.4\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n
+        version=\"3.5\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd\">\n
         \ <titleInfo>\n    <title>Microsoft Encarta 2006 premium</title>\n  </titleInfo>\n
         \ <titleInfo type=\"alternative\">\n    <title>Encarta 2006</title>\n  </titleInfo>\n
         \ <titleInfo type=\"alternative\">\n    <title>Encarta premium 2006</title>\n
@@ -50,24 +50,24 @@ http_interactions:
         literature guides, videos from Discovery Channel, Encarta Kids and interactive
         world atlas. Features photos and illustration, videos and animations, virtual
         flights, links to preselected web sites, graphing calculator software, and
-        games.</abstract>\n  <note type=\"statement of responsibility\" altRepGroup=\"00\"/>\n
-        \ <note>Title from disc label.</note>\n  <note>\"Complete companion to research
-        and the internet\"--Container.</note>\n  <note type=\"system details\">System
-        requirements for Windows: 500MHz Pentium; 256MB RAM; Windows 2000 Professional
-        with Service Pack 4, or Windows XP; 950MB available hard-disk space; SVGA
-        or higher monitor (4MB VRAM, 800 x 600 resolution, 16-bit color); DVD-ROM
-        drive or 4X or faster CD-ROM drive; 16-bit sound card with speakers or headphones.</note>\n
-        \ <subject authority=\"lcsh\">\n    <topic>Electronic reference sources</topic>\n
-        \ </subject>\n  <subject authority=\"lcsh\">\n    <topic>Electronic dictionaries</topic>\n
-        \ </subject>\n  <subject authority=\"lcsh\">\n    <topic>Atlases</topic>\n
-        \ </subject>\n  <classification authority=\"lcc\">AG2</classification>\n  <classification
-        authority=\"ddc\" edition=\"14\">031</classification>\n  <identifier type=\"lccn\">2006575029</identifier>\n
-        \ <identifier type=\"oclc\">ocm62076740</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
-        \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
-        \   <recordCreationDate encoding=\"marc\">060526</recordCreationDate>\n    <recordChangeDate
-        encoding=\"iso8601\">20060526145728.0</recordChangeDate>\n    <recordIdentifier>14391706</recordIdentifier>\n
-        \   <recordOrigin>Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4.xsl\n\t\t\t\t(Revision
-        1.94 2014/02/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records></zs:searchRetrieveResponse>\n"
+        games.</abstract>\n  <note>Title from disc label.</note>\n  <note>\"Complete
+        companion to research and the internet\"--Container.</note>\n  <note type=\"system
+        details\">System requirements for Windows: 500MHz Pentium; 256MB RAM; Windows
+        2000 Professional with Service Pack 4, or Windows XP; 950MB available hard-disk
+        space; SVGA or higher monitor (4MB VRAM, 800 x 600 resolution, 16-bit color);
+        DVD-ROM drive or 4X or faster CD-ROM drive; 16-bit sound card with speakers
+        or headphones.</note>\n  <subject authority=\"lcsh\">\n    <topic>Electronic
+        reference sources</topic>\n  </subject>\n  <subject authority=\"lcsh\">\n
+        \   <topic>Electronic dictionaries</topic>\n  </subject>\n  <subject authority=\"lcsh\">\n
+        \   <topic>Atlases</topic>\n  </subject>\n  <classification authority=\"lcc\">AG2</classification>\n
+        \ <classification authority=\"ddc\" edition=\"14\">031</classification>\n
+        \ <identifier type=\"lccn\">2006575029</identifier>\n  <identifier type=\"oclc\">ocm62076740</identifier>\n
+        \ <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n    <recordContentSource
+        authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">060526</recordCreationDate>\n
+        \   <recordChangeDate encoding=\"iso8601\">20060526145728.0</recordChangeDate>\n
+        \   <recordIdentifier>14391706</recordIdentifier>\n    <recordOrigin>Converted
+        from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
+        1.106 2014/12/19)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>bath.lccn=\"^2006575029\"</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
     http_version: 
-  recorded_at: Thu, 02 Oct 2014 12:13:03 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Thu, 07 Jul 2016 15:06:14 GMT
+recorded_with: VCR 3.0.3
