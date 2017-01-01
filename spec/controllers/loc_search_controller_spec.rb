@@ -36,7 +36,7 @@ describe LocSearchController do
     end
 
     it 'should not create a bibliographic record if lccn is not set', vcr: true do
-      post :create, book: {}
+      post :create, book: {iccn: ''}
       expect(assigns(:manifestation)).to be_nil
       expect(response).to redirect_to loc_search_index_url
     end

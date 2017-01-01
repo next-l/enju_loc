@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.2
+      - Faraday v0.10.1
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Content-Length:
-      - '3736'
+      - '3799'
       Server:
-      - Metaproxy/1.11.3
+      - Metaproxy/1.11.6
       Connection:
       - Keep-Alive
       Content-Type:
@@ -34,23 +34,23 @@ http_interactions:
         \ <titleInfo>\n    <title>Science and technology of advanced materials</title>\n
         \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>STAM</title>\n
         \ </titleInfo>\n  <typeOfResource>text</typeOfResource>\n  <genre authority=\"marcgt\">periodical</genre>\n
-        \ <originInfo>\n    <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">enk</placeTerm>\n
-        \   </place>\n    <place>\n      <placeTerm type=\"text\">Kidlington, Oxford</placeTerm>\n
-        \   </place>\n    <publisher>Elsevier</publisher>\n    <dateIssued>c2000-</dateIssued>\n
-        \   <dateIssued encoding=\"marc\" point=\"start\">2000</dateIssued>\n    <dateIssued
-        encoding=\"marc\" point=\"end\">9999</dateIssued>\n    <issuance>serial</issuance>\n
+        \ <genre authority=\"fast\">Periodicals.</genre>\n  <genre authority=\"\">Electronic
+        journals.</genre>\n  <originInfo>\n    <place>\n      <placeTerm type=\"code\"
+        authority=\"marccountry\">enk</placeTerm>\n    </place>\n    <place>\n      <placeTerm
+        type=\"text\">Kidlington, Oxford</placeTerm>\n    </place>\n    <publisher>Elsevier</publisher>\n
+        \   <dateIssued>c2000-</dateIssued>\n    <dateIssued encoding=\"marc\" point=\"start\">2000</dateIssued>\n
+        \   <dateIssued encoding=\"marc\" point=\"end\">9999</dateIssued>\n    <issuance>serial</issuance>\n
         \   <frequency>Eight times a year, &lt;Oct. 2006-&gt;</frequency>\n    <frequency>Bimonthly,
         Jan. 2003-Nov. 2004</frequency>\n    <frequency>Quarterly, Mar. 2000-Dec.
         2002</frequency>\n    <frequency authority=\"marcfrequency\">Bimonthly</frequency>\n
         \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n
         \ </language>\n  <physicalDescription>\n    <form authority=\"marcform\">print</form>\n
-        \   <form authority=\"marccategory\">electronic resource</form>\n    <form
-        authority=\"marcsmd\">remote</form>\n    <extent>v. : ill. (some col.) ; 28
-        cm.</extent>\n  </physicalDescription>\n  <note type=\"date/sequential designation\">Vol.
-        1, no. 1 (Mar. 2000)-</note>\n  <note>Title from cover.</note>\n  <subject
-        authority=\"lcsh\">\n    <topic>Materials</topic>\n    <genre>Periodicals</genre>\n
-        \ </subject>\n  <classification authority=\"lcc\">TA401 . S43</classification>\n
-        \ <classification authority=\"ddc\" edition=\"21\">620.11</classification>\n
+        \   <extent>v. : ill. (some col.) ; 28 cm.</extent>\n  </physicalDescription>\n
+        \ <note type=\"date/sequential designation\">Vol. 1, no. 1 (Mar. 2000)-</note>\n
+        \ <note>Title from cover.</note>\n  <subject authority=\"lcsh\">\n    <topic>Materials</topic>\n
+        \   <genre>Periodicals</genre>\n  </subject>\n  <subject authority=\"fast\">\n
+        \   <topic>Materials</topic>\n  </subject>\n  <classification authority=\"lcc\">TA401
+        . S43</classification>\n  <classification authority=\"ddc\" edition=\"21\">620.11</classification>\n
         \ <relatedItem type=\"otherFormat\" displayLabel=\"Online version:\">\n    <titleInfo>\n
         \     <title>Science and technology of advanced materials (Online)</title>\n
         \   </titleInfo>\n    <identifier type=\"local\">(DLC)  2006252072</identifier>\n
@@ -61,11 +61,11 @@ http_interactions:
         Lane, Kidlington, Oxford OX5 1GB</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
         \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
         \   <recordCreationDate encoding=\"marc\">000629</recordCreationDate>\n    <recordChangeDate
-        encoding=\"iso8601\">20130411075335.0</recordChangeDate>\n    <recordIdentifier>12085315</recordIdentifier>\n
+        encoding=\"iso8601\">20161129081540.0</recordChangeDate>\n    <recordIdentifier>12085315</recordIdentifier>\n
         \   <recordOrigin>Converted from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
         1.106 2014/12/19)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
         authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n    </languageOfCataloging>\n
         \ </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>bath.lccn=\"^00200486\"</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
     http_version: 
-  recorded_at: Thu, 07 Jul 2016 15:06:17 GMT
+  recorded_at: Sun, 01 Jan 2017 03:11:05 GMT
 recorded_with: VCR 3.0.3
