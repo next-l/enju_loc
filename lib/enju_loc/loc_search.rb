@@ -111,20 +111,17 @@ module EnjuLoc
           )
           identifier = {}
           if isbn
-            identifier[:isbn] = Identifier.new(body: isbn)
-            identifier[:isbn].identifier_type = IdentifierType.where(name: 'isbn').first || IdnetifierType.create!(name: 'isbn')
+            isbn_record = IsbnRecord.where(body: isbn).first_or_initialize
           end
           if loc_identifier
             identifier[:loc_identifier] = Identifier.new(body: loc_identifier)
             identifier[:loc_identifier].identifier_type = IdentifierType.where(name: 'loc_identifier').first || IdnetifierType.create!(name: 'loc_identifier')
           end
           if lccn
-            identifier[:lccn] = Identifier.new(body: lccn)
-            identifier[:lccn].identifier_type = IdentifierType.where(name: 'lccn').first || IdentifierType.create!(name: 'lccn')
+           manifestation.lccn_record = LccnRecord.where(body: lccn).first_or_initialize
           end
           if issn
-            identifier[:issn] = Identifier.new(body: issn)
-            identifier[:issn].identifier_type = IdentifierType.where(name: 'issn').first || IdentifierType.create!(name: 'issn')
+            issn_record = IssnRecord.where(body: issn).first_or_initialize
           end
           if issn_l
             identifier[:issn_l] = Identifier.new(body: issn_l)
@@ -134,9 +131,8 @@ module EnjuLoc
           manifestation.manifestation_content_type = content_type if content_type
           manifestation.frequency = frequency if frequency
           if manifestation.save
-            identifier.each do |k, v|
-              manifestation.identifiers << v if v.valid?
-            end
+            manifestation.isbn_records << isbn_record if isbn_record
+            manifestation.issn_records << issn_record if issn_record
             manifestation.publishers << publisher_agents
             manifestation.creators << creator_agents
             create_loc_subject_related_elements(doc, manifestation)

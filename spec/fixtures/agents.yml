@@ -1,0 +1,137 @@
+--- 
+agent_00001: 
+  full_name: Administrator
+  updated_at: 2007-11-21 22:01:56.137409 +09:00
+  id: 1
+  language_id: 1
+  agent_type_id: 1
+  required_role_id: 1
+  created_at: 2007-11-19 17:06:06.507237 +09:00
+agent_00002: 
+  full_name: Librarian1
+  updated_at: 2007-11-21 22:02:10.359793 +09:00
+  id: 2
+  language_id: 1
+  agent_type_id: 1
+  required_role_id: 4
+  created_at: 2007-11-19 17:06:07.724517 +09:00
+agent_00003: 
+  full_name: Kosuke Tanabe
+  updated_at: 2007-12-04 16:25:01.523618 +09:00
+  id: 3
+  language_id: 1
+  agent_type_id: 1
+  required_role_id: 3
+  created_at: 2007-12-04 16:25:01.523618 +09:00
+agent_00004: 
+  full_name: Librarian2
+  updated_at: 2007-12-04 16:25:01.785027 +09:00
+  id: 4
+  language_id: 1
+  agent_type_id: 1
+  required_role_id: 1
+  created_at: 2007-12-04 16:25:01.785027 +09:00
+agent_00005: 
+  full_name: User2
+  updated_at: 2007-11-21 22:02:35.579396 +09:00
+  id: 5
+  language_id: 1
+  agent_type_id: 1
+  required_role_id: 2
+  created_at: 2007-11-19 17:24:50.153417 +09:00
+agent_00006: 
+  full_name: New agent 1
+  updated_at: 2007-11-21 22:02:35.579396 +09:00
+  id: 6
+  language_id: 1
+  agent_type_id: 1
+  required_role_id: 1
+  created_at: 2007-11-19 17:24:50.153417 +09:00
+agent_00007: 
+  full_name: New agent 2
+  updated_at: 2007-11-21 22:02:35.579396 +09:00
+  id: 7
+  language_id: 1
+  agent_type_id: 1
+  required_role_id: 1
+  created_at: 2007-11-19 17:24:50.153417 +09:00
+agent_00008: 
+  full_name: New agent 3
+  updated_at: 2007-11-21 22:02:35.579396 +09:00
+  id: 8
+  language_id: 1
+  agent_type_id: 1
+  required_role_id: 1
+  created_at: 2007-11-19 17:24:50.153417 +09:00
+agent_00009: 
+  full_name:  New agent 4
+  updated_at: 2007-11-21 22:02:35.579396 +09:00
+  id: 9
+  language_id: 1
+  agent_type_id: 1
+  required_role_id: 1
+  created_at: 2007-11-19 17:24:50.153417 +09:00
+agent_00010: 
+  full_name: New agent 5
+  updated_at: 2007-11-21 22:02:35.579396 +09:00
+  id: 10
+  language_id: 1
+  agent_type_id: 1
+  required_role_id: 1
+  created_at: 2007-11-19 17:24:50.153417 +09:00
+agent_00011: 
+  full_name: User3
+  updated_at: 2007-11-21 22:02:35.579396 +09:00
+  id: 11
+  language_id: 1
+  agent_type_id: 1
+  required_role_id: 1
+  created_at: 2007-11-19 17:24:50.153417 +09:00
+agent_00101:
+  full_name: テスト正式名称
+  updated_at: 2010-03-03 17:00:00.579396 +09:00
+  id: 101
+  language_id: 1
+  agent_type_id: 1
+  required_role_id: 1
+  created_at: 2010-03-03 17:00:00.579396 +09:00
+agent_00102:
+  full_name: 出版社テスト
+  updated_at: 2010-03-03 17:00:00.579396 +09:00
+  id: 102
+  language_id: 1
+  agent_type_id: 1
+  required_role_id: 1
+  created_at: 2010-03-03 17:00:00.579396 +09:00
+agent_00103:
+  full_name: 作者ダミー
+  updated_at: 2010-03-16 19:00:00.579396 +09:00
+  id: 103
+  language_id: 1
+  agent_type_id: 1
+  required_role_id: 1
+  created_at: 2010-03-16 19:00:00.579396 +09:00
+agent_00104:
+  full_name: 試験用会社
+  updated_at: 2010-03-16 19:00:00.579396 +09:00
+  id: 104
+  language_id: 1
+  agent_type_id: 1
+  required_role_id: 1
+  created_at: 2010-03-16 19:00:00.579396 +09:00
+agent_00201:
+  full_name: オーム社
+  updated_at: 2010-03-15 17:00:00.579396 +09:00
+  id: 201
+  language_id: 1
+  agent_type_id: 1
+  required_role_id: 1
+  created_at: 2010-03-15 17:00:00.579396 +09:00
+agent_00202:
+  full_name: Ruby社
+  updated_at: 2010-03-15 17:00:00.579396 +09:00
+  id: 202
+  language_id: 1
+  agent_type_id: 1
+  required_role_id: 1
+  created_at: 2010-03-15 17:00:00.579396 +09:00
