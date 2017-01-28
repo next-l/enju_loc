@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.2
+      - Faraday v0.11.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Content-Length:
-      - '41181'
+      - '41497'
       Server:
-      - Metaproxy/1.11.3
+      - Metaproxy/1.11.6
       Connection:
       - Keep-Alive
       Content-Type:
@@ -98,17 +98,20 @@ http_interactions:
         \ <titleInfo type=\"alternative\">\n    <title>One thousand one low-carb recipes</title>\n
         \ </titleInfo>\n  <titleInfo type=\"uniform\">\n    <title>1,001 low-carb
         recipes for life</title>\n  </titleInfo>\n  <name type=\"personal\">\n    <namePart>Spitler,
-        Sue.</namePart>\n  </name>\n  <name type=\"personal\">\n    <namePart>Yoakam,
-        Linda R.</namePart>\n  </name>\n  <typeOfResource>text</typeOfResource>\n
-        \ <genre authority=\"rdacontent\">text</genre>\n  <originInfo>\n    <place>\n
-        \     <placeTerm type=\"code\" authority=\"marccountry\">ilu</placeTerm>\n
-        \   </place>\n    <dateIssued encoding=\"marc\">2016</dateIssued>\n    <issuance>monographic</issuance>\n
-        \ </originInfo>\n  <originInfo eventType=\"publication\">\n    <place>\n      <placeTerm
-        type=\"text\">Chicago :</placeTerm>\n    </place>\n    <publisher>Agate Surrey,</publisher>\n
+        Sue</namePart>\n    <role>\n      <roleTerm type=\"text\">editor.</roleTerm>\n
+        \   </role>\n  </name>\n  <name type=\"personal\">\n    <namePart>Yoakam,
+        Linda R.</namePart>\n    <role>\n      <roleTerm type=\"text\">editor.</roleTerm>\n
+        \   </role>\n  </name>\n  <typeOfResource>text</typeOfResource>\n  <genre
+        authority=\"rdacontent\">text</genre>\n  <originInfo>\n    <place>\n      <placeTerm
+        type=\"code\" authority=\"marccountry\">ilu</placeTerm>\n    </place>\n    <dateIssued
+        encoding=\"marc\">2016</dateIssued>\n    <copyrightDate encoding=\"marc\">2016</copyrightDate>\n
+        \   <issuance>monographic</issuance>\n  </originInfo>\n  <originInfo eventType=\"publication\">\n
+        \   <place>\n      <placeTerm type=\"text\">Chicago :</placeTerm>\n    </place>\n
+        \   <publisher>Surrey Books, an imprint of Agate Publishing, Inc.,</publisher>\n
         \   <dateIssued>[2016]</dateIssued>\n  </originInfo>\n  <language>\n    <languageTerm
         authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n  </language>\n
-        \ <physicalDescription>\n    <form authority=\"marcform\">print</form>\n    <extent>pages
-        cm.</extent>\n    <form type=\"media\" authority=\"rdamedia\">unmediated</form>\n
+        \ <physicalDescription>\n    <form authority=\"marcform\">print</form>\n    <extent>x,
+        518 pages ; 26 cm.</extent>\n    <form type=\"media\" authority=\"rdamedia\">unmediated</form>\n
         \   <form type=\"carrier\" authority=\"rdacarrier\">volume</form>\n  </physicalDescription>\n
         \ <abstract type=\"Summary\">\"A redesigned and reformatted version of a title
         now returning to print, this second edition of 1,001 Best Low-Carb Recipes
@@ -141,11 +144,11 @@ http_interactions:
         5: Seafood -- Chapter 6: Vegetables and Side Dishes -- Chapter 7: Salads and
         Dressings -- Chapter 8: Snacks, Appetizers, and Pizza -- Chapter 9: Desserts
         -- Index.</tableOfContents>\n  <note type=\"statement of responsibility\"
-        altRepGroup=\"00\">edited by Sue Spitler with Linda R. Yoakam.</note>\n  <note>Includes
-        index.</note>\n  <note>Revision of: 1,001 low-carb recipes for life / edited
-        by Sue Spitler with Linda R. Yoakam. c2004.</note>\n  <note>Inludes index.</note>\n
-        \ <subject authority=\"lcsh\">\n    <topic>Low-carbohydrate diet</topic>\n
-        \   <genre>Recipes</genre>\n  </subject>\n  <subject authority=\"bisacsh\">\n
+        altRepGroup=\"00\">edited by Sue Spitler with Linda R. Yoakam, MS, RD.</note>\n
+        \ <note>Includes index.</note>\n  <note>Revision of: 1,001 low-carb recipes
+        for life / edited by Sue Spitler with Linda R. Yoakam. c2004.</note>\n  <note>Includes
+        index.</note>\n  <subject authority=\"lcsh\">\n    <topic>Low-carbohydrate
+        diet</topic>\n    <genre>Recipes</genre>\n  </subject>\n  <subject authority=\"bisacsh\">\n
         \   <topic>COOKING / Health &amp; Healing / Low Carbohydrate</topic>\n  </subject>\n
         \ <subject authority=\"bisacsh\">\n    <topic>COOKING / Courses &amp; Dishes
         / General</topic>\n  </subject>\n  <subject authority=\"bisacsh\">\n    <topic>COOKING
@@ -156,14 +159,14 @@ http_interactions:
         \ <classification authority=\"bisacsh\">CKB108000 CKB101000 CKB070000 CKB039000</classification>\n
         \ <relatedItem type=\"series\">\n    <titleInfo>\n      <title>1,001</title>\n
         \   </titleInfo>\n  </relatedItem>\n  <identifier type=\"isbn\">9781572841840
-        (paperback)</identifier>\n  <identifier type=\"isbn\" invalid=\"yes\">9781572847705
-        (ebook)</identifier>\n  <identifier type=\"isbn\" invalid=\"yes\">1572847700
-        (ebook)</identifier>\n  <identifier type=\"lccn\">2015031870</identifier>\n
-        \ <recordInfo>\n    <descriptionStandard>rda</descriptionStandard>\n    <recordContentSource
-        authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">150909</recordCreationDate>\n
-        \   <recordChangeDate encoding=\"iso8601\">20160503082307.0</recordChangeDate>\n
-        \   <recordIdentifier>18776592</recordIdentifier>\n    <recordOrigin>Converted
-        from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
+        (paperback)</identifier>\n  <identifier type=\"isbn\">1572841842 (paperback)</identifier>\n
+        \ <identifier type=\"isbn\" invalid=\"yes\">9781572847705 (ebook)</identifier>\n
+        \ <identifier type=\"isbn\" invalid=\"yes\">1572847700 (ebook)</identifier>\n
+        \ <identifier type=\"lccn\">2015031870</identifier>\n  <recordInfo>\n    <descriptionStandard>rda</descriptionStandard>\n
+        \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
+        \   <recordCreationDate encoding=\"marc\">150909</recordCreationDate>\n    <recordChangeDate
+        encoding=\"iso8601\">20161117110024.0</recordChangeDate>\n    <recordIdentifier>18776592</recordIdentifier>\n
+        \   <recordOrigin>Converted from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
         1.106 2014/12/19)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
         authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n    </languageOfCataloging>\n
         \ </recordInfo>\n</mods></zs:recordData><zs:recordPosition>3</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
@@ -199,7 +202,7 @@ http_interactions:
         paper)</identifier>\n  <identifier type=\"lccn\">99006038</identifier>\n  <recordInfo>\n
         \   <descriptionStandard>aacr</descriptionStandard>\n    <recordContentSource
         authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">990115</recordCreationDate>\n
-        \   <recordChangeDate encoding=\"iso8601\">20140224084743.0</recordChangeDate>\n
+        \   <recordChangeDate encoding=\"iso8601\">20161013093819.0</recordChangeDate>\n
         \   <recordIdentifier>739641</recordIdentifier>\n    <recordOrigin>Converted
         from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
         1.106 2014/12/19)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>4</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
@@ -482,7 +485,7 @@ http_interactions:
         (pbk.) :</identifier>\n  <identifier type=\"lccn\">87063591</identifier>\n
         \ <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n    <recordContentSource
         authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">871230</recordCreationDate>\n
-        \   <recordChangeDate encoding=\"iso8601\">20050929180202.0</recordChangeDate>\n
+        \   <recordChangeDate encoding=\"iso8601\">20161117090338.0</recordChangeDate>\n
         \   <recordIdentifier>2424452</recordIdentifier>\n    <recordOrigin>Converted
         from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
         1.106 2014/12/19)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>9</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
@@ -509,9 +512,9 @@ http_interactions:
         type=\"lccn\">83071936</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
         \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
         \   <recordCreationDate encoding=\"marc\">840130</recordCreationDate>\n    <recordChangeDate
-        encoding=\"iso8601\">20050929180222.0</recordChangeDate>\n    <recordIdentifier>3298317</recordIdentifier>\n
+        encoding=\"iso8601\">20161117082749.0</recordChangeDate>\n    <recordIdentifier>3298317</recordIdentifier>\n
         \   <recordOrigin>Converted from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
         1.106 2014/12/19)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>10</zs:recordPosition></zs:record></zs:records><zs:nextRecordPosition>11</zs:nextRecordPosition><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>test</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
     http_version: 
-  recorded_at: Thu, 07 Jul 2016 15:06:30 GMT
+  recorded_at: Sat, 28 Jan 2017 02:31:23 GMT
 recorded_with: VCR 3.0.3

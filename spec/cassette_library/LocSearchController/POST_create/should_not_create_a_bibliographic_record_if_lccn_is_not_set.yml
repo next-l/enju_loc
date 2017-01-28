@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.2
+      - Faraday v0.11.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -21,7 +21,7 @@ http_interactions:
       Content-Length:
       - '701'
       Server:
-      - Metaproxy/1.11.3
+      - Metaproxy/1.11.6
       Connection:
       - Keep-Alive
       Content-Type:
@@ -30,7 +30,7 @@ http_interactions:
       encoding: UTF-8
       string: |
         <?xml version="1.0"?>
-        <zs:searchRetrieveResponse xmlns:zs="http://www.loc.gov/zing/srw/"><zs:version>1.1</zs:version><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>bath.lccn="^"</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest><zs:diagnostics xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/"><diag:diagnostic><diag:uri>info:srw/diagnostic/1/1</diag:uri><diag:details>search failed at opac rc=1 (backend=z3950.loc.gov:7098/voyager)</diag:details><diag:message>Permanent system error</diag:message></diag:diagnostic></zs:diagnostics></zs:searchRetrieveResponse>
+        <zs:searchRetrieveResponse xmlns:zs="http://www.loc.gov/zing/srw/"><zs:version>1.1</zs:version><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>bath.lccn="^"</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest><zs:diagnostics xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/"><diag:diagnostic><diag:uri>info:srw/diagnostic/1/1</diag:uri><diag:details>search failed at opac rc=1 (backend=z3950.loc.gov:7097/voyager)</diag:details><diag:message>Permanent system error</diag:message></diag:diagnostic></zs:diagnostics></zs:searchRetrieveResponse>
     http_version: 
-  recorded_at: Thu, 07 Jul 2016 15:06:05 GMT
+  recorded_at: Sat, 28 Jan 2017 02:30:55 GMT
 recorded_with: VCR 3.0.3
