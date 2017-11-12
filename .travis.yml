@@ -13,15 +13,10 @@ gemfile:
   - gemfiles/rails_4.2.gemfile
   - gemfiles/rails_4.2_ndl.gemfile
   - gemfiles/rails_4.2_nii.gemfile
-  - gemfiles/rails_5.0.gemfile
 env:
   - DB=sqlite
   - DB=mysql
   - DB=postgresql
-matrix:
-  exclude:
-  allow_failures:
-    - gemfile: gemfiles/rails_5.0.gemfile
 notifications:
   slack:
     secure: rsdAy+UmEvL1DU2TIAS27NjH9MVH0xuyWyoX59MIfRaeCm9AtirT6ZyZMhfljE9w+r8m9KGrFVGp/oNAXevjLdzvxin2R4VjEeBtK2PEBQA7EoAnJuHY8UvrE/t4TflM96ChnmaYSRx9aawRN9j5QqwIGMPOoG3KqVEDLW2uNq0=
