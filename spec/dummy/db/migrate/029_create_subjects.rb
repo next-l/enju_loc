@@ -11,7 +11,6 @@ class CreateSubjects < ActiveRecord::Migration[5.0]
       t.integer :required_role_id, default: 1, null: false
       t.integer :lock_version, default: 0, null: false
       t.timestamps
-      t.datetime :deleted_at
     end
   end
 end

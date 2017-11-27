@@ -1,6 +1,6 @@
-class CreateAgents < ActiveRecord::Migration
+class CreateAgents < ActiveRecord::Migration[5.1]
   def change
-    create_table :agents do |t|
+    create_table :agents, id: :uuid, default: 'gen_random_uuid()' do |t|
       t.string :last_name
       t.string :middle_name
       t.string :first_name
@@ -31,19 +31,17 @@ class CreateAgents < ActiveRecord::Migration
       t.text :region
       t.datetime :date_of_birth
       t.datetime :date_of_death
-      t.integer :language_id, :default => 1, :null => false
-      t.integer :country_id, :default => 1, :null => false
-      t.integer :agent_type_id, :default => 1, :null => false
-      t.integer :lock_version, :default => 0, :null => false
+      t.integer :language_id, default: 1, null: false
+      t.integer :country_id, default: 1, null: false
+      t.integer :agent_type_id, default: 1, null: false
+      t.integer :lock_version, default: 0, null: false
       t.text :note
-      t.integer :required_role_id, :default => 1, :null => false
-      t.integer :required_score, :default => 0, :null => false
+      t.integer :required_role_id, null: false, default: 1
       t.text :email
       t.text :url
     end
     add_index :agents, :language_id
     add_index :agents, :country_id
-    add_index :agents, :required_role_id
     add_index :agents, :full_name
   end
 end

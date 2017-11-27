@@ -11,7 +11,7 @@ describe LocSearchController do
     login_fixture_librarian
 
     it 'should get index', vcr: true do
-      get :index, query: 'library'
+      get :index, params: { query: 'library' }
       expect(assigns(:books)).not_to be_empty
     end
 
@@ -21,7 +21,7 @@ describe LocSearchController do
     end
 
     it 'should get index with page parameter', vcr: true do
-      get :index, query: 'library', page: 2
+      get :index, params: { query: 'library', page: 2 }
       expect(assigns(:books)).not_to be_empty
     end
   end
@@ -30,13 +30,13 @@ describe LocSearchController do
     login_fixture_librarian
 
     it 'should create a bibliographic record if lccn is set', vcr: true do
-      post :create, book: { lccn: '2013385616' }
+      post :create, params: { book: { lccn: '2013385616' } }
       expect(assigns(:manifestation).lccn_record.body).to eq '2013385616'
       expect(response).to redirect_to manifestation_url(assigns(:manifestation))
     end
 
     it 'should not create a bibliographic record if lccn is not set', vcr: true do
-      post :create, book: {iccn: ''}
+      post :create, params: { book: { iccn: '' } }
       expect(assigns(:manifestation)).to be_nil
       expect(response).to redirect_to loc_search_index_url
     end

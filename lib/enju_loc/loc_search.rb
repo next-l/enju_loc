@@ -35,12 +35,6 @@ module EnjuLoc
 
       NS = {"mods"=>"http://www.loc.gov/mods/v3"}
       def import_record_from_loc( doc )
-        record_identifier = doc.at( '//mods:recordInfo/mods:recordIdentifier', NS ).try(:content)
-        identifier_type = IdentifierType.where(name: 'loc_identifier').first
-        identifier_type = IdentifierType.create!(name: 'loc_identifier') unless identifier_type
-        loc_identifier = Identifier.where(body: record_identifier, :identifier_type_id => identifier_type.id).first
-        return loc_identifier.manifestation if loc_identifier
-
         publishers = []
         doc.xpath('//mods:publisher', NS).each do |publisher|
           publishers << {
@@ -80,7 +74,11 @@ module EnjuLoc
         note = get_mods_note(doc)
         frequency = get_mods_frequency(doc)
         issuance = doc.at('//mods:issuance', NS).try(:content)
-        is_serial = true if issuance == "serial"
+        if issuance == "serial"
+          is_serial = true
+        else
+          is_serial = false
+        end
         statement_of_responsibility = get_mods_statement_of_responsibility(doc)
         access_address = get_mods_access_address(doc)
         publication_place = get_mods_publication_place(doc)
@@ -107,25 +105,18 @@ module EnjuLoc
             :access_address => access_address,
             :note => note,
             :publication_place => publication_place,
-            :serial => is_serial
+            :serial => is_serial,
+            carrier_type_id: 1
           )
           identifier = {}
           if isbn
             isbn_record = IsbnRecord.where(body: isbn).first_or_initialize
-          end
-          if loc_identifier
-            identifier[:loc_identifier] = Identifier.new(body: loc_identifier)
-            identifier[:loc_identifier].identifier_type = IdentifierType.where(name: 'loc_identifier').first || IdnetifierType.create!(name: 'loc_identifier')
           end
           if lccn
            manifestation.lccn_record = LccnRecord.where(body: lccn).first_or_initialize
           end
           if issn
             issn_record = IssnRecord.where(body: issn).first_or_initialize
-          end
-          if issn_l
-            identifier[:issn_l] = Identifier.new(body: issn_l)
-            identifier[:issn_l].identifier_type = IdentifierType.where(name: 'issn_l').first || IdentifierType.create!(name: 'issn_l')
           end
           manifestation.carrier_type = carrier_type if carrier_type
           manifestation.manifestation_content_type = content_type if content_type
