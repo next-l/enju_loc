@@ -46,7 +46,7 @@ describe LocSearch do
     
     it "should parse title information properly", :vcr => true do
       manifestation = LocSearch.import_from_sru_response( "2012532441" )
-      expect( manifestation.original_title ).to eq "The data journalism handbook"
+      expect( manifestation.original_title ).to eq "The  data journalism handbook"
       expect( manifestation.title_alternative ).to eq "How journalists can use data to improve the news"
     end
 
@@ -167,7 +167,7 @@ describe LocSearch do
     it "should import extent", vcr: true do
       m = LocSearch.import_from_sru_response( "94041789" )
       expect(m).to be_valid
-      expect(m.original_title).to eq "The little boat"
+      expect(m.original_title).to eq "The  little boat"
       expect(m.extent).to eq "1 v. (unpaged) : col. ill."
       expect(m.dimensions).to eq "25 x 29 cm."
     end

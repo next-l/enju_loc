@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.11.0
+      - Faraday v0.13.1
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Content-Length:
-      - '9627'
+      - '9468'
       Server:
-      - Metaproxy/1.11.6
+      - Metaproxy/1.13.0
       Connection:
       - Keep-Alive
       Content-Type:
@@ -30,7 +30,7 @@ http_interactions:
       encoding: UTF-8
       string: "<?xml version=\"1.0\"?>\n<zs:searchRetrieveResponse xmlns:zs=\"http://www.loc.gov/zing/srw/\"><zs:version>1.1</zs:version><zs:numberOfRecords>1</zs:numberOfRecords><zs:records><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.5\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd\">\n
+        version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
         \ <titleInfo altRepGroup=\"01\" script=\"Latn\">\n    <title>Entotsu no mieru
         basho</title>\n  </titleInfo>\n  <titleInfo type=\"alternative\" altRepGroup=\"15\"
         script=\"Latn\">\n    <title>Mujaki na hitobito</title>\n  </titleInfo>\n
@@ -50,20 +50,17 @@ http_interactions:
         Hiroshi</namePart>\n    <namePart type=\"date\">1920-1981</namePart>\n  </name>\n
         \ <name type=\"personal\" altRepGroup=\"13\" script=\"Latn\">\n    <namePart>Tanaka,
         Haruo</namePart>\n    <namePart type=\"date\">1912-1992</namePart>\n  </name>\n
-        \ <name type=\"personal\" altRepGroup=\"14\" script=\"Latn\">\n    <namePart>Shiina,
-        Rinzo&#x304;</namePart>\n    <namePart type=\"date\">1911-1973</namePart>\n
-        \ </name>\n  <name type=\"corporate\" altRepGroup=\"16\" script=\"Latn\">\n
-        \   <namePart>Shinto&#x304;ho&#x304; Kabushiki Kaisha</namePart>\n  </name>\n
-        \ <typeOfResource>moving image</typeOfResource>\n  <genre authority=\"marcgt\">videorecording</genre>\n
-        \ <genre authority=\"lcgft\">Fiction films.</genre>\n  <genre authority=\"lcgft\">Feature
-        films.</genre>\n  <originInfo script=\"Latn\" altRepGroup=\"02\">\n    <place>\n
-        \     <placeTerm type=\"code\" authority=\"marccountry\">ja</placeTerm>\n
-        \   </place>\n    <place>\n      <placeTerm type=\"text\">Tokyo]</placeTerm>\n
-        \   </place>\n    <publisher>hatsubaimoto Kabushiki Kaisha IMAGICA</publisher>\n
-        \   <publisher>hanbaimoto Kabushiki Kaisha Bappu</publisher>\n    <dateIssued>2005</dateIssued>\n
-        \   <issuance>monographic</issuance>\n  </originInfo>\n  <originInfo script=\"CJK\"
-        altRepGroup=\"02\">\n    <place>\n      <placeTerm type=\"text\">[Tokyo] :</placeTerm>\n
-        \   </place>\n    <publisher>&#x767A;&#x58F2;&#x5143;&#x682A;&#x5F0F;&#x4F1A;&#x793E;IMAGICA
+        \ <name type=\"corporate\" altRepGroup=\"16\" script=\"Latn\">\n    <namePart>Shinto&#x304;ho&#x304;
+        Kabushiki Kaisha</namePart>\n  </name>\n  <typeOfResource>moving image</typeOfResource>\n
+        \ <genre authority=\"marcgt\">videorecording</genre>\n  <genre authority=\"lcgft\">Fiction
+        films.</genre>\n  <genre authority=\"lcgft\">Feature films.</genre>\n  <originInfo
+        script=\"Latn\" altRepGroup=\"02\">\n    <place>\n      <placeTerm type=\"code\"
+        authority=\"marccountry\">ja</placeTerm>\n    </place>\n    <place>\n      <placeTerm
+        type=\"text\">Tokyo]</placeTerm>\n    </place>\n    <publisher>hatsubaimoto
+        Kabushiki Kaisha IMAGICA</publisher>\n    <publisher>hanbaimoto Kabushiki
+        Kaisha Bappu</publisher>\n    <dateIssued>2005</dateIssued>\n    <issuance>monographic</issuance>\n
+        \ </originInfo>\n  <originInfo script=\"CJK\" altRepGroup=\"02\">\n    <place>\n
+        \     <placeTerm type=\"text\">[Tokyo] :</placeTerm>\n    </place>\n    <publisher>&#x767A;&#x58F2;&#x5143;&#x682A;&#x5F0F;&#x4F1A;&#x793E;IMAGICA
         :</publisher>\n    <dateIssued>2005.</dateIssued>\n  </originInfo>\n  <language>\n
         \   <languageTerm authority=\"iso639-2b\" type=\"code\">jpn</languageTerm>\n
         \ </language>\n  <physicalDescription>\n    <form authority=\"gmd\">videorecording</form>\n
@@ -135,8 +132,8 @@ http_interactions:
         authority=\"marcorg\">KKU</recordContentSource>\n    <recordCreationDate encoding=\"marc\">130509</recordCreationDate>\n
         \   <recordChangeDate encoding=\"iso8601\">20150402132546.0</recordChangeDate>\n
         \   <recordIdentifier>17731062</recordIdentifier>\n    <recordOrigin>Converted
-        from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
-        1.106 2014/12/19)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>bath.lccn=\"^2013385616\"</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
+        from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
+        1.117 2017/02/14)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>bath.lccn=\"^2013385616\"</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
     http_version: 
-  recorded_at: Sat, 28 Jan 2017 02:30:54 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Sun, 24 Dec 2017 12:57:05 GMT
+recorded_with: VCR 4.0.0
