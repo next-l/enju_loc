@@ -3,9 +3,9 @@ module LocSearchHelper
     if lccn.blank?
       t('enju_loc.not_available')
     else
-      identifier_type = IdentifierType.where(:name => 'lccn').first
+      identifier_type = IdentifierType.where(name: 'lccn').first
       if identifier_type
-        manifestation = Identifier.where(:body => lccn, :identifier_type_id => identifier_type
+        manifestation = Identifier.where(body: lccn, identifier_type_id: identifier_type
 .id).first.try(:manifestation)
       end
       unless manifestation
