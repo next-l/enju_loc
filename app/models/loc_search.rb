@@ -17,7 +17,7 @@ class LocSearch
       @node.xpath( './/mods:mods/mods:identifier[@type="isbn"]', MODS_NS ).first.try( :content )
     end
     def creator
-      statement_of_responsibility = @node.at('.//mods:note[@type="statement of responsibility"]',MODS_NS).try(:content)
+      statement_of_responsibility = @node.at('.//mods:note[@type="statement of responsibility"]', MODS_NS).try(:content)
       if statement_of_responsibility
         statement_of_responsibility
       else

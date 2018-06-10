@@ -432,7 +432,7 @@ module EnjuLoc
             #carrier_type = CarrierType.where(name: 'other').first
           when "motion picture", "film cartridge", "film cassette", "film reel"
             content_type = ContentType.where(name: 'two_dimensional_moving_image').first
-          when "sound recording", "cylinder", "roll", "sound cartridge", "sound cassette","sound-tape reel", "sound-track film", "wire recording"
+          when "sound recording", "cylinder", "roll", "sound cartridge", "sound cassette", "sound-tape reel", "sound-track film", "wire recording"
             content_type = ContentType.where(name: 'performed_music').first
           when "sound disc"
             content_type = ContentType.where(name: 'performed_music').first
