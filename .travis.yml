@@ -10,9 +10,9 @@ before_script:
 services:
   - redis-server
 gemfile:
-  - gemfiles/rails_4.2.gemfile
-  - gemfiles/rails_4.2_ndl.gemfile
-  - gemfiles/rails_4.2_nii.gemfile
+  - gemfiles/rails_5.1.gemfile
+  - gemfiles/rails_5.1_ndl.gemfile
+  - gemfiles/rails_5.1_nii.gemfile
 env:
   - DB=sqlite
   - DB=mysql

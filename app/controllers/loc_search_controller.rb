@@ -11,8 +11,7 @@ class LocSearchController < ApplicationController
     books = LocSearch.search( @query, { page: page } )
     @books = Kaminari.paginate_array(
       books[:items],
-      total_count: books[ :total_entries ],
-      page: page
+      total_count: books[ :total_entries ]
     ).page( page ).per( 10 )
     respond_to do |format|
       format.html
@@ -21,7 +20,7 @@ class LocSearchController < ApplicationController
 
   def create
     begin
-      @manifestation = LocSearch.import_from_sru_response(params[:book][:lccn])
+      @manifestation = LocSearch.import_from_sru_response(loc_search_params[:lccn])
     rescue EnjuLoc::RecordNotFound
     end
     respond_to do |format|
@@ -29,11 +28,11 @@ class LocSearchController < ApplicationController
         flash[:notice] = t('controller.successfully_created', model: t('activerecord.models.manifestation'))
         format.html { redirect_to manifestation_url(@manifestation) }
       else
-	if @manifestation and not @manifestation.valid? 
-	  flash[:notice] = @manifestation.errors.messages
-	else
+        if @manifestation and not @manifestation.valid?
+          flash[:notice] = @manifestation.errors.messages
+        else
           flash[:notice] = t('enju_loc.record_not_found')
-	end
+        end
         format.html { redirect_to loc_search_index_url }
       end
     end
@@ -42,5 +41,11 @@ class LocSearchController < ApplicationController
   private
   def check_policy
     authorize LocSearch
+  end
+
+  def loc_search_params
+    params.permit(
+      :lccn
+    )
   end
 end
