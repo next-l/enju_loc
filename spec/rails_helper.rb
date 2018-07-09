@@ -34,10 +34,6 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.extend ControllerMacros, :type => :controller
 
-  config.before do
-    Sunspot.session = Sunspot::Rails::StubSessionProxy.new($original_sunspot_session)
-  end
-
   config.infer_spec_type_from_file_location!
 end
 
