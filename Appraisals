@@ -6,5 +6,5 @@ appraise "rails-5.1-ndl" do
 end
 
 appraise "rails-5.1-nii" do
-  gem "enju_nii", github: 'next-l/enju_nii', branch: '1.3'
+  gem "enju_nii", "~> 0.3.0.beta1"
 end
