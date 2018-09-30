@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2017_10_14_141921) do
+ActiveRecord::Schema.define(version: 2018_01_04_152615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
 
   create_table "accepts", force: :cascade do |t|
     t.uuid "basket_id"
-    t.uuid "item_id", null: false
     t.bigint "librarian_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "item_id", null: false
     t.index ["basket_id"], name: "index_accepts_on_basket_id"
     t.index ["item_id"], name: "index_accepts_on_item_id"
     t.index ["librarian_id"], name: "index_accepts_on_librarian_id"
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
   end
 
   create_table "agent_merges", force: :cascade do |t|
-    t.uuid "agent_id"
-    t.bigint "agent_merge_list_id"
+    t.uuid "agent_id", null: false
+    t.bigint "agent_merge_list_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["agent_id"], name: "index_agent_merges_on_agent_id"
@@ -220,17 +220,7 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
     t.jsonb "attachment_data"
   end
 
-  create_table "circulation_statuses", force: :cascade do |t|
-    t.string "name", null: false
-    t.jsonb "display_name_translations"
-    t.text "note"
-    t.integer "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_circulation_statuses_on_name", unique: true
-  end
-
-  create_table "classification_types", id: :serial, force: :cascade do |t|
+  create_table "classification_types", force: :cascade do |t|
     t.string "name", null: false
     t.jsonb "display_name_translations"
     t.text "note"
@@ -244,7 +234,7 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
     t.integer "parent_id"
     t.string "category", null: false
     t.text "note"
-    t.integer "classification_type_id", null: false
+    t.bigint "classification_type_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "lft"
@@ -252,7 +242,7 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
     t.uuid "manifestation_id"
     t.string "url"
     t.string "label"
-    t.index ["category"], name: "index_classifications_on_category"
+    t.index ["category"], name: "index_classifications_on_category", unique: true
     t.index ["classification_type_id"], name: "index_classifications_on_classification_type_id"
     t.index ["manifestation_id"], name: "index_classifications_on_manifestation_id"
     t.index ["parent_id"], name: "index_classifications_on_parent_id"
@@ -366,31 +356,6 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
     t.index ["name"], name: "index_frequencies_on_name", unique: true
   end
 
-  create_table "identifiers", id: :serial, force: :cascade do |t|
-    t.string "body", null: false
-    t.integer "identifier_type_id", null: false
-    t.uuid "manifestation_id"
-    t.boolean "primary"
-    t.integer "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["body", "identifier_type_id"], name: "index_identifiers_on_body_and_identifier_type_id"
-    t.index ["manifestation_id"], name: "index_identifiers_on_manifestation_id"
-  end
-
-  create_table "identities", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
-    t.bigint "profile_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "provider", null: false
-    t.index ["email"], name: "index_identities_on_email"
-    t.index ["name"], name: "index_identities_on_name"
-    t.index ["profile_id"], name: "index_identities_on_profile_id"
-  end
-
   create_table "import_request_transitions", force: :cascade do |t|
     t.string "to_state"
     t.jsonb "metadata", default: {}
@@ -462,15 +427,6 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
     t.datetime "updated_at", null: false
     t.index ["body"], name: "index_issn_records_on_body", unique: true
     t.index ["manifestation_id"], name: "index_issn_records_on_manifestation_id"
-  end
-
-  create_table "item_has_use_restrictions", force: :cascade do |t|
-    t.uuid "item_id", null: false
-    t.bigint "use_restriction_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_item_has_use_restrictions_on_item_id"
-    t.index ["use_restriction_id"], name: "index_item_has_use_restrictions_on_use_restriction_id"
   end
 
   create_table "item_transitions", force: :cascade do |t|
@@ -569,26 +525,25 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
     t.string "name", null: false
     t.jsonb "display_name_translations"
     t.string "short_name", null: false
-    t.cidr "my_networks"
+    t.text "my_networks"
     t.jsonb "login_banner_translations"
     t.text "note"
     t.integer "country_id"
     t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.cidr "admin_networks"
+    t.text "admin_networks"
     t.string "url", default: "http://localhost:3000/"
     t.jsonb "footer_banner_translations"
     t.text "html_snippet"
     t.integer "max_number_of_results", default: 500
     t.boolean "family_name_first", default: true
     t.integer "pub_year_facet_range_interval", default: 10
-    t.bigint "user_id", null: false
     t.boolean "csv_charset_conversion", default: false, null: false
     t.jsonb "header_logo_data"
+    t.string "email", null: false
     t.index ["name"], name: "index_library_groups_on_name", unique: true
     t.index ["short_name"], name: "index_library_groups_on_short_name", unique: true
-    t.index ["user_id"], name: "index_library_groups_on_user_id"
   end
 
   create_table "licenses", force: :cascade do |t|
@@ -690,71 +645,6 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
     t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "message_request_transitions", force: :cascade do |t|
-    t.string "to_state"
-    t.jsonb "metadata", default: {}
-    t.integer "sort_key"
-    t.integer "message_request_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "most_recent"
-    t.index ["message_request_id"], name: "index_message_request_transitions_on_message_request_id"
-    t.index ["sort_key", "message_request_id"], name: "index_message_request_transitions_on_sort_key_and_request_id", unique: true
-  end
-
-  create_table "message_requests", force: :cascade do |t|
-    t.integer "sender_id"
-    t.integer "receiver_id"
-    t.integer "message_template_id"
-    t.datetime "sent_at"
-    t.datetime "deleted_at"
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "message_templates", force: :cascade do |t|
-    t.string "status", null: false
-    t.text "title", null: false
-    t.text "body", null: false
-    t.integer "position"
-    t.string "locale", default: "en"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["status"], name: "index_message_templates_on_status", unique: true
-  end
-
-  create_table "message_transitions", force: :cascade do |t|
-    t.string "to_state"
-    t.jsonb "metadata", default: {}
-    t.integer "sort_key"
-    t.integer "message_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "most_recent"
-    t.index ["message_id"], name: "index_message_transitions_on_message_id"
-    t.index ["sort_key", "message_id"], name: "index_message_transitions_on_sort_key_and_message_id", unique: true
-  end
-
-  create_table "messages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.datetime "read_at"
-    t.integer "receiver_id"
-    t.integer "sender_id"
-    t.string "subject", null: false
-    t.text "body"
-    t.integer "message_request_id"
-    t.uuid "parent_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "lft"
-    t.integer "rgt"
-    t.integer "depth"
-    t.index ["message_request_id"], name: "index_messages_on_message_request_id"
-    t.index ["parent_id"], name: "index_messages_on_parent_id"
-    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
-    t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
   create_table "owns", force: :cascade do |t|
@@ -1006,7 +896,7 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
     t.index ["name"], name: "index_shelves_on_name", unique: true
   end
 
-  create_table "subject_heading_types", id: :serial, force: :cascade do |t|
+  create_table "subject_heading_types", force: :cascade do |t|
     t.string "name", null: false
     t.jsonb "display_name_translations"
     t.text "note"
@@ -1016,7 +906,7 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
     t.index ["name"], name: "index_subject_heading_types_on_name", unique: true
   end
 
-  create_table "subject_types", id: :serial, force: :cascade do |t|
+  create_table "subject_types", force: :cascade do |t|
     t.string "name", null: false
     t.jsonb "display_name_translations"
     t.text "note"
@@ -1030,18 +920,20 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
     t.integer "use_term_id"
     t.string "term"
     t.text "term_transcription"
-    t.integer "subject_type_id", null: false
+    t.bigint "subject_type_id", null: false
     t.text "scope_note"
     t.text "note"
-    t.integer "required_role_id", default: 1, null: false
+    t.bigint "required_role_id", default: 1, null: false
     t.integer "lock_version", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "url"
     t.uuid "manifestation_id"
-    t.integer "subject_heading_type_id"
+    t.bigint "subject_heading_type_id", null: false
     t.index ["manifestation_id"], name: "index_subjects_on_manifestation_id"
     t.index ["parent_id"], name: "index_subjects_on_parent_id"
+    t.index ["required_role_id"], name: "index_subjects_on_required_role_id"
+    t.index ["subject_heading_type_id"], name: "index_subjects_on_subject_heading_type_id"
     t.index ["subject_type_id"], name: "index_subjects_on_subject_type_id"
     t.index ["term"], name: "index_subjects_on_term"
     t.index ["use_term_id"], name: "index_subjects_on_use_term_id"
@@ -1070,16 +962,6 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
-  create_table "use_restrictions", force: :cascade do |t|
-    t.string "name", null: false
-    t.jsonb "display_name_translations"
-    t.text "note"
-    t.integer "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_use_restrictions_on_name", unique: true
-  end
-
   create_table "user_export_file_transitions", force: :cascade do |t|
     t.string "to_state"
     t.jsonb "metadata", default: {}
@@ -1087,7 +969,6 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
     t.integer "user_export_file_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "most_recent"
     t.index ["sort_key", "user_export_file_id"], name: "index_user_export_file_transitions_on_sort_key_and_file_id", unique: true
     t.index ["user_export_file_id"], name: "index_user_export_file_transitions_on_file_id"
   end
@@ -1110,9 +991,6 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
     t.datetime "updated_at", null: false
     t.integer "valid_period_for_new_user", default: 0, null: false
     t.datetime "expired_at"
-    t.integer "number_of_day_to_notify_overdue", default: 1, null: false
-    t.integer "number_of_day_to_notify_due_date", default: 7, null: false
-    t.integer "number_of_time_to_notify_overdue", default: 3, null: false
     t.index ["name"], name: "index_user_groups_on_name", unique: true
   end
 
@@ -1132,7 +1010,6 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
     t.integer "user_import_file_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "most_recent"
     t.index ["sort_key", "user_import_file_id"], name: "index_user_import_file_transitions_on_sort_key_and_file_id", unique: true
     t.index ["user_import_file_id"], name: "index_user_import_file_transitions_on_user_import_file_id"
   end
@@ -1161,7 +1038,7 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
     t.index ["user_import_file_id"], name: "index_user_import_results_on_user_import_file_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -1172,8 +1049,8 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string "username"
     t.datetime "deleted_at"
     t.datetime "expired_at"
@@ -1191,10 +1068,10 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
 
   create_table "withdraws", force: :cascade do |t|
     t.uuid "basket_id"
-    t.uuid "item_id"
     t.bigint "librarian_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "item_id", null: false
     t.index ["basket_id"], name: "index_withdraws_on_basket_id"
     t.index ["item_id"], name: "index_withdraws_on_item_id"
     t.index ["librarian_id"], name: "index_withdraws_on_librarian_id"
@@ -1210,6 +1087,7 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
   add_foreign_key "agent_relationships", "agents", column: "child_id"
   add_foreign_key "agent_relationships", "agents", column: "parent_id"
   add_foreign_key "baskets", "users"
+  add_foreign_key "classifications", "classification_types"
   add_foreign_key "classifications", "manifestations"
   add_foreign_key "creates", "agents"
   add_foreign_key "creates", "manifestations", column: "work_id"
@@ -1218,7 +1096,6 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
   add_foreign_key "donates", "items"
   add_foreign_key "exemplifies", "items"
   add_foreign_key "exemplifies", "manifestations"
-  add_foreign_key "identifiers", "manifestations"
   add_foreign_key "import_requests", "manifestations"
   add_foreign_key "import_requests", "users"
   add_foreign_key "isbn_record_and_manifestations", "isbn_records"
@@ -1228,15 +1105,12 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
   add_foreign_key "issn_record_and_periodicals", "issn_records"
   add_foreign_key "issn_record_and_periodicals", "periodicals"
   add_foreign_key "issn_records", "manifestations"
-  add_foreign_key "item_has_use_restrictions", "items"
-  add_foreign_key "item_has_use_restrictions", "use_restrictions"
   add_foreign_key "items", "bookstores"
   add_foreign_key "items", "budget_types"
   add_foreign_key "items", "manifestations"
   add_foreign_key "items", "shelves"
   add_foreign_key "lccn_records", "manifestations"
   add_foreign_key "libraries", "library_groups"
-  add_foreign_key "library_groups", "users"
   add_foreign_key "owns", "agents"
   add_foreign_key "owns", "items"
   add_foreign_key "periodicals", "manifestations"
@@ -1250,6 +1124,9 @@ ActiveRecord::Schema.define(version: 2017_10_14_141921) do
   add_foreign_key "series_statements", "manifestations"
   add_foreign_key "shelves", "libraries"
   add_foreign_key "subjects", "manifestations"
+  add_foreign_key "subjects", "roles", column: "required_role_id"
+  add_foreign_key "subjects", "subject_heading_types"
+  add_foreign_key "subjects", "subject_types"
   add_foreign_key "subscribes", "subscriptions"
   add_foreign_key "subscriptions", "users"
   add_foreign_key "user_export_files", "users"

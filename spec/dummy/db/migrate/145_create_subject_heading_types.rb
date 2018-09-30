@@ -1,4 +1,4 @@
-class CreateSubjectHeadingTypes < ActiveRecord::Migration[5.0]
+class CreateSubjectHeadingTypes < ActiveRecord::Migration[5.1]
   def change
     create_table :subject_heading_types do |t|
       t.string :name, null: false, index: {unique: true}
