@@ -23,13 +23,13 @@ default: &default
 
 development:
   <<: *default
-  database: enju_nii_dummy_development
+  database: enju_loc_dummy_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: enju_nii_dummy
+  #username: enju_loc_dummy
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: enju_nii_dummy_test
+  database: enju_loc_dummy_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: enju_nii_dummy_production
-  username: enju_nii_dummy
+  database: enju_loc_dummy_production
+  username: enju_loc_dummy
   password: <%= ENV['DUMMY_DATABASE_PASSWORD'] %>
