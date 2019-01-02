@@ -114,7 +114,7 @@ module EnjuLoc
 
           if isbn
             IsbnRecordAndManifestation.create(
-              isbn_record: IsbnRecord.find_by(body: isbn),
+              isbn_record: IsbnRecord.where(body: isbn).first_or_create,
               manifestation: manifestation
             )
           end
