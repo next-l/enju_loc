@@ -20,7 +20,7 @@ class LocSearchController < ApplicationController
 
   def create
     begin
-      @manifestation = LocSearch.import_from_sru_response(params.require(:book).permit(:lccn)[:lccn])
+      @manifestation = LocSearch.import_from_sru_response(params[:book].try(:[], 'lccn'))
     rescue EnjuLoc::RecordNotFound
     end
     respond_to do |format|

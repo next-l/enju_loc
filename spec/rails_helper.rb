@@ -1,5 +1,7 @@
 require 'simplecov'
-SimpleCov.start
+require 'coveralls'
+SimpleCov.start 'rails'
+Coveralls.wear!
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
@@ -32,10 +34,6 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.extend ControllerMacros, :type => :controller
 
-  config.before do
-    Sunspot.session = Sunspot::Rails::StubSessionProxy.new($original_sunspot_session)
-  end
-
   config.infer_spec_type_from_file_location!
 end
 
@@ -44,4 +42,5 @@ VCR.configure do |c|
   c.hook_into :webmock
   c.configure_rspec_metadata!
   c.allow_http_connections_when_no_cassette = true
+  c.ignore_localhost = true
 end

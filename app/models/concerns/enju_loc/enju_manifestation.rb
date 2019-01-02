@@ -3,7 +3,8 @@ module EnjuLoc
     extend ActiveSupport::Concern
 
     included do
-      has_one :lccn_record
+      has_one :lccn_record_and_manifestation
+      has_one :lccn_record, through: :lccn_record_and_manifestation
     end
   end
 end

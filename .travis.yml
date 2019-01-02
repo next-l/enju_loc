@@ -1,8 +1,8 @@
 language: ruby
 cache: bundler
 rvm:
-  - 2.3.4
-  - 2.4.1
+  - 2.3.7
+  - 2.4.4
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
@@ -10,14 +10,17 @@ before_script:
   - psql -c 'create database enju_loc_dummy_test;' -U postgres
   - psql enju_loc_dummy_test -c 'CREATE EXTENSION pgcrypto'
   - bundle exec rake db:migrate
+  - bundle exec rake app:sunspot:solr:start
 script:
   - bundle exec rspec
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 services:
   - redis-server
-env:
-  - DB=postgresql
+gemfile:
+  - gemfiles/rails_5.2.gemfile
+  - gemfiles/rails_5.2_ndl.gemfile
+  - gemfiles/rails_5.2_nii.gemfile
 notifications:
   slack:
     secure: rsdAy+UmEvL1DU2TIAS27NjH9MVH0xuyWyoX59MIfRaeCm9AtirT6ZyZMhfljE9w+r8m9KGrFVGp/oNAXevjLdzvxin2R4VjEeBtK2PEBQA7EoAnJuHY8UvrE/t4TflM96ChnmaYSRx9aawRN9j5QqwIGMPOoG3KqVEDLW2uNq0=

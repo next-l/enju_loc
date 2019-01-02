@@ -16,16 +16,16 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["spec/**/*"] - Dir["spec/dummy/db/*.sqlite3"] - Dir["spec/dummy/log/*"] - Dir["spec/dummy/solr/{data,pids,default,development,test}/*"] - Dir["spec/dummy/tmp/*"]
 
-  #s.add_dependency "enju_subject", "~> 0.2.0"
+  s.add_dependency "enju_subject", "~> 0.4.0.beta.1"
   s.add_dependency "faraday"
 
-  #s.add_development_dependency "enju_leaf", "~> 1.2.0"
+  s.add_development_dependency "enju_leaf", "~> 1.4.0.beta.1"
   s.add_development_dependency "pg"
-  s.add_development_dependency "rspec-rails", "~> 3.8"
+  s.add_development_dependency "rspec-rails", "~> 3.7"
   s.add_development_dependency "vcr", "~> 4.0"
   s.add_development_dependency "webmock"
   s.add_development_dependency "sunspot_solr", "~> 2.3"
   s.add_development_dependency "simplecov"
-  s.add_development_dependency "resque"
+  s.add_development_dependency "coveralls"
   s.add_development_dependency "appraisal"
 end

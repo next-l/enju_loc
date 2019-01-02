@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.10.1
+      - Faraday v0.13.1
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Content-Length:
-      - '4889'
+      - '5260'
       Server:
-      - Metaproxy/1.11.6
+      - Metaproxy/1.13.0
       Connection:
       - Keep-Alive
       Content-Type:
@@ -30,7 +30,7 @@ http_interactions:
       encoding: UTF-8
       string: "<?xml version=\"1.0\"?>\n<zs:searchRetrieveResponse xmlns:zs=\"http://www.loc.gov/zing/srw/\"><zs:version>1.1</zs:version><zs:numberOfRecords>1</zs:numberOfRecords><zs:records><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.5\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd\">\n
+        version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
         \ <titleInfo>\n    <title>Superconductor science &amp; technology</title>\n
         \ </titleInfo>\n  <titleInfo type=\"abbreviated\">\n    <title>Supercond.
         sci. technol</title>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n
@@ -38,14 +38,14 @@ http_interactions:
         \ <name type=\"corporate\">\n    <namePart>Institute of Physics (Great Britain)</namePart>\n
         \ </name>\n  <name type=\"corporate\">\n    <namePart>American Institute of
         Physics</namePart>\n  </name>\n  <typeOfResource>text</typeOfResource>\n  <genre
-        authority=\"marcgt\">periodical</genre>\n  <originInfo>\n    <place>\n      <placeTerm
-        type=\"code\" authority=\"marccountry\">enk</placeTerm>\n    </place>\n    <place>\n
-        \     <placeTerm type=\"text\">Bristol, UK]</placeTerm>\n    </place>\n    <publisher>IOP
-        Pub.</publisher>\n    <dateIssued>[c1988]-</dateIssued>\n    <dateIssued encoding=\"marc\"
-        point=\"start\">1988</dateIssued>\n    <dateIssued encoding=\"marc\" point=\"end\">9999</dateIssued>\n
-        \   <issuance>serial</issuance>\n    <frequency>Monthly</frequency>\n    <frequency
-        authority=\"marcfrequency\">Monthly</frequency>\n  </originInfo>\n  <language>\n
-        \   <languageTerm authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n
+        authority=\"marcgt\">periodical</genre>\n  <genre authority=\"fast\">Periodicals.</genre>\n
+        \ <originInfo>\n    <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">enk</placeTerm>\n
+        \   </place>\n    <place>\n      <placeTerm type=\"text\">Bristol, UK]</placeTerm>\n
+        \   </place>\n    <publisher>IOP Pub.</publisher>\n    <dateIssued>[c1988]-</dateIssued>\n
+        \   <dateIssued encoding=\"marc\" point=\"start\">1988</dateIssued>\n    <dateIssued
+        encoding=\"marc\" point=\"end\">9999</dateIssued>\n    <issuance>serial</issuance>\n
+        \   <frequency>Monthly</frequency>\n    <frequency authority=\"marcfrequency\">Monthly</frequency>\n
+        \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n
         \ </language>\n  <physicalDescription>\n    <form authority=\"marcform\">print</form>\n
         \   <extent>v. : ill. ; 29 cm.</extent>\n  </physicalDescription>\n  <note
         type=\"date/sequential designation\">Vol. 1, no. 1-</note>\n  <note>Title
@@ -59,29 +59,33 @@ http_interactions:
         \   <topic>Superconductors</topic>\n    <genre>Periodicals</genre>\n  </subject>\n
         \ <subject authority=\"lcsh\">\n    <topic>Electronics</topic>\n    <topic>Materials</topic>\n
         \   <genre>Periodicals</genre>\n  </subject>\n  <subject authority=\"gtt\">\n
-        \   <topic>Supergeleidend materiaal</topic>\n  </subject>\n  <classification
-        authority=\"lcc\">QC611.9 .S86</classification>\n  <classification authority=\"ddc\"
-        edition=\"19\">537.6/23</classification>\n  <location/>\n  <relatedItem type=\"isReferencedBy\">\n
-        \   <titleInfo>\n      <title>Chemical abstracts</title>\n    </titleInfo>\n
-        \   <part>\n      <detail type=\"part\">\n        <number/>\n      </detail>\n
-        \   </part>\n  </relatedItem>\n  <relatedItem type=\"otherFormat\">\n    <titleInfo>\n
-        \     <title>Superconductor science &amp; technology (Online)</title>\n    </titleInfo>\n
-        \   <identifier type=\"issn\">1361-6668</identifier>\n    <identifier type=\"local\">(DLC)sn
-        96036203</identifier>\n    <identifier type=\"local\">(OCoLC)34482308</identifier>\n
-        \ </relatedItem>\n  <relatedItem type=\"otherFormat\" displayLabel=\"Online
-        version:\">\n    <titleInfo>\n      <title>Superconductor science &amp; technology</title>\n
+        \   <topic>Supergeleidend materiaal</topic>\n  </subject>\n  <subject authority=\"fast\">\n
+        \   <topic>Electronics</topic>\n    <topic>Materials</topic>\n  </subject>\n
+        \ <subject authority=\"fast\">\n    <topic>Superconductivity</topic>\n  </subject>\n
+        \ <subject authority=\"fast\">\n    <topic>Superconductors</topic>\n  </subject>\n
+        \ <subject>\n    <topic>Physics</topic>\n  </subject>\n  <classification authority=\"lcc\">QC611.9
+        .S86</classification>\n  <classification authority=\"ddc\" edition=\"19\">537.6/23</classification>\n
+        \ <relatedItem type=\"isReferencedBy\">\n    <titleInfo>\n      <title>Chemical
+        abstracts</title>\n    </titleInfo>\n    <part>\n      <detail type=\"part\">\n
+        \       <number/>\n      </detail>\n    </part>\n  </relatedItem>\n  <relatedItem
+        type=\"otherFormat\">\n    <titleInfo>\n      <title>Superconductor science
+        &amp; technology (Online)</title>\n    </titleInfo>\n    <identifier type=\"issn\">1361-6668</identifier>\n
+        \   <identifier type=\"local\">(DLC)sn 96036203</identifier>\n    <identifier
+        type=\"local\">(OCoLC)34482308</identifier>\n  </relatedItem>\n  <relatedItem
+        type=\"otherFormat\" otherType=\"Online version:\" displayLabel=\"Online version:\">\n
+        \   <titleInfo>\n      <title>Superconductor science &amp; technology</title>\n
         \   </titleInfo>\n    <identifier type=\"local\">(OCoLC)746111558</identifier>\n
         \ </relatedItem>\n  <identifier type=\"issn\">0953-2048</identifier>\n  <identifier
         type=\"issn-l\">0953-2048</identifier>\n  <identifier type=\"lccn\">88651712</identifier>\n
         \ <identifier type=\"lccn\" invalid=\"yes\">sn 88038157</identifier>\n  <identifier
         type=\"oclc\">ocm18126477</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
-        \   <recordContentSource authority=\"marcorg\">CoG</recordContentSource>\n
+        \   <recordContentSource authority=\"marcorg\">COP</recordContentSource>\n
         \   <recordCreationDate encoding=\"marc\">880623</recordCreationDate>\n    <recordChangeDate
-        encoding=\"iso8601\">20130326080756.0</recordChangeDate>\n    <recordIdentifier>11347004</recordIdentifier>\n
-        \   <recordOrigin>Converted from MARCXML to MODS version 3.5 using MARC21slim2MODS3-5.xsl\n\t\t\t\t(Revision
-        1.106 2014/12/19)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
+        encoding=\"iso8601\">20170922081235.0</recordChangeDate>\n    <recordIdentifier>11347004</recordIdentifier>\n
+        \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
+        1.117 2017/02/14)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
         authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n    </languageOfCataloging>\n
         \ </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>bath.lccn=\"^88651712\"</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 03:11:06 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Sun, 24 Dec 2017 12:57:24 GMT
+recorded_with: VCR 4.0.0

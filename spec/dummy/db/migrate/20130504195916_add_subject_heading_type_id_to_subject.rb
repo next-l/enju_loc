@@ -1,5 +1,5 @@
-class AddSubjectHeadingTypeIdToSubject < ActiveRecord::Migration[5.1]
+class AddSubjectHeadingTypeIdToSubject < ActiveRecord::Migration[4.2]
   def change
-    add_reference :subjects, :subject_heading_type, foreign_key: true, null: false
+    add_column :subjects, :subject_heading_type_id, :integer
   end
 end
