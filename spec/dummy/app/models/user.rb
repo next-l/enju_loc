@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
 end
 
 Manifestation.include(EnjuLoc::EnjuManifestation)
+Manifestation.include(EnjuNii::EnjuManifestation)
+Manifestation.include(EnjuNdl::EnjuManifestation)
 Manifestation.include(EnjuSubject::EnjuManifestation)
