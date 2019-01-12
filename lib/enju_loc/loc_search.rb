@@ -36,9 +36,10 @@ module EnjuLoc
       NS = {"mods"=>"http://www.loc.gov/mods/v3"}
 
       def import_record_from_loc(doc)
-        record_identifier = doc.at('//mods:recordInfo/mods:recordIdentifier', NS).try(:content)
-        loc_record = LocRecord.find_by(body: record_identifier)
-        return loc_record.manifestation if loc_record
+        # record_identifier = doc.at('//mods:recordInfo/mods:recordIdentifier', NS).try(:content)
+        lccn = StdNum::LCCN.normalize(doc.at('/mods:mods/mods:identifier[@type="lccn"]', NS).try(:content).to_s)
+        lccn_record = LccnRecord.find_by(body: lccn)
+        return lccn_record.manifestation if lccn_record
 
         publishers = []
         doc.xpath('//mods:publisher', NS).each do |publisher|
@@ -64,7 +65,6 @@ module EnjuLoc
         end
 
         isbn = Lisbn.new(doc.at('/mods:mods/mods:identifier[@type="isbn"]', NS).try(:content).to_s)
-        lccn = StdNum::LCCN.normalize(doc.at('/mods:mods/mods:identifier[@type="lccn"]', NS).try(:content).to_s)
         issn = StdNum::ISSN.normalize(doc.at('/mods:mods/mods:identifier[@type="issn"]', NS).try(:content).to_s)
         issn_l = StdNum::ISSN.normalize(doc.at('/mods:mods/mods:identifier[@type="issn-l"]', NS).try(:content).to_s)
 
@@ -123,13 +123,6 @@ module EnjuLoc
             )
           end
 
-          if record_identifier
-            LocRecord.create(
-              body: record_identifier,
-              manifestation: manifestation
-            )
-          end
-
           if lccn
             lccn_record = LccnRecord.find_by(body: lccn)
             LccnRecord.create(
@@ -137,12 +130,14 @@ module EnjuLoc
               manifestation: manifestation
             ) unless lccn_record
           end
+
           if issn
             IssnRecordAndManifestation.create(
               issn_record: IssnRecord.where(body: issn).first_or_create,
               manifestation: manifestation
             )
           end
+
           if issn_l
             IssnRecordAndManifestation.create(
               issn_record: IssnRecord.where(body: issn).first_or_create,

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_12_153539) do
+ActiveRecord::Schema.define(version: 2019_01_12_151019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -552,15 +552,6 @@ ActiveRecord::Schema.define(version: 2019_01_12_153539) do
     t.integer "position", default: 1, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "loc_records", force: :cascade do |t|
-    t.string "body", null: false
-    t.bigint "manifestation_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["body"], name: "index_loc_records_on_body", unique: true
-    t.index ["manifestation_id"], name: "index_loc_records_on_manifestation_id"
   end
 
   create_table "manifestation_relationship_types", id: :serial, force: :cascade do |t|
@@ -1192,5 +1183,4 @@ ActiveRecord::Schema.define(version: 2019_01_12_153539) do
   add_foreign_key "lccn_records", "manifestations"
   add_foreign_key "libraries", "library_groups"
   add_foreign_key "library_groups", "users"
-  add_foreign_key "loc_records", "manifestations"
 end
