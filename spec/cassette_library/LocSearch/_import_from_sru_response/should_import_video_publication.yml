@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.13.1
+      - Faraday v0.15.4
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Content-Length:
-      - '13966'
+      - '13980'
       Server:
-      - Metaproxy/1.13.0
+      - Metaproxy/1.15.0
       Connection:
       - Keep-Alive
       Content-Type:
@@ -41,31 +41,31 @@ http_interactions:
         type=\"uniform\">\n    <title>Tightrope (Motion picture)</title>\n  </titleInfo>\n
         \ <titleInfo type=\"uniform\">\n    <title>Dead pool (Motion picture)</title>\n
         \ </titleInfo>\n  <titleInfo type=\"uniform\">\n    <title>Rookie (Motion
-        picture)</title>\n  </titleInfo>\n  <titleInfo type=\"uniform\">\n    <title>Where
-        eagles dare (Motion picture)</title>\n  </titleInfo>\n  <titleInfo type=\"uniform\">\n
-        \   <title>Kelly's heroes (Motion picture)</title>\n  </titleInfo>\n  <titleInfo
-        type=\"uniform\">\n    <title>Firefox (Motion picture)</title>\n  </titleInfo>\n
-        \ <titleInfo type=\"uniform\">\n    <title>Heartbreak Ridge (Motion picture)</title>\n
-        \ </titleInfo>\n  <titleInfo type=\"uniform\">\n    <title>Absolute power
+        picture : 1990)</title>\n  </titleInfo>\n  <titleInfo type=\"uniform\">\n
+        \   <title>Where eagles dare (Motion picture)</title>\n  </titleInfo>\n  <titleInfo
+        type=\"uniform\">\n    <title>Kelly's heroes (Motion picture)</title>\n  </titleInfo>\n
+        \ <titleInfo type=\"uniform\">\n    <title>Firefox (Motion picture)</title>\n
+        \ </titleInfo>\n  <titleInfo type=\"uniform\">\n    <title>Heartbreak Ridge
         (Motion picture)</title>\n  </titleInfo>\n  <titleInfo type=\"uniform\">\n
-        \   <title>True crime (Motion picture)</title>\n  </titleInfo>\n  <titleInfo
-        type=\"uniform\">\n    <title>Space cowboys (Motion picture)</title>\n  </titleInfo>\n
-        \ <titleInfo type=\"uniform\">\n    <title>Blood work (Motion picture)</title>\n
-        \ </titleInfo>\n  <titleInfo type=\"uniform\">\n    <title>Every which way
-        but loose (Motion picture)</title>\n  </titleInfo>\n  <titleInfo type=\"uniform\">\n
-        \   <title>Any which way you can (Motion picture)</title>\n  </titleInfo>\n
-        \ <titleInfo type=\"uniform\">\n    <title>Bronco Billy (Motion picture)</title>\n
-        \ </titleInfo>\n  <titleInfo type=\"uniform\">\n    <title>Honkytonk man (Motion
-        picture)</title>\n  </titleInfo>\n  <titleInfo type=\"uniform\">\n    <title>City
-        heat (Motion picture)</title>\n  </titleInfo>\n  <titleInfo type=\"uniform\">\n
-        \   <title>Pink Cadillac (Motion picture)</title>\n  </titleInfo>\n  <titleInfo
-        type=\"uniform\">\n    <title>Perfect world (Motion picture)</title>\n  </titleInfo>\n
-        \ <titleInfo type=\"uniform\">\n    <title>Bridges of Madison County (Motion
-        picture)</title>\n  </titleInfo>\n  <titleInfo type=\"uniform\">\n    <title>Outlaw
-        Josey Wales (Motion picture)</title>\n  </titleInfo>\n  <titleInfo type=\"uniform\">\n
-        \   <title>Pale rider (Motion picture)</title>\n  </titleInfo>\n  <titleInfo
-        type=\"uniform\">\n    <title>Unforgiven (Motion picture)</title>\n  </titleInfo>\n
-        \ <titleInfo type=\"uniform\">\n    <title>Bird (Motion picture)</title>\n
+        \   <title>Absolute power (Motion picture)</title>\n  </titleInfo>\n  <titleInfo
+        type=\"uniform\">\n    <title>True crime (Motion picture)</title>\n  </titleInfo>\n
+        \ <titleInfo type=\"uniform\">\n    <title>Space cowboys (Motion picture)</title>\n
+        \ </titleInfo>\n  <titleInfo type=\"uniform\">\n    <title>Blood work (Motion
+        picture)</title>\n  </titleInfo>\n  <titleInfo type=\"uniform\">\n    <title>Every
+        which way but loose (Motion picture)</title>\n  </titleInfo>\n  <titleInfo
+        type=\"uniform\">\n    <title>Any which way you can (Motion picture)</title>\n
+        \ </titleInfo>\n  <titleInfo type=\"uniform\">\n    <title>Bronco Billy (Motion
+        picture)</title>\n  </titleInfo>\n  <titleInfo type=\"uniform\">\n    <title>Honkytonk
+        man (Motion picture)</title>\n  </titleInfo>\n  <titleInfo type=\"uniform\">\n
+        \   <title>City heat (Motion picture)</title>\n  </titleInfo>\n  <titleInfo
+        type=\"uniform\">\n    <title>Pink Cadillac (Motion picture)</title>\n  </titleInfo>\n
+        \ <titleInfo type=\"uniform\">\n    <title>Perfect world (Motion picture)</title>\n
+        \ </titleInfo>\n  <titleInfo type=\"uniform\">\n    <title>Bridges of Madison
+        County (Motion picture)</title>\n  </titleInfo>\n  <titleInfo type=\"uniform\">\n
+        \   <title>Outlaw Josey Wales (Motion picture)</title>\n  </titleInfo>\n  <titleInfo
+        type=\"uniform\">\n    <title>Pale rider (Motion picture)</title>\n  </titleInfo>\n
+        \ <titleInfo type=\"uniform\">\n    <title>Unforgiven (Motion picture)</title>\n
+        \ </titleInfo>\n  <titleInfo type=\"uniform\">\n    <title>Bird (Motion picture)</title>\n
         \ </titleInfo>\n  <titleInfo type=\"uniform\">\n    <title>White hunter, black
         heart (Motion picture)</title>\n  </titleInfo>\n  <titleInfo type=\"uniform\">\n
         \   <title>Midnight in the garden of good and evil (Motion picture)</title>\n
@@ -141,7 +141,7 @@ http_interactions:
         \   </titleInfo>\n  </relatedItem>\n  <relatedItem type=\"constituent\">\n
         \   <titleInfo>\n      <title>Dead pool (Motion picture)</title>\n    </titleInfo>\n
         \ </relatedItem>\n  <relatedItem type=\"constituent\">\n    <titleInfo>\n
-        \     <title>Rookie (Motion picture)</title>\n    </titleInfo>\n  </relatedItem>\n
+        \     <title>Rookie (Motion picture : 1990)</title>\n    </titleInfo>\n  </relatedItem>\n
         \ <relatedItem type=\"constituent\">\n    <titleInfo>\n      <title>Where
         eagles dare (Motion picture)</title>\n    </titleInfo>\n  </relatedItem>\n
         \ <relatedItem type=\"constituent\">\n    <titleInfo>\n      <title>Kelly's
@@ -196,11 +196,11 @@ http_interactions:
         \ <identifier type=\"oclc\">641973755</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
         \   <recordContentSource authority=\"marcorg\">SZR</recordContentSource>\n
         \   <recordCreationDate encoding=\"marc\">130410</recordCreationDate>\n    <recordChangeDate
-        encoding=\"iso8601\">20130813145154.0</recordChangeDate>\n    <recordIdentifier>17691505</recordIdentifier>\n
+        encoding=\"iso8601\">20180725115403.0</recordChangeDate>\n    <recordIdentifier>17691505</recordIdentifier>\n
         \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.117 2017/02/14)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
+        1.119 2018/06/21)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
         authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n    </languageOfCataloging>\n
         \ </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>bath.lccn=\"^2013602064\"</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
     http_version: 
-  recorded_at: Sun, 24 Dec 2017 12:57:23 GMT
+  recorded_at: Sat, 12 Jan 2019 15:24:28 GMT
 recorded_with: VCR 4.0.0

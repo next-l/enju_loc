@@ -25,8 +25,8 @@ module EnjuLoc
         raise EnjuLoc::InvalidIsbn unless lisbn.valid?
         #end
 
-        manifestation = Manifestation.find_by_isbn(lisbn.isbn)
-        return manifestation.first if manifestation.present?
+        isbn_record = IsbnRecord.find_by(body: lisbn.isbn13) || IsbnRecord.find_by(body: lisbn.isbn10)
+        return isbn_record.manifestations.first if isbn_record
 
         doc = return_xml(lisbn.isbn)
         raise EnjuLoc::RecordNotFound unless doc
@@ -34,10 +34,11 @@ module EnjuLoc
       end
 
       NS = {"mods"=>"http://www.loc.gov/mods/v3"}
+
       def import_record_from_loc(doc)
         record_identifier = doc.at('//mods:recordInfo/mods:recordIdentifier', NS).try(:content)
-        # loc_record = LocRecord.find_by(body: record_identifier)
-        # return loc_record.manifestations.first if loc_record
+        loc_record = LocRecord.find_by(body: record_identifier)
+        return loc_record.manifestation if loc_record
 
         publishers = []
         doc.xpath('//mods:publisher', NS).each do |publisher|
@@ -62,7 +63,7 @@ module EnjuLoc
           language_id = 1
         end
 
-        isbn = Lisbn.new(doc.at('/mods:mods/mods:identifier[@type="isbn"]', NS).try(:content).to_s).try(:isbn)
+        isbn = Lisbn.new(doc.at('/mods:mods/mods:identifier[@type="isbn"]', NS).try(:content).to_s)
         lccn = StdNum::LCCN.normalize(doc.at('/mods:mods/mods:identifier[@type="lccn"]', NS).try(:content).to_s)
         issn = StdNum::ISSN.normalize(doc.at('/mods:mods/mods:identifier[@type="issn"]', NS).try(:content).to_s)
         issn_l = StdNum::ISSN.normalize(doc.at('/mods:mods/mods:identifier[@type="issn-l"]', NS).try(:content).to_s)
@@ -112,23 +113,29 @@ module EnjuLoc
           manifestation.frequency = frequency if frequency
           manifestation.save!
 
-          if isbn
+          if isbn.present?
+            isbn_record = IsbnRecord.find_by(body: isbn.isbn13) || IsbnRecord.find_by(body: isbn.isbn10)
+            isbn_record = IsbnRecord.create(body: isbn.isbn13) unless isbn_record
+            
             IsbnRecordAndManifestation.create(
-              isbn_record: IsbnRecord.where(body: isbn).first_or_create,
+              isbn_record: isbn_record,
               manifestation: manifestation
             )
           end
-          # if loc_identifier
-            #LccnRecordAndManifestation.create(
-            #  lccn_record: IsbnRecord.find_by(body: isbn),
-            #  manifestation: manifestation
-            #)
-          # end
-          if lccn
-            LccnRecordAndManifestation.create(
-              lccn_record: LccnRecord.where(body: lccn).first_or_create,
+
+          if record_identifier
+            LocRecord.create(
+              body: record_identifier,
               manifestation: manifestation
             )
+          end
+
+          if lccn
+            lccn_record = LccnRecord.find_by(body: lccn)
+            LccnRecord.create(
+              body: lccn,
+              manifestation: manifestation
+            ) unless lccn_record
           end
           if issn
             IssnRecordAndManifestation.create(

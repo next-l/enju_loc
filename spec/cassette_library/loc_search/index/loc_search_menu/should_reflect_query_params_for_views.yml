@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.13.1
+      - Faraday v0.15.4
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Content-Length:
-      - '40150'
+      - '38440'
       Server:
-      - Metaproxy/1.13.0
+      - Metaproxy/1.15.0
       Connection:
       - Keep-Alive
       Content-Type:
@@ -69,7 +69,7 @@ http_interactions:
         \   <recordChangeDate encoding=\"iso8601\">20140609105314.0</recordChangeDate>\n
         \   <recordIdentifier>18181426</recordIdentifier>\n    <recordOrigin>Converted
         from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.117 2017/02/14)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        1.119 2018/06/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
         version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
         \ <titleInfo>\n    <title>1 &amp; 2 Tesalonika, James, 1, 2, &amp; 3 John</title>\n
@@ -90,7 +90,7 @@ http_interactions:
         \   <recordChangeDate encoding=\"iso8601\">20130528124142.0</recordChangeDate>\n
         \   <recordIdentifier>12818077</recordIdentifier>\n    <recordOrigin>Converted
         from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.117 2017/02/14)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>2</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        1.119 2018/06/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>2</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
         version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
         \ <titleInfo>\n    <title>1,001 best low-carb recipes</title>\n    <subTitle>delicious,
@@ -167,7 +167,7 @@ http_interactions:
         \   <recordCreationDate encoding=\"marc\">150909</recordCreationDate>\n    <recordChangeDate
         encoding=\"iso8601\">20170710144843.0</recordChangeDate>\n    <recordIdentifier>18776592</recordIdentifier>\n
         \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.117 2017/02/14)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
+        1.119 2018/06/21)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
         authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n    </languageOfCataloging>\n
         \ </recordInfo>\n</mods></zs:recordData><zs:recordPosition>3</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
@@ -205,7 +205,7 @@ http_interactions:
         \   <recordChangeDate encoding=\"iso8601\">20161013093819.0</recordChangeDate>\n
         \   <recordIdentifier>739641</recordIdentifier>\n    <recordOrigin>Converted
         from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.117 2017/02/14)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>4</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        1.119 2018/06/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>4</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
         version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
         \ <titleInfo>\n    <title>1,001 statistics practice problems for dummies</title>\n
@@ -331,9 +331,45 @@ http_interactions:
         \   <recordChangeDate encoding=\"iso8601\">20150508162158.0</recordChangeDate>\n
         \   <recordIdentifier>17924313</recordIdentifier>\n    <recordOrigin>Converted
         from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.117 2017/02/14)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
+        1.119 2018/06/21)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
         authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n    </languageOfCataloging>\n
         \ </recordInfo>\n</mods></zs:recordData><zs:recordPosition>5</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
+        version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
+        \ <titleInfo>\n    <title>1 2 3 the farm and me</title>\n    <subTitle>following
+        food from the farm to your family</subTitle>\n  </titleInfo>\n  <titleInfo
+        type=\"alternative\">\n    <title>One two three the farm and me</title>\n
+        \ </titleInfo>\n  <name type=\"personal\">\n    <namePart>Frost, Maddie</namePart>\n
+        \   <role>\n      <roleTerm type=\"text\">illustrator.</roleTerm>\n    </role>\n
+        \ </name>\n  <name type=\"corporate\">\n    <namePart>America's Test Kitchen
+        (Firm)</namePart>\n  </name>\n  <typeOfResource>text</typeOfResource>\n  <genre
+        authority=\"rdacontent\">text</genre>\n  <originInfo>\n    <place>\n      <placeTerm
+        type=\"code\" authority=\"marccountry\">ilu</placeTerm>\n    </place>\n    <dateIssued
+        encoding=\"marc\">2018</dateIssued>\n    <issuance>monographic</issuance>\n
+        \ </originInfo>\n  <originInfo eventType=\"publication\">\n    <place>\n      <placeTerm
+        type=\"text\">Naperville :</placeTerm>\n    </place>\n    <publisher>Sourcebooks
+        Jabberwocky, an imprint of Sourcebooks, Inc.,</publisher>\n    <dateIssued>[2018]</dateIssued>\n
+        \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n
+        \ </language>\n  <physicalDescription>\n    <form authority=\"marcform\">print</form>\n
+        \   <extent>pages cm</extent>\n    <form type=\"media\" authority=\"rdamedia\">unmediated</form>\n
+        \   <form type=\"carrier\" authority=\"rdacarrier\">volume</form>\n  </physicalDescription>\n
+        \ <targetAudience>Age 0-3.</targetAudience>\n  <targetAudience>Grade Pre-school,
+        excluding K.</targetAudience>\n  <targetAudience authority=\"marctarget\">juvenile</targetAudience>\n
+        \ <note type=\"statement of responsibility\" altRepGroup=\"00\">by America's
+        Test Kitchen ; pictures by Maddie Frost.</note>\n  <subject authority=\"lcsh\">\n
+        \   <topic>Farm produce</topic>\n    <genre>Juvenile literature</genre>\n
+        \ </subject>\n  <subject authority=\"lcsh\">\n    <topic>Food</topic>\n    <genre>Juvenile
+        literature</genre>\n  </subject>\n  <classification authority=\"lcc\">S519
+        .A14 2018</classification>\n  <classification authority=\"ddc\" edition=\"23\">338.1/7</classification>\n
+        \ <identifier type=\"isbn\">9781492670049 (board book : alk. paper)</identifier>\n
+        \ <identifier type=\"lccn\">2018046226</identifier>\n  <recordInfo>\n    <descriptionStandard>rda</descriptionStandard>\n
+        \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
+        \   <recordCreationDate encoding=\"marc\">180927</recordCreationDate>\n    <recordChangeDate
+        encoding=\"iso8601\">20180927104310.0</recordChangeDate>\n    <recordIdentifier>20683699</recordIdentifier>\n
+        \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
+        1.119 2018/06/21)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
+        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n    </languageOfCataloging>\n
+        \ </recordInfo>\n</mods></zs:recordData><zs:recordPosition>6</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
         version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
         \ <titleInfo>\n    <title>10 real SATs</title>\n  </titleInfo>\n  <titleInfo
@@ -357,7 +393,7 @@ http_interactions:
         \   <recordCreationDate encoding=\"marc\">970516</recordCreationDate>\n    <recordChangeDate
         encoding=\"iso8601\">20050929180225.0</recordChangeDate>\n    <recordIdentifier>4019494</recordIdentifier>\n
         \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.117 2017/02/14)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>6</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        1.119 2018/06/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>7</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
         version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
         \ <titleInfo>\n    <title>10 SATs</title>\n    <subTitle>plus advice from
@@ -386,7 +422,7 @@ http_interactions:
         \   <recordChangeDate encoding=\"iso8601\">20161117090338.0</recordChangeDate>\n
         \   <recordIdentifier>2424452</recordIdentifier>\n    <recordOrigin>Converted
         from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.117 2017/02/14)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>7</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        1.119 2018/06/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>8</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
         version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
         \ <titleInfo>\n    <title>10 SATs</title>\n    <subTitle>scholastic aptitude
@@ -412,7 +448,7 @@ http_interactions:
         \   <recordCreationDate encoding=\"marc\">840130</recordCreationDate>\n    <recordChangeDate
         encoding=\"iso8601\">20161117082749.0</recordChangeDate>\n    <recordIdentifier>3298317</recordIdentifier>\n
         \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.117 2017/02/14)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>8</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        1.119 2018/06/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>9</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
         version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
         \ <titleInfo>\n    <title>10 SATs</title>\n    <subTitle>the actual and complete
@@ -439,64 +475,7 @@ http_interactions:
         \   <recordCreationDate encoding=\"marc\">851021</recordCreationDate>\n    <recordChangeDate
         encoding=\"iso8601\">20161117082741.0</recordChangeDate>\n    <recordIdentifier>500315</recordIdentifier>\n
         \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.117 2017/02/14)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>9</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
-        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
-        \ <titleInfo>\n    <title>100 contractors receiving the largest dollar volume
-        of prime contract awards for research, development, test, and evaluation</title>\n
-        \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>One hundred
-        contractors receiving the largest dollar volume prime contract awards for
-        research, development, test, and evaluation</title>\n  </titleInfo>\n  <titleInfo
-        type=\"alternative\">\n    <title>100 contractors receiving the largest dollar
-        volume of prime contract awards for RDT &amp; E</title>\n  </titleInfo>\n
-        \ <name type=\"corporate\">\n    <namePart>United States</namePart>\n    <namePart>Department
-        of Defense.</namePart>\n    <namePart>Washington Headquarters Services.</namePart>\n
-        \   <namePart>Directorate for Information Operations and Reports.</namePart>\n
-        \ </name>\n  <typeOfResource>text</typeOfResource>\n  <genre authority=\"rdacontent\">text</genre>\n
-        \ <originInfo>\n    <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">dcu</placeTerm>\n
-        \   </place>\n    <place>\n      <placeTerm type=\"text\">Washington, D.C.]</placeTerm>\n
-        \   </place>\n    <publisher>Dept. of Defense, Washington Headquarters Services,
-        Directorate for Information Operations and Reports</publisher>\n    <publisher>For
-        sale by the Supt. of Docs, U.S. G.P.O.</publisher>\n    <dateIssued>1996-[1997]</dateIssued>\n
-        \   <dateIssued encoding=\"marc\" point=\"start\">1996</dateIssued>\n    <dateIssued
-        encoding=\"marc\" point=\"end\">1997</dateIssued>\n    <issuance>serial</issuance>\n
-        \   <frequency>Annual</frequency>\n    <frequency authority=\"marcfrequency\">Annual</frequency>\n
-        \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n
-        \ </language>\n  <physicalDescription>\n    <form authority=\"marcform\">print</form>\n
-        \   <extent>volumes ; 28 cm</extent>\n    <form type=\"media\" authority=\"rdamedia\">unmediated</form>\n
-        \   <form type=\"carrier\" authority=\"rdacarrier\">volume</form>\n  </physicalDescription>\n
-        \ <note type=\"date/sequential designation\">Fiscal year 1996-fiscal year
-        1997.</note>\n  <note>Distributed to depository libraries on microfiche.</note>\n
-        \ <note type=\"numbering\">Report covers fiscal year.</note>\n  <subject>\n
-        \   <geographicCode authority=\"marcgac\">n-us---</geographicCode>\n  </subject>\n
-        \ <subject authority=\"lcsh\">\n    <topic>Defense contracts</topic>\n    <geographic>United
-        States</geographic>\n    <genre>Periodicals</genre>\n  </subject>\n  <subject
-        authority=\"lcsh\">\n    <geographic>United States</geographic>\n    <topic>Armed
-        Forces</topic>\n    <topic>Procurement</topic>\n    <genre>Periodicals</genre>\n
-        \ </subject>\n  <classification authority=\"lcc\">UC267 .A15</classification>\n
-        \ <classification authority=\"ddc\" edition=\"19\">355.6/211/0973</classification>\n
-        \ <relatedItem type=\"otherFormat\">\n    <originInfo>\n      <publisher>Supt.
-        of Docs., U.S.G.P.O.</publisher>\n    </originInfo>\n    <identifier type=\"local\">(DLC)sn
-        98038271</identifier>\n    <identifier type=\"local\">(OCoLC)40131503</identifier>\n
-        \ </relatedItem>\n  <relatedItem type=\"preceding\">\n    <titleInfo>\n      <title>500
-        contractors receiving the largest dollar volume of prime contract awards for
-        research, development, test, and evaluation</title>\n    </titleInfo>\n    <identifier
-        type=\"issn\">0884-1314</identifier>\n    <identifier type=\"local\">(DLC)
-        \  85641927</identifier>\n    <identifier type=\"local\">(OCoLC)9878607</identifier>\n
-        \ </relatedItem>\n  <relatedItem type=\"succeeding\">\n    <titleInfo>\n      <title>100
-        contractors receiving the largest dollar volume of prime contract awards for
-        research, development, test, and evaluation (Online)</title>\n    </titleInfo>\n
-        \   <identifier type=\"issn\">1936-3257</identifier>\n    <identifier type=\"local\">(DLC)
-        \ 2012219066</identifier>\n    <identifier type=\"local\">(OCoLC)42909785</identifier>\n
-        \ </relatedItem>\n  <identifier type=\"lccn\">98640735</identifier>\n  <identifier
-        type=\"oclc\">ocm37715440</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
-        \   <recordContentSource authority=\"marcorg\">DGAO</recordContentSource>\n
-        \   <recordCreationDate encoding=\"marc\">971001</recordCreationDate>\n    <recordChangeDate
-        encoding=\"iso8601\">20130505155748.0</recordChangeDate>\n    <recordIdentifier>11496755</recordIdentifier>\n
-        \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.117 2017/02/14)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
-        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n    </languageOfCataloging>\n
-        \ </recordInfo>\n</mods></zs:recordData><zs:recordPosition>10</zs:recordPosition></zs:record></zs:records><zs:nextRecordPosition>11</zs:nextRecordPosition><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>test</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
+        1.119 2018/06/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>10</zs:recordPosition></zs:record></zs:records><zs:nextRecordPosition>11</zs:nextRecordPosition><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>test</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
     http_version: 
-  recorded_at: Sun, 24 Dec 2017 12:57:45 GMT
+  recorded_at: Sat, 12 Jan 2019 15:24:57 GMT
 recorded_with: VCR 4.0.0
