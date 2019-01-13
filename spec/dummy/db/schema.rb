@@ -463,6 +463,15 @@ ActiveRecord::Schema.define(version: 2019_01_12_151019) do
     t.index ["shelf_id"], name: "index_items_on_shelf_id"
   end
 
+  create_table "jpno_records", force: :cascade do |t|
+    t.string "body", null: false
+    t.bigint "manifestation_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["body"], name: "index_jpno_records_on_body", unique: true
+    t.index ["manifestation_id"], name: "index_jpno_records_on_manifestation_id"
+  end
+
   create_table "languages", id: :serial, force: :cascade do |t|
     t.string "name", null: false
     t.string "native_name"
@@ -712,6 +721,15 @@ ActiveRecord::Schema.define(version: 2019_01_12_151019) do
     t.index ["parent_id"], name: "index_messages_on_parent_id"
     t.index ["receiver_id"], name: "index_messages_on_receiver_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
+  end
+
+  create_table "ndla_records", force: :cascade do |t|
+    t.bigint "agent_id"
+    t.string "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["agent_id"], name: "index_ndla_records_on_agent_id"
+    t.index ["body"], name: "index_ndla_records_on_body", unique: true
   end
 
   create_table "owns", id: :serial, force: :cascade do |t|
@@ -1180,7 +1198,9 @@ ActiveRecord::Schema.define(version: 2019_01_12_151019) do
   add_foreign_key "issn_record_and_manifestations", "manifestations"
   add_foreign_key "issn_records", "manifestations"
   add_foreign_key "items", "manifestations"
+  add_foreign_key "jpno_records", "manifestations"
   add_foreign_key "lccn_records", "manifestations"
   add_foreign_key "libraries", "library_groups"
   add_foreign_key "library_groups", "users"
+  add_foreign_key "ndla_records", "agents"
 end
