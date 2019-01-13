@@ -4,8 +4,10 @@ module EnjuLoc
 
     included do
       has_one :lccn_record
-      string :lccn do
-        lccn_record.try(:body)
+      searchable do
+        string :lccn do
+          lccn_record.try(:body)
+        end
       end
     end
   end
