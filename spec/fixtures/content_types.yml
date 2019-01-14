@@ -1,7 +1,7 @@
 --- 
 content_type_00001:
   id: 1
-  name: text  
+  name: text
   display_name: "en: text\r\n\
     ja: 文字"
   note: 
@@ -83,3 +83,16 @@ content_type_00012:
     ja: 不明"
   note: LCMARCに由来
   position: 12
+
+# == Schema Information
+#
+# Table name: content_types
+#
+#  id           :bigint(8)        not null, primary key
+#  name         :string           not null
+#  display_name :text
+#  note         :text
+#  position     :integer          default(1), not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
