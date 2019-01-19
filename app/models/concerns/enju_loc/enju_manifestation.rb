@@ -27,14 +27,14 @@ module EnjuLoc
       def self.import_record_from_loc_isbn(options)
         #if options[:isbn]
         lisbn = Lisbn.new(options[:isbn])
-        raise EnjuLoc::InvalidIsbn unless lisbn.valid?
+        raise Manifestation::InvalidIsbn unless lisbn.valid?
         #end
 
         isbn_record = IsbnRecord.find_by(body: lisbn.isbn13) || IsbnRecord.find_by(body: lisbn.isbn10)
         return isbn_record.manifestations.first if isbn_record
 
         doc = return_xml(lisbn.isbn)
-        raise EnjuLoc::RecordNotFound unless doc
+        raise Manifestation::RecordNotFound unless doc
         import_record_from_loc(doc)
       end
 

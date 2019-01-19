@@ -1,0 +1,28 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: reproduction
+  display_name: {"en": "Reproduction", "ja": "複製"}
+  note: 
+  position: 1
+  id: 1
+
+two:
+  name: alternate
+  display_name: {"en": "Alternate", "ja": "代替"}
+  note: 
+  position: 2
+  id: 2
+
+# == Schema Information
+#
+# Table name: manifestation_relationship_types
+#
+#  id           :bigint(8)        not null, primary key
+#  name         :string           not null
+#  display_name :jsonb            not null
+#  note         :text
+#  position     :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
