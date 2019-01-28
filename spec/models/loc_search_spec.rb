@@ -11,11 +11,11 @@ describe LocSearch do
       expect(manifestation.manifestation_content_type.name).to eq "text"
       expect(manifestation.carrier_type.name).to eq "volume"
       expect(manifestation.publishers.size).to eq 1
-      expect(manifestation.publishers.first.full_name).to eq "Times Books"
+      expect(manifestation.publishers.order(:created_at).first.full_name).to eq "Times Books"
       expect(manifestation.publication_place).to eq "New York"
       expect(manifestation.creators.size).to eq 1
-      expect(manifestation.creators.first.agent_type.name).to eq "person"
-      expect(manifestation.creators.first.full_name).to eq "Weinberger, David, 1950-"
+      expect(manifestation.creators.order(:created_at).first.agent_type.name).to eq "person"
+      expect(manifestation.creators.order(:created_at).first.full_name).to eq "Weinberger, David, 1950-"
       expect(manifestation.edition_string).to eq "1st ed."
       expect(manifestation.language.iso_639_2).to eq "eng"
       expect(manifestation.date_of_publication.year).to eq 2007
@@ -25,8 +25,8 @@ describe LocSearch do
       expect(manifestation.note).to eq "Includes bibliographical references (p. [235]-257) and index."
       expect(manifestation.description).to eq "Philosopher Weinberger shows how the digital revolution is radically changing the way we make sense of our lives. Human beings constantly collect, label, and organize data--but today, the shift from the physical to the digital is mixing, burning, and ripping our lives apart. In the past, everything had its one place--the physical world demanded it--but now everything has its places: multiple categories, multiple shelves. Everything is suddenly miscellaneous. Weinberger charts the new principles of digital order that are remaking business, education, politics, science, and culture. He examines how Rand McNally decides what information not to include in a physical map (and why Google Earth is winning that battle), how Staples stores emulate online shopping to increase sales, why your children's teachers will stop having them memorize facts, and how the shift to digital music stands as the model for the future.--From publisher description.\nFrom A to Z, Everything Is Miscellaneous will completely reshape the way you think - and what you know - about the world. Includes information on alphabetical order, Amaxon.com, animals, Aristotle, authority, Bettmann Archive, blogs (weblogs), books, broadcasting, British Broadcasting Corporation (BBC), business, card catalog, categories and categorization, clusters, companies, Colon Classification, conversation, Melvil Dewey, Dewey Decimal Classification system, Encyclopaedia Britannica, encyclopedia, essentialism, experts, faceted classification system, first order of order, Flickr.com, Google, Great Books of the Western World, ancient Greeks, health and medical information, identifiers, index, inventory tracking, knowledge, labels, leaf and leaves, libraries, Library of Congress, links, Carolus Linnaeus, lumping and splitting, maps and mapping, marketing, meaning, metadata, multiple listing services (MLS), names of people, neutrality or neutral point of view, New York Public Library, Online Computer Library Center (OCLC), order and organization, people, physical space, everything having place, Plato, race, S.R. Ranganathan, Eleanor Rosch, Joshua Schacter, science, second order of order, simplicity, social constructivism, social knowledge, social networks, sorting,  species, standardization, tags, taxonomies, third order of roder, topical categorization, tree, Uniform Product Code (UPC), users, Jimmy Wales, web, Wikipedia, etc."
       expect(manifestation.statement_of_responsibility).to eq "David Weinberger."
-      expect(manifestation.subjects.size).to eq 6
-      expect(manifestation.subjects.first.subject_heading_type.name).to eq "lcsh"
+      expect(manifestation.subjects.count).to eq 6
+      expect(manifestation.subjects.order(:created_at).first.subject_heading_type.name).to eq "lcsh"
       expect(manifestation.subjects.first.subject_type.name).to eq "concept"
       RSpec.describe manifestation.subjects.collect(&:term) do
         it { is_expected.to include("Knowledge management") }
@@ -131,6 +131,7 @@ describe LocSearch do
       expect(series_statement.original_title).to eq "Science and technology of advanced materials"
       expect(series_statement.series_master).to be_truthy
     end
+
     it "should import another serial", vcr: true do
       m = LocSearch.import_from_sru_response("88651712")
       expect(m.original_title).to eq "Superconductor science & technology"

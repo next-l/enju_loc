@@ -3,13 +3,13 @@
 one:
   id: 1
   agent_import_file_id: 1
-  agent_id: 1
+  agent_id: 90b48b67-7e0c-48ce-80a2-e40acdb5005f
   body: MyText
 
 two:
   id: 2
   agent_import_file_id: 1
-  agent_id: 1
+  agent_id: 90b48b67-7e0c-48ce-80a2-e40acdb5005f
   body: MyText
 
 # == Schema Information
@@ -17,8 +17,8 @@ two:
 # Table name: agent_import_results
 #
 #  id                   :bigint(8)        not null, primary key
-#  agent_import_file_id :integer
-#  agent_id             :integer
+#  agent_import_file_id :bigint(8)        not null
+#  agent_id             :uuid
 #  body                 :text
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null

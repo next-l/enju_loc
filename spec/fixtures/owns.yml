@@ -1,15 +1,15 @@
 --- 
 own_00001: 
-  item_id: 1
+  item_id: 2611ea22-e022-4cab-9549-9979eb8eced7
   updated_at: 2007-11-21 21:22:57.654360 +09:00
-  agent_id: 1
+  agent_id: 90b48b67-7e0c-48ce-80a2-e40acdb5005f
   id: 1
   created_at: 2007-11-21 21:22:57.654360 +09:00
   position: 1
 own_00002: 
-  item_id: 2
+  item_id: ec917c6a-97e1-4ec7-9f4e-d827bb093249
   updated_at: 2007-11-21 21:22:13.685287 +09:00
-  agent_id: 2
+  agent_id: 89a69872-dc33-40df-9541-fb38d453e767
   id: 2
   created_at: 2007-11-21 21:22:13.685287 +09:00
   position: 1
@@ -19,8 +19,8 @@ own_00002:
 # Table name: owns
 #
 #  id         :bigint(8)        not null, primary key
-#  agent_id   :bigint(8)        not null
-#  item_id    :bigint(8)        not null
+#  agent_id   :uuid             not null
+#  item_id    :uuid             not null
 #  position   :integer          default(1), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

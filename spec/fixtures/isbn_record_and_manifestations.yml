@@ -1,68 +1,68 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 identifier_00001:
-  manifestation_id: 1
+  manifestation_id: 0f4ef509-cf56-41d9-bfa7-78b1e14fbc21
   isbn_record_id: 1
   position: 1
 
 identifier_00002:
-  manifestation_id: 2
+  manifestation_id: b70ba31e-5220-446f-8648-b0324d1918c7
   isbn_record_id: 2
 
 identifier_00003:
-  manifestation_id: 3
+  manifestation_id: 4aaeb6ed-a626-4e92-a17c-dcc1723d683d
   isbn_record_id: 3
 
 identifier_00004:
-  manifestation_id: 4
+  manifestation_id: 73d5778f-d328-46c2-940e-825d48e8b84a
   isbn_record_id: 4
 
 identifier_00005:
-  manifestation_id: 7
+  manifestation_id: 068457b6-d3c4-4f55-b2dd-95a3d92a501c
   isbn_record_id: 5
 
 identifier_00006:
-  manifestation_id: 8
+  manifestation_id: 9990ffe4-a403-4742-b619-1bbb363cc911
   isbn_record_id: 6
 
 identifier_00007:
-  manifestation_id: 9
+  manifestation_id: b29d6b38-6766-4cd5-bd80-ddadbec3497b
   isbn_record_id: 7
 
 identifier_00008:
-  manifestation_id: 10
+  manifestation_id: 9f14b17d-1e59-4fa0-9299-a3310410c8ba
   isbn_record_id: 8
 
 identifier_00009:
-  manifestation_id: 21
+  manifestation_id: c16fbafe-24a2-4ded-96b9-867b24fe6557
   isbn_record_id: 9
 
 identifier_00114:
-  manifestation_id: 114
+  manifestation_id: be338517-ad19-46bd-bd2f-60d6cc261f3e
   isbn_record_id: 10
 
 identifier_00116:
-  manifestation_id: 116
+  manifestation_id: e5d5a49b-cbbc-4203-a595-9e50c34975c4
   isbn_record_id: 11
 
 identifier_00120:
-  manifestation_id: 120
+  manifestation_id: a30ce412-95c6-4049-9baa-25572b6039a8
   isbn_record_id: 12
 
 identifier_00192:
-  manifestation_id: 192
+  manifestation_id: 5343bdb0-ed30-4bf0-a09c-e2f6c80c8308
   isbn_record_id: 13
 
 identifier_00193_1:
-  manifestation_id: 193
+  manifestation_id: 116a8f4a-2083-4fa4-9acf-531454f45bbe
   isbn_record_id: 14
 
 identifier_00193_2:
-  manifestation_id: 193
+  manifestation_id: 116a8f4a-2083-4fa4-9acf-531454f45bbe
   isbn_record_id: 15
 
 identifier_00196:
-  manifestation_id: 196
+  manifestation_id: 4e18e302-5f43-4edb-84c5-8b8c49ced3f6
   isbn_record_id: 16
 
 # == Schema Information
@@ -71,7 +71,7 @@ identifier_00196:
 #
 #  id               :bigint(8)        not null, primary key
 #  isbn_record_id   :bigint(8)        not null
-#  manifestation_id :bigint(8)        not null
+#  manifestation_id :uuid             not null
 #  position         :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null

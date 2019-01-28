@@ -12,11 +12,10 @@ identifier_00201:
 #
 # Table name: issn_records
 #
-#  id               :bigint(8)        not null, primary key
-#  body             :string           not null
-#  issn_type        :string
-#  source           :string
-#  manifestation_id :bigint(8)
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
+#  id         :bigint(8)        not null, primary key
+#  body       :string           not null
+#  issn_type  :string
+#  source     :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #

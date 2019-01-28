@@ -2,33 +2,33 @@ one:
   id: 1
   original_title: title1
   position: 1
-  manifestation_id: 196
+  manifestation_id: 4e18e302-5f43-4edb-84c5-8b8c49ced3f6
 
 two:
   id: 2
   original_title: title2
   title_transcription: テスト
   position: 2
-  manifestation_id: 202
+  manifestation_id: 12955445-5083-4b29-8c39-9f2af094a696
 
 three:
   id: 3
   original_title: テスト雑誌
   position: 3
-  root_manifestation_id: 201
+  root_manifestation_id: a1f7f087-540c-4722-a16e-e4b26a2072fa
 
 four:
   id: 4
   original_title: テスト雑誌
   position: 4
-  root_manifestation_id: 203
+  root_manifestation_id: 2cb759fb-0778-44d2-9aac-6c8765ccb990
 
 five:
   id: 5
   original_title: テスト雑誌
   position: 5
-  manifestation_id: 204
-  root_manifestation_id: 204
+  manifestation_id: ba0c94f1-860f-4e5f-b455-498d4ddcffe4
+  root_manifestation_id: ba0c94f1-860f-4e5f-b455-498d4ddcffe4
 
 # == Schema Information
 #
@@ -45,12 +45,12 @@ five:
 #  title_transcription                :text
 #  title_alternative                  :text
 #  series_statement_identifier        :string
-#  manifestation_id                   :integer
+#  manifestation_id                   :uuid
 #  note                               :text
 #  title_subseries_transcription      :text
 #  creator_string                     :text
 #  volume_number_string               :text
 #  volume_number_transcription_string :text
 #  series_master                      :boolean
-#  root_manifestation_id              :integer
+#  root_manifestation_id              :uuid
 #
