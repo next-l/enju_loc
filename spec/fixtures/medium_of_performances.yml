@@ -3,14 +3,14 @@
 one:
   id: 1
   name: unaccompanied
-  display_name: {"en": "Unaccompanied"}
+  display_name_translations: {"en": "Unaccompanied"}
   note: MyText
   position: 1
 
 two:
   id: 2
   name: accompanied
-  display_name: {"en": "Accompanied"}
+  display_name_translations: {"en": "Accompanied"}
   note: MyText
   position: 2
 
@@ -18,11 +18,11 @@ two:
 #
 # Table name: medium_of_performances
 #
-#  id           :bigint(8)        not null, primary key
-#  name         :string           not null
-#  display_name :jsonb            not null
-#  note         :text
-#  position     :integer
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id                        :bigint(8)        not null, primary key
+#  name                      :string           not null
+#  display_name_translations :jsonb            not null
+#  note                      :text
+#  position                  :integer
+#  created_at                :datetime         not null
+#  updated_at                :datetime         not null
 #

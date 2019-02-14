@@ -1,7 +1,7 @@
 --- 
 form_of_work_00001: 
   name: (not specified)
-  display_name: {"en": "(not specified)", "ja": "不明"}
+  display_name_translations: {"en": "(not specified)", "ja": "不明"}
   updated_at: 2008-01-08 15:35:55.188771 +09:00
   id: 1
   note: ""
@@ -9,7 +9,7 @@ form_of_work_00001:
   position: 1
 form_of_work_00002: 
   name: idea
-  display_name: {"en": "idea", "ja": "idea"}
+  display_name_translations: {"en": "idea", "ja": "idea"}
   updated_at: 2008-01-08 15:35:55.188771 +09:00
   id: 2
   note: ""
@@ -17,7 +17,7 @@ form_of_work_00002:
   position: 2
 form_of_work_00003: 
   name: test
-  display_name: {"en": "test", "ja": "test"}
+  display_name_translations: {"en": "test", "ja": "test"}
   updated_at: 2008-01-08 15:35:55.188771 +09:00
   id: 3
   note: ""
@@ -28,11 +28,11 @@ form_of_work_00003:
 #
 # Table name: form_of_works
 #
-#  id           :bigint(8)        not null, primary key
-#  name         :string           not null
-#  display_name :jsonb            not null
-#  note         :text
-#  position     :integer          default(1), not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id                        :bigint(8)        not null, primary key
+#  name                      :string           not null
+#  display_name_translations :jsonb            not null
+#  note                      :text
+#  position                  :integer          default(1), not null
+#  created_at                :datetime         not null
+#  updated_at                :datetime         not null
 #

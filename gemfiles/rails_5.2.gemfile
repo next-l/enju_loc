@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 gem "jquery-rails"
-gem "mobility"
+gem "json_translate"
 gem "enju_seed", git: "https://github.com/next-l/enju_seed.git"
 gem "enju_leaf", git: "https://github.com/next-l/enju_leaf.git"
 gem "enju_library", git: "https://github.com/next-l/enju_library.git"
