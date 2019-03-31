@@ -4,6 +4,6 @@ source "https://rubygems.org"
 
 gem "jquery-rails"
 gem "rails-controller-testing"
-gem "enju_ndl", "~> 0.3.0"
+gem "enju_ndl", "~> 0.3.1"
 
 gemspec path: "../"
