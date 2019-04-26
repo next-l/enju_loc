@@ -1,51 +1,51 @@
 --- 
 create_00001: 
   updated_at: 2007-12-13 19:56:07.002082 +09:00
-  agent_id: 90b48b67-7e0c-48ce-80a2-e40acdb5005f
+  agent_id: 1
   id: 1
-  work_id: 0f4ef509-cf56-41d9-bfa7-78b1e14fbc21
+  work_id: 1
   position: 1
   created_at: 2007-12-13 19:56:07.002082 +09:00
 create_00002: 
   updated_at: 2007-12-13 19:56:48.538796 +09:00
-  agent_id: 90b48b67-7e0c-48ce-80a2-e40acdb5005f
+  agent_id: 1
   id: 2
-  work_id: b70ba31e-5220-446f-8648-b0324d1918c7
+  work_id: 2
   position: 1
   created_at: 2007-12-13 19:56:48.538796 +09:00
 create_00003: 
   updated_at: 2007-12-13 19:56:48.538796 +09:00
-  agent_id: 89a69872-dc33-40df-9541-fb38d453e767
+  agent_id: 2
   id: 3
-  work_id: 0f4ef509-cf56-41d9-bfa7-78b1e14fbc21
+  work_id: 1
   position: 2
   created_at: 2007-12-13 19:56:48.538796 +09:00
 create_00101:
   updated_at: 2010-03-03 17:00:00.538796 +09:00
-  agent_id: a0fb1fde-98a8-4482-a466-0896d6021df0
+  agent_id: 101
   id: 101
-  work_id: c035ac68-6ee0-4914-be62-32e01c1c5ac1
+  work_id: 101
   position: 2
   created_at: 2010-03-03 17:00:00.538796 +09:00
 create_00102:
   updated_at: 2010-03-16 19:00:00.538796 +09:00
-  agent_id: d9a5e29b-8fd4-411b-9057-bf4447c4623c
+  agent_id: 103
   id: 102
-  work_id: 470f6ca9-4aaa-4e3f-91b3-589551387059
+  work_id: 102
   position: 2
   created_at: 2010-03-16 19:00:00.538796 +09:00
 create_00103:
   updated_at: 2010-03-16 19:00:00.538796 +09:00
-  agent_id: d9a5e29b-8fd4-411b-9057-bf4447c4623c
+  agent_id: 103
   id: 103
-  work_id: 987552f1-e90d-45bc-8302-6e567ef6b506
+  work_id: 103
   position: 2
   created_at: 2010-03-16 19:00:00.538796 +09:00
 create_00104:
   updated_at: 2010-03-16 19:00:00.538796 +09:00
-  agent_id: d9a5e29b-8fd4-411b-9057-bf4447c4623c
+  agent_id: 103
   id: 104
-  work_id: 721649eb-b2cb-419c-9621-2b7153ea5d5e
+  work_id: 104
   position: 2
   created_at: 2010-03-16 19:00:00.538796 +09:00
 
@@ -53,11 +53,12 @@ create_00104:
 #
 # Table name: creates
 #
-#  id             :bigint(8)        not null, primary key
-#  agent_id       :uuid             not null
-#  work_id        :uuid             not null
-#  position       :integer          default(1), not null
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  create_type_id :integer
+#  id                     :bigint(8)        not null, primary key
+#  agent_id               :bigint(8)        not null
+#  work_id                :bigint(8)        not null
+#  position               :integer          default(1), not null
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  create_type_id         :integer
+#  full_name_translations :jsonb
 #

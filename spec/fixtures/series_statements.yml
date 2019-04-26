@@ -1,40 +1,40 @@
 one:
-  id: 4d35e82d-1a19-45a1-a5e8-6dd80ae8debb
+  id: 1
   original_title: title1
   position: 1
-  manifestation_id: 4e18e302-5f43-4edb-84c5-8b8c49ced3f6
+  manifestation_id: 196
 
 two:
-  id: e06d7f20-def7-46a9-b19d-b3095653670c
+  id: 2
   original_title: title2
   title_transcription: テスト
   position: 2
-  manifestation_id: 12955445-5083-4b29-8c39-9f2af094a696
+  manifestation_id: 202
 
 three:
-  id: 298af67f-03b8-42a1-8748-507d40e0e22b
+  id: 3
   original_title: テスト雑誌
   position: 3
-  root_manifestation_id: a1f7f087-540c-4722-a16e-e4b26a2072fa
+  root_manifestation_id: 201
 
 four:
-  id: c0d6a4e9-dd3c-4833-be43-71c3366ffebc
+  id: 4
   original_title: テスト雑誌
   position: 4
-  root_manifestation_id: 2cb759fb-0778-44d2-9aac-6c8765ccb990
+  root_manifestation_id: 203
 
 five:
-  id: 3de9124e-0b98-4580-98ce-f3ca4d9f0d88
+  id: 5
   original_title: テスト雑誌
   position: 5
-  manifestation_id: ba0c94f1-860f-4e5f-b455-498d4ddcffe4
-  root_manifestation_id: ba0c94f1-860f-4e5f-b455-498d4ddcffe4
+  manifestation_id: 204
+  root_manifestation_id: 204
 
 # == Schema Information
 #
 # Table name: series_statements
 #
-#  id                                 :uuid             not null, primary key
+#  id                                 :bigint(8)        not null, primary key
 #  original_title                     :text             not null
 #  numbering                          :text
 #  title_subseries                    :text
@@ -45,12 +45,12 @@ five:
 #  title_transcription                :text
 #  title_alternative                  :text
 #  series_statement_identifier        :string
-#  manifestation_id                   :uuid
+#  manifestation_id                   :bigint(8)
 #  note                               :text
 #  title_subseries_transcription      :text
 #  creator_string                     :text
 #  volume_number_string               :text
 #  volume_number_transcription_string :text
 #  series_master                      :boolean
-#  root_manifestation_id              :uuid
+#  root_manifestation_id              :bigint(8)
 #
