@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "mysql2"
   s.add_development_dependency "pg"
-  s.add_development_dependency "rspec-rails", "~> 3.7"
+  s.add_development_dependency "rspec-rails", "~> 3.8"
   s.add_development_dependency "vcr", "~> 4.0"
   s.add_development_dependency "webmock"
   s.add_development_dependency "sunspot_solr", "~> 2.3"
