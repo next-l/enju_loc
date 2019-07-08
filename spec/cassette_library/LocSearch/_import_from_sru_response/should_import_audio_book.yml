@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v0.13.1
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -21,7 +21,7 @@ http_interactions:
       Content-Length:
       - '5575'
       Server:
-      - Metaproxy/1.15.0
+      - Metaproxy/1.13.0
       Connection:
       - Keep-Alive
       Content-Type:
@@ -60,27 +60,28 @@ http_interactions:
         of responsibility from container.</note>\n  <note>Third in the Harry Potter
         series.</note>\n  <note type=\"performers\">Read by Jim Dale.</note>\n  <subject>\n
         \   <geographicCode authority=\"marcgac\">e-uk-en</geographicCode>\n  </subject>\n
-        \ <subject authority=\"lcsh\">\n    <name type=\"personal\">\n      <namePart>Potter,
-        Harry</namePart>\n      <namePart type=\"termsOfAddress\">(Fictitious character)</namePart>\n
-        \   </name>\n    <genre>Juvenile fiction</genre>\n  </subject>\n  <subject
-        authority=\"lcsh\">\n    <topic>Hogwarts School of Witchcraft and Wizardry
-        (Imaginary organization)</topic>\n    <genre>Juvenile fiction</genre>\n  </subject>\n
-        \ <subject authority=\"lcsh\">\n    <topic>Wizards</topic>\n    <genre>Juvenile
-        fiction</genre>\n  </subject>\n  <subject authority=\"lcsh\">\n    <topic>Magic</topic>\n
+        \ <subject authority=\"lcsh\">\n    <name type=\"personal\">\n      <namePart
+        type=\"termsOfAddress\">(Fictitious character)</namePart>\n      <namePart>Potter,
+        Harry</namePart>\n    </name>\n    <genre>Juvenile fiction</genre>\n  </subject>\n
+        \ <subject authority=\"lcsh\">\n    <topic>Hogwarts School of Witchcraft and
+        Wizardry (Imaginary organization)</topic>\n    <genre>Juvenile fiction</genre>\n
+        \ </subject>\n  <subject authority=\"lcsh\">\n    <topic>Wizards</topic>\n
         \   <genre>Juvenile fiction</genre>\n  </subject>\n  <subject authority=\"lcsh\">\n
-        \   <topic>Schools</topic>\n    <genre>Juvenile fiction</genre>\n  </subject>\n
-        \ <subject authority=\"lcshac\">\n    <topic>Wizards</topic>\n    <genre>Fiction</genre>\n
-        \ </subject>\n  <subject authority=\"lcshac\">\n    <topic>Magic</topic>\n
+        \   <topic>Magic</topic>\n    <genre>Juvenile fiction</genre>\n  </subject>\n
+        \ <subject authority=\"lcsh\">\n    <topic>Schools</topic>\n    <genre>Juvenile
+        fiction</genre>\n  </subject>\n  <subject authority=\"lcshac\">\n    <topic>Wizards</topic>\n
         \   <genre>Fiction</genre>\n  </subject>\n  <subject authority=\"lcshac\">\n
-        \   <topic>Schools</topic>\n    <genre>Fiction</genre>\n  </subject>\n  <subject
-        authority=\"lcsh\">\n    <geographic>England</geographic>\n    <genre>Juvenile
-        fiction</genre>\n  </subject>\n  <subject authority=\"lcshac\">\n    <geographic>England</geographic>\n
-        \   <genre>Fiction</genre>\n  </subject>\n  <classification authority=\"lcc\">SDB
-        61665</classification>\n  <identifier type=\"isbn\">0807282324</identifier>\n
-        \ <identifier type=\"lccn\">2007576782</identifier>\n  <identifier type=\"issue
-        number\">YA 160 CD Random House</identifier>\n  <identifier type=\"oclc\">ocm43963972</identifier>\n
-        \ <identifier type=\"oclc\">43963972</identifier>\n  <relatedItem>\n    <location>\n
-        \     <url displayLabel=\"Contributor biographical information\">http://www.loc.gov/catdir/enhancements/fy0727/2007576782-b.html</url>\n
+        \   <topic>Magic</topic>\n    <genre>Fiction</genre>\n  </subject>\n  <subject
+        authority=\"lcshac\">\n    <topic>Schools</topic>\n    <genre>Fiction</genre>\n
+        \ </subject>\n  <subject authority=\"lcsh\">\n    <geographic>England</geographic>\n
+        \   <genre>Juvenile fiction</genre>\n  </subject>\n  <subject authority=\"lcshac\">\n
+        \   <geographic>England</geographic>\n    <genre>Fiction</genre>\n  </subject>\n
+        \ <classification authority=\"lcc\">SDB 61665</classification>\n  <identifier
+        type=\"isbn\">0807282324</identifier>\n  <identifier type=\"lccn\">2007576782</identifier>\n
+        \ <identifier type=\"issue number\">YA 160 CD Random House</identifier>\n
+        \ <identifier type=\"oclc\">ocm43963972</identifier>\n  <identifier type=\"oclc\">43963972</identifier>\n
+        \ <relatedItem>\n    <location>\n      <url displayLabel=\"Contributor biographical
+        information\">http://www.loc.gov/catdir/enhancements/fy0727/2007576782-b.html</url>\n
         \   </location>\n  </relatedItem>\n  <relatedItem>\n    <location>\n      <url
         displayLabel=\"Publisher description\">http://www.loc.gov/catdir/enhancements/fy0727/2007576782-d.html</url>\n
         \   </location>\n  </relatedItem>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
@@ -88,7 +89,7 @@ http_interactions:
         \   <recordCreationDate encoding=\"marc\">070531</recordCreationDate>\n    <recordChangeDate
         encoding=\"iso8601\">20140905142926.0</recordChangeDate>\n    <recordIdentifier>14872104</recordIdentifier>\n
         \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.119 2018/06/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>bath.lccn=\"^2007576782\"</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
+        1.117 2017/02/14)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>bath.lccn=\"^2007576782\"</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
     http_version: 
-  recorded_at: Sat, 19 Jan 2019 04:49:02 GMT
+  recorded_at: Sun, 24 Dec 2017 12:57:20 GMT
 recorded_with: VCR 4.0.0

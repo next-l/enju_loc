@@ -3,13 +3,6 @@ module EnjuLoc
     extend ActiveSupport::Concern
 
     included do
-      has_one :lccn_record
-      searchable do
-        string :lccn do
-          lccn_record.try(:body)
-        end
-      end
-
       def self.loc_search(query, options = {})
         options = {}.merge(options)
         doc = nil
@@ -27,24 +20,24 @@ module EnjuLoc
       def self.import_record_from_loc_isbn(options)
         #if options[:isbn]
         lisbn = Lisbn.new(options[:isbn])
-        raise Manifestation::InvalidIsbn unless lisbn.valid?
+        raise EnjuLoc::InvalidIsbn unless lisbn.valid?
         #end
 
-        isbn_record = IsbnRecord.find_by(body: lisbn.isbn13) || IsbnRecord.find_by(body: lisbn.isbn10)
-        return isbn_record.manifestations.first if isbn_record
+        manifestation = Manifestation.find_by_isbn(lisbn.isbn)
+        return manifestation.first if manifestation.present?
 
         doc = return_xml(lisbn.isbn)
-        raise Manifestation::RecordNotFound unless doc
+        raise EnjuLoc::RecordNotFound unless doc
         import_record_from_loc(doc)
       end
 
       NS = {"mods"=>"http://www.loc.gov/mods/v3"}
-
       def self.import_record_from_loc(doc)
-        # record_identifier = doc.at('//mods:recordInfo/mods:recordIdentifier', NS).try(:content)
-        lccn = StdNum::LCCN.normalize(doc.at('/mods:mods/mods:identifier[@type="lccn"]', NS).try(:content).to_s)
-        lccn_record = LccnRecord.find_by(body: lccn)
-        return lccn_record.manifestation if lccn_record
+        record_identifier = doc.at('//mods:recordInfo/mods:recordIdentifier', NS).try(:content)
+        identifier_type = IdentifierType.find_by(name: 'loc_identifier')
+        identifier_type = IdentifierType.create!(name: 'loc_identifier') unless identifier_type
+        loc_identifier = Identifier.find_by(body: record_identifier, identifier_type_id: identifier_type.id)
+        return loc_identifier.manifestation if loc_identifier
 
         publishers = []
         doc.xpath('//mods:publisher', NS).each do |publisher|
@@ -69,7 +62,8 @@ module EnjuLoc
           language_id = 1
         end
 
-        isbn = Lisbn.new(doc.at('/mods:mods/mods:identifier[@type="isbn"]', NS).try(:content).to_s)
+        isbn = Lisbn.new(doc.at('/mods:mods/mods:identifier[@type="isbn"]', NS).try(:content).to_s).try(:isbn)
+        lccn = StdNum::LCCN.normalize(doc.at('/mods:mods/mods:identifier[@type="lccn"]', NS).try(:content).to_s)
         issn = StdNum::ISSN.normalize(doc.at('/mods:mods/mods:identifier[@type="issn"]', NS).try(:content).to_s)
         issn_l = StdNum::ISSN.normalize(doc.at('/mods:mods/mods:identifier[@type="issn-l"]', NS).try(:content).to_s)
 
@@ -113,43 +107,49 @@ module EnjuLoc
             publication_place: publication_place,
             serial: is_serial
           )
+          identifier = {}
+          if isbn
+            identifier[:isbn] = Identifier.new(
+              manifestation: manifestation,
+              body: isbn,
+              identifier_type: IdentifierType.find_by(name: 'isbn') || IdnetifierType.create!(name: 'isbn')
+            )
+          end
+          if loc_identifier
+            identifier[:loc_identifier] = Identifier.new(
+              manifestation: manifestation,
+              body: loc_identifier,
+              identifier_type: IdentifierType.find_by(name: 'loc_identifier') || IdnetifierType.create!(name: 'loc_identifier')
+            )
+          end
+          if lccn
+            identifier[:lccn] = Identifier.new(
+              manifestation: manifestation,
+              body: lccn,
+              identifier_type: IdentifierType.find_by(name: 'lccn') || IdentifierType.create!(name: 'lccn')
+            )
+          end
+          if issn
+            identifier[:issn] = Identifier.new(
+              manifestation: manifestation,
+              body: issn,
+              identifier_type: IdentifierType.find_by(name: 'issn') || IdentifierType.create!(name: 'issn')
+            )
+          end
+          if issn_l
+            identifier[:issn_l] = Identifier.new(
+              manifestation: manifestation,
+              body: issn_l,
+              identifier_type: IdentifierType.find_by(name: 'issn_l') || IdentifierType.create!(name: 'issn_l')
+            )
+          end
           manifestation.carrier_type = carrier_type if carrier_type
           manifestation.manifestation_content_type = content_type if content_type
           manifestation.frequency = frequency if frequency
           manifestation.save!
-
-          if isbn.present?
-            isbn_record = IsbnRecord.find_by(body: isbn.isbn13) || IsbnRecord.find_by(body: isbn.isbn10)
-            isbn_record = IsbnRecord.create(body: isbn.isbn13) unless isbn_record
-            
-            IsbnRecordAndManifestation.create(
-              isbn_record: isbn_record,
-              manifestation: manifestation
-            )
+          identifier.each do |k, v|
+            manifestation.identifiers << v if v.valid?
           end
-
-          if lccn
-            lccn_record = LccnRecord.find_by(body: lccn)
-            LccnRecord.create(
-              body: lccn,
-              manifestation: manifestation
-            ) unless lccn_record
-          end
-
-          if issn
-            IssnRecordAndManifestation.create(
-              issn_record: IssnRecord.where(body: issn).first_or_create,
-              manifestation: manifestation
-            )
-          end
-
-          if issn_l
-            IssnRecordAndManifestation.create(
-              issn_record: IssnRecord.where(body: issn).first_or_create,
-              manifestation: manifestation
-            )
-          end
-
           manifestation.publishers << publisher_agents
           manifestation.creators << creator_agents
           create_loc_subject_related_elements(doc, manifestation)
@@ -443,29 +443,29 @@ module EnjuLoc
                 carrier_type = CarrierType.find_by(name: 'volume')
                 content_type = ContentType.find_by(name: 'text')
               when "braille"
-                carrier_type = CarrierType.find_by(name: 'volume')
-                content_type = ContentType.find_by(name: 'tactile_text')
+                carrier_type = CarrierType.where(name: 'volume').first
+                content_type = ContentType.where(name: 'tactile_text').first
               when "videodisc"
-                carrier_type = CarrierType.find_by(name: 'videodisc')
-                content_type = ContentType.find_by(name: 'two_dimensional_moving_image')
+                carrier_type = CarrierType.where(name: 'videodisc').first
+                content_type = ContentType.where(name: 'two_dimensional_moving_image').first
               when "videorecording", "videocartridge", "videocassette", "videoreel"
-                carrier_type = CarrierType.find_by(name: 'other')
-                content_type = ContentType.find_by(name: 'two_dimensional_moving_image')
+                carrier_type = CarrierType.where(name: 'other').first
+                content_type = ContentType.where(name: 'two_dimensional_moving_image').first
               when "electronic resource"
-                carrier_type = CarrierType.find_by(name: 'online_resource')
+                carrier_type = CarrierType.where(name: 'online_resource').first
               when "chip cartridge", "computer optical disc cartridge", "magnetic disk", "magneto-optical disc", "optical disc", "remote", "tape cartridge", "tape cassette", "tape reel"
-                #carrier_type = CarrierType.find_by(name: 'other')
+                #carrier_type = CarrierType.where(name: 'other').first
               when "motion picture", "film cartridge", "film cassette", "film reel"
-                content_type = ContentType.find_by(name: 'two_dimensional_moving_image')
+                content_type = ContentType.where(name: 'two_dimensional_moving_image').first
               when "sound recording", "cylinder", "roll", "sound cartridge", "sound cassette", "sound-tape reel", "sound-track film", "wire recording"
-                content_type = ContentType.find_by(name: 'performed_music')
+                content_type = ContentType.where(name: 'performed_music').first
               when "sound disc"
-                content_type = ContentType.find_by(name: 'performed_music')
-                carrier_type = CarrierType.find_by(name: 'audio_disc')
+                content_type = ContentType.where(name: 'performed_music').first
+                carrier_type = CarrierType.where(name: 'audio_disc').first
               when "nonprojected graphic", "chart", "collage", "drawing", "flash card", "painting", "photomechanical print", "photonegative", "photoprint", "picture", "print", "technical drawing", "projected graphic", "filmslip", "filmstrip cartridge", "filmstrip roll", "other filmstrip type ", "slide", "transparency"
-                content_type = ContentType.find_by(name: 'still_image')
+                content_type = ContentType.where(name: 'still_image').first
               when "tactile material", "braille", "tactile, with no writing system"
-                content_type = ContentType.find_by(name: 'tactile_text')
+                content_type = ContentType.where(name: 'tactile_text').first
               #TODO: Enju needs more specific mappings...
               when "globe",
               "celestial globe",
@@ -491,20 +491,20 @@ module EnjuLoc
               "microopaque",
               "combination",
               "moon"
-                content_type = ContentType.find_by(name: 'other')
+                content_type = ContentType.where(name: 'other').first
               end
               when "marcform" # cf. http://www.loc.gov/standards/valuelist/marcform.html
                 case e.content
                 when "print", "large print"
-                  carrier_type = CarrierType.find_by(name: 'volume')
-                  content_type = ContentType.find_by(name: 'text')
+                  carrier_type = CarrierType.where(name: 'volume').first
+                  content_type = ContentType.where(name: 'text').first
                 when "electronic"
-                  carrier_type = CarrierType.find_by(name: 'online_resource')
+                  carrier_type = CarrierType.where(name: 'online_resource').first
                 when "braille"
-                  content_type = ContentType.find_by(name: 'tactile_text')
+                  content_type = ContentType.where(name: 'tactile_text').first
                 #TODO: Enju needs more specific mappings...
                 when "microfiche", "microfilm"
-                  content_type = ContentType.find_by(name: 'other')
+                  content_type = ContentType.where(name: 'other').first
                 end
               end
             end
@@ -512,37 +512,37 @@ module EnjuLoc
               authority = e.attributes['authority'].try(:content)
               case authority
               when "rdacontent"
-                content_type = ContentType.find_by(name: e.content.gsub(/\W+/, "_"))
-                content_type = ContentType.find_by(name: 'other') unless content_type
+                content_type = ContentType.where(name: e.content.gsub(/\W+/, "_")).first
+                content_type = ContentType.where(name: 'other').first unless content_type
               end
             end
             type = doc.at('//mods:typeOfResource', NS).try(:content)
             case type
             when "text"
-              content_type = ContentType.find_by(name: 'text')
+              content_type = ContentType.where(name: 'text').first
             when "sound recording"
-              content_type = ContentType.find_by(name: 'sounds')
+              content_type = ContentType.where(name: 'sounds').first
             when"sound recording-musical"
-              content_type = ContentType.find_by(name: 'performed_music')
+              content_type = ContentType.where(name: 'performed_music').first
             when"sound recording-nonmusical"
-              content_type = ContentType.find_by(name: 'spoken_word')
+              content_type = ContentType.where(name: 'spoken_word').first
             when "moving image"
-              content_type = ContentType.find_by(name: 'two_dimensional_moving_image')
+              content_type = ContentType.where(name: 'two_dimensional_moving_image').first
             when "software, multimedia"
-              content_type = ContentType.find_by(name: 'other')
+              content_type = ContentType.where(name: 'other').first
             when "cartographic "
-              content_type = ContentType.find_by(name: 'cartographic_image')
+              content_type = ContentType.where(name: 'cartographic_image').first
             when "notated music"
-              content_type = ContentType.find_by(name: 'notated_music')
+              content_type = ContentType.where(name: 'notated_music').first
             when "still image"
-              content_type = ContentType.find_by(name: 'still_image')
+              content_type = ContentType.where(name: 'still_image').first
             when "three dimensional object"
-              content_type = ContentType.find_by(name: 'other')
+              content_type = ContentType.where(name: 'other').first
             when "mixed material"
-              content_type = ContentType.find_by(name: 'other')
+              content_type = ContentType.where(name: 'other').first
             end
             { carrier_type: carrier_type, content_type: content_type }
           end
-      end
+    end
   end
 end

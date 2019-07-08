@@ -21,7 +21,7 @@ class LocSearchController < ApplicationController
   def create
     begin
       @manifestation = LocSearch.import_from_sru_response(params[:book].try(:[], 'lccn'))
-    rescue Manifestation::RecordNotFound
+    rescue EnjuLoc::RecordNotFound
     end
     respond_to do |format|
       if @manifestation.try(:save)

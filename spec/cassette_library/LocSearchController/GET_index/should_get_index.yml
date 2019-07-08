@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v0.13.1
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Content-Length:
-      - '30139'
+      - '29171'
       Server:
-      - Metaproxy/1.15.0
+      - Metaproxy/1.13.0
       Connection:
       - Keep-Alive
       Content-Type:
@@ -31,346 +31,328 @@ http_interactions:
       string: "<?xml version=\"1.0\"?>\n<zs:searchRetrieveResponse xmlns:zs=\"http://www.loc.gov/zing/srw/\"><zs:version>1.1</zs:version><zs:numberOfRecords>10000</zs:numberOfRecords><zs:records><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
         version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
-        \ <titleInfo>\n    <title>Corona Beatae Mariae Virginis</title>\n  </titleInfo>\n
-        \ <titleInfo type=\"uniform\">\n    <title>Corona B.M.V</title>\n  </titleInfo>\n
-        \ <name type=\"corporate\">\n    <namePart>Early Printing Collection (Library
-        of Congress)</namePart>\n  </name>\n  <typeOfResource>text</typeOfResource>\n
-        \ <originInfo>\n    <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">fr</placeTerm>\n
-        \   </place>\n    <place>\n      <placeTerm type=\"text\">Strassburg</placeTerm>\n
-        \   </place>\n    <publisher>Printer of the 1483 Jordanus de Quedlinburg</publisher>\n
-        \   <dateIssued>not after 1488]</dateIssued>\n    <dateIssued encoding=\"marc\">1488</dateIssued>\n
-        \   <issuance>monographic</issuance>\n  </originInfo>\n  <language>\n    <languageTerm
-        authority=\"iso639-2b\" type=\"code\">lat</languageTerm>\n  </language>\n
-        \ <physicalDescription>\n    <form authority=\"marcform\">print</form>\n    <extent>[2],
-        lxxxiii, [1] fo. 29.4 cm.</extent>\n  </physicalDescription>\n  <note>Leaf
-        [1a] (t. p.): Corona beate Marie uirginis.</note>\n  <note>Foliate initial
-        painted in blue and green on leaf ia; other initials supplied in red and blue,
-        paragraph marks in red.</note>\n  <note>Bound with [Pelba&#x301;rt, Oszva&#x301;ld,
-        temesva&#x301;ri] Stellarium corone. [1501]</note>\n  <subject authority=\"lcsh\">\n
-        \   <name type=\"personal\">\n      <namePart>Mary</namePart>\n      <namePart
-        type=\"termsOfAddress\">Blessed Virgin, Saint</namePart>\n    </name>\n    <genre>Early
-        works to 1800</genre>\n  </subject>\n  <classification authority=\"lcc\">BT600
-        .P3</classification>\n  <relatedItem type=\"isReferencedBy\">\n    <titleInfo>\n
-        \     <title>Brit. Mus. Cat. (XV cent.) I, p. 136 (IB. 1934) ; Gesamtkat.
-        d. Wiegendr., 7573 ; Goff. Third census, C-923.</title>\n    </titleInfo>\n
-        \   <part>\n      <detail type=\"part\">\n        <number/>\n      </detail>\n
-        \   </part>\n  </relatedItem>\n  <identifier type=\"lccn\">75552598</identifier>\n
-        \ <recordInfo>\n    <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
-        \   <recordCreationDate encoding=\"marc\">781208</recordCreationDate>\n    <recordChangeDate
-        encoding=\"iso8601\">20190118010428.0</recordChangeDate>\n    <recordIdentifier>339161</recordIdentifier>\n
+        \ <titleInfo>\n    <title/>\n    <subTitle/>\n  </titleInfo>\n  <typeOfResource>text</typeOfResource>\n
+        \ <genre authority=\"rdacontent\">text</genre>\n  <originInfo>\n    <place>\n
+        \     <placeTerm type=\"code\" authority=\"marccountry\">ii</placeTerm>\n
+        \   </place>\n    <dateIssued encoding=\"marc\">2016</dateIssued>\n    <edition>1.
+        samskarana.</edition>\n    <issuance>monographic</issuance>\n  </originInfo>\n
+        \ <originInfo eventType=\"publication\">\n    <place>\n      <placeTerm type=\"text\">Bhubanesvara
+        :</placeTerm>\n    </place>\n    <publisher>,</publisher>\n    <dateIssued>2016.</dateIssued>\n
+        \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">ori</languageTerm>\n
+        \ </language>\n  <physicalDescription>\n    <form authority=\"marcform\">print</form>\n
+        \   <extent>pages</extent>\n    <form type=\"media\" authority=\"rdamedia\">unmediated</form>\n
+        \   <form type=\"carrier\" authority=\"rdacarrier\">volume</form>\n  </physicalDescription>\n
+        \ <note type=\"statement of responsibility\" altRepGroup=\"00\">.</note>\n
+        \ <note>Short stories.</note>\n  <note type=\"language\">In Oriya.</note>\n
+        \ <identifier type=\"lccn\"/>\n  <identifier type=\"stock number\">Library
+        of Congress -- New Delhi Overseas Office</identifier>\n  <recordInfo>\n    <descriptionStandard>rda</descriptionStandard>\n
+        \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
+        \   <recordCreationDate encoding=\"marc\">160427</recordCreationDate>\n    <recordChangeDate
+        encoding=\"iso8601\">20160427233023.0</recordChangeDate>\n    <recordIdentifier>19069741</recordIdentifier>\n
         \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.119 2018/06/21)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
+        1.117 2017/02/14)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
         authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n    </languageOfCataloging>\n
         \ </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
         version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
-        \ <titleInfo>\n    <title>Psychoanalytische Bemerkungen u&#x308;ber einen
-        autobiographisch beschriebenen Fall von Paranoia (Dementia paranoides)</title>\n
-        \ </titleInfo>\n  <name type=\"personal\" usage=\"primary\">\n    <namePart>Freud,
-        Sigmund</namePart>\n    <namePart type=\"date\">1856-1939</namePart>\n  </name>\n
-        \ <name type=\"corporate\">\n    <namePart>Sigmund Freud Collection (Library
-        of Congress)</namePart>\n  </name>\n  <typeOfResource>text</typeOfResource>\n
-        \ <genre authority=\"marcgt\">bibliography</genre>\n  <originInfo>\n    <place>\n
-        \     <placeTerm type=\"code\" authority=\"marccountry\">au</placeTerm>\n
-        \   </place>\n    <place>\n      <placeTerm type=\"text\">Wien?</placeTerm>\n
-        \   </place>\n    <publisher>Deuticke</publisher>\n    <dateIssued>1911]</dateIssued>\n
-        \   <dateIssued encoding=\"marc\">1911</dateIssued>\n    <issuance>monographic</issuance>\n
-        \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">ger</languageTerm>\n
-        \ </language>\n  <physicalDescription>\n    <form authority=\"marcform\">print</form>\n
-        \   <extent>p. [9]-68 ; 23 cm.</extent>\n  </physicalDescription>\n  <note
-        type=\"statement of responsibility\" altRepGroup=\"00\">von Sigm. Freud.</note>\n
-        \ <note>Caption title.</note>\n  <note>Sonderabdruck aus dem Jahrbuch fu&#x308;r
-        psychoanalytische und psychopathologische Forschungen, Band III.\"</note>\n
-        \ <note>Includes selections from D. P. Schreber's Denkwu&#x308;rdigkeiten
-        eines Nervenkranken.</note>\n  <note type=\"bibliography\">Includes bibliographical
-        references.</note>\n  <subject authority=\"lcsh\">\n    <topic>Paranoia</topic>\n
-        \   <topic>Case studies</topic>\n  </subject>\n  <classification authority=\"lcc\">RC520
-        .F73</classification>\n  <relatedItem type=\"constituent\">\n    <titleInfo>\n
-        \     <title>Denkwu&#x308;rdigkeiten eines Nervenkranken. Selections. 1911</title>\n
-        \   </titleInfo>\n    <name type=\"personal\">\n      <namePart>Schreber,
-        Daniel Paul,</namePart>\n      <namePart type=\"date\">1842-1911</namePart>\n
-        \   </name>\n  </relatedItem>\n  <identifier type=\"lccn\">76457018</identifier>\n
-        \ <recordInfo>\n    <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
-        \   <recordCreationDate encoding=\"marc\">760401</recordCreationDate>\n    <recordChangeDate
-        encoding=\"iso8601\">20190118010431.0</recordChangeDate>\n    <recordIdentifier>352560</recordIdentifier>\n
+        \ <titleInfo>\n    <title/>\n    <subTitle/>\n  </titleInfo>\n  <typeOfResource>text</typeOfResource>\n
+        \ <genre authority=\"rdacontent\">text</genre>\n  <originInfo>\n    <place>\n
+        \     <placeTerm type=\"code\" authority=\"marccountry\">bg</placeTerm>\n
+        \   </place>\n    <dateIssued encoding=\"marc\">2016</dateIssued>\n    <issuance>monographic</issuance>\n
+        \ </originInfo>\n  <originInfo eventType=\"publication\">\n    <place>\n      <placeTerm
+        type=\"text\">Dhaka :</placeTerm>\n    </place>\n    <publisher>,</publisher>\n
+        \   <dateIssued>2016.</dateIssued>\n  </originInfo>\n  <language>\n    <languageTerm
+        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n  </language>\n
+        \ <physicalDescription>\n    <form authority=\"marcform\">print</form>\n    <extent>pages</extent>\n
+        \   <form type=\"media\" authority=\"rdamedia\">unmediated</form>\n    <form
+        type=\"carrier\" authority=\"rdacarrier\">volume</form>\n  </physicalDescription>\n
+        \ <note type=\"statement of responsibility\" altRepGroup=\"00\">.</note>\n
+        \ <identifier type=\"lccn\"/>\n  <identifier type=\"stock number\">Library
+        of Congress -- New Delhi Overseas Office</identifier>\n  <recordInfo>\n    <descriptionStandard>rda</descriptionStandard>\n
+        \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
+        \   <recordCreationDate encoding=\"marc\">170801</recordCreationDate>\n    <recordChangeDate
+        encoding=\"iso8601\">20170801021251.0</recordChangeDate>\n    <recordIdentifier>19856612</recordIdentifier>\n
         \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.119 2018/06/21)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
+        1.117 2017/02/14)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
         authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n    </languageOfCataloging>\n
         \ </recordInfo>\n</mods></zs:recordData><zs:recordPosition>2</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
         version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
-        \ <titleInfo>\n    <title>U&#x308;ber den Ursprung der Alkoholhefen</title>\n
-        \ </titleInfo>\n  <name type=\"personal\" usage=\"primary\">\n    <namePart>Jo&#x308;rgensen,
-        Alfred</namePart>\n    <namePart type=\"date\">1848-1925</namePart>\n  </name>\n
-        \ <name type=\"corporate\">\n    <namePart>Katherine Golden Bitting Collection
-        (Library of Congress)</namePart>\n  </name>\n  <typeOfResource>text</typeOfResource>\n
-        \ <genre authority=\"marcgt\">bibliography</genre>\n  <originInfo>\n    <place>\n
-        \     <placeTerm type=\"code\" authority=\"marccountry\">dk</placeTerm>\n
-        \   </place>\n    <place>\n      <placeTerm type=\"text\">Kopenhagen</placeTerm>\n
-        \   </place>\n    <publisher>Verlag des Laboratoriums</publisher>\n    <dateIssued>1895</dateIssued>\n
-        \   <issuance>monographic</issuance>\n  </originInfo>\n  <language>\n    <languageTerm
-        authority=\"iso639-2b\" type=\"code\">ger</languageTerm>\n  </language>\n
-        \ <physicalDescription>\n    <form authority=\"marcform\">print</form>\n    <extent>37
-        p. : ill. ; 17 cm.</extent>\n  </physicalDescription>\n  <note type=\"statement
-        of responsibility\" altRepGroup=\"00\">von Alfred J&#xF8;rgensen.</note>\n
-        \ <note type=\"bibliography\">Includes bibliographical references.</note>\n
-        \ <subject authority=\"lcsh\">\n    <topic>Alcoholism</topic>\n  </subject>\n
-        \ <classification authority=\"lcc\">RC565 .J56</classification>\n  <relatedItem
-        type=\"series\">\n    <titleInfo>\n      <title>Berichte des Ga&#x308;hrungsphysiologischen
-        Laboratoriums ; 1</title>\n    </titleInfo>\n    <name type=\"corporate\">\n
-        \     <namePart>Alfred J&#xF8;rgensens g&#xE6;ringsfysiologiske laboratorium.</namePart>\n
-        \     <namePart/>\n    </name>\n  </relatedItem>\n  <identifier type=\"lccn\">76480488</identifier>\n
-        \ <recordInfo>\n    <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
-        \   <recordCreationDate encoding=\"marc\">761015</recordCreationDate>\n    <recordChangeDate
-        encoding=\"iso8601\">20190118010434.0</recordChangeDate>\n    <recordIdentifier>354703</recordIdentifier>\n
+        \ <titleInfo>\n    <title/>\n    <subTitle/>\n  </titleInfo>\n  <typeOfResource>text</typeOfResource>\n
+        \ <genre authority=\"rdacontent\">text</genre>\n  <originInfo>\n    <place>\n
+        \     <placeTerm type=\"code\" authority=\"marccountry\">ii</placeTerm>\n
+        \   </place>\n    <dateIssued encoding=\"marc\">2013</dateIssued>\n    <issuance>monographic</issuance>\n
+        \ </originInfo>\n  <originInfo eventType=\"publication\">\n    <place>\n      <placeTerm
+        type=\"text\">New Delhi :</placeTerm>\n    </place>\n    <publisher>,</publisher>\n
+        \   <dateIssued>2013.</dateIssued>\n  </originInfo>\n  <language>\n    <languageTerm
+        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n  </language>\n
+        \ <physicalDescription>\n    <form authority=\"marcform\">print</form>\n    <extent>pages</extent>\n
+        \   <form type=\"media\" authority=\"rdamedia\">unmediated</form>\n    <form
+        type=\"carrier\" authority=\"rdacarrier\">volume</form>\n  </physicalDescription>\n
+        \ <note type=\"statement of responsibility\" altRepGroup=\"00\">.</note>\n
+        \ <identifier type=\"lccn\"/>\n  <identifier type=\"stock number\">Library
+        of Congress -- New Delhi Overseas Office</identifier>\n  <recordInfo>\n    <descriptionStandard>rda</descriptionStandard>\n
+        \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
+        \   <recordCreationDate encoding=\"marc\">151222</recordCreationDate>\n    <recordChangeDate
+        encoding=\"iso8601\">20160425121812.0</recordChangeDate>\n    <recordIdentifier>18914467</recordIdentifier>\n
         \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.119 2018/06/21)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
+        1.117 2017/02/14)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
         authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n    </languageOfCataloging>\n
         \ </recordInfo>\n</mods></zs:recordData><zs:recordPosition>3</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
         version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
-        \ <titleInfo>\n    <title>Dissertatio medica inauguralis de physconia splenica</title>\n
-        \   <subTitle>quam sub moderamine viri admodum reverendi D. Joannis Ewing,
-        S.S.T.P. Universitatis Pennsylvaniensis praefecti</subTitle>\n  </titleInfo>\n
-        \ <name type=\"personal\" usage=\"primary\">\n    <namePart>Miller, Edward</namePart>\n
-        \   <namePart type=\"date\">1760-1812</namePart>\n  </name>\n  <name type=\"corporate\">\n
-        \   <namePart>American Imprint Collection (Library of Congress)</namePart>\n
-        \ </name>\n  <typeOfResource>text</typeOfResource>\n  <originInfo>\n    <place>\n
-        \     <placeTerm type=\"code\" authority=\"marccountry\">pau</placeTerm>\n
-        \   </place>\n    <place>\n      <placeTerm type=\"text\">Philadelphiae</placeTerm>\n
-        \   </place>\n    <publisher>Apud Guliemum Young</publisher>\n    <dateIssued>1789</dateIssued>\n
-        \   <issuance>monographic</issuance>\n  </originInfo>\n  <language>\n    <languageTerm
-        authority=\"iso639-2b\" type=\"code\">lat</languageTerm>\n  </language>\n
-        \ <physicalDescription>\n    <form authority=\"marcform\">print</form>\n    <extent>[9],
-        6-27, [1] p. ; 20 cm. (8vo)</extent>\n  </physicalDescription>\n  <note type=\"statement
-        of responsibility\" altRepGroup=\"00\">Edvardus Miller ...</note>\n  <note>Signatures:
-        [A]&#x2074; B-D&#x2074;.</note>\n  <note>Errata slip mounted on p. [8].</note>\n
-        \ <note type=\"thesis\">Thesis--University of Pennsylvania, 1789.</note>\n
-        \ <subject authority=\"lcsh\">\n    <topic>Spleen</topic>\n    <topic>Tumors</topic>\n
-        \   <topic>Early works to 1800</topic>\n  </subject>\n  <classification authority=\"lcc\">RC649
-        .M64 1789</classification>\n  <relatedItem type=\"isReferencedBy\">\n    <titleInfo>\n
-        \     <title>Evans</title>\n    </titleInfo>\n    <part>\n      <detail type=\"part\">\n
-        \       <number>21964</number>\n      </detail>\n    </part>\n  </relatedItem>\n
-        \ <identifier type=\"lccn\">07037335</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
-        \   <descriptionStandard>dcrb</descriptionStandard>\n    <recordContentSource
-        authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">981229</recordCreationDate>\n
-        \   <recordChangeDate encoding=\"iso8601\">20190118010520.0</recordChangeDate>\n
-        \   <recordIdentifier>745223</recordIdentifier>\n    <recordOrigin>Converted
-        from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.119 2018/06/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>4</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        \ <titleInfo>\n    <title/>\n    <subTitle/>\n  </titleInfo>\n  <typeOfResource>text</typeOfResource>\n
+        \ <genre authority=\"rdacontent\">text</genre>\n  <originInfo>\n    <place>\n
+        \     <placeTerm type=\"code\" authority=\"marccountry\">ii</placeTerm>\n
+        \   </place>\n    <dateIssued encoding=\"marc\">2013</dateIssued>\n    <issuance>monographic</issuance>\n
+        \ </originInfo>\n  <originInfo eventType=\"publication\">\n    <place>\n      <placeTerm
+        type=\"text\">New Delhi :</placeTerm>\n    </place>\n    <publisher>,</publisher>\n
+        \   <dateIssued>2013.</dateIssued>\n  </originInfo>\n  <language>\n    <languageTerm
+        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n  </language>\n
+        \ <physicalDescription>\n    <form authority=\"marcform\">print</form>\n    <extent>pages</extent>\n
+        \   <form type=\"media\" authority=\"rdamedia\">unmediated</form>\n    <form
+        type=\"carrier\" authority=\"rdacarrier\">volume</form>\n  </physicalDescription>\n
+        \ <note type=\"statement of responsibility\" altRepGroup=\"00\">.</note>\n
+        \ <identifier type=\"lccn\"/>\n  <identifier type=\"stock number\">Library
+        of Congress -- New Delhi Overseas Office</identifier>\n  <recordInfo>\n    <descriptionStandard>rda</descriptionStandard>\n
+        \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
+        \   <recordCreationDate encoding=\"marc\">150120</recordCreationDate>\n    <recordChangeDate
+        encoding=\"iso8601\">20150120064427.0</recordChangeDate>\n    <recordIdentifier>18455127</recordIdentifier>\n
+        \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
+        1.117 2017/02/14)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
+        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n    </languageOfCataloging>\n
+        \ </recordInfo>\n</mods></zs:recordData><zs:recordPosition>4</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
         version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
-        \ <titleInfo>\n    <title>Giambattista Bodoni of Parma</title>\n  </titleInfo>\n
-        \ <name type=\"personal\" usage=\"primary\">\n    <namePart>Cleland, T. M.
-        (Thomas Maitland)</namePart>\n    <namePart type=\"date\">1880-1964</namePart>\n
-        \ </name>\n  <name type=\"personal\">\n    <namePart>Rogers, Bruce</namePart>\n
-        \   <namePart type=\"date\">1870-1957</namePart>\n    <role>\n      <roleTerm
-        type=\"text\">former owner.</roleTerm>\n    </role>\n  </name>\n  <name type=\"corporate\">\n
-        \   <namePart>Society of Printers (Boston, Mass.)</namePart>\n  </name>\n
-        \ <name type=\"corporate\">\n    <namePart>Frederic W. Goudy Collection (Library
-        of Congress)</namePart>\n  </name>\n  <name type=\"corporate\">\n    <namePart>Pforzheimer
-        Bruce Rogers Collection (Library of Congress)</namePart>\n  </name>\n  <typeOfResource>text</typeOfResource>\n
-        \ <genre authority=\"marcgt\">biography</genre>\n  <originInfo>\n    <place>\n
-        \     <placeTerm type=\"code\" authority=\"marccountry\">mau</placeTerm>\n
-        \   </place>\n    <place>\n      <placeTerm type=\"text\">Boston</placeTerm>\n
-        \   </place>\n    <publisher>Society of Printers</publisher>\n    <dateIssued>1916</dateIssued>\n
-        \   <issuance>monographic</issuance>\n  </originInfo>\n  <language>\n    <languageTerm
+        \ <titleInfo>\n    <title/>\n    <subTitle/>\n  </titleInfo>\n  <typeOfResource>text</typeOfResource>\n
+        \ <genre authority=\"rdacontent\">text</genre>\n  <originInfo>\n    <place>\n
+        \     <placeTerm type=\"code\" authority=\"marccountry\">ii</placeTerm>\n
+        \   </place>\n    <dateIssued encoding=\"marc\">2013</dateIssued>\n    <issuance>monographic</issuance>\n
+        \ </originInfo>\n  <originInfo eventType=\"publication\">\n    <place>\n      <placeTerm
+        type=\"text\">New Delhi :</placeTerm>\n    </place>\n    <publisher>,</publisher>\n
+        \   <dateIssued>2013.</dateIssued>\n  </originInfo>\n  <language>\n    <languageTerm
         authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n  </language>\n
-        \ <physicalDescription>\n    <form authority=\"marcform\">print</form>\n    <extent>50
-        p., [1] leaf of plates : port. ; 24 cm.</extent>\n  </physicalDescription>\n
-        \ <note type=\"statement of responsibility\" altRepGroup=\"00\">T.M. Cleland.</note>\n
-        \ <note>\"This biographical sketch ... was delivered ... at a meeting of the
-        Society of Printers in Boston, April 22, 1913.\"--Verso of half title.</note>\n
-        \ <note>\"Two hundred and fifty copies have been printed by The University
-        Press, Cambridge, Massachusetts, for the Society of Printers.\"--Verso of
-        half title.</note>\n  <subject>\n    <geographicCode authority=\"marcgac\">e-it---</geographicCode>\n
-        \ </subject>\n  <subject authority=\"lcsh\">\n    <name type=\"personal\">\n
-        \     <namePart>Bodoni, Giambattista</namePart>\n      <namePart type=\"date\">1740-1813</namePart>\n
-        \   </name>\n  </subject>\n  <subject authority=\"lcsh\">\n    <topic>Printers</topic>\n
-        \   <geographic>Italy</geographic>\n    <geographic>Parma</geographic>\n    <genre>Biography</genre>\n
-        \ </subject>\n  <subject authority=\"lcsh\">\n    <topic>Early printed books</topic>\n
-        \   <geographic>Italy</geographic>\n    <geographic>Parma</geographic>\n  </subject>\n
-        \ <subject authority=\"lcsh\">\n    <topic>Printing</topic>\n    <geographic>Italy</geographic>\n
-        \   <geographic>Parma</geographic>\n    <topic>History</topic>\n  </subject>\n
-        \ <classification authority=\"lcc\">Z232.B66 C5</classification>\n  <identifier
-        type=\"lccn\">17002205</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
+        \ <physicalDescription>\n    <form authority=\"marcform\">print</form>\n    <extent>pages</extent>\n
+        \   <form type=\"media\" authority=\"rdamedia\">unmediated</form>\n    <form
+        type=\"carrier\" authority=\"rdacarrier\">volume</form>\n  </physicalDescription>\n
+        \ <note type=\"statement of responsibility\" altRepGroup=\"00\">.</note>\n
+        \ <identifier type=\"lccn\"/>\n  <identifier type=\"stock number\">Library
+        of Congress -- New Delhi Overseas Office</identifier>\n  <recordInfo>\n    <descriptionStandard>rda</descriptionStandard>\n
         \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
-        \   <recordCreationDate encoding=\"marc\">980826</recordCreationDate>\n    <recordChangeDate
-        encoding=\"iso8601\">20190118010521.0</recordChangeDate>\n    <recordIdentifier>745753</recordIdentifier>\n
+        \   <recordCreationDate encoding=\"marc\">160104</recordCreationDate>\n    <recordChangeDate
+        encoding=\"iso8601\">20160104054453.0</recordChangeDate>\n    <recordIdentifier>18924045</recordIdentifier>\n
         \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.119 2018/06/21)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
+        1.117 2017/02/14)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
         authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n    </languageOfCataloging>\n
         \ </recordInfo>\n</mods></zs:recordData><zs:recordPosition>5</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
         version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
-        \ <titleInfo>\n    <nonSort xml:space=\"preserve\">The  </nonSort>\n    <title>excellence
-        of the Gospel visible in the wretchedness of paganism</title>\n    <subTitle>a
-        discourse delivered December 20, 1797, being the tenth anniversary of his
-        ordination</subTitle>\n  </titleInfo>\n  <titleInfo type=\"alternative\" displayLabel=\"Half
-        title:\">\n    <title>Mr. Parish's sermon, on the anniversary of his ordination</title>\n
-        \ </titleInfo>\n  <name type=\"personal\" usage=\"primary\">\n    <namePart>Parish,
-        Elijah</namePart>\n    <namePart type=\"date\">1762-1825</namePart>\n  </name>\n
-        \ <name type=\"corporate\">\n    <namePart>American Imprint Collection (Library
-        of Congress)</namePart>\n  </name>\n  <typeOfResource>text</typeOfResource>\n
-        \ <originInfo>\n    <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">mau</placeTerm>\n
-        \   </place>\n    <place>\n      <placeTerm type=\"text\">Newburyport [Mass.]</placeTerm>\n
-        \   </place>\n    <publisher>Printed by A. March</publisher>\n    <dateIssued>Jan.
-        1798</dateIssued>\n    <dateIssued encoding=\"marc\">1798</dateIssued>\n    <issuance>monographic</issuance>\n
-        \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n
-        \ </language>\n  <physicalDescription>\n    <form authority=\"marcform\">print</form>\n
-        \   <extent>28 p. ; 21 cm. (8vo)</extent>\n  </physicalDescription>\n  <note
-        type=\"statement of responsibility\" altRepGroup=\"00\">by Elijah Parish ...</note>\n
-        \ <note>Signatures: [A]&#x2074; B-C&#x2074; D&#xB2;.</note>\n  <subject authority=\"lcsh\">\n
-        \   <topic>Salvation outside the church</topic>\n    <genre>Sermons</genre>\n
-        \ </subject>\n  <subject authority=\"lcsh\">\n    <topic>Paganism</topic>\n
-        \   <genre>Sermons</genre>\n  </subject>\n  <subject authority=\"lcsh\">\n
-        \   <topic>Sermons, American</topic>\n    <temporal>18th century</temporal>\n
-        \ </subject>\n  <subject authority=\"lcsh\">\n    <topic>Congregational churches</topic>\n
-        \   <genre>Sermons</genre>\n  </subject>\n  <classification authority=\"lcc\">BT759
-        .P37 1798</classification>\n  <classification authority=\"ddc\" edition=\"19\">252/.0583</classification>\n
-        \ <relatedItem type=\"isReferencedBy\">\n    <titleInfo>\n      <title>Evans</title>\n
-        \   </titleInfo>\n    <part>\n      <detail type=\"part\">\n        <number>34306</number>\n
-        \     </detail>\n    </part>\n  </relatedItem>\n  <identifier type=\"lccn\">a
-        33003385</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
-        \   <descriptionStandard>dcrb</descriptionStandard>\n    <recordContentSource
-        authority=\"marcorg\">H.E. Huntington Library</recordContentSource>\n    <recordCreationDate
-        encoding=\"marc\">821104</recordCreationDate>\n    <recordChangeDate encoding=\"iso8601\">20190118010531.0</recordChangeDate>\n
-        \   <recordIdentifier>746528</recordIdentifier>\n    <recordOrigin>Converted
-        from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.119 2018/06/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>6</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
-        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
-        \ <titleInfo>\n    <title>Totem and taboo</title>\n    <subTitle>some points
-        of agreement between the mental lives of savages and neurotics</subTitle>\n
-        \ </titleInfo>\n  <titleInfo type=\"uniform\" nameTitleGroup=\"1\">\n    <title>Totem
-        und Tabu. English</title>\n  </titleInfo>\n  <name type=\"personal\" usage=\"primary\"
-        nameTitleGroup=\"1\">\n    <namePart>Freud, Sigmund</namePart>\n    <namePart
-        type=\"date\">1856-1939</namePart>\n  </name>\n  <name type=\"corporate\">\n
-        \   <namePart>Sigmund Freud Collection (Library of Congress)</namePart>\n
-        \ </name>\n  <typeOfResource>text</typeOfResource>\n  <genre authority=\"marcgt\">bibliography</genre>\n
-        \ <originInfo>\n    <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">nyu</placeTerm>\n
-        \   </place>\n    <place>\n      <placeTerm type=\"text\">New York</placeTerm>\n
-        \   </place>\n    <publisher>Norton</publisher>\n    <dateIssued>[1952, c1950]</dateIssued>\n
-        \   <dateIssued encoding=\"marc\">1952</dateIssued>\n    <copyrightDate encoding=\"marc\">1950</copyrightDate>\n
+        \ <titleInfo>\n    <title># 13 American Red Cross ambulance</title>\n  </titleInfo>\n
+        \ <typeOfResource>still image</typeOfResource>\n  <genre authority=\"marcgt\">graphic</genre>\n
+        \ <genre authority=\"gmgpc\">Glass negatives.</genre>\n  <originInfo>\n    <place>\n
+        \     <placeTerm type=\"code\" authority=\"marccountry\">xxu</placeTerm>\n
+        \   </place>\n    <dateIssued>[between 1910 and 1935]</dateIssued>\n    <dateIssued
+        encoding=\"marc\" point=\"start\" qualifier=\"questionable\">1910</dateIssued>\n
+        \   <dateIssued encoding=\"marc\" point=\"end\" qualifier=\"questionable\">1935</dateIssued>\n
         \   <issuance>monographic</issuance>\n  </originInfo>\n  <language>\n    <languageTerm
         authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n  </language>\n
-        \ <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">ger</languageTerm>\n
-        \ </language>\n  <physicalDescription>\n    <form authority=\"marcform\">print</form>\n
-        \   <extent>x, 172 p. 22 cm.</extent>\n  </physicalDescription>\n  <note type=\"statement
-        of responsibility\" altRepGroup=\"00\">Authorized translation by James Strachey.</note>\n
-        \ <note>Translation of Totem und Tabu.</note>\n  <note>\"Copyright, 1950,
-        by Routledge &amp; Kegan Paul Ltd. First published in the U.S.A., 1952.\"</note>\n
-        \ <note>Includes index.</note>\n  <note type=\"bibliography\">Bibliography:
-        p. 162-167.</note>\n  <subject authority=\"lcsh\">\n    <topic>Neuroses</topic>\n
-        \ </subject>\n  <subject authority=\"lcsh\">\n    <topic>Ethnophilosophy</topic>\n
-        \ </subject>\n  <subject authority=\"lcsh\">\n    <topic>Psychoanalysis</topic>\n
-        \ </subject>\n  <subject authority=\"lcsh\">\n    <topic>Taboo</topic>\n  </subject>\n
-        \ <subject authority=\"lcsh\">\n    <topic>Totemism</topic>\n  </subject>\n
-        \ <classification authority=\"lcc\">RC530 .F74313 1952</classification>\n
-        \ <classification authority=\"ddc\" edition=\"19\">150.19/52</classification>\n
-        \ <identifier type=\"lccn\">52006145</identifier>\n  <recordInfo>\n    <recordContentSource
-        authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">721213</recordCreationDate>\n
-        \   <recordChangeDate encoding=\"iso8601\">20190118010532.0</recordChangeDate>\n
-        \   <recordIdentifier>748250</recordIdentifier>\n    <recordOrigin>Converted
-        from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.119 2018/06/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>7</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
-        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
-        \ <titleInfo>\n    <nonSort xml:space=\"preserve\">A  </nonSort>\n    <title>description
-        of Christ</title>\n  </titleInfo>\n  <titleInfo type=\"uniform\">\n    <title>Epistola
-        Lentuli. English</title>\n  </titleInfo>\n  <name type=\"personal\">\n    <namePart>Rogers,
-        Bruce</namePart>\n    <namePart type=\"date\">1870-1957</namePart>\n    <role>\n
-        \     <roleTerm type=\"text\">former owner.</roleTerm>\n    </role>\n  </name>\n
-        \ <name type=\"corporate\">\n    <namePart>Frederic W. Goudy Collection (Library
-        of Congress)</namePart>\n  </name>\n  <name type=\"corporate\">\n    <namePart>Pforzheimer
-        Bruce Rogers Collection (Library of Congress)</namePart>\n  </name>\n  <typeOfResource>text</typeOfResource>\n
-        \ <genre authority=\"marcgt\">biography</genre>\n  <originInfo>\n    <place>\n
-        \     <placeTerm type=\"code\" authority=\"marccountry\">mau</placeTerm>\n
-        \   </place>\n    <place>\n      <placeTerm type=\"text\">Montague, Mass.]</placeTerm>\n
-        \   </place>\n    <publisher>Montague Press</publisher>\n    <dateIssued>c1912</dateIssued>\n
-        \   <dateIssued encoding=\"marc\">1912</dateIssued>\n    <issuance>monographic</issuance>\n
-        \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n
-        \ </language>\n  <language objectPart=\"translation\">\n    <languageTerm
-        authority=\"iso639-2b\" type=\"code\">lat</languageTerm>\n  </language>\n
-        \ <physicalDescription>\n    <form authority=\"marcform\">print</form>\n    <extent>[8]
-        p. ; 12 cm.</extent>\n  </physicalDescription>\n  <note type=\"statement of
-        responsibility\" altRepGroup=\"00\">written by Publius Lentalus [sic] president
-        of Judea in the reign of Tiberius Caesar to that monarch in Rome.</note>\n
-        \ <note>Translation of the spurious Epistola Lentuli.</note>\n  <subject authority=\"lcsh\">\n
-        \   <name type=\"personal\">\n      <namePart>Jesus Christ</namePart>\n    </name>\n
-        \   <topic>Physical appearance</topic>\n  </subject>\n  <classification authority=\"lcc\">BT590.P45
-        L4513</classification>\n  <classification authority=\"ddc\">232</classification>\n
-        \ <identifier type=\"lccn\">75316825</identifier>\n  <recordInfo>\n    <recordContentSource
-        authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">750703</recordCreationDate>\n
-        \   <recordChangeDate encoding=\"iso8601\">20190118010540.0</recordChangeDate>\n
-        \   <recordIdentifier>804589</recordIdentifier>\n    <recordOrigin>Converted
-        from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.119 2018/06/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>8</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
-        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
-        \ <titleInfo>\n    <title>Schriften zur Neurosenlehr und zur psychoanalytischen
-        Technik</title>\n    <subTitle>1913-1926</subTitle>\n  </titleInfo>\n  <titleInfo
-        type=\"uniform\" nameTitleGroup=\"1\">\n    <title>Works. Selections. 1931</title>\n
-        \ </titleInfo>\n  <name type=\"personal\" usage=\"primary\" nameTitleGroup=\"1\">\n
-        \   <namePart>Freud, Sigmund</namePart>\n    <namePart type=\"date\">1856-1939</namePart>\n
-        \ </name>\n  <name type=\"corporate\">\n    <namePart>Sigmund Freud Collection
-        (Library of Congress)</namePart>\n  </name>\n  <typeOfResource>text</typeOfResource>\n
-        \ <originInfo>\n    <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">au</placeTerm>\n
-        \   </place>\n    <place>\n      <placeTerm type=\"text\">Wien</placeTerm>\n
-        \   </place>\n    <publisher>Internationaler Rsychoanalytischer Verlag</publisher>\n
-        \   <dateIssued>1931</dateIssued>\n    <edition>Kleinoktavausg.</edition>\n
-        \   <issuance>monographic</issuance>\n  </originInfo>\n  <language>\n    <languageTerm
-        authority=\"iso639-2b\" type=\"code\">ger</languageTerm>\n  </language>\n
-        \ <physicalDescription>\n    <form authority=\"marcform\">print</form>\n    <extent>426
-        p. ; 20 cm.</extent>\n  </physicalDescription>\n  <note type=\"statement of
-        responsibility\" altRepGroup=\"00\">von Sigm. Freud.</note>\n  <note>Title
-        on spine: Neurosenlehre.</note>\n  <subject authority=\"lcsh\">\n    <topic>Neuroses</topic>\n
-        \ </subject>\n  <subject authority=\"lcsh\">\n    <topic>Psychoanalysis</topic>\n
-        \ </subject>\n  <classification authority=\"lcc\">RC530 .F742 1931</classification>\n
-        \ <classification authority=\"ddc\">616.8/914</classification>\n  <identifier
-        type=\"lccn\">76457175</identifier>\n  <recordInfo>\n    <recordContentSource
-        authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">760405</recordCreationDate>\n
-        \   <recordChangeDate encoding=\"iso8601\">20190118010543.0</recordChangeDate>\n
-        \   <recordIdentifier>825066</recordIdentifier>\n    <recordOrigin>Converted
-        from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.119 2018/06/21)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
-        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n    </languageOfCataloging>\n
-        \ </recordInfo>\n</mods></zs:recordData><zs:recordPosition>9</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
-        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
-        version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
-        \ <titleInfo>\n    <title>U&#x308;ber den Selbstmord</title>\n    <subTitle>insbesondere
-        den Schu&#x308;ler-Selbstmord : Beitra&#x308;ge</subTitle>\n  </titleInfo>\n
-        \ <titleInfo type=\"alternative\">\n    <title>Diskussion u&#x308;ber den
-        Selbstmord</title>\n  </titleInfo>\n  <name type=\"personal\">\n    <namePart>Adler,
-        Alfred</namePart>\n    <namePart type=\"date\">1870-1937</namePart>\n  </name>\n
-        \ <name type=\"personal\">\n    <namePart>Freud, Sigmund</namePart>\n    <namePart
-        type=\"date\">1856-1939</namePart>\n  </name>\n  <name type=\"corporate\">\n
-        \   <namePart>Sigmund Freud Collection (Library of Congress)</namePart>\n
-        \ </name>\n  <typeOfResource>text</typeOfResource>\n  <genre authority=\"marcgt\">conference
-        publication</genre>\n  <originInfo>\n    <place>\n      <placeTerm type=\"code\"
-        authority=\"marccountry\">gw</placeTerm>\n    </place>\n    <place>\n      <placeTerm
-        type=\"text\">Wiesbaden</placeTerm>\n    </place>\n    <publisher>J. F. Bergmann</publisher>\n
-        \   <dateIssued>1910</dateIssued>\n    <issuance>monographic</issuance>\n
-        \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">ger</languageTerm>\n
-        \ </language>\n  <physicalDescription>\n    <form authority=\"marcform\">print</form>\n
-        \   <extent>60 p. ; 25 cm.</extent>\n  </physicalDescription>\n  <note type=\"statement
-        of responsibility\" altRepGroup=\"00\">von Alfred Adler ... [et al.].</note>\n
-        \ <note>On spine: Diskussion u&#x308;ber den Selbstmord.</note>\n  <note>Includes
-        contributions by S. Freud.</note>\n  <subject authority=\"lcsh\">\n    <topic>Suicide</topic>\n
-        \   <topic>Congresses</topic>\n  </subject>\n  <subject authority=\"lcsh\">\n
-        \   <topic>Youth</topic>\n    <topic>Suicidal behavior</topic>\n  </subject>\n
-        \ <classification authority=\"lcc\">RC569 .U33</classification>\n  <relatedItem
-        type=\"series\">\n    <titleInfo>\n      <title>Diskussionen der Wiener Psychoanalytischen
-        Vereinigung ; Heft 1</title>\n    </titleInfo>\n    <name type=\"corporate\">\n
-        \     <namePart>Wiener Psychoanalytische Vereinigung.</namePart>\n      <namePart/>\n
-        \   </name>\n  </relatedItem>\n  <identifier type=\"lccn\">76457965</identifier>\n
-        \ <recordInfo>\n    <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
-        \   <recordCreationDate encoding=\"marc\">760408</recordCreationDate>\n    <recordChangeDate
-        encoding=\"iso8601\">20190118010543.0</recordChangeDate>\n    <recordIdentifier>825141</recordIdentifier>\n
+        \ <physicalDescription>\n    <form authority=\"gmd\">graphic</form>\n    <form
+        authority=\"marccategory\">electronic resource</form>\n    <form authority=\"marcsmd\">remote</form>\n
+        \   <form authority=\"marccategory\">nonprojected graphic</form>\n    <form
+        authority=\"marcsmd\">photonegative</form>\n    <extent>1 negative : glass
+        ; 8 x 10 in. or smaller</extent>\n  </physicalDescription>\n  <accessCondition
+        type=\"use and reproduction\">No known restrictions on publication. For more
+        information, see National Photo Company Collection - Rights and Restrictions
+        Information</accessCondition>\n  <note>Title from unverified data provided
+        by the National Photo Company on the negative or negative sleeve.</note>\n
+        \ <note>Date from negatives in same range.</note>\n  <note>Copy neg.; caption
+        inside envelope.</note>\n  <note type=\"acquisition\">Gift; Herbert A. French;
+        1947.</note>\n  <note xmlns:xlink=\"http://www.w3.org/1999/xlink\" type=\"biographical/historical\"
+        xlink:href=\"http://hdl.loc.gov/loc.pnp/pp.npco\">General information about
+        the National Photo Company collection is available at http://hdl.loc.gov/loc.pnp/pp.npco</note>\n
+        \ <note type=\"action\">This glass negative might show streaks and other blemishes
+        resulting from a natural deterioration in the original coatings.</note>\n
+        \ <classification authority=\"lcc\">LC-F82- 10391</classification>\n  <location>\n
+        \   <physicalLocation>Library of Congress Prints and Photographs Division
+        Washington, D.C. 20540 USA</physicalLocation>\n    <physicalLocation xmlns:xlink=\"http://www.w3.org/1999/xlink\"
+        xlink:href=\"http://hdl.loc.gov/loc.pnp/pp.print\">http://hdl.loc.gov/loc.pnp/pp.print</physicalLocation>\n
+        \ </location>\n  <location>\n    <url displayLabel=\"digital file from original\"
+        usage=\"primary display\">http://hdl.loc.gov/loc.pnp/npcc.31085</url>\n  </location>\n
+        \ <relatedItem type=\"host\">\n    <titleInfo>\n      <title>National Photo
+        Company Collection (Library of Congress)</title>\n    </titleInfo>\n    <identifier
+        type=\"local\">(DLC)  2005684470</identifier>\n  </relatedItem>\n  <identifier
+        type=\"lccn\">2016824645</identifier>\n  <identifier type=\"stock number\"
+        displayLabel=\"(digital file from original)\">LC-DIG-npcc-31085 DLC</identifier>\n
+        \ <identifier type=\"hdl\">hdl:loc.pnp/npcc.31085</identifier>\n  <recordInfo>\n
+        \   <descriptionStandard>aacr</descriptionStandard>\n    <descriptionStandard>gihc</descriptionStandard>\n
+        \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
+        \   <recordCreationDate encoding=\"marc\">080702</recordCreationDate>\n    <recordChangeDate
+        encoding=\"iso8601\">20171208103838.0</recordChangeDate>\n    <recordIdentifier>20173605</recordIdentifier>\n
         \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.119 2018/06/21)</recordOrigin>\n    <languageOfCataloging>\n      <languageTerm
-        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n    </languageOfCataloging>\n
-        \ </recordInfo>\n</mods></zs:recordData><zs:recordPosition>10</zs:recordPosition></zs:record></zs:records><zs:nextRecordPosition>11</zs:nextRecordPosition><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>library</zs:query><zs:startRecord>1</zs:startRecord><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
+        1.117 2017/02/14)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>6</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
+        version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
+        \ <titleInfo>\n    <title># 158 Peru</title>\n  </titleInfo>\n  <typeOfResource>still
+        image</typeOfResource>\n  <genre authority=\"marcgt\">graphic</genre>\n  <genre
+        authority=\"gmgpc\">Glass negatives.</genre>\n  <originInfo>\n    <place>\n
+        \     <placeTerm type=\"code\" authority=\"marccountry\">xxu</placeTerm>\n
+        \   </place>\n    <dateIssued>[between 1910 and 1935]</dateIssued>\n    <dateIssued
+        encoding=\"marc\" point=\"start\" qualifier=\"questionable\">1910</dateIssued>\n
+        \   <dateIssued encoding=\"marc\" point=\"end\" qualifier=\"questionable\">1935</dateIssued>\n
+        \   <issuance>monographic</issuance>\n  </originInfo>\n  <language>\n    <languageTerm
+        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n  </language>\n
+        \ <physicalDescription>\n    <form authority=\"gmd\">graphic</form>\n    <form
+        authority=\"marccategory\">electronic resource</form>\n    <form authority=\"marcsmd\">remote</form>\n
+        \   <form authority=\"marccategory\">nonprojected graphic</form>\n    <form
+        authority=\"marcsmd\">photonegative</form>\n    <extent>1 negative : glass
+        ; 8 x 6 in.</extent>\n  </physicalDescription>\n  <accessCondition type=\"use
+        and reproduction\">No known restrictions on publication. For more information,
+        see National Photo Company Collection - Rights and Restrictions Information</accessCondition>\n
+        \ <note>Title from unverified data provided by the National Photo Company
+        on the negative or negative sleeve.</note>\n  <note>Date from negatives in
+        same range.</note>\n  <note>Copy neg.</note>\n  <note type=\"acquisition\">Gift;
+        Herbert A. French; 1947.</note>\n  <note xmlns:xlink=\"http://www.w3.org/1999/xlink\"
+        type=\"biographical/historical\" xlink:href=\"http://hdl.loc.gov/loc.pnp/pp.npco\">General
+        information about the National Photo Company collection is available at http://hdl.loc.gov/loc.pnp/pp.npco</note>\n
+        \ <note type=\"action\">This glass negative might show streaks and other blemishes
+        resulting from a natural deterioration in the original coatings.</note>\n
+        \ <subject>\n    <hierarchicalGeographic>\n      <country>Peru</country>\n
+        \   </hierarchicalGeographic>\n  </subject>\n  <classification authority=\"lcc\">LC-F82-
+        10442</classification>\n  <location>\n    <physicalLocation>Library of Congress
+        Prints and Photographs Division Washington, D.C. 20540 USA</physicalLocation>\n
+        \   <physicalLocation xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"http://hdl.loc.gov/loc.pnp/pp.print\">http://hdl.loc.gov/loc.pnp/pp.print</physicalLocation>\n
+        \ </location>\n  <location>\n    <url displayLabel=\"digital file from original\"
+        usage=\"primary display\">http://hdl.loc.gov/loc.pnp/npcc.31136</url>\n  </location>\n
+        \ <relatedItem type=\"host\">\n    <titleInfo>\n      <title>National Photo
+        Company Collection (Library of Congress)</title>\n    </titleInfo>\n    <identifier
+        type=\"local\">(DLC)  2005684470</identifier>\n  </relatedItem>\n  <identifier
+        type=\"lccn\">2016824696</identifier>\n  <identifier type=\"stock number\"
+        displayLabel=\"(digital file from original)\">LC-DIG-npcc-31136 DLC</identifier>\n
+        \ <identifier type=\"hdl\">hdl:loc.pnp/npcc.31136</identifier>\n  <recordInfo>\n
+        \   <descriptionStandard>aacr</descriptionStandard>\n    <descriptionStandard>gihc</descriptionStandard>\n
+        \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
+        \   <recordCreationDate encoding=\"marc\">080702</recordCreationDate>\n    <recordChangeDate
+        encoding=\"iso8601\">20171208103953.0</recordChangeDate>\n    <recordIdentifier>20173657</recordIdentifier>\n
+        \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
+        1.117 2017/02/14)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>7</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
+        version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
+        \ <titleInfo>\n    <title># 19 American Red [Cross] Allentown camp; Red Cross
+        dogs &amp; stretcher bearers</title>\n  </titleInfo>\n  <typeOfResource>still
+        image</typeOfResource>\n  <genre authority=\"marcgt\">graphic</genre>\n  <genre
+        authority=\"gmgpc\">Glass negatives.</genre>\n  <originInfo>\n    <place>\n
+        \     <placeTerm type=\"code\" authority=\"marccountry\">xxu</placeTerm>\n
+        \   </place>\n    <dateIssued>[between 1910 and 1935]</dateIssued>\n    <dateIssued
+        encoding=\"marc\" point=\"start\" qualifier=\"questionable\">1910</dateIssued>\n
+        \   <dateIssued encoding=\"marc\" point=\"end\" qualifier=\"questionable\">1935</dateIssued>\n
+        \   <issuance>monographic</issuance>\n  </originInfo>\n  <language>\n    <languageTerm
+        authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n  </language>\n
+        \ <physicalDescription>\n    <form authority=\"gmd\">graphic</form>\n    <form
+        authority=\"marccategory\">electronic resource</form>\n    <form authority=\"marcsmd\">remote</form>\n
+        \   <form authority=\"marccategory\">nonprojected graphic</form>\n    <form
+        authority=\"marcsmd\">photonegative</form>\n    <extent>1 negative : glass
+        ; 8 x 10 in. or smaller</extent>\n  </physicalDescription>\n  <accessCondition
+        type=\"use and reproduction\">No known restrictions on publication. For more
+        information, see National Photo Company Collection - Rights and Restrictions
+        Information</accessCondition>\n  <note>Title from unverified data provided
+        by the National Photo Company on the negative or negative sleeve.</note>\n
+        \ <note>Date from negatives in same range.</note>\n  <note>Copy neg.; caption
+        inside envelope.</note>\n  <note type=\"acquisition\">Gift; Herbert A. French;
+        1947.</note>\n  <note xmlns:xlink=\"http://www.w3.org/1999/xlink\" type=\"biographical/historical\"
+        xlink:href=\"http://hdl.loc.gov/loc.pnp/pp.npco\">General information about
+        the National Photo Company collection is available at http://hdl.loc.gov/loc.pnp/pp.npco</note>\n
+        \ <note type=\"action\">This glass negative might show streaks and other blemishes
+        resulting from a natural deterioration in the original coatings.</note>\n
+        \ <classification authority=\"lcc\">LC-F82- 10389</classification>\n  <location>\n
+        \   <physicalLocation>Library of Congress Prints and Photographs Division
+        Washington, D.C. 20540 USA</physicalLocation>\n    <physicalLocation xmlns:xlink=\"http://www.w3.org/1999/xlink\"
+        xlink:href=\"http://hdl.loc.gov/loc.pnp/pp.print\">http://hdl.loc.gov/loc.pnp/pp.print</physicalLocation>\n
+        \ </location>\n  <location>\n    <url displayLabel=\"digital file from original\"
+        usage=\"primary display\">http://hdl.loc.gov/loc.pnp/npcc.31083</url>\n  </location>\n
+        \ <relatedItem type=\"host\">\n    <titleInfo>\n      <title>National Photo
+        Company Collection (Library of Congress)</title>\n    </titleInfo>\n    <identifier
+        type=\"local\">(DLC)  2005684470</identifier>\n  </relatedItem>\n  <identifier
+        type=\"lccn\">2016824643</identifier>\n  <identifier type=\"stock number\"
+        displayLabel=\"(digital file from original)\">LC-DIG-npcc-31083 DLC</identifier>\n
+        \ <identifier type=\"hdl\">hdl:loc.pnp/npcc.31083</identifier>\n  <recordInfo>\n
+        \   <descriptionStandard>aacr</descriptionStandard>\n    <descriptionStandard>gihc</descriptionStandard>\n
+        \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
+        \   <recordCreationDate encoding=\"marc\">080702</recordCreationDate>\n    <recordChangeDate
+        encoding=\"iso8601\">20171208103835.0</recordChangeDate>\n    <recordIdentifier>20173603</recordIdentifier>\n
+        \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
+        1.117 2017/02/14)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>8</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
+        version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
+        \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>Code Ed</partName>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Code Ed</title>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\" displayLabel=\"Copyright
+        application title:\">\n    <title>S#*! my dad says</title>\n    <partName>Code
+        Ed</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Shit
+        my dad says</title>\n    <partName>Code Ed</partName>\n  </titleInfo>\n  <titleInfo
+        type=\"alternative\">\n    <title>Bleep my dad says</title>\n    <partName>Code
+        Ed</partName>\n  </titleInfo>\n  <name type=\"corporate\">\n    <namePart>Copyright
+        Collection (Library of Congress)</namePart>\n  </name>\n  <typeOfResource>moving
+        image</typeOfResource>\n  <genre authority=\"marcgt\">motion picture</genre>\n
+        \ <genre authority=\"lcgft\">Situation comedies (Television programs)</genre>\n
+        \ <genre authority=\"lcgft\">Fiction television programs.</genre>\n  <originInfo>\n
+        \   <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">xxu</placeTerm>\n
+        \   </place>\n    <dateIssued>2010-10-14</dateIssued>\n    <dateIssued encoding=\"marc\">2010</dateIssued>\n
+        \   <dateCaptured encoding=\"iso8601\">20101014</dateCaptured>\n    <issuance>monographic</issuance>\n
+        \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n
+        \ </language>\n  <physicalDescription>\n    <form authority=\"marccategory\">videorecording</form>\n
+        \   <form authority=\"marcsmd\">videocassette</form>\n    <extent>viewing
+        copy 1 videocassette of 1 (Betacam SP) (30 min.) : sd., col. ; 1/2 in.</extent>\n
+        \ </physicalDescription>\n  <note type=\"statement of responsibility\" altRepGroup=\"00\">directed
+        by Rob Schiller ; written by Michael Lisbe and Nate Reger.</note>\n  <note>Production
+        no. 2J5654.</note>\n  <note>Sources used: video container; Copyright catalog
+        online; Copyright description; Wikipedia WWW site, viewed June 4, 2014.</note>\n
+        \ <note type=\"performers\">William Shatner, Jonathan Sadowski, Will Sasso.</note>\n
+        \ <classification authority=\"lcc\">VAQ 3023 (viewing copy)</classification>\n
+        \ <identifier type=\"lccn\">2014604741</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
+        \   <descriptionStandard>amim</descriptionStandard>\n    <recordContentSource
+        authority=\"marcorg\">DLC</recordContentSource>\n    <recordCreationDate encoding=\"marc\">140604</recordCreationDate>\n
+        \   <recordChangeDate encoding=\"iso8601\">20140605152157.0</recordChangeDate>\n
+        \   <recordIdentifier>18176739</recordIdentifier>\n    <recordOrigin>Converted
+        from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
+        1.117 2017/02/14)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>9</zs:recordPosition></zs:record><zs:record><zs:recordSchema>mods</zs:recordSchema><zs:recordPacking>xml</zs:recordPacking><zs:recordData><mods
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
+        version=\"3.6\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd\">\n
+        \ <titleInfo>\n    <title>$#*! my dad says</title>\n    <partName>Corn star</partName>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Corn star</title>\n
+        \ </titleInfo>\n  <titleInfo type=\"alternative\" displayLabel=\"Copyright
+        application title:\">\n    <title>S#*! my dad says</title>\n    <partName>Corn
+        star</partName>\n  </titleInfo>\n  <titleInfo type=\"alternative\">\n    <title>Shit
+        my dad says</title>\n    <partName>Corn star</partName>\n  </titleInfo>\n
+        \ <titleInfo type=\"alternative\">\n    <title>Bleep my dad says</title>\n
+        \   <partName>Corn star</partName>\n  </titleInfo>\n  <name type=\"corporate\">\n
+        \   <namePart>Copyright Collection (Library of Congress)</namePart>\n  </name>\n
+        \ <typeOfResource>moving image</typeOfResource>\n  <genre authority=\"marcgt\">motion
+        picture</genre>\n  <genre authority=\"lcgft\">Situation comedies (Television
+        programs)</genre>\n  <genre authority=\"lcgft\">Fiction television programs.</genre>\n
+        \ <originInfo>\n    <place>\n      <placeTerm type=\"code\" authority=\"marccountry\">xxu</placeTerm>\n
+        \   </place>\n    <dateIssued>2011-01-20</dateIssued>\n    <dateIssued encoding=\"marc\">2011</dateIssued>\n
+        \   <dateCaptured encoding=\"iso8601\">20110120</dateCaptured>\n    <issuance>monographic</issuance>\n
+        \ </originInfo>\n  <language>\n    <languageTerm authority=\"iso639-2b\" type=\"code\">eng</languageTerm>\n
+        \ </language>\n  <physicalDescription>\n    <form authority=\"marccategory\">videorecording</form>\n
+        \   <form authority=\"marcsmd\">videocassette</form>\n    <extent>viewing
+        copy 1 videocassette of 1 (Betacam SP) (30 min.) : sd., col. ; 1/2 in.</extent>\n
+        \ </physicalDescription>\n  <abstract type=\"Summary\">\"When the height of
+        Ed's corn stalks becomes an issue with the home owners' association, he decides
+        to fix the problem by running for president of the association\"--Wikipedia
+        WWW site, viewed June 9, 2014.</abstract>\n  <note type=\"statement of responsibility\"
+        altRepGroup=\"00\">directed by Peter Bonerz ; written by Justin Halpern and
+        Patrick Schumacker.</note>\n  <note>Episode no. 14.</note>\n  <note>Production
+        no. 2J5664.</note>\n  <note>Sources used: video container; Copyright catalog
+        online; Copyright description; Wikipedia WWW site, viewed June 9, 2014.</note>\n
+        \ <note type=\"performers\">William Shatner.</note>\n  <note type=\"performers\">Guest
+        stars: Jean Smart, Rachael Harris.</note>\n  <classification authority=\"lcc\">VAQ
+        1398 (viewing copy)</classification>\n  <identifier type=\"lccn\">2014603998</identifier>\n
+        \ <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n    <descriptionStandard>amim</descriptionStandard>\n
+        \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
+        \   <recordCreationDate encoding=\"marc\">140609</recordCreationDate>\n    <recordChangeDate
+        encoding=\"iso8601\">20140609084709.0</recordChangeDate>\n    <recordIdentifier>18181141</recordIdentifier>\n
+        \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
+        1.117 2017/02/14)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>10</zs:recordPosition></zs:record></zs:records><zs:nextRecordPosition>11</zs:nextRecordPosition><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>library</zs:query><zs:startRecord>1</zs:startRecord><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
     http_version: 
-  recorded_at: Sat, 19 Jan 2019 04:48:16 GMT
+  recorded_at: Sun, 24 Dec 2017 12:57:03 GMT
 recorded_with: VCR 4.0.0

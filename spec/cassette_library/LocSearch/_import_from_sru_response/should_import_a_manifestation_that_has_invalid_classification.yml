@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v0.13.1
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Content-Length:
-      - '4784'
+      - '4688'
       Server:
-      - Metaproxy/1.15.0
+      - Metaproxy/1.13.0
       Connection:
       - Keep-Alive
       Content-Type:
@@ -51,35 +51,34 @@ http_interactions:
         \ <note type=\"statement of responsibility\" altRepGroup=\"00\">by J.K. Rowling
         ; illustrations by Mary GrandPre&#x301;.</note>\n  <note>\"Year 1\"--Spine.</note>\n
         \ <note>Sequel: Harry Potter and the Chamber of Secrets.</note>\n  <subject
-        authority=\"lcsh\">\n    <name type=\"personal\">\n      <namePart>Potter,
-        Harry</namePart>\n      <namePart type=\"termsOfAddress\">(Fictitious character)</namePart>\n
-        \   </name>\n    <genre>Juvenile fiction</genre>\n  </subject>\n  <subject
-        authority=\"lcsh\">\n    <name type=\"personal\">\n      <namePart>Granger,
-        Hermione</namePart>\n      <namePart type=\"termsOfAddress\">(Fictitious character)</namePart>\n
-        \   </name>\n    <genre>Juvenile fiction</genre>\n  </subject>\n  <subject
-        authority=\"lcsh\">\n    <topic>Weasley, Ron (Fictitious character)</topic>\n
+        authority=\"lcsh\">\n    <name type=\"personal\">\n      <namePart type=\"termsOfAddress\">(Fictitious
+        character)</namePart>\n      <namePart>Potter, Harry</namePart>\n    </name>\n
         \   <genre>Juvenile fiction</genre>\n  </subject>\n  <subject authority=\"lcsh\">\n
-        \   <topic>Hogwarts School of Witchcraft and Wizardry (Imaginary organization)</topic>\n
+        \   <topic>Granger, Hermione (Fictitious character)</topic>\n    <genre>Juvenile
+        fiction</genre>\n  </subject>\n  <subject authority=\"lcsh\">\n    <topic>Weasley,
+        Ron (Fictitious character)</topic>\n    <genre>Juvenile fiction</genre>\n
+        \ </subject>\n  <subject authority=\"lcsh\">\n    <topic>Hogwarts School of
+        Witchcraft and Wizardry (Imaginary organization)</topic>\n    <genre>Juvenile
+        fiction</genre>\n  </subject>\n  <subject authority=\"lcsh\">\n    <topic>Wizards</topic>\n
         \   <genre>Juvenile fiction</genre>\n  </subject>\n  <subject authority=\"lcsh\">\n
-        \   <topic>Wizards</topic>\n    <genre>Juvenile fiction</genre>\n  </subject>\n
-        \ <subject authority=\"lcsh\">\n    <topic>Magic</topic>\n    <genre>Juvenile
-        fiction</genre>\n  </subject>\n  <subject authority=\"lcsh\">\n    <topic>Schools</topic>\n
+        \   <topic>Magic</topic>\n    <genre>Juvenile fiction</genre>\n  </subject>\n
+        \ <subject authority=\"lcsh\">\n    <topic>Schools</topic>\n    <genre>Juvenile
+        fiction</genre>\n  </subject>\n  <subject authority=\"lcshac\">\n    <topic>Wizards</topic>\n
+        \   <genre>Fiction</genre>\n  </subject>\n  <subject authority=\"lcshac\">\n
+        \   <topic>Magic</topic>\n    <genre>Fiction</genre>\n  </subject>\n  <subject
+        authority=\"lcshac\">\n    <topic>Schools</topic>\n    <genre>Fiction</genre>\n
+        \ </subject>\n  <subject authority=\"lcsh\">\n    <geographic>England</geographic>\n
         \   <genre>Juvenile fiction</genre>\n  </subject>\n  <subject authority=\"lcshac\">\n
-        \   <topic>Wizards</topic>\n    <genre>Fiction</genre>\n  </subject>\n  <subject
-        authority=\"lcshac\">\n    <topic>Magic</topic>\n    <genre>Fiction</genre>\n
-        \ </subject>\n  <subject authority=\"lcshac\">\n    <topic>Schools</topic>\n
-        \   <genre>Fiction</genre>\n  </subject>\n  <subject authority=\"lcsh\">\n
-        \   <geographic>England</geographic>\n    <genre>Juvenile fiction</genre>\n
-        \ </subject>\n  <subject authority=\"lcshac\">\n    <geographic>England</geographic>\n
-        \   <genre>Fiction</genre>\n  </subject>\n  <classification authority=\"lcc\">PZ7.R79835
-        Har 2013</classification>\n  <classification authority=\"ddc\" edition=\"23\">[Fic]</classification>\n
+        \   <geographic>England</geographic>\n    <genre>Fiction</genre>\n  </subject>\n
+        \ <classification authority=\"lcc\">PZ7.R79835 Har 2013</classification>\n
+        \ <classification authority=\"ddc\" edition=\"23\">[Fic]</classification>\n
         \ <identifier type=\"isbn\">9780545582889 (pbk.)</identifier>\n  <identifier
         type=\"lccn\">2014381788</identifier>\n  <recordInfo>\n    <descriptionStandard>aacr</descriptionStandard>\n
         \   <recordContentSource authority=\"marcorg\">DLC</recordContentSource>\n
         \   <recordCreationDate encoding=\"marc\">140603</recordCreationDate>\n    <recordChangeDate
-        encoding=\"iso8601\">20180226134541.0</recordChangeDate>\n    <recordIdentifier>18174426</recordIdentifier>\n
+        encoding=\"iso8601\">20140905142912.0</recordChangeDate>\n    <recordIdentifier>18174426</recordIdentifier>\n
         \   <recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl\n\t\t\t\t(Revision
-        1.119 2018/06/21)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>bath.lccn=\"^2014381788\"</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
+        1.117 2017/02/14)</recordOrigin>\n  </recordInfo>\n</mods></zs:recordData><zs:recordPosition>1</zs:recordPosition></zs:record></zs:records><zs:echoedSearchRetrieveRequest><zs:version>1.1</zs:version><zs:query>bath.lccn=\"^2014381788\"</zs:query><zs:maximumRecords>10</zs:maximumRecords><zs:recordPacking>xml</zs:recordPacking><zs:recordSchema>mods</zs:recordSchema></zs:echoedSearchRetrieveRequest></zs:searchRetrieveResponse>\n"
     http_version: 
-  recorded_at: Sat, 19 Jan 2019 04:49:15 GMT
+  recorded_at: Sun, 24 Dec 2017 12:57:25 GMT
 recorded_with: VCR 4.0.0
