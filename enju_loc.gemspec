@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec-rails", "~> 3.8"
   s.add_development_dependency "vcr", "~> 5.0"
   s.add_development_dependency "webmock"
-  s.add_development_dependency "sunspot_solr", "~> 2.4"
+  s.add_development_dependency "sunspot_solr", "~> 2.5"
   s.add_development_dependency "simplecov"
   s.add_development_dependency "coveralls"
   s.add_development_dependency "appraisal"
