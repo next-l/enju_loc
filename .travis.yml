@@ -10,6 +10,8 @@ before_script:
   - bundle exec rake app:sunspot:solr:start
 services:
   - redis-server
+  - mysql
+  - postgresql
 gemfile:
   - gemfiles/rails_5.2.gemfile
   - gemfiles/rails_5.2_ndl.gemfile
