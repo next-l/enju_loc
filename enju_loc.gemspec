@@ -13,13 +13,13 @@ Gem::Specification.new do |s|
   s.summary     = "LoC SRU wrapper for Next-L Enju"
   s.description = "This module allow users to search and import bibliographic records from Library of Congress via SRU-based API."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"] - Dir["spec/dummy/db/*.sqlite3"] - Dir["spec/dummy/log/*"] - Dir["spec/dummy/solr/{data,pids,default,development,test}/*"] - Dir["spec/dummy/tmp/*"]
 
   s.add_dependency "enju_subject", "~> 0.3.1"
   s.add_dependency "faraday"
 
-  s.add_development_dependency "enju_leaf", "~> 1.3.2"
+  s.add_development_dependency "enju_leaf", "~> 1.3.3"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "mysql2"
   s.add_development_dependency "pg"
