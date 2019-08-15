@@ -3,15 +3,16 @@
 source "https://rubygems.org"
 
 gem "jquery-rails"
-gem "json_translate"
-gem "enju_seed", git: "https://github.com/next-l/enju_seed.git"
-gem "enju_leaf", git: "https://github.com/next-l/enju_leaf.git"
-gem "enju_library", git: "https://github.com/next-l/enju_library.git"
-gem "enju_biblio", git: "https://github.com/next-l/enju_biblio.git"
-gem "enju_subject", git: "https://github.com/next-l/enju_subject.git"
+gem "enju_leaf", branch: "2.x", git: "https://github.com/next-l/enju_leaf.git"
+gem "enju_library", branch: "2.x", git: "https://github.com/next-l/enju_library.git"
+gem "enju_biblio", branch: "2.x", git: "https://github.com/next-l/enju_biblio.git"
+gem "enju_subject", branch: "2.x", git: "https://github.com/next-l/enju_subject.git"
 gem "enju_ndl", git: "https://github.com/next-l/enju_ndl.git"
 gem "paper_trail"
-gem "rails-controller-testing", group: :test
-gem "rspec_junit_formatter", group: :test
+
+group :test do
+  gem "rails-controller-testing"
+  gem "rspec_junit_formatter"
+end
 
 gemspec path: "../"
