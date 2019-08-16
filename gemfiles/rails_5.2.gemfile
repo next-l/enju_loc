@@ -3,11 +3,6 @@
 source "https://rubygems.org"
 
 gem "jquery-rails"
-gem "enju_leaf", branch: "2.x", git: "https://github.com/next-l/enju_leaf.git"
-gem "enju_library", branch: "2.x", git: "https://github.com/next-l/enju_library.git"
-gem "enju_biblio", branch: "2.x", git: "https://github.com/next-l/enju_biblio.git"
-gem "enju_subject", branch: "2.x", git: "https://github.com/next-l/enju_subject.git"
-gem "enju_ndl", branch: "2.x", git: "https://github.com/next-l/enju_ndl.git"
 gem "paper_trail"
 
 group :test do

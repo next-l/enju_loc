@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency "enju_subject", "~> 0.4.0.beta.1"
   s.add_dependency "faraday"
 
-  s.add_development_dependency "enju_leaf", "~> 1.4.0.beta.1"
+  s.add_development_dependency "enju_leaf", "~> 2.0.0.beta.1"
   s.add_development_dependency "pg"
   s.add_development_dependency "rspec-rails", "~> 3.8"
   s.add_development_dependency "vcr", "~> 5.0"
