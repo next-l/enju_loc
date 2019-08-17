@@ -3,7 +3,6 @@
 source "https://rubygems.org"
 
 gem "jquery-rails"
-gem "enju_leaf", branch: "2.x", git: "https://github.com/next-l/enju_leaf.git"
 gem "paper_trail"
 gem "enju_nii", "~> 0.4.0.beta.1"
 
