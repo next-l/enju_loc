@@ -15,7 +15,6 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 gem 'sassc-rails'
-gem 'paper_trail'
 gem 'sprockets', '~> 3.7'
 gem 'rails', '~> 5.2'
 group :test do

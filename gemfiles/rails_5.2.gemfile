@@ -4,7 +4,6 @@ source "https://rubygems.org"
 
 gem "jquery-rails"
 gem "sassc-rails"
-gem "paper_trail"
 gem "sprockets", "~> 3.7"
 gem "rails", "~> 5.2"
 
