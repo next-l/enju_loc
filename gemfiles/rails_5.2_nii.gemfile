@@ -9,7 +9,7 @@ gem "enju_library", git: "https://github.com/next-l/enju_library.git"
 gem "enju_biblio", git: "https://github.com/next-l/enju_biblio.git"
 gem "enju_subject", git: "https://github.com/next-l/enju_subject.git"
 gem "enju_ndl", git: "https://github.com/next-l/enju_ndl.git"
-gem "rails", "~> 5.2"
+gem "webpacker"
 gem "enju_nii", git: "https://github.com/next-l/enju_nii.git"
 
 group :test do

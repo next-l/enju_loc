@@ -20,7 +20,6 @@ gem 'enju_library', github: 'next-l/enju_library'
 gem 'enju_biblio', github: 'next-l/enju_biblio'
 gem 'enju_subject', github: 'next-l/enju_subject'
 gem 'enju_ndl', github: 'next-l/enju_ndl'
-gem 'rails', '~> 5.2'
 gem 'webpacker'
 group :test do
   gem 'rails-controller-testing'
