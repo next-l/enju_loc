@@ -20,9 +20,9 @@ services:
 env:
   - DB=postgresql
 gemfile:
-  - gemfiles/rails_5.2.gemfile
-  - gemfiles/rails_5.2_ndl.gemfile
-  - gemfiles/rails_5.2_nii.gemfile
+  - gemfiles/rails_.gemfile
+  - gemfiles/rails_ndl.gemfile
+  - gemfiles/rails_nii.gemfile
 notifications:
   slack:
     secure: rsdAy+UmEvL1DU2TIAS27NjH9MVH0xuyWyoX59MIfRaeCm9AtirT6ZyZMhfljE9w+r8m9KGrFVGp/oNAXevjLdzvxin2R4VjEeBtK2PEBQA7EoAnJuHY8UvrE/t4TflM96ChnmaYSRx9aawRN9j5QqwIGMPOoG3KqVEDLW2uNq0=
