@@ -20,7 +20,7 @@ services:
 env:
   - DB=postgresql
 gemfile:
-  - gemfiles/rails_.gemfile
+  - gemfiles/rails.gemfile
   - gemfiles/rails_ndl.gemfile
   - gemfiles/rails_nii.gemfile
 notifications:
