@@ -1,28 +1,22 @@
---- 
-agent_type_00001:
-  id: 1
-  name: person
-  display_name_translations: {"en": "Person", "ja": "個人"}
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: reproduction
+  display_name_translations: {"en": "Reproduction", "ja": "複製"}
   note: 
   position: 1
+  id: 1
 
-agent_type_00002:
-  id: 2
-  name: corporate_body
-  display_name_translations: {"en": "CorporateBody", "ja": "団体"}
+two:
+  name: alternate
+  display_name_translations: {"en": "Alternate", "ja": "代替"}
   note: 
   position: 2
-
-agent_type_00003:
-  id: 3
-  name: conference
-  display_name_translations: {"en": "Conference", "ja": "会議"}
-  note: 
-  position: 3
+  id: 2
 
 # == Schema Information
 #
-# Table name: agent_types
+# Table name: manifestation_relationship_types
 #
 #  id                        :bigint           not null, primary key
 #  name                      :string           not null
