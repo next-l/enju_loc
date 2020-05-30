@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "enju_leaf", "~> 3.0.0.beta.1"
   s.add_development_dependency "pg"
   s.add_development_dependency "rspec-rails", "~> 4.0"
-  s.add_development_dependency "vcr", "~> 5.1"
+  s.add_development_dependency "vcr", "~> 6.0"
   s.add_development_dependency "webmock"
   s.add_development_dependency "sunspot_solr", "~> 2.5"
   s.add_development_dependency "simplecov"
